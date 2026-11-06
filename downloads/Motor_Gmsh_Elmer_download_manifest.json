@@ -1,0 +1,23 @@
+{
+  "files": [
+    {
+      "name": "Motor_Gmsh_Elmer_Design_Study.pdf",
+      "path": "downloads/Motor_Gmsh_Elmer_Design_Study.pdf",
+      "bytes": 1641510,
+      "sha256": "f04ac9da74e270cb2efcde3277e0c9470054f6449f0b17a1911a62a286dbc9ab"
+    },
+    {
+      "name": "Motor_Gmsh_Elmer_Candidate_mm.step",
+      "path": "downloads/Motor_Gmsh_Elmer_Candidate_mm.step",
+      "bytes": 1512625,
+      "sha256": "f1a2668be798f7c2e2f4072b808a1bda123e465370c34315bb91563191b432ab"
+    },
+    {
+      "name": "Motor_Gmsh_Elmer_Validation_Models.zip",
+      "path": "downloads/Motor_Gmsh_Elmer_Validation_Models.zip",
+      "bytes": 92195315,
+      "sha256": "171971468e47b38d6903ae1c75761556a68c4055af1593b5624f4ab09a059684"
+    }
+  ],
+  "scope": "Generated motor CAD, numerical report and model handoff; excludes original uploaded conversations"
+}
