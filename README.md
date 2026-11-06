@@ -1,8 +1,5 @@
-# Space-octopus
+# Space-octopus motor package
 
-Project repository for Space-octopus.
+The motor CAD files and analysis package are available in [downloads](downloads/README.md).
 
-## Getting started
-
-This repository is initialized and ready for development. Application code,
-dependencies, and run instructions will be added as the project takes shape.
+This delivery branch preserves the main branch and provides the requested ZIPs.
