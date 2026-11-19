@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "sourceModel": "output/space-octopus.glb",
-  "sourceModelSha256": "a7d7bcd55350b020453a971fc3871ed3091d48934f82100ed83ca68cabc65062",
+  "sourceModelSha256": "fd8076742fe8414221247f39f6185a55f44c06f9998c977b1983cb2d56cafe5a",
   "maximumOutwardProtrusionMm": 43,
   "capToHighestModeledPartMm": 51.6,
   "provisionalGapMm": 7,
@@ -63,19 +63,19 @@
       "face": "top",
       "modelBounds": {
         "min": [
-          -20.5,
-          -3.2,
-          31.5
+          -19.25,
+          -2.8,
+          36.25223025502818
         ],
         "max": [
-          20.5,
-          15.3,
-          46.5
+          19.25,
+          7.3,
+          41.74776974497182
         ]
       },
-      "protrusionMm": 14.5,
-      "motorFacingProtrusionMm": 2.4000000000000004,
-      "motorClearanceMm": 4.6
+      "protrusionMm": 6.5,
+      "motorFacingProtrusionMm": 1.9999999999999998,
+      "motorClearanceMm": 5
     },
     {
       "ref": "D1",
@@ -4034,19 +4034,19 @@
       "face": "top",
       "modelBounds": {
         "min": [
-          -20.5,
-          -3.2,
-          -46.5
+          -19.25,
+          -2.8,
+          -41.74776974497182
         ],
         "max": [
-          20.5,
-          15.3,
-          -31.5
+          19.25,
+          7.3,
+          -36.25223025502818
         ]
       },
-      "protrusionMm": 14.5,
-      "motorFacingProtrusionMm": 2.4000000000000004,
-      "motorClearanceMm": 4.6
+      "protrusionMm": 6.5,
+      "motorFacingProtrusionMm": 1.9999999999999998,
+      "motorClearanceMm": 5
     },
     {
       "ref": "J11",
@@ -4339,7 +4339,7 @@
     "The 7 mm motor-to-PCB gap is provisional; enclosure and plug service space are not supplied.",
     "The six mounting positions reuse structural end-cap bolt locations. Spacer bodies are a mounting concept; replacement studs, cap clamping, thread engagement, torque and insulation must be engineered before assembly.",
     "Nominal STEP bodies and ideal motor envelopes omit solder, manufacturing tolerances, cable bends and vibration. Trim actual through-hole leads to <=2 mm on the motor-facing side.",
-    "Y1, U2, U13 and U21 are representative package bodies. Motor-facing parts need actual maximum-height confirmation.",
+    "Y1, U2, U13 and U21 are representative package bodies. F1 and F2 use a project-formed axial envelope. Confirm the actual lead form and standoff. Motor-facing parts need actual maximum-height confirmation.",
     "Encoder support, axial sensing gap and 12-to-15 mm shaft adapter remain external mechanical design items. The 45 mm encoder cannot be assumed to pass through the proposed 28 mm PCB opening."
   ]
 }

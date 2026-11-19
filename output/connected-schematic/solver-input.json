@@ -10283,22 +10283,22 @@
     {
       "chipId": "schematic_component_1",
       "center": {
-        "x": -52.8294,
+        "x": -52.7664,
         "y": 108.47
       },
-      "width": 1.1411999999999978,
+      "width": 1.2672000000000025,
       "height": 0.18000000000000682,
-      "text": "BK/MDA-20-R"
+      "text": "0487020.MXEP"
     },
     {
       "chipId": "schematic_component_1",
       "center": {
-        "x": -52.7268,
+        "x": -52.4244,
         "y": 109.91499999999999
       },
-      "width": 1.4664000000000073,
+      "width": 2.0712000000000046,
       "height": 0.2500000000000142,
-      "text": "20 A, >=100 Vdc"
+      "text": "20 A, 420 Vdc axial fuse"
     },
     {
       "chipId": "schematic_component_2",
@@ -11683,22 +11683,22 @@
     {
       "chipId": "schematic_component_234",
       "center": {
-        "x": -52.8438,
+        "x": -52.7664,
         "y": -109.92999999999998
       },
-      "width": 1.112400000000001,
+      "width": 1.2672000000000025,
       "height": 0.18000000000000682,
-      "text": "BK/ABC-15-R"
+      "text": "0487015.MXEP"
     },
     {
       "chipId": "schematic_component_234",
       "center": {
-        "x": -52.7268,
+        "x": -52.4244,
         "y": -108.48499999999999
       },
-      "width": 1.4664000000000073,
+      "width": 2.0712000000000046,
       "height": 0.2500000000000142,
-      "text": "15 A, >=100 Vdc"
+      "text": "15 A, 420 Vdc axial fuse"
     },
     {
       "chipId": "schematic_component_235",

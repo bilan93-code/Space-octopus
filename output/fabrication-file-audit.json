@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "platedDrills": 1480,
-  "nonplatedDrills": 8,
+  "nonplatedDrills": 6,
   "mountingDrills": 6,
   "outerDiameterMm": 112,
   "routedOpeningDiameterMm": 28,

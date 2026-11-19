@@ -17,13 +17,13 @@
     },
     {
       "ref": "F1",
-      "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
-      "mpn": "BK/MDA-20-R",
+      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
+      "mpn": "0487020.MXEP",
       "physicalCopperPads": 2,
       "logicalPins": 2,
       "manufacturerReviewPending": true,
-      "openItem": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
-      "bodyModel": "stock KiCad package-family model"
+      "openItem": "Confirm available source fault current, capacitor precharge waveform and hot continuous current against the manufacturer curves.",
+      "bodyModel": "project-formed soldered axial review model"
     },
     {
       "ref": "D1",
@@ -2347,13 +2347,13 @@
     },
     {
       "ref": "F2",
-      "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
-      "mpn": "BK/ABC-15-R",
+      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
+      "mpn": "0487015.MXEP",
       "physicalCopperPads": 2,
       "logicalPins": 2,
       "manufacturerReviewPending": true,
-      "openItem": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
-      "bodyModel": "stock KiCad package-family model"
+      "openItem": "Confirm available bus fault current and repetitive braking pulses against the manufacturer curves at the highest board temperature.",
+      "bodyModel": "project-formed soldered axial review model"
     },
     {
       "ref": "J11",
@@ -2602,22 +2602,5 @@
     "Direct manufacturer access remains blocked. Archived manufacturer PDFs now verify the targeted Rubycon bulk selection and TI TPS3431 pins/timing/copper; other unresolved drawings are not claimed verified.",
     "The new JST GH candidates change the provisional XH mating harness. Verify exact mating parts and current/voltage ratings.",
     "Phoenix MKDS 3 terminal families are candidates; exact ordering codes, wire ratings and the >=100 Vdc requirement are unconfirmed."
-  ],
-  "manufacturerAccessEvidence": {
-    "attemptDateUtc": "2026-11-16",
-    "purpose": "Recheck official manufacturer drawing availability before tscircuit completion.",
-    "results": [
-      {
-        "name": "DRV8353",
-        "url": "https://www.ti.com/lit/ds/symlink/drv8353.pdf",
-        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
-      },
-      {
-        "name": "STM32G431",
-        "url": "https://www.st.com/resource/en/datasheet/stm32g431rb.pdf",
-        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
-      }
-    ],
-    "manufacturerQualificationCompleted": false
-  }
+  ]
 }

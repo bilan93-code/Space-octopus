@@ -44,12 +44,12 @@ Fit the motor drive to insulated standoffs with tall parts and plug-in connector
 
 Use a horizontal test fixture, 10 rpm maximum output speed, up to 220 N·m braking torque and a linear stop in one second. This models about 115 J per stop (torque × average angular speed × time). Specify 250 J per event and at most six such events per minute, or 25 W time-average dissipation. A 4.7 Ω element at 57.6 V draws 12.3 A and dissipates 706 W while switched on. Specify a heatsink-mounted resistor rated at least 200 W under the actual enclosure cooling, with a supplier pulse curve covering the full event at ≥0.8 kW and the complete repeating profile including initial temperature. Check the brake-switch voltage and resistor tolerance at the actual maximum bus voltage. A hanging load or faster joint changes the energy budget. Measure real inertia, bus rise and resistor temperature before extending this envelope.
 
-[Final tscircuit validation and JLCPCB quote files](../output/jlcpcb-bota/Validation-and-order-status.md)
+[Soldered fuse selection and qualification](SOLDERED_FUSES.md)
 
 ## Ordering and release
 
-Order the Bota sensor, mating harness, Ethernet breakout and external brake resistor separately from JLCPCB assembly. The PCB Parts stock sheet covers installed motor-drive components and fuse cartridges only. Qty for five is the engineering minimum. JLCPCB determines loading allowance and through-hole assembly support.
+Order the Bota sensor, mating harness, Ethernet breakout and external brake resistor separately from JLCPCB assembly. The PCB Parts stock sheet covers installed motor-drive components, including the two soldered axial fuses. Qty for five is the engineering minimum. JLCPCB determines loading allowance and through-hole assembly support.
 
-Verify F1/F2 holder current, dissipation and DC fault coordination, D2/D3–D5 pin assignments, the C5 case, FLUX startup demand on F3, the 48 V source and actual thermal load before assembly release. Qualify the gate-driver vias and stencil with the assembler. Independent copper connectivity, electrical function, thermal qualification and stock each need their own passing result.
+Verify F1/F2 inrush, braking pulses, hot derating and DC interruption, D2/D3–D5 pin assignments, the C5 case, FLUX startup demand on F3, the 48 V source and actual thermal load before assembly release. Qualify the gate-driver vias and stencil with the assembler. Independent copper connectivity, electrical function, thermal qualification and stock each need their own passing result.
 
 [Bota datasheet supplied with the project](evidence/Bota_BTS_Torque_Sensor_Family.pdf) · [SOEM](https://github.com/OpenEtherCATsociety/SOEM)

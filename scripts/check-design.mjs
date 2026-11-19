@@ -219,6 +219,17 @@ export function audit({ components = [], catalog = null, inputs = [], inputError
  // INPUT, SUPPLIES, MCU. Fixed nets come from the PDF; private junctions below
  // are checked through real pins rather than spelling conventions.
  two('F1', 'DC_IN', 'VBUS');
+ for (const [ref, mpn] of [['F1', '0487020.MXEP'], ['F2', '0487015.MXEP']]) {
+  run(`assembly.${ref}.axial-fuse`, [ref], () => {
+   const fuse = part(ref);
+   const lands = catalog?.[fuse.footprint]?.elements ?? [];
+   const leads = lands.filter(land => land.type === 'pcb_plated_hole');
+   const leadPitch = leads.length === 2 ? Math.hypot(leads[1].x - leads[0].x, leads[1].y - leads[0].y) : null;
+   const ok = fuse.mpn === mpn && fuse.dnp === false && !fuse.holder && leadPitch !== null &&
+    Math.abs(leadPitch - 37.5) < 0.001 && !lands.some(land => ['pcb_hole', 'pcb_smtpad'].includes(land.type));
+   return { ok, expectedMpn: mpn, actualMpn: fuse.mpn, leadPitchMm: leadPitch };
+  }, '19 November 2026 direct-solder Littelfuse 487 layout revision');
+ }
  exact('D1', { 1: 'VBUS', 2: 'GND' });
  // 2026-11-17 manufacturer-backed bulk/watchdog amendment supersedes Rev A's 470uF placeholders.
  for (let i = 1; i <= 4; i++) { exact(`C${i}`, { 1: 'VBUS', 2: 'GND' }); value(`C${i}`, 820e-6); }

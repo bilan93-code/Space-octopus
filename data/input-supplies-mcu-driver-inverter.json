@@ -22,26 +22,21 @@
     "ref": "F1",
     "sheet": "00_Input",
     "kind": "fuse",
-    "value": "20 A, >=100 Vdc",
+    "value": "20 A, 420 Vdc axial fuse",
     "pins": {
       "1": "DC_IN",
       "2": "VBUS"
     },
-    "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+    "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
     "pinLabels": {},
-    "notes": "",
+    "notes": "Solder both integral leads directly to the PCB on 37.50 mm centers. Form leads with the end caps supported.",
     "provisional": true,
     "dnp": false,
-    "provisionalReason": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
-    "mpn": "BK/MDA-20-R",
-    "lcsc": "C3159408",
-    "sourcingReview": "Eaton BK/MDA-20-R cartridge candidate; catalogue 20A, 125Vdc, 6.4x31.8mm. Verify primary DC interrupt rating and time-current curves. Select/verify holder separately; catalogue interrupt figures mix AC/DC contexts.",
-    "holder": {
-      "mpn": "0031.8002",
-      "manufacturer": "SCHURTER",
-      "quantity": 1,
-      "release": "Verify DC suitability, derating, permissible dissipation and fuse fault-current coordination."
-    }
+    "provisionalReason": "Confirm available source fault current, capacitor precharge waveform and hot continuous current against the manufacturer curves.",
+    "mpn": "0487020.MXEP",
+    "lcsc": "C48971222",
+    "sourcingReview": "Littelfuse 487 series with factory axial leads. PCB Parts lists 20 A and 420 Vdc. Verify lead-form tolerances, interrupt rating and assembler availability before release.",
+    "manufacturer": "Littelfuse"
   },
   {
     "ref": "D1",

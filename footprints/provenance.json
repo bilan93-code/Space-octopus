@@ -494,5 +494,13 @@
     "source": "installed KiCad library",
     "sha256": "40bce85ced551e58f4eb8c51bee6be3b17d35e9faa13bc8c51f6f421605601db",
     "warnings": []
+  },
+  {
+    "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
+    "url": "https://www.lcsc.com/product-detail/C7153748.html",
+    "file": "footprints/kicad/Fuse__Littelfuse_487_Axial_P37.50mm_Horizontal.kicad_mod",
+    "source": "Space Octopus axial fuse land pattern. PCB Parts lists body 21.5 × Ø5.5 mm. Verify project lead form and finished-hole fit on a sample.",
+    "sha256": "f501ce7ff57f41a6b79826dd65f9f32ea274972305c987f7567dabbffebdf12f",
+    "warnings": []
   }
 ]

@@ -7,8 +7,6 @@ from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
 out=Path('output')
-dest=out/'jlcpcb-bota'
-dest.mkdir(exist_ok=True)
 def read(path):
     return json.loads(path.read_bytes())
 def digest(path):
@@ -44,16 +42,26 @@ for file in ['input-supplies-mcu-driver-inverter','sensing-fault-interfaces-brak
     for row in read(Path('data')/(file+'.json')):
         if not row['dnp'] and row['kind'] not in {'hole','fiducial','testpoint'} and row['ref']!='JP701':
             fitted[row['ref']]=row
-stock=csv_rows(out/'prototype/five-board-stock.csv')
+legacy_fuses = all(fitted[ref].get('holder') for ref in ('F1','F2'))
+stock_file = 'five-board-stock.csv' if legacy_fuses else 'five-board-stock-soldered.csv'
+dest = out / ('jlcpcb-bota' if legacy_fuses else 'jlcpcb-bota-soldered')
+stock=csv_rows(out/'prototype'/stock_file)
+records=read(circuit)
+rendered_parts={row['name']:row for row in records if row['type']=='source_component'}
+for ref in ('F1','F2'):
+    assert rendered_parts[ref].get('manufacturer_part_number') == fitted[ref]['mpn'], (ref, 'stale rendered fuse')
+    assert rendered_parts[ref].get('display_name') == fitted[ref]['value'], (ref, 'stale rendered fuse value')
 groups=defaultdict(list)
 extras=[]
 for ref,part in fitted.items():
     holder=part.get('holder')
     mpn=holder['mpn'] if holder else part['mpn']
     match=[r for r in stock if r['Selected MPN']==mpn and r['Installation']==('through-hole fuse holder' if holder else 'board component')]
-    assert len(match)==1,(ref,mpn)
+    assert len(match)==1,(ref,mpn,stock_file)
     row=match[0]
     assert (ref+' holder' if holder else ref) in (row['References'] if holder else row['References'].split())
+    if not holder and part.get('lcsc'):
+        assert row['LCSC'] == part['lcsc'], (ref, 'stale catalogue code')
     manufacturer=row['Manufacturer'] or (holder['manufacturer'] if holder else {'U13':'Texas Instruments','L101':'Coilcraft'}.get(ref,''))
     groups[part['footprint'],mpn,row['LCSC'],manufacturer].append(ref)
     if holder:
@@ -64,9 +72,6 @@ for (fp,mpn,lcsc,mfr),refs in groups.items():
     comments={mpn if fitted[ref].get('holder') else fitted[ref]['value'] for ref in refs}
     detail=next(iter(comments)) if len(comments)==1 else mpn
     bom.append({'Designator':','.join(refs),'Footprint':fp.split('/')[-1],'Quantity':len(refs),'Comment':detail,'Manufacturer':mfr,'Manufacturer Part Number':mpn,'LCSC Part #':lcsc})
-write_csv('JLCPCB-BOM-quote.csv',list(bom[0]),bom)
-write_csv('Hand-insert-fuse-cartridges.csv',list(extras[0]),extras)
-records=read(circuit)
 source={r['source_component_id']:r['name'] for r in records if r['type']=='source_component'}
 placements={source[r['source_component_id']]:r for r in records if r['type']=='pcb_component' and r.get('source_component_id') in source}
 cpl=csv_rows(out/'pick-and-place-review.csv')
@@ -78,7 +83,11 @@ for row in cpl:
     assert abs((float(row['Rotation'])-part['rotation']+180)%360-180)<.001
     row['Layer']=part['layer'].title()
     row['Rotation']=f"{float(row['Rotation'])%360:g}"
+dest.mkdir(exist_ok=True)
+write_csv('JLCPCB-BOM-quote.csv',list(bom[0]),bom)
 write_csv('JLCPCB-CPL-quote.csv',list(cpl[0]),cpl)
+if extras:
+    write_csv('Hand-insert-fuse-cartridges.csv',list(extras[0]),extras)
 fab=['F_Cu','In1_Cu','In2_Cu','B_Cu','F_Mask','B_Mask','F_Paste','B_Paste','F_SilkScreen','B_SilkScreen','Edge_Cuts']
 files=[f+'.gbr' for f in fab]+['drill-L1-L4.drl','drill_npth.drl']
 archive=dest/'Space-Octopus-Bota-JLCPCB-Gerbers-DFM-quote.zip'
@@ -92,7 +101,23 @@ with ZipFile(archive) as bundle:
     assert all(hashlib.sha256(bundle.read(name)).hexdigest()==source_hashes[name] for name in files)
 brefs=[ref for row in csv_rows(dest/'JLCPCB-BOM-quote.csv') for ref in row['Designator'].split(',')]
 assert Counter(brefs)==Counter(fitted.keys())==Counter(r['Designator'] for r in csv_rows(dest/'JLCPCB-CPL-quote.csv'))
-assert sum(r['Quantity'] for r in bom)==len(cpl) and len(extras)==2
-result={'purpose':'DFM and price quote only','approvedForManufacture':False,'sourceSha256':signature,'gerberMembers':files,'bomLines':len(bom),'cplPlacements':len(cpl),'sides':dict(Counter(r['Layer'] for r in cpl)),'additionalCartridgesPerBoard':len(extras),'missingExactCatalogueListings':[r['Selected MPN'] for r in stock if r['Result']!='covers batch in snapshot'],'stockSnapshotUTC':stock[0]['Catalogue timestamp UTC'],'checks':len(suite['checks']),'sha256':{p.name:digest(p) for p in [archive,dest/'JLCPCB-BOM-quote.csv',dest/'JLCPCB-CPL-quote.csv',dest/'Hand-insert-fuse-cartridges.csv']}}
+assert sum(r['Quantity'] for r in bom)==len(cpl)
+package_files=[archive,dest/'JLCPCB-BOM-quote.csv',dest/'JLCPCB-CPL-quote.csv']
+if extras:
+    package_files.append(dest/'Hand-insert-fuse-cartridges.csv')
+result={
+    'purpose': 'DFM and price quote only',
+    'approvedForManufacture': False,
+    'sourceSha256': signature,
+    'gerberMembers': files,
+    'bomLines': len(bom),
+    'cplPlacements': len(cpl),
+    'sides': dict(Counter(r['Layer'] for r in cpl)),
+    'additionalCartridgesPerBoard': len(extras),
+    'missingExactCatalogueListings': [r['Selected MPN'] for r in stock if r['Result'] in ('MPN/code mismatch', 'no unique exact listing')],
+    'stockSnapshotUTC': stock[0]['Catalogue timestamp UTC'],
+    'checks': len(suite['checks']),
+    'sha256': {p.name:digest(p) for p in package_files},
+}
 (dest/'package-verification.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2))

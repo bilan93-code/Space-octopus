@@ -2113,26 +2113,21 @@
     "ref": "F2",
     "sheet": "08_Brake",
     "kind": "fuse",
-    "value": "15 A, >=100 Vdc",
-    "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+    "value": "15 A, 420 Vdc axial fuse",
+    "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
     "pins": {
       "1": "VBUS",
       "2": "BRAKE_PLUS"
     },
     "provisional": true,
-    "notes": "Coordinate with external resistor and cable current/pulse ratings.",
+    "notes": "Solder both integral leads directly to the PCB on 37.50 mm centers. Form leads with the end caps supported.",
     "dnp": false,
     "pinLabels": {},
-    "provisionalReason": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
-    "mpn": "BK/ABC-15-R",
-    "lcsc": "C3162021",
-    "sourcingReview": "Eaton BK/ABC-15-R cartridge candidate; catalogue 15A, 125Vdc, 6.35x31.75mm. Verify DC interrupt, brake-pulse I2t and holder derating; existing holder is a placeholder.",
-    "holder": {
-      "mpn": "0031.8002",
-      "manufacturer": "SCHURTER",
-      "quantity": 1,
-      "release": "Verify DC suitability, derating, permissible dissipation and fuse fault-current coordination."
-    }
+    "provisionalReason": "Confirm available bus fault current and repetitive braking pulses against the manufacturer curves at the highest board temperature.",
+    "mpn": "0487015.MXEP",
+    "lcsc": "C7153748",
+    "sourcingReview": "Littelfuse 487 series with factory axial leads. PCB Parts lists 15 A and 420 Vdc. Verify lead-form tolerances, interrupt rating and assembler availability before release.",
+    "manufacturer": "Littelfuse"
   },
   {
     "ref": "J11",

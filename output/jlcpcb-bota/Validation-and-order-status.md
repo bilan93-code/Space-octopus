@@ -1,5 +1,7 @@
 # Space Octopus motor drive and Bota interface
-## JLCPCB validation · 18 November 2026
+## Archived holder-board quote · 18 November 2026
+
+This package applies to commit `79d4fc1` with the SCHURTER fuse holders. The [soldered fuse revision](../../docs/SOLDERED_FUSES.md) uses different drill data and a different assembly BOM.
 
 **Ready for a five-board DFM and price quote. Engineering release for fabrication, assembly and powered operation remains on hold.** The final native tscircuit design and the files in the quote archive share the design fingerprint shown below.
 

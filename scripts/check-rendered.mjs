@@ -11,6 +11,7 @@ const placement=read('data/placement.json');
 check(sources.length===parts.length,'Rendered component count differs from inventory');
 for(const p of parts){
  const source=sources.find(s=>s.name===p.ref);check(!!source,`${p.ref}: missing source`);if(!source)continue;
+ if(p.kind==='fuse')check(source.manufacturer_part_number===p.mpn,`${p.ref}: rendered fuse MPN differs from the design`);
  const pcb=j.find(e=>e.type==='pcb_component'&&e.source_component_id===source.source_component_id);check(!!pcb,`${p.ref}: missing PCB component`);
  if(pcb)check(pcb.layer===placement[p.ref].layer,`${p.ref}: rendered PCB face differs from placement`);
  const ports=j.filter(e=>e.type==='source_port'&&e.source_component_id===source.source_component_id);

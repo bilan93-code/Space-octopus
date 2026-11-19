@@ -1600,8 +1600,8 @@
     "source_component_id": "source_component_1",
     "ftype": "simple_chip",
     "name": "F1",
-    "manufacturer_part_number": "BK/MDA-20-R",
-    "display_name": "20 A, >=100 Vdc",
+    "manufacturer_part_number": "0487020.MXEP",
+    "display_name": "20 A, 420 Vdc axial fuse",
     "source_group_id": "source_group_0"
   },
   {
@@ -14254,8 +14254,8 @@
     "source_component_id": "source_component_234",
     "ftype": "simple_chip",
     "name": "F2",
-    "manufacturer_part_number": "BK/ABC-15-R",
-    "display_name": "15 A, >=100 Vdc",
+    "manufacturer_part_number": "0487015.MXEP",
+    "display_name": "15 A, 420 Vdc axial fuse",
     "source_group_id": "source_group_0"
   },
   {
@@ -28130,7 +28130,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_2",
-    "text": "BK/MDA-20-R",
+    "text": "0487020.MXEP",
     "schematic_component_id": "schematic_component_1",
     "anchor": "left",
     "rotation": 0,
@@ -28144,7 +28144,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_3",
-    "text": "20 A, >=100 Vdc",
+    "text": "20 A, 420 Vdc axial fuse",
     "schematic_component_id": "schematic_component_1",
     "anchor": "left",
     "rotation": 0,
@@ -34764,7 +34764,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_158",
-    "text": "BK/ABC-15-R",
+    "text": "0487015.MXEP",
     "schematic_component_id": "schematic_component_234",
     "anchor": "left",
     "rotation": 0,
@@ -34778,7 +34778,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_159",
-    "text": "15 A, >=100 Vdc",
+    "text": "15 A, 420 Vdc axial fuse",
     "schematic_component_id": "schematic_component_234",
     "anchor": "left",
     "rotation": 0,

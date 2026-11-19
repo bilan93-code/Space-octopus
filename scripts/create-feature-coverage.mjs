@@ -52,7 +52,7 @@ Native KiCad warnings: **${warnings}**. See the actual DRC and cleanup reports. 
 
 The native autorouters were tested and did not finish; verified custom routing is replayed through tscircuit's routing API. Audited BRep regions are replayed through its copper-pour API. Neither is described as a successful automatic native routing/fill result.
 
-Y1, U2 and U13 use representative package bodies, with exposed-pad differences documented. D2's stock model is trimmed to the required 2 mm lead projection. The fuse-holder models show the holders; cartridge selection is still an assembly item. No model appearance establishes manufacturer approval.
+The model report identifies representative package bodies and the assumed F1/F2 axial lead form. D2's stock model is trimmed to the required 2 mm lead projection. See the fitted bill of materials for the fuse order codes. No model appearance establishes manufacturer approval.
 
 The 7 mm gap and spacer bodies are a mounting concept. Replacement cap fasteners, cap clamping, thread engagement, torque, insulation, enclosure/plug space and encoder support remain unapproved. The separate Ø45 encoder must not be assumed to fit through the proposed Ø28 PCB aperture.
 
@@ -73,7 +73,7 @@ All connectors and C1–C5 face outward. The proposed cap-to-PCB gap is 7 mm, wi
 
 Open [the review](output/index.html), [interactive 3D](output/3d.html), [analog checks](output/simulation/index.html), [the mounting drawing](output/Motor112_Mounting_Concept.pdf) and [the capability checklist](docs/TSCIRCUIT_FEATURE_COVERAGE.md). Serve the output directory with \`npm run preview\` and open \`http://localhost:3021\` for the interactive pages.
 
-The populated assembly has ${model.withStepModel} STEP-backed models and zero bounding-box placeholders. Three are representative bodies. D2 requires leads trimmed to no more than 2 mm below the motor-facing PCB surface. The nominal source model records that trim.
+The populated assembly has ${model.withStepModel} STEP-backed models and zero bounding-box placeholders. The model report documents the representative bodies and their fit assumptions. D2 requires leads trimmed to no more than 2 mm below the motor-facing PCB surface. The nominal source model records that trim.
 
 Install dependencies with \`npm ci\` and \`python -m pip install -r requirements-copper.txt\`. Run \`npm run test\` for type checking, native rendering, 3D generation and the 17 design checks. KiCad 9 is required for the native derivative/export checks. CadQuery in \`requirements-mechanical.txt\` is only needed to regenerate the vendored trimmed STEP asset.
 

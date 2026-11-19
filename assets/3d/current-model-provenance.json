@@ -512,5 +512,16 @@
     "verification": "representative body only",
     "limitation": "Representative 3 x 3 mm 10-lead DFN body. Use the LT3065 DD drawing for land and exposed-pad dimensions.",
     "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_DFN_QFN.3dshapes/DFN-10-1EP_3x3mm_P0.5mm_EP1.55x2.48mm.step"
+  },
+  {
+    "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
+    "status": "available",
+    "model": "generated/Littelfuse_487_Axial_P37.50mm.step",
+    "sha256": "03bc946d106366f1513bc18b816b5ccf7281afe74a45f69b1fcc0546d6c665f3",
+    "bytes": 31576,
+    "verification": "project-formed soldered axial review model",
+    "source": "https://www.lcsc.com/product-detail/C7153748.html",
+    "assemblyRequirement": "Form both leads to 37.5 mm pitch; trim to <=2 mm beneath the 1.6 mm PCB.",
+    "limitation": "Catalogue body 21.5 × Ø5.5 mm. Model assumes 1 mm standoff, 1 mm leads and 2 mm bend radius. Confirm finished hole fit, actual lead size, forming limits, body tolerance and vibration support before release."
   }
 ]

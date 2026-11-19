@@ -4,6 +4,10 @@ import parse from 's-expression';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { KicadFootprintToCircuitJsonConverter } from 'kicad-to-circuit-json';
+const customPatterns = {
+ 'Package_DFN_QFN/TI_RTA0040B_DRV8353': {url:'https://www.ti.com/lit/ds/symlink/drv8353.pdf',source:'TI RTA0040B, docs/evidence/ti-drv8353.pdf'},
+ 'Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal': {url:'https://www.lcsc.com/product-detail/C7153748.html',source:'Space Octopus axial fuse land pattern. PCB Parts lists body 21.5 × Ø5.5 mm. Verify project lead form and finished-hole fit on a sample.'},
+};
 const parts = ['input-supplies-mcu-driver-inverter','sensing-fault-interfaces-brake','mechanical'].flatMap(n => JSON.parse(fs.readFileSync(`data/${n}.json`)));
 fs.mkdirSync('footprints/kicad', {recursive:true});
 const append=process.argv.includes('--append');
@@ -12,9 +16,10 @@ const catalog = append?JSON.parse(fs.readFileSync('footprints/catalog.json')):{}
 for (const key of [...new Set(requested.length?requested:parts.map(p=>p.footprint))].sort()) {
  const [lib,name]=key.split('/');
  const file=`footprints/kicad/${lib}__${name}.kicad_mod`;
- const tiLand=key==='Package_DFN_QFN/TI_RTA0040B_DRV8353';
- const url=tiLand?'https://www.ti.com/lit/ds/symlink/drv8353.pdf':`https://raw.githubusercontent.com/KiCad/kicad-footprints/master/${lib}.pretty/${name}.kicad_mod`;
+ const custom=customPatterns[key];
+ const url=custom?.url ?? `https://raw.githubusercontent.com/KiCad/kicad-footprints/master/${lib}.pretty/${name}.kicad_mod`;
  if(!fs.existsSync(file)) {
+  if(custom)throw Error('Missing project land pattern: '+file);
   try { const local=`/usr/share/kicad/footprints/${lib}.pretty/${name}.kicad_mod`; if(fs.existsSync(local)) fs.copyFileSync(local,file); else execFileSync('curl',['-fsSL','--retry','2','--max-time','25',url,'-o',file],{stdio:'pipe'}); }
   catch(e) { console.error('MISSING',key); process.exitCode=1; continue; }
  }
@@ -56,7 +61,7 @@ for (const key of [...new Set(requested.length?requested:parts.map(p=>p.footprin
  for(const [x,y] of courtyard){box[0]=Math.min(box[0],x);box[1]=Math.min(box[1],y);box[2]=Math.max(box[2],x);box[3]=Math.max(box[3],y)}
  catalog[key]={elements,box,pads:[...new Set(pads.flatMap(p=>p.port_hints??[]).filter(n=>/^\d+$/.test(n)))].sort((a,b)=>+a-+b)};
  const previous=provenance.findIndex(p=>p.footprint===key);if(previous>=0)provenance.splice(previous,1);
- provenance.push({footprint:key,url,file,source:tiLand?'TI RTA0040B, docs/evidence/ti-drv8353.pdf':fs.existsSync(`/usr/share/kicad/footprints/${lib}.pretty/${name}.kicad_mod`)?'installed KiCad library':'GitHub KiCad library',sha256:createHash('sha256').update(raw).digest('hex'),warnings:c.getWarnings()});
+ provenance.push({footprint:key,url,file,source:custom?.source ?? (fs.existsSync(`/usr/share/kicad/footprints/${lib}.pretty/${name}.kicad_mod`)?'installed KiCad library':'GitHub KiCad library'),sha256:createHash('sha256').update(raw).digest('hex'),warnings:c.getWarnings()});
  console.log(key,catalog[key].pads.join(','));
 }
 fs.writeFileSync('footprints/catalog.json',JSON.stringify(catalog,null,2)+'\n');

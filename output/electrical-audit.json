@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-18T12:29:12.271Z",
+  "generatedAt": "2026-11-19T11:37:30.344Z",
   "status": "passed",
   "fabricationReady": false,
   "scope": "Independent component/netlist audit against Rev A PDF. A pass is not PCB, firmware, datasheet-limit, or fabrication approval.",
@@ -14,13 +14,13 @@
   "inputs": [
     {
       "file": "data/input-supplies-mcu-driver-inverter.json",
-      "sha256": "0cea88394ed9ba5646668a0970ec638afd4bb26b8edd5443da17e43d5e9efbfd",
-      "bytes": 85224
+      "sha256": "39eb710d52683c0c8f7355451a2a3a247805a5c26e621de33a22326030086664",
+      "bytes": 85094
     },
     {
       "file": "data/sensing-fault-interfaces-brake.json",
-      "sha256": "4826e3939d937ef4f681879f245192fe4296d93e8ecbf94f74acbb9f17826b1a",
-      "bytes": 84012
+      "sha256": "7d9db46336677ec130d70bb1968360fc055709f45078f98ac4b0a91f61ed5bf9",
+      "bytes": 83865
     },
     {
       "file": "data/mechanical.json",
@@ -34,8 +34,8 @@
     },
     {
       "file": "footprints/catalog.json",
-      "sha256": "512c60dd85295b1c38f77ef7c582dd8708a3af1afde2c27373ea89776398db32",
-      "bytes": 385045
+      "sha256": "41899f4e3211d707c96e442c57e0f7d94938a2b67a7fdf421ba58818d3d5c903",
+      "bytes": 387931
     },
     {
       "file": "docs/Space_Octopus_Motor_PCB_Plan_RevA.pdf",
@@ -604,11 +604,11 @@
     "actualCount": 262
   },
   "summary": {
-    "passed": 1622,
+    "passed": 1624,
     "failed": 0,
     "unresolved": 8,
     "blockingUnresolved": 0,
-    "total": 1630
+    "total": 1632
   },
   "checks": [
     {
@@ -9249,6 +9249,32 @@
         "DC_IN",
         "VBUS"
       ]
+    },
+    {
+      "id": "assembly.F1.axial-fuse",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "F1"
+      ],
+      "source": "19 November 2026 direct-solder Littelfuse 487 layout revision",
+      "expectedMpn": "0487020.MXEP",
+      "actualMpn": "0487020.MXEP",
+      "leadPitchMm": 37.5
+    },
+    {
+      "id": "assembly.F2.axial-fuse",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "F2"
+      ],
+      "source": "19 November 2026 direct-solder Littelfuse 487 layout revision",
+      "expectedMpn": "0487015.MXEP",
+      "actualMpn": "0487015.MXEP",
+      "leadPitchMm": 37.5
     },
     {
       "id": "package.D1.pins",
@@ -19589,7 +19615,7 @@
         "F1"
       ],
       "source": "Rev A PDF §§18–21",
-      "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
       "expectedPackagePins": [
         "1",
         "2"
@@ -24992,7 +25018,7 @@
         "F2"
       ],
       "source": "Rev A PDF §§18–21",
-      "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
       "expectedPackagePins": [
         "1",
         "2"

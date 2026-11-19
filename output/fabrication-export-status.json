@@ -1,82 +1,82 @@
 {
   "purpose": "engineering review only",
   "fabricationReady": false,
-  "circuitJsonSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "circuitJsonSha256": "ff1e48f2960bccf378bcd8dab0480bd3c0c3b5b4138d2fc547490f8275391db6",
   "files": [
     {
       "file": "F_Cu.gbr",
-      "bytes": 705942,
-      "sha256": "7f05a9f8618f5925ab7f163bc32a765c2c9b62d30c3585ccf7b5132d73a4efed"
+      "bytes": 705802,
+      "sha256": "3abf2233f30388d545c3c87e71b82deca0c0ed108a799a46f822112e68a70477"
     },
     {
       "file": "F_SilkScreen.gbr",
-      "bytes": 277423,
-      "sha256": "07aa92e93f2359a2ec248b3c81a6f39d71e0bf44cec7502a1bd51e986232e12f"
+      "bytes": 288233,
+      "sha256": "9f06b23b75403181f5875d7d7750bd33732a6b3f13d8461d807992797246f81a"
     },
     {
       "file": "F_Mask.gbr",
-      "bytes": 13311,
-      "sha256": "3a88f3032d0dc1296901a6bd06325aafdb600766e7265e8d7745659ef6bf9961"
+      "bytes": 13231,
+      "sha256": "4851ea913bbc038a8b7973648beccb20c141a54e4fe9d4a2e061c711115dac5b"
     },
     {
       "file": "F_Paste.gbr",
       "bytes": 11093,
-      "sha256": "aa43785939efda0f6e7175fdfed7d6d18a115f5a1b87d4c5270c50892469e1c8"
+      "sha256": "9a1d96694cf40bb03a97b19b84c3264c35a87b22e6e628554da7ec281730cf48"
     },
     {
       "file": "B_Cu.gbr",
-      "bytes": 1105558,
-      "sha256": "026e50cca8cab147c0b2c06bf9e0fbf7e8b221eb9c4144dfa3b9f2b52cdd0a3d"
+      "bytes": 1105421,
+      "sha256": "25ea005c306e6dcddcd6590aff7d77d5820764b473a0ac114fb074a6c891ee50"
     },
     {
       "file": "B_SilkScreen.gbr",
-      "bytes": 245912,
-      "sha256": "b909a24b8580f6cdc42f4787be3854a1b1af28d8cad06644a3593d5943d1c29d"
+      "bytes": 248968,
+      "sha256": "e95240cc213ea7921ddc69764cb6c9e7b3916cf434075655d54479fd39531acc"
     },
     {
       "file": "B_Mask.gbr",
-      "bytes": 27062,
-      "sha256": "cfbe34257ea764089ad84033ed9416efb69757c600f0aba60c409d4368134b28"
+      "bytes": 26982,
+      "sha256": "bdc82831d58a7473998535f16ef5178eef2b79f10911f7a189124ee51711c9a3"
     },
     {
       "file": "B_Paste.gbr",
       "bytes": 25204,
-      "sha256": "91a3532afd95d5cc14cba059ae89805303008aee023202260dcbb5a1355aac44"
+      "sha256": "abeb2d3e80abaa9f637e8d36b3375928d48000d49a2e7e613f2e1c45e2d91b6b"
     },
     {
       "file": "Edge_Cuts.gbr",
       "bytes": 6923,
-      "sha256": "c4ffc2c04e92d8837dfe4c9ed5720faa770ebd183faecc3f1b07c8a473a607c2"
+      "sha256": "5e220110c936ef0a7936eaca44b2bccd08b88c132f1e3e8c188ee49218bf5d87"
     },
     {
       "file": "In1_Cu.gbr",
-      "bytes": 1046560,
-      "sha256": "c86ffcf39634ecb5eb04753a4302973cd806231a1f63e5a701233789b8d6ea89"
+      "bytes": 1046424,
+      "sha256": "b84117557e93005299d6d345c028936d3f253e1734c65434e02ddfb9685e6e01"
     },
     {
       "file": "In2_Cu.gbr",
-      "bytes": 498250,
-      "sha256": "df890a2a28b6b184ca1582123d7076c3d3edde1fb0c19301c5bad6661b07d1f3"
+      "bytes": 498114,
+      "sha256": "159c70dda91565d04027d11d3063030336c36f927bd4934085d507ae97fd5c8f"
     },
     {
       "file": "F_Fab.gbr",
       "bytes": 40348,
-      "sha256": "7fc58448837172ce7b4f5ea6845b97f2ff899721228e7a24d442c2546372eec3"
+      "sha256": "9f580f2cec29db17c94bcda3210882d2262cc1cdd3d335f1cfc8e9f22dc0a0f5"
     },
     {
       "file": "B_Fab.gbr",
       "bytes": 32650,
-      "sha256": "bf76b57f2003097e2b1635d4198c817c9bce34465f421e2d7049997e4b4364c9"
+      "sha256": "a3bca50360a69f13153680133097acb46a2f258682667c30b770996deab45e20"
     },
     {
       "file": "drill-L1-L4.drl",
       "bytes": 26770,
-      "sha256": "31a3a7e8e2888da865ae61a25751c0a0db4bbba208e0473208b60f1066cdce01"
+      "sha256": "6db6d312a0a487cdb7d77f5b4aaf92359acdce84cb6f34c692ec7bb72e65a0af"
     },
     {
       "file": "drill_npth.drl",
-      "bytes": 532,
-      "sha256": "708a7727e907c0302d0c0ed240cb386cc562819ac9398687a481b054cff6834e"
+      "bytes": 430,
+      "sha256": "a6ebe751ee75d55d03395abea4904b298b3fb82513677cd0f64ab7b4b67c6b9f"
     }
   ],
   "pickAndPlaceWarnings": [],

@@ -26,6 +26,12 @@ for(const key of Object.keys(catalog)){
  models[key]={stepUrl:`data:application/step;base64,${bytes.toString('base64')}`,modelOriginPosition:{x:0,y:0,z:0},positionOffset:vector('offset'),rotationOffset:vector('rotate'),modelUnitToMmScale:1,modelBoardNormalDirection:'z+'};
  report.push({footprint:key,status:'available',model:sourceName,sha256,bytes:bytes.length,verification:representative[key]?'representative body only':key===trimmedKey?'stock package with 2 mm lead trim':'stock KiCad package-family model',...(representative[key]?{limitation:representative[key].note}:{}),...(key===trimmedKey?{assemblyRequirement:'Trim D2 leads to <=2 mm below the motor-facing PCB plane; see lead-trim-provenance.json.'}:{}),source:`https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/${key===trimmedKey?originalName:sourceName}`});
  if(key==='Connector_JST/JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical')Object.assign(report.at(-1),{verification:'part-specific STEP aligned to footprint frame',source:'https://github.com/SwashBuckler104/Micromouse/blob/ff4a18b755ba36d4287c2b25b5d82626a1462fe4/Components/BM02B-SRSS-TB_LF__SN_/BM02B-SRSS-TB_LF__SN_.step',transform:'Rotate +90 degrees around X and translate +1.2 mm along Y to align seating plane and contacts.'});
+ if(key==='Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal')Object.assign(report.at(-1),{
+  verification:'project-formed soldered axial review model',
+  source:'https://www.lcsc.com/product-detail/C7153748.html',
+  assemblyRequirement:'Form both leads to 37.5 mm pitch; trim to <=2 mm beneath the 1.6 mm PCB.',
+  limitation:'Catalogue body 21.5 × Ø5.5 mm. Model assumes 1 mm standoff, 1 mm leads and 2 mm bend radius. Confirm finished hole fit, actual lead size, forming limits, body tolerance and vibration support before release.',
+ });
  if(key===bulkKey)Object.assign(report.at(-1),{verification:'manufacturer-dimension maximum envelope; generated STEP',source:'https://github.com/hank-bond/digikey-cap-finder/blob/37c424a900e3784d245f79d2d9c9938dea847907/series_pdfs/rubycon/ZLJ.pdf',assemblyRequirement:'18.5mm maximum diameter, 42mm maximum can length, 1mm seating allowance; reserve 3mm above the vent. Trim leads to <=2mm below PCB.',limitation:'Not a vendor appearance model. See bulk-cap-envelope-provenance.json.'});
 }
 fs.writeFileSync('data/cad-models.json',JSON.stringify(models)+'\n');
