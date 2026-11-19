@@ -1,0 +1,231 @@
+{
+  "circuitJsonSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "status": "passed",
+  "source": "output/space-octopus.circuit.json",
+  "minimumIncludedTrackWidthMm": 2.0,
+  "checks": [
+    {
+      "net": "DC_IN",
+      "passed": true,
+      "required": [
+        "J1.1",
+        "F1.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "F1.1",
+          "J1.1"
+        ]
+      ]
+    },
+    {
+      "net": "VBUS",
+      "passed": true,
+      "required": [
+        "F1.2",
+        "C1.1",
+        "C2.1",
+        "C3.1",
+        "C4.1",
+        "C5.1",
+        "Q1.2",
+        "Q3.2",
+        "Q5.2",
+        "F2.1",
+        "C905.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "C1.1",
+          "C2.1",
+          "C3.1",
+          "C4.1",
+          "C5.1",
+          "C905.1",
+          "F1.2",
+          "F2.1",
+          "Q1.2",
+          "Q3.2",
+          "Q5.2"
+        ]
+      ]
+    },
+    {
+      "net": "GND",
+      "passed": true,
+      "required": [
+        "J1.2",
+        "C1.2",
+        "C2.2",
+        "C3.2",
+        "C4.2",
+        "C5.2",
+        "RSH1.2",
+        "RSH2.2",
+        "RSH3.2",
+        "Q7.3"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "C1.2",
+          "C2.2",
+          "C3.2",
+          "C4.2",
+          "C5.2",
+          "J1.2",
+          "Q7.3",
+          "RSH1.2",
+          "RSH2.2",
+          "RSH3.2"
+        ]
+      ]
+    },
+    {
+      "net": "PH_U",
+      "passed": true,
+      "required": [
+        "Q1.3",
+        "Q2.2",
+        "J2.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "J2.1",
+          "Q1.3",
+          "Q2.2"
+        ]
+      ]
+    },
+    {
+      "net": "PH_V",
+      "passed": true,
+      "required": [
+        "Q3.3",
+        "Q4.2",
+        "J2.2"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "J2.2",
+          "Q3.3",
+          "Q4.2"
+        ]
+      ]
+    },
+    {
+      "net": "PH_W",
+      "passed": true,
+      "required": [
+        "Q5.3",
+        "Q6.2",
+        "J2.3"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "J2.3",
+          "Q5.3",
+          "Q6.2"
+        ]
+      ]
+    },
+    {
+      "net": "SHUNT_U_TOP",
+      "passed": true,
+      "required": [
+        "Q2.3",
+        "RSH1.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "Q2.3",
+          "RSH1.1"
+        ]
+      ]
+    },
+    {
+      "net": "SHUNT_V_TOP",
+      "passed": true,
+      "required": [
+        "Q4.3",
+        "RSH2.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "Q4.3",
+          "RSH2.1"
+        ]
+      ]
+    },
+    {
+      "net": "SHUNT_W_TOP",
+      "passed": true,
+      "required": [
+        "Q6.3",
+        "RSH3.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "Q6.3",
+          "RSH3.1"
+        ]
+      ]
+    },
+    {
+      "net": "BRAKE_PLUS",
+      "passed": true,
+      "required": [
+        "F2.2",
+        "J11.1",
+        "D2.1"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "D2.1",
+          "F2.2",
+          "J11.1"
+        ]
+      ]
+    },
+    {
+      "net": "BRAKE_DRAIN",
+      "passed": true,
+      "required": [
+        "Q7.2",
+        "J11.2",
+        "D2.2"
+      ],
+      "missing": [],
+      "islands": [
+        [
+          "D2.2",
+          "J11.2",
+          "Q7.2"
+        ]
+      ]
+    }
+  ],
+  "parallelInputPaths": [
+    {
+      "layer": "inner2",
+      "minimumTrackWidthMm": 4.5,
+      "passed": true
+    },
+    {
+      "layer": "bottom",
+      "minimumTrackWidthMm": 2.4,
+      "passed": true
+    }
+  ],
+  "method": "Keep pads, plated barrels and tracks at least 2 mm wide. Both VBUS and GND load terminals must connect even with every fill removed. Require each listed set of load-current terminals to share one physical copper island. Independently require both complete input paths on their declared layers and minimum widths.",
+  "limitations": "This excludes thin-signal bottlenecks. It does not qualify copper weight, thermal rise, via current sharing or pulse capability."
+}

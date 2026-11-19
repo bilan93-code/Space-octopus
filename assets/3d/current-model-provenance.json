@@ -1,0 +1,516 @@
+[
+  {
+    "footprint": "Button_Switch_SMD/SW_SPST_TL3342",
+    "status": "available",
+    "model": "Button_Switch_SMD.3dshapes/SW_SPST_TL3342.step",
+    "sha256": "23b1770b921df25f489d37b5636ad4a292f966c00638da7b5cb4b7f97d11c639",
+    "bytes": 406589,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.step"
+  },
+  {
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "status": "available",
+    "model": "Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+    "sha256": "4857b3dc717675bf1fb22edda622ac3b3ae03cf44d81eefaf3fa3ba3a86d84c1",
+    "bytes": 43450,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
+  },
+  {
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "status": "available",
+    "model": "Capacitor_SMD.3dshapes/C_0805_2012Metric.step",
+    "sha256": "9a669c1a2f1ea25b88b401acef6efeaa80a067bd7da9db6993de719a7fbe155c",
+    "bytes": 43618,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Capacitor_SMD.3dshapes/C_0805_2012Metric.step"
+  },
+  {
+    "footprint": "Capacitor_SMD/C_1206_3216Metric",
+    "status": "available",
+    "model": "Capacitor_SMD.3dshapes/C_1206_3216Metric.step",
+    "sha256": "11e948c72c90e2b6322436b72745f40ff4e8ba0da64fb2a0df943dfa61e89c1a",
+    "bytes": 43450,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Capacitor_SMD.3dshapes/C_1206_3216Metric.step"
+  },
+  {
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "status": "available",
+    "model": "Capacitor_SMD.3dshapes/C_1210_3225Metric.step",
+    "sha256": "f8510481c5044113cf49b0fa6dd54ddab9224508bd6808e1afab8ef0cefdefc9",
+    "bytes": 43502,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Capacitor_SMD.3dshapes/C_1210_3225Metric.step"
+  },
+  {
+    "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+    "status": "available",
+    "model": "generated/Rubycon_ZLJ_D18_40_MaxEnvelope.step",
+    "sha256": "99c900718eae6653b8105c0055bc1ae0cb8d8d8d9d2bfa3e8352a2b89029cc22",
+    "bytes": 26402,
+    "verification": "manufacturer-dimension maximum envelope; generated STEP",
+    "source": "https://github.com/hank-bond/digikey-cap-finder/blob/37c424a900e3784d245f79d2d9c9938dea847907/series_pdfs/rubycon/ZLJ.pdf",
+    "assemblyRequirement": "18.5mm maximum diameter, 42mm maximum can length, 1mm seating allowance; reserve 3mm above the vent. Trim leads to <=2mm below PCB.",
+    "limitation": "Not a vendor appearance model. See bulk-cap-envelope-provenance.json."
+  },
+  {
+    "footprint": "Capacitor_THT/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4",
+    "status": "available",
+    "model": "Capacitor_THT.3dshapes/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4.step",
+    "sha256": "629b8ca3b4e7a0dd8eb70e9ea993e7834b704668e49c107f7617defe4f831417",
+    "bytes": 30373,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Capacitor_THT.3dshapes/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.step",
+    "sha256": "7287616fdad677e9b54cf5494f17efc4b3fb77be002659d73e215772393f20c6",
+    "bytes": 144517,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical.step",
+    "sha256": "8800a66e739fc222ec36495d2d05fd0f79ba9423c3587c7169630591d024f36f",
+    "bytes": 187051,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical.step",
+    "sha256": "7eb17ded8ec4a3216753a234254e22a2d8e07826f0816045bfb803a19cac75ea",
+    "bytes": 222777,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical.step",
+    "sha256": "5a74ac21b099c174928a7afd6783a9e1d26e23a1f2418d4cb4856ad6430e9c2a",
+    "bytes": 295109,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_PinHeader_1.27mm/PinHeader_1x11_P1.27mm_Vertical",
+    "status": "available",
+    "model": "Connector_PinHeader_1.27mm.3dshapes/PinHeader_1x11_P1.27mm_Vertical.step",
+    "sha256": "b91aa439b8de855c84c521658b3438c8280070d60e984298f7c97454e48c7eff",
+    "bytes": 390225,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_PinHeader_1.27mm.3dshapes/PinHeader_1x11_P1.27mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_PinHeader_1.27mm/PinHeader_2x05_P1.27mm_Vertical",
+    "status": "available",
+    "model": "Connector_PinHeader_1.27mm.3dshapes/PinHeader_2x05_P1.27mm_Vertical.step",
+    "sha256": "b5cabcd3e700ee74a3d8f64c687e718a0bc892653ead74bc00e8d4f534ffa575",
+    "bytes": 305203,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_PinHeader_1.27mm.3dshapes/PinHeader_2x05_P1.27mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_PinHeader_2.54mm/PinHeader_1x04_P2.54mm_Vertical",
+    "status": "available",
+    "model": "Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.step",
+    "sha256": "a74079b8d06bda78847623b39ee1855ffd1d9a8c1e896b349e4f1dc2056d44d9",
+    "bytes": 145684,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.step"
+  },
+  {
+    "footprint": "Diode_SMD/D_SMB",
+    "status": "available",
+    "model": "Diode_SMD.3dshapes/D_SMB.step",
+    "sha256": "029466277d91e9f5492556be93e46611049e07115c7913880c547afa96058ed4",
+    "bytes": 70508,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Diode_SMD.3dshapes/D_SMB.step"
+  },
+  {
+    "footprint": "Diode_SMD/D_SMC",
+    "status": "available",
+    "model": "Diode_SMD.3dshapes/D_SMC.step",
+    "sha256": "30dab4c2e22239b7e3694a4d45304e04255c6b70a79d28e9c34c6072ba647991",
+    "bytes": 70688,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Diode_SMD.3dshapes/D_SMC.step"
+  },
+  {
+    "footprint": "Diode_SMD/D_SOD-323",
+    "status": "available",
+    "model": "Diode_SMD.3dshapes/D_SOD-323.step",
+    "sha256": "cd8619b2119cd95683a2c5e660ab4f2d4db674f696cd6f9e9756f221171a214d",
+    "bytes": 52730,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Diode_SMD.3dshapes/D_SOD-323.step"
+  },
+  {
+    "footprint": "Fuse/Fuse_1206_3216Metric",
+    "status": "available",
+    "model": "Fuse.3dshapes/Fuse_1206_3216Metric.step",
+    "sha256": "5e6dcbe286696143d35a8ea37d91eef4b54ff3d1bd7c2c2b4dedda83d3f8e203",
+    "bytes": 40429,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Fuse.3dshapes/Fuse_1206_3216Metric.step"
+  },
+  {
+    "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+    "status": "available",
+    "model": "Fuse.3dshapes/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open.step",
+    "sha256": "b43ee8044b04a96e747be8897af75af356ad92c28b2febf0bf3c36949104d994",
+    "bytes": 144814,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Fuse.3dshapes/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open.step"
+  },
+  {
+    "footprint": "Inductor_SMD/L_0603_1608Metric",
+    "status": "available",
+    "model": "Inductor_SMD.3dshapes/L_0603_1608Metric.step",
+    "sha256": "b0136ad7160588d2f5dac8c85da84a35646db656b5bc54bbb873b6b548eedbb3",
+    "bytes": 43450,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Inductor_SMD.3dshapes/L_0603_1608Metric.step"
+  },
+  {
+    "footprint": "Inductor_SMD/L_0805_2012Metric",
+    "status": "available",
+    "model": "Inductor_SMD.3dshapes/L_0805_2012Metric.step",
+    "sha256": "751a8ae26d20698bfe8303aa2fc7ec986a8b9a7154699b94bf2a13d4ad401425",
+    "bytes": 43618,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Inductor_SMD.3dshapes/L_0805_2012Metric.step"
+  },
+  {
+    "footprint": "Inductor_SMD/L_Coilcraft_MSS1246T-XXX",
+    "status": "available",
+    "model": "Inductor_SMD.3dshapes/L_Coilcraft_MSS1246T-XXX.step",
+    "sha256": "d83efd862e2f22bb6ff5c5191a3568c54129173221513deae98c455ce9b56589",
+    "bytes": 91197,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Inductor_SMD.3dshapes/L_Coilcraft_MSS1246T-XXX.step"
+  },
+  {
+    "footprint": "Inductor_SMD/L_Coilcraft_XAL6030-XXX",
+    "status": "available",
+    "model": "Inductor_SMD.3dshapes/L_Coilcraft_XAL6030-XXX.step",
+    "sha256": "522bc770e7be9735f587909f13f7faffeb80844fdbc50e7e4325a651a2ee2fad",
+    "bytes": 32253,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Inductor_SMD.3dshapes/L_Coilcraft_XAL6030-XXX.step"
+  },
+  {
+    "footprint": "LED_SMD/LED_0603_1608Metric",
+    "status": "available",
+    "model": "LED_SMD.3dshapes/LED_0603_1608Metric.step",
+    "sha256": "98343205ec260ec165026ba2d44329a23096779ac36c553ea84aa7b370242e6d",
+    "bytes": 77068,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/LED_SMD.3dshapes/LED_0603_1608Metric.step"
+  },
+  {
+    "footprint": "Oscillator/Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm",
+    "status": "available",
+    "model": "Crystal.3dshapes/Crystal_SMD_3225-4Pin_3.2x2.5mm.step",
+    "sha256": "d2a89df82ee5f0f56ef23ee59c8161b8d4e92af2b21959d72778316dde3f9f22",
+    "bytes": 44789,
+    "verification": "representative body only",
+    "limitation": "Representative 3.2 x 2.5 mm four-pad metal package. Oscillator height and case details require manufacturer verification.",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Crystal.3dshapes/Crystal_SMD_3225-4Pin_3.2x2.5mm.step"
+  },
+  {
+    "footprint": "Package_DFN_QFN/Texas_DRB0008A",
+    "status": "available",
+    "model": "Package_DFN_QFN.3dshapes/DFN-8-1EP_3x3mm_P0.65mm_EP1.7x2.05mm.step",
+    "sha256": "15cd3f630ee6d0898b35003c0099bac6de9705e39c9db4812b4dd06800543709",
+    "bytes": 105274,
+    "verification": "representative body only",
+    "limitation": "Representative 3 x 3 mm eight-lead package body only. Model exposed pad differs; it does not validate the TPS3431 land pattern.",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_DFN_QFN.3dshapes/DFN-8-1EP_3x3mm_P0.65mm_EP1.7x2.05mm.step"
+  },
+  {
+    "footprint": "Package_DFN_QFN/VQFN-40-1EP_6x6mm_P0.5mm_EP3.5x3.5mm",
+    "status": "available",
+    "model": "Package_DFN_QFN.3dshapes/QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm.step",
+    "sha256": "e5b4286c2329085d9ef7f90d5eb5bf41a435241ecc1baaf1383823b6d6a946ae",
+    "bytes": 551039,
+    "verification": "representative body only",
+    "limitation": "Representative 6 x 6 mm 40-lead package body only. Model exposed pad differs; it does not validate the DRV8353 land pattern.",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_DFN_QFN.3dshapes/QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm.step"
+  },
+  {
+    "footprint": "Package_QFP/LQFP-64_10x10mm_P0.5mm",
+    "status": "available",
+    "model": "Package_QFP.3dshapes/LQFP-64_10x10mm_P0.5mm.step",
+    "sha256": "b0c827bc5c05552175d28affe44a5bd2ab45c9c36efff6ff07a74cc449b13db4",
+    "bytes": 867325,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_QFP.3dshapes/LQFP-64_10x10mm_P0.5mm.step"
+  },
+  {
+    "footprint": "Package_SO/HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm",
+    "status": "available",
+    "model": "Package_SO.3dshapes/HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm.step",
+    "sha256": "4fd09ee3ef5c89805b57c5c37cc385500042cac2e5b688dab664aa47528d401f",
+    "bytes": 129725,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SO.3dshapes/HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm.step"
+  },
+  {
+    "footprint": "Package_SO/MSOP-8_3x3mm_P0.65mm",
+    "status": "available",
+    "model": "Package_SO.3dshapes/MSOP-8_3x3mm_P0.65mm.step",
+    "sha256": "847c4c5023fe1603fbd36900a5dcc4bd3901ba473f71d42c9a469f0236eaadf3",
+    "bytes": 125469,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SO.3dshapes/MSOP-8_3x3mm_P0.65mm.step"
+  },
+  {
+    "footprint": "Package_SO/SOIC-8_3.9x4.9mm_P1.27mm",
+    "status": "available",
+    "model": "Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step",
+    "sha256": "07f46cff378d30e6c27dfd5a03092c795323f86d91c71fc7e743f4f418dc553a",
+    "bytes": 125320,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "footprint": "Package_SO/SSOP-8_2.95x2.8mm_P0.65mm",
+    "status": "available",
+    "model": "Package_SO.3dshapes/SSOP-8_2.95x2.8mm_P0.65mm.step",
+    "sha256": "9b95dcfed5f8335acc9fd1e0856ff0f83eafda73809c7e051c1615ab69a863c6",
+    "bytes": 125043,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SO.3dshapes/SSOP-8_2.95x2.8mm_P0.65mm.step"
+  },
+  {
+    "footprint": "Package_SO/TSSOP-14_4.4x5mm_P0.65mm",
+    "status": "available",
+    "model": "Package_SO.3dshapes/TSSOP-14_4.4x5mm_P0.65mm.step",
+    "sha256": "19b9b2166b135541d1becff84430790f016da306c8a8b90f925b2e66d0bbaee5",
+    "bytes": 201125,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SO.3dshapes/TSSOP-14_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "footprint": "Package_SO/TSSOP-20_4.4x6.5mm_P0.65mm",
+    "status": "available",
+    "model": "Package_SO.3dshapes/TSSOP-20_4.4x6.5mm_P0.65mm.step",
+    "sha256": "97339947f3a7196470ec2f1d9f9b92bb2fc2ab66ad53be0cf105192585ef3c9a",
+    "bytes": 273281,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SO.3dshapes/TSSOP-20_4.4x6.5mm_P0.65mm.step"
+  },
+  {
+    "footprint": "Package_SON/USON-10_2.5x1.0mm_P0.5mm",
+    "status": "available",
+    "model": "Package_SON.3dshapes/USON-10_2.5x1.0mm_P0.5mm.step",
+    "sha256": "d9d0628ead2ac2bab888344afbd0ef8b0f5a4ba37641ccc66dcbe300e3a74ac0",
+    "bytes": 112123,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_SON.3dshapes/USON-10_2.5x1.0mm_P0.5mm.step"
+  },
+  {
+    "footprint": "Package_TO_SOT_SMD/SOT-23",
+    "status": "available",
+    "model": "Package_TO_SOT_SMD.3dshapes/SOT-23.step",
+    "sha256": "dd5d1711204e1d8d26cd11490923bd84340820baa69538c385a4300ec2539bc0",
+    "bytes": 60296,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_TO_SOT_SMD.3dshapes/SOT-23.step"
+  },
+  {
+    "footprint": "Package_TO_SOT_SMD/SOT-23-5",
+    "status": "available",
+    "model": "Package_TO_SOT_SMD.3dshapes/SOT-23-5.step",
+    "sha256": "720a6eab0024069bbee68e7cb4c3ff1149468a34611225cdc852662c5d0ec2b7",
+    "bytes": 87532,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_TO_SOT_SMD.3dshapes/SOT-23-5.step"
+  },
+  {
+    "footprint": "Package_TO_SOT_SMD/SOT-23-6",
+    "status": "available",
+    "model": "Package_TO_SOT_SMD.3dshapes/SOT-23-6.step",
+    "sha256": "c9fe686b4d1b56927a41fa84a9bc1efb61d8a45a123a3db43bcaa05c2891d635",
+    "bytes": 99639,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_TO_SOT_SMD.3dshapes/SOT-23-6.step"
+  },
+  {
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "status": "available",
+    "model": "Package_TO_SOT_SMD.3dshapes/TO-263-3_TabPin2.step",
+    "sha256": "f8d7f00ad233d49496cf0b53aca1891fcbc2d8d007dfe42465186627fedd54d0",
+    "bytes": 127542,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_TO_SOT_SMD.3dshapes/TO-263-3_TabPin2.step"
+  },
+  {
+    "footprint": "Package_TO_SOT_THT/TO-220-2_Vertical",
+    "status": "available",
+    "model": "generated/TO-220-2_Vertical_LeadTrim2mm.step",
+    "sha256": "71a803f24880eb14beb2635d024fee266cbd8b4af9cdb629f437d9d17664ad5f",
+    "bytes": 129099,
+    "verification": "stock package with 2 mm lead trim",
+    "assemblyRequirement": "Trim D2 leads to <=2 mm below the motor-facing PCB plane; see lead-trim-provenance.json.",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_TO_SOT_THT.3dshapes/TO-220-2_Vertical.step"
+  },
+  {
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "status": "available",
+    "model": "Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+    "sha256": "1875571c326d0d9e96f36b4efeb8094068ef7619f0a449c781caf0b49c2e5861",
+    "bytes": 40618,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
+  },
+  {
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "status": "available",
+    "model": "Resistor_SMD.3dshapes/R_1206_3216Metric.step",
+    "sha256": "f5d1ea5c47935091292bd1c6c698e0df88d3d4bbf92bf66b4c97e49df5be9ebc",
+    "bytes": 40414,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Resistor_SMD.3dshapes/R_1206_3216Metric.step"
+  },
+  {
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "status": "available",
+    "model": "Resistor_SMD.3dshapes/R_2512_6332Metric.step",
+    "sha256": "76b2052a3c120193de7cdc0af99157b6f375e9a4af7721e3e3d012968c877f27",
+    "bytes": 40272,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Resistor_SMD.3dshapes/R_2512_6332Metric.step"
+  },
+  {
+    "footprint": "TerminalBlock_RND/TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal",
+    "status": "missing",
+    "model": "TerminalBlock_RND.3dshapes/TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal.step"
+  },
+  {
+    "footprint": "TerminalBlock_RND/TerminalBlock_RND_205-00242_1x03_P10.16mm_Horizontal",
+    "status": "missing",
+    "model": "TerminalBlock_RND.3dshapes/TerminalBlock_RND_205-00242_1x03_P10.16mm_Horizontal.step"
+  },
+  {
+    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+    "status": "available",
+    "model": "TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal.step",
+    "sha256": "d0406f315db440b3136dd1a79e3602cdcc9bac757de7900d3d49b1d32aa5a1d4",
+    "bytes": 363749,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal.step"
+  },
+  {
+    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
+    "status": "available",
+    "model": "TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal.step",
+    "sha256": "96dcc52a4cedff2549c0bb47e2fc69c16dc52614296be1f8d17edd5f86029487",
+    "bytes": 513300,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/TerminalBlock_Phoenix.3dshapes/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal.step",
+    "sha256": "34ab88598f0e201dadfc72ee0492aa279ab0d4931a92da70a2536d69804cb5d3",
+    "bytes": 430112,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical.step",
+    "sha256": "ee7ec2a0c1138af960f93f73afae97ada5c28c61d6fbee99e7017c197f5e4996",
+    "bytes": 205681,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical.step",
+    "sha256": "d75c61eb136e5f0b5d676a63d15c2b17abce967626c9d25b0fad46a6e6c71961",
+    "bytes": 254733,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical.step",
+    "sha256": "ebc503b4b58cad5873c7cdeb695315baf8bea08dd22aa49873b0104671b78d59",
+    "bytes": 305851,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical.step"
+  },
+  {
+    "footprint": "Button_Switch_SMD/SW_SPST_PTS645",
+    "status": "available",
+    "model": "Button_Switch_SMD.3dshapes/SW_SPST_PTS645.step",
+    "sha256": "e3e88c007962b77d0ad5e3bc101a8ab4cccde1fbb285b4e6dc3a6bf2b175cca7",
+    "bytes": 155721,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Button_Switch_SMD.3dshapes/SW_SPST_PTS645.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_GH_BM08B-GHS-TBT_1x08-1MP_P1.25mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_GH_BM08B-GHS-TBT_1x08-1MP_P1.25mm_Vertical.step",
+    "sha256": "a7e6a89c3a8de9071102dbf65cb1a30536fd35925768a116de7c0cb76ae161e9",
+    "bytes": 508924,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Connector_JST.3dshapes/JST_GH_BM08B-GHS-TBT_1x08-1MP_P1.25mm_Vertical.step"
+  },
+  {
+    "footprint": "Package_TO_SOT_SMD/SOT-323_SC-70",
+    "status": "available",
+    "model": "Package_TO_SOT_SMD.3dshapes/SOT-323_SC-70.step",
+    "sha256": "3ccf342a062c38df7477ec028593896c8f99ccef44da2697cd1e135bdd1226df",
+    "bytes": 119383,
+    "verification": "stock KiCad package-family model",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_TO_SOT_SMD.3dshapes/SOT-323_SC-70.step"
+  },
+  {
+    "footprint": "Package_DFN_QFN/TI_RTA0040B_DRV8353",
+    "status": "available",
+    "model": "Package_DFN_QFN.3dshapes/QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm.step",
+    "sha256": "e5b4286c2329085d9ef7f90d5eb5bf41a435241ecc1baaf1383823b6d6a946ae",
+    "bytes": 551039,
+    "verification": "representative body only",
+    "limitation": "Representative body geometry. TI RTA0040B defines the board copper and stencil.",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_DFN_QFN.3dshapes/QFN-40-1EP_6x6mm_P0.5mm_EP4.6x4.6mm.step"
+  },
+  {
+    "footprint": "Connector_JST/JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical",
+    "status": "available",
+    "model": "Connector_JST.3dshapes/JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical.step",
+    "sha256": "ecb7ea3447422778cefc85afd7b66a33889ade546f00bca3d11f7688b77869be",
+    "bytes": 756802,
+    "verification": "part-specific STEP aligned to footprint frame",
+    "source": "https://github.com/SwashBuckler104/Micromouse/blob/ff4a18b755ba36d4287c2b25b5d82626a1462fe4/Components/BM02B-SRSS-TB_LF__SN_/BM02B-SRSS-TB_LF__SN_.step",
+    "transform": "Rotate +90 degrees around X and translate +1.2 mm along Y to align seating plane and contacts."
+  },
+  {
+    "footprint": "Package_DFN_QFN/DFN-10-1EP_3x3mm_P0.5mm_EP1.65x2.38mm",
+    "status": "available",
+    "model": "Package_DFN_QFN.3dshapes/DFN-10-1EP_3x3mm_P0.5mm_EP1.55x2.48mm.step",
+    "sha256": "738e2eb45860c11759f8e4f44ab26932b7c15e4d5d6c8c9ac22ae866a3e38711",
+    "bytes": 128545,
+    "verification": "representative body only",
+    "limitation": "Representative 3 x 3 mm 10-lead DFN body. Use the LT3065 DD drawing for land and exposed-pad dimensions.",
+    "source": "https://raw.githubusercontent.com/KiCad/kicad-packages3D/master/Package_DFN_QFN.3dshapes/DFN-10-1EP_3x3mm_P0.5mm_EP1.55x2.48mm.step"
+  }
+]

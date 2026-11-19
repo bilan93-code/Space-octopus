@@ -1,0 +1,357 @@
+[
+  {
+    "path": "assets/3d/TerminalBlock_RND.3dshapes__TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/TerminalBlock_RND.3dshapes/TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal.step",
+    "status": "missing",
+    "reason": "curl: (22) The requested URL returned error: 404",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/TerminalBlock_RND.3dshapes__TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal.step"
+  },
+  {
+    "path": "assets/3d/Fuse.3dshapes__Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Fuse.3dshapes/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open.step",
+    "status": "downloaded",
+    "bytes": 144814,
+    "sha256": "b43ee8044b04a96e747be8897af75af356ad92c28b2febf0bf3c36949104d994",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Fuse.3dshapes__Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open.step"
+  },
+  {
+    "path": "assets/3d/Diode_SMD.3dshapes__D_SMC.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Diode_SMD.3dshapes/D_SMC.step",
+    "status": "downloaded",
+    "bytes": 70688,
+    "sha256": "30dab4c2e22239b7e3694a4d45304e04255c6b70a79d28e9c34c6072ba647991",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Diode_SMD.3dshapes__D_SMC.step"
+  },
+  {
+    "path": "assets/3d/Capacitor_THT.3dshapes__CP_Radial_D18.0mm_P7.50mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Capacitor_THT.3dshapes/CP_Radial_D18.0mm_P7.50mm.step",
+    "status": "downloaded",
+    "bytes": 160934,
+    "sha256": "ae2d8bf5ddd7b73271c87f1ad63a3849077d694adcf3577672131e4ba0364c02",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Capacitor_THT.3dshapes__CP_Radial_D18.0mm_P7.50mm.step"
+  },
+  {
+    "path": "assets/3d/Capacitor_THT.3dshapes__C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Capacitor_THT.3dshapes/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4.step",
+    "status": "downloaded",
+    "bytes": 30373,
+    "sha256": "629b8ca3b4e7a0dd8eb70e9ea993e7834b704668e49c107f7617defe4f831417",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Capacitor_THT.3dshapes__C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4.step"
+  },
+  {
+    "path": "assets/3d/Resistor_SMD.3dshapes__R_2512_6332Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Resistor_SMD.3dshapes/R_2512_6332Metric.step",
+    "status": "downloaded",
+    "bytes": 40272,
+    "sha256": "76b2052a3c120193de7cdc0af99157b6f375e9a4af7721e3e3d012968c877f27",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Resistor_SMD.3dshapes__R_2512_6332Metric.step"
+  },
+  {
+    "path": "assets/3d/Package_SO.3dshapes__HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SO.3dshapes/HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm.step",
+    "status": "downloaded",
+    "bytes": 129725,
+    "sha256": "4fd09ee3ef5c89805b57c5c37cc385500042cac2e5b688dab664aa47528d401f",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SO.3dshapes__HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm.step"
+  },
+  {
+    "path": "assets/3d/Package_SO.3dshapes__MSOP-8_3x3mm_P0.65mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SO.3dshapes/MSOP-8_3x3mm_P0.65mm.step",
+    "status": "downloaded",
+    "bytes": 125469,
+    "sha256": "847c4c5023fe1603fbd36900a5dcc4bd3901ba473f71d42c9a469f0236eaadf3",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SO.3dshapes__MSOP-8_3x3mm_P0.65mm.step"
+  },
+  {
+    "path": "assets/3d/Package_TO_SOT_SMD.3dshapes__SOT-23-5.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_TO_SOT_SMD.3dshapes/SOT-23-5.step",
+    "status": "downloaded",
+    "bytes": 87532,
+    "sha256": "720a6eab0024069bbee68e7cb4c3ff1149468a34611225cdc852662c5d0ec2b7",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_TO_SOT_SMD.3dshapes__SOT-23-5.step"
+  },
+  {
+    "path": "assets/3d/Package_TO_SOT_SMD.3dshapes__SOT-23.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_TO_SOT_SMD.3dshapes/SOT-23.step",
+    "status": "downloaded",
+    "bytes": 60296,
+    "sha256": "dd5d1711204e1d8d26cd11490923bd84340820baa69538c385a4300ec2539bc0",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_TO_SOT_SMD.3dshapes__SOT-23.step"
+  },
+  {
+    "path": "assets/3d/Inductor_SMD.3dshapes__L_Coilcraft_MSS1246T-XXX.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Inductor_SMD.3dshapes/L_Coilcraft_MSS1246T-XXX.step",
+    "status": "downloaded",
+    "bytes": 91197,
+    "sha256": "d83efd862e2f22bb6ff5c5191a3568c54129173221513deae98c455ce9b56589",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Inductor_SMD.3dshapes__L_Coilcraft_MSS1246T-XXX.step"
+  },
+  {
+    "path": "assets/3d/Capacitor_SMD.3dshapes__C_1210_3225Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Capacitor_SMD.3dshapes/C_1210_3225Metric.step",
+    "status": "downloaded",
+    "bytes": 43502,
+    "sha256": "f8510481c5044113cf49b0fa6dd54ddab9224508bd6808e1afab8ef0cefdefc9",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Capacitor_SMD.3dshapes__C_1210_3225Metric.step"
+  },
+  {
+    "path": "assets/3d/Capacitor_SMD.3dshapes__C_0603_1608Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Capacitor_SMD.3dshapes/C_0603_1608Metric.step",
+    "status": "downloaded",
+    "bytes": 43450,
+    "sha256": "4857b3dc717675bf1fb22edda622ac3b3ae03cf44d81eefaf3fa3ba3a86d84c1",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Capacitor_SMD.3dshapes__C_0603_1608Metric.step"
+  },
+  {
+    "path": "assets/3d/Resistor_SMD.3dshapes__R_0603_1608Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Resistor_SMD.3dshapes/R_0603_1608Metric.step",
+    "status": "downloaded",
+    "bytes": 40618,
+    "sha256": "1875571c326d0d9e96f36b4efeb8094068ef7619f0a449c781caf0b49c2e5861",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Resistor_SMD.3dshapes__R_0603_1608Metric.step"
+  },
+  {
+    "path": "assets/3d/Inductor_SMD.3dshapes__L_Coilcraft_XAL6030-XXX.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Inductor_SMD.3dshapes/L_Coilcraft_XAL6030-XXX.step",
+    "status": "downloaded",
+    "bytes": 32253,
+    "sha256": "522bc770e7be9735f587909f13f7faffeb80844fdbc50e7e4325a651a2ee2fad",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Inductor_SMD.3dshapes__L_Coilcraft_XAL6030-XXX.step"
+  },
+  {
+    "path": "assets/3d/Capacitor_SMD.3dshapes__C_1206_3216Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Capacitor_SMD.3dshapes/C_1206_3216Metric.step",
+    "status": "downloaded",
+    "bytes": 43450,
+    "sha256": "11e948c72c90e2b6322436b72745f40ff4e8ba0da64fb2a0df943dfa61e89c1a",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Capacitor_SMD.3dshapes__C_1206_3216Metric.step"
+  },
+  {
+    "path": "assets/3d/Capacitor_SMD.3dshapes__C_0805_2012Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Capacitor_SMD.3dshapes/C_0805_2012Metric.step",
+    "status": "downloaded",
+    "bytes": 43618,
+    "sha256": "9a669c1a2f1ea25b88b401acef6efeaa80a067bd7da9db6993de719a7fbe155c",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Capacitor_SMD.3dshapes__C_0805_2012Metric.step"
+  },
+  {
+    "path": "assets/3d/Package_QFP.3dshapes__LQFP-64_10x10mm_P0.5mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_QFP.3dshapes/LQFP-64_10x10mm_P0.5mm.step",
+    "status": "downloaded",
+    "bytes": 867325,
+    "sha256": "b0c827bc5c05552175d28affe44a5bd2ab45c9c36efff6ff07a74cc449b13db4",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_QFP.3dshapes__LQFP-64_10x10mm_P0.5mm.step"
+  },
+  {
+    "path": "assets/3d/Oscillator.3dshapes__Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Oscillator.3dshapes/Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm.step",
+    "status": "missing",
+    "reason": "curl: (22) The requested URL returned error: 404",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Oscillator.3dshapes__Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm.step"
+  },
+  {
+    "path": "assets/3d/Inductor_SMD.3dshapes__L_0603_1608Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Inductor_SMD.3dshapes/L_0603_1608Metric.step",
+    "status": "downloaded",
+    "bytes": 43450,
+    "sha256": "b0136ad7160588d2f5dac8c85da84a35646db656b5bc54bbb873b6b548eedbb3",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Inductor_SMD.3dshapes__L_0603_1608Metric.step"
+  },
+  {
+    "path": "assets/3d/Connector_PinHeader_1.27mm.3dshapes__PinHeader_2x05_P1.27mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_PinHeader_1.27mm.3dshapes/PinHeader_2x05_P1.27mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 305203,
+    "sha256": "b5cabcd3e700ee74a3d8f64c687e718a0bc892653ead74bc00e8d4f534ffa575",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_PinHeader_1.27mm.3dshapes__PinHeader_2x05_P1.27mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Connector_PinHeader_2.54mm.3dshapes__PinHeader_1x04_P2.54mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x04_P2.54mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 145684,
+    "sha256": "a74079b8d06bda78847623b39ee1855ffd1d9a8c1e896b349e4f1dc2056d44d9",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_PinHeader_2.54mm.3dshapes__PinHeader_1x04_P2.54mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Button_Switch_SMD.3dshapes__SW_SPST_TL3342.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Button_Switch_SMD.3dshapes/SW_SPST_TL3342.step",
+    "status": "downloaded",
+    "bytes": 406589,
+    "sha256": "23b1770b921df25f489d37b5636ad4a292f966c00638da7b5cb4b7f97d11c639",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Button_Switch_SMD.3dshapes__SW_SPST_TL3342.step"
+  },
+  {
+    "path": "assets/3d/LED_SMD.3dshapes__LED_0603_1608Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/LED_SMD.3dshapes/LED_0603_1608Metric.step",
+    "status": "downloaded",
+    "bytes": 77068,
+    "sha256": "98343205ec260ec165026ba2d44329a23096779ac36c553ea84aa7b370242e6d",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/LED_SMD.3dshapes__LED_0603_1608Metric.step"
+  },
+  {
+    "path": "assets/3d/Package_DFN_QFN.3dshapes__VQFN-40-1EP_6x6mm_P0.5mm_EP3.5x3.5mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_DFN_QFN.3dshapes/VQFN-40-1EP_6x6mm_P0.5mm_EP3.5x3.5mm.step",
+    "status": "missing",
+    "reason": "curl: (22) The requested URL returned error: 404",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_DFN_QFN.3dshapes__VQFN-40-1EP_6x6mm_P0.5mm_EP3.5x3.5mm.step"
+  },
+  {
+    "path": "assets/3d/Package_TO_SOT_SMD.3dshapes__TO-263-3_TabPin2.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_TO_SOT_SMD.3dshapes/TO-263-3_TabPin2.step",
+    "status": "downloaded",
+    "bytes": 127542,
+    "sha256": "f8d7f00ad233d49496cf0b53aca1891fcbc2d8d007dfe42465186627fedd54d0",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_TO_SOT_SMD.3dshapes__TO-263-3_TabPin2.step"
+  },
+  {
+    "path": "assets/3d/Resistor_SMD.3dshapes__R_1206_3216Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Resistor_SMD.3dshapes/R_1206_3216Metric.step",
+    "status": "downloaded",
+    "bytes": 40414,
+    "sha256": "f5d1ea5c47935091292bd1c6c698e0df88d3d4bbf92bf66b4c97e49df5be9ebc",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Resistor_SMD.3dshapes__R_1206_3216Metric.step"
+  },
+  {
+    "path": "assets/3d/TerminalBlock_RND.3dshapes__TerminalBlock_RND_205-00242_1x03_P10.16mm_Horizontal.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/TerminalBlock_RND.3dshapes/TerminalBlock_RND_205-00242_1x03_P10.16mm_Horizontal.step",
+    "status": "missing",
+    "reason": "curl: (22) The requested URL returned error: 404",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/TerminalBlock_RND.3dshapes__TerminalBlock_RND_205-00242_1x03_P10.16mm_Horizontal.step"
+  },
+  {
+    "path": "assets/3d/Package_SO.3dshapes__TSSOP-14_4.4x5mm_P0.65mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SO.3dshapes/TSSOP-14_4.4x5mm_P0.65mm.step",
+    "status": "downloaded",
+    "bytes": 201125,
+    "sha256": "19b9b2166b135541d1becff84430790f016da306c8a8b90f925b2e66d0bbaee5",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SO.3dshapes__TSSOP-14_4.4x5mm_P0.65mm.step"
+  },
+  {
+    "path": "assets/3d/Connector_JST.3dshapes__JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_JST.3dshapes/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 144517,
+    "sha256": "7287616fdad677e9b54cf5494f17efc4b3fb77be002659d73e215772393f20c6",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_JST.3dshapes__JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Package_SO.3dshapes__SSOP-8_2.95x2.8mm_P0.65mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SO.3dshapes/SSOP-8_2.95x2.8mm_P0.65mm.step",
+    "status": "downloaded",
+    "bytes": 125043,
+    "sha256": "9b95dcfed5f8335acc9fd1e0856ff0f83eafda73809c7e051c1615ab69a863c6",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SO.3dshapes__SSOP-8_2.95x2.8mm_P0.65mm.step"
+  },
+  {
+    "path": "assets/3d/Package_SO.3dshapes__TSSOP-20_4.4x6.5mm_P0.65mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SO.3dshapes/TSSOP-20_4.4x6.5mm_P0.65mm.step",
+    "status": "downloaded",
+    "bytes": 273281,
+    "sha256": "97339947f3a7196470ec2f1d9f9b92bb2fc2ab66ad53be0cf105192585ef3c9a",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SO.3dshapes__TSSOP-20_4.4x6.5mm_P0.65mm.step"
+  },
+  {
+    "path": "assets/3d/Package_TO_SOT_SMD.3dshapes__SOT-23-6.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_TO_SOT_SMD.3dshapes/SOT-23-6.step",
+    "status": "downloaded",
+    "bytes": 99639,
+    "sha256": "c9fe686b4d1b56927a41fa84a9bc1efb61d8a45a123a3db43bcaa05c2891d635",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_TO_SOT_SMD.3dshapes__SOT-23-6.step"
+  },
+  {
+    "path": "assets/3d/Package_DFN_QFN.3dshapes__Texas_DRB0008A.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_DFN_QFN.3dshapes/Texas_DRB0008A.step",
+    "status": "missing",
+    "reason": "curl: (22) The requested URL returned error: 404",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_DFN_QFN.3dshapes__Texas_DRB0008A.step"
+  },
+  {
+    "path": "assets/3d/Diode_SMD.3dshapes__D_SOD-323.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Diode_SMD.3dshapes/D_SOD-323.step",
+    "status": "downloaded",
+    "bytes": 52730,
+    "sha256": "cd8619b2119cd95683a2c5e660ab4f2d4db674f696cd6f9e9756f221171a214d",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Diode_SMD.3dshapes__D_SOD-323.step"
+  },
+  {
+    "path": "assets/3d/Connector_JST.3dshapes__JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_JST.3dshapes/JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 187051,
+    "sha256": "8800a66e739fc222ec36495d2d05fd0f79ba9423c3587c7169630591d024f36f",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_JST.3dshapes__JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Package_SO.3dshapes__SOIC-8_3.9x4.9mm_P1.27mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SO.3dshapes/SOIC-8_3.9x4.9mm_P1.27mm.step",
+    "status": "downloaded",
+    "bytes": 125320,
+    "sha256": "07f46cff378d30e6c27dfd5a03092c795323f86d91c71fc7e743f4f418dc553a",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SO.3dshapes__SOIC-8_3.9x4.9mm_P1.27mm.step"
+  },
+  {
+    "path": "assets/3d/Connector_PinHeader_1.27mm.3dshapes__PinHeader_1x11_P1.27mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_PinHeader_1.27mm.3dshapes/PinHeader_1x11_P1.27mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 390225,
+    "sha256": "b91aa439b8de855c84c521658b3438c8280070d60e984298f7c97454e48c7eff",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_PinHeader_1.27mm.3dshapes__PinHeader_1x11_P1.27mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Fuse.3dshapes__Fuse_1206_3216Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Fuse.3dshapes/Fuse_1206_3216Metric.step",
+    "status": "downloaded",
+    "bytes": 40429,
+    "sha256": "5e6dcbe286696143d35a8ea37d91eef4b54ff3d1bd7c2c2b4dedda83d3f8e203",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Fuse.3dshapes__Fuse_1206_3216Metric.step"
+  },
+  {
+    "path": "assets/3d/Inductor_SMD.3dshapes__L_0805_2012Metric.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Inductor_SMD.3dshapes/L_0805_2012Metric.step",
+    "status": "downloaded",
+    "bytes": 43618,
+    "sha256": "751a8ae26d20698bfe8303aa2fc7ec986a8b9a7154699b94bf2a13d4ad401425",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Inductor_SMD.3dshapes__L_0805_2012Metric.step"
+  },
+  {
+    "path": "assets/3d/Diode_SMD.3dshapes__D_SMB.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Diode_SMD.3dshapes/D_SMB.step",
+    "status": "downloaded",
+    "bytes": 70508,
+    "sha256": "029466277d91e9f5492556be93e46611049e07115c7913880c547afa96058ed4",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Diode_SMD.3dshapes__D_SMB.step"
+  },
+  {
+    "path": "assets/3d/Connector_JST.3dshapes__JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_JST.3dshapes/JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 222777,
+    "sha256": "7eb17ded8ec4a3216753a234254e22a2d8e07826f0816045bfb803a19cac75ea",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_JST.3dshapes__JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Package_SON.3dshapes__USON-10_2.5x1.0mm_P0.5mm.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_SON.3dshapes/USON-10_2.5x1.0mm_P0.5mm.step",
+    "status": "downloaded",
+    "bytes": 112123,
+    "sha256": "d9d0628ead2ac2bab888344afbd0ef8b0f5a4ba37641ccc66dcbe300e3a74ac0",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_SON.3dshapes__USON-10_2.5x1.0mm_P0.5mm.step"
+  },
+  {
+    "path": "assets/3d/Connector_JST.3dshapes__JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Connector_JST.3dshapes/JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical.step",
+    "status": "downloaded",
+    "bytes": 295109,
+    "sha256": "5a74ac21b099c174928a7afd6783a9e1d26e23a1f2418d4cb4856ad6430e9c2a",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Connector_JST.3dshapes__JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical.step"
+  },
+  {
+    "path": "assets/3d/Package_TO_SOT_THT.3dshapes__TO-220-2_Vertical.step",
+    "source": "https://gitlab.com/kicad/libraries/kicad-packages3D/-/raw/master/Package_TO_SOT_THT.3dshapes/TO-220-2_Vertical.step",
+    "status": "downloaded",
+    "bytes": 64987,
+    "sha256": "7656d388eca6f6d919aeb1661b7e60b68bc363359af24e92c0d3447fa0fe5801",
+    "originalPath": "libraries/SpaceOctopus.3dshapes/Package_TO_SOT_THT.3dshapes__TO-220-2_Vertical.step"
+  }
+]

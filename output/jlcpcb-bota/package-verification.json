@@ -1,0 +1,40 @@
+{
+  "purpose": "DFM and price quote only",
+  "approvedForManufacture": false,
+  "sourceSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "gerberMembers": [
+    "F_Cu.gbr",
+    "In1_Cu.gbr",
+    "In2_Cu.gbr",
+    "B_Cu.gbr",
+    "F_Mask.gbr",
+    "B_Mask.gbr",
+    "F_Paste.gbr",
+    "B_Paste.gbr",
+    "F_SilkScreen.gbr",
+    "B_SilkScreen.gbr",
+    "Edge_Cuts.gbr",
+    "drill-L1-L4.drl",
+    "drill_npth.drl"
+  ],
+  "bomLines": 97,
+  "cplPlacements": 226,
+  "sides": {
+    "Top": 71,
+    "Bottom": 155
+  },
+  "additionalCartridgesPerBoard": 2,
+  "missingExactCatalogueListings": [
+    "0031.8002",
+    "MSS1246T-683MLB",
+    "TPS3431SDRBR"
+  ],
+  "stockSnapshotUTC": "2026-11-16T22:43:28.369002+00:00",
+  "checks": 18,
+  "sha256": {
+    "Space-Octopus-Bota-JLCPCB-Gerbers-DFM-quote.zip": "42e818606cad5afecace9324481d7eba6cc9f567364252376177c952c87128f8",
+    "JLCPCB-BOM-quote.csv": "b3bcc0990414cfe7776df6cd0f3aa4441cf01bad1e47114ef0118adc78645ec7",
+    "JLCPCB-CPL-quote.csv": "28ba04a595aff519acdb9acc4ba4ce4a55790ece2d58e5d231f725936a49c5e1",
+    "Hand-insert-fuse-cartridges.csv": "862a6d642efe5d062846581224885898c50b3c23ad319bae266d2c44874ee1a1"
+  }
+}

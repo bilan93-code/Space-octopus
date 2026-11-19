@@ -1,0 +1,2746 @@
+[
+  {
+    "ref": "J1",
+    "sheet": "00_Input",
+    "kind": "connector",
+    "value": "DC input, 2 poles",
+    "pins": {
+      "1": "DC_IN",
+      "2": "GND"
+    },
+    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
+    "mpn": "1711725",
+    "lcsc": "C89120",
+    "sourcingReview": "Phoenix Contact 1711725 two-position, 5.08mm candidate; catalogue 24A/400V. Verify MKDS3 ordering-code association, exact body, wire gauge, temperature derating and DC ratings."
+  },
+  {
+    "ref": "F1",
+    "sheet": "00_Input",
+    "kind": "fuse",
+    "value": "20 A, >=100 Vdc",
+    "pins": {
+      "1": "DC_IN",
+      "2": "VBUS"
+    },
+    "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
+    "mpn": "BK/MDA-20-R",
+    "lcsc": "C3159408",
+    "sourcingReview": "Eaton BK/MDA-20-R cartridge candidate; catalogue 20A, 125Vdc, 6.4x31.8mm. Verify primary DC interrupt rating and time-current curves. Select/verify holder separately; catalogue interrupt figures mix AC/DC contexts.",
+    "holder": {
+      "mpn": "0031.8002",
+      "manufacturer": "SCHURTER",
+      "quantity": 1,
+      "release": "Verify DC suitability, derating, permissible dissipation and fuse fault-current coordination."
+    }
+  },
+  {
+    "ref": "D1",
+    "sheet": "00_Input",
+    "kind": "diode",
+    "value": "54 V standoff TVS",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Diode_SMD/D_SMC",
+    "pinLabels": {
+      "1": "K",
+      "2": "A"
+    },
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "SMCJ54A",
+    "lcsc": "C720068",
+    "sourcingReview": "Littelfuse selected for SMCJ54A. Verify maximum clamp at actual surge current, tolerance and thermal energy. A nominal 100V power stage is not qualified solely by TVS standoff."
+  },
+  {
+    "ref": "C1",
+    "sheet": "00_Input",
+    "kind": "capacitor",
+    "value": "820 uF, 100 V, 105 C",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+    "pinLabels": {
+      "1": "+",
+      "2": "-"
+    },
+    "notes": "Rubycon ZLJ; LCSC C5110679 catalogue label. Manufacturer row: 3.86 Arms at 105 C/100 kHz per capacitor; four-bank screen 14.8224 Arms using 0.96 frequency factor. D18 nominal/D18.5 max, L40 nominal/L42 max, pitch 7.5 mm; outward max envelope includes 1 mm seating allowance. See docs/BULK_WATCHDOG_FIX.md.",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+    "mpn": "100ZLJ820M18X40",
+    "lcsc": "C5110679"
+  },
+  {
+    "ref": "C2",
+    "sheet": "00_Input",
+    "kind": "capacitor",
+    "value": "820 uF, 100 V, 105 C",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+    "pinLabels": {
+      "1": "+",
+      "2": "-"
+    },
+    "notes": "Rubycon ZLJ; LCSC C5110679 catalogue label. Manufacturer row: 3.86 Arms at 105 C/100 kHz per capacitor; four-bank screen 14.8224 Arms using 0.96 frequency factor. D18 nominal/D18.5 max, L40 nominal/L42 max, pitch 7.5 mm; outward max envelope includes 1 mm seating allowance. See docs/BULK_WATCHDOG_FIX.md.",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+    "mpn": "100ZLJ820M18X40",
+    "lcsc": "C5110679"
+  },
+  {
+    "ref": "C3",
+    "sheet": "00_Input",
+    "kind": "capacitor",
+    "value": "820 uF, 100 V, 105 C",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+    "pinLabels": {
+      "1": "+",
+      "2": "-"
+    },
+    "notes": "Rubycon ZLJ; LCSC C5110679 catalogue label. Manufacturer row: 3.86 Arms at 105 C/100 kHz per capacitor; four-bank screen 14.8224 Arms using 0.96 frequency factor. D18 nominal/D18.5 max, L40 nominal/L42 max, pitch 7.5 mm; outward max envelope includes 1 mm seating allowance. See docs/BULK_WATCHDOG_FIX.md.",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+    "mpn": "100ZLJ820M18X40",
+    "lcsc": "C5110679"
+  },
+  {
+    "ref": "C4",
+    "sheet": "00_Input",
+    "kind": "capacitor",
+    "value": "820 uF, 100 V, 105 C",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+    "pinLabels": {
+      "1": "+",
+      "2": "-"
+    },
+    "notes": "Rubycon ZLJ; LCSC C5110679 catalogue label. Manufacturer row: 3.86 Arms at 105 C/100 kHz per capacitor; four-bank screen 14.8224 Arms using 0.96 frequency factor. D18 nominal/D18.5 max, L40 nominal/L42 max, pitch 7.5 mm; outward max envelope includes 1 mm seating allowance. See docs/BULK_WATCHDOG_FIX.md.",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+    "mpn": "100ZLJ820M18X40",
+    "lcsc": "C5110679"
+  },
+  {
+    "ref": "C5",
+    "sheet": "00_Input",
+    "kind": "capacitor",
+    "value": "4.7 uF, 100 V pulse film",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_THT/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Pulse-film capacitor unselected. Footprint allowance only; verify actual dimensions and pulse/ripple rating.",
+    "mpn": "ECWFD2W475K",
+    "lcsc": "C178475",
+    "sourcingReview": "Panasonic ECWFD2W475K 4.7uF polypropylene, catalogue 450V and 22.5mm pitch. Verify pulse/ripple rating and full body dimensions; existing 26.5x8.5mm model is not accepted as its envelope."
+  },
+  {
+    "ref": "R1",
+    "sheet": "00_Input",
+    "kind": "resistor",
+    "value": "22 kohm, 1 W, >=150 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "RC2512FK-0722KL",
+    "lcsc": "C877866",
+    "sourcingReview": "22k, 1W Yageo candidate; catalogue lists 200V. Verify working voltage, hot derating and land pattern. 0.105W at 48V nominal."
+  },
+  {
+    "ref": "TP1",
+    "sheet": "00_Input",
+    "kind": "testpoint",
+    "value": "VBUS",
+    "pins": {
+      "1": "VBUS"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "TP2",
+    "sheet": "00_Input",
+    "kind": "testpoint",
+    "value": "GND",
+    "pins": {
+      "1": "GND"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "U3",
+    "sheet": "01_Supplies",
+    "kind": "chip",
+    "value": "LM5164DDAR",
+    "pins": {
+      "1": "GND",
+      "2": "VBUS",
+      "3": "VBUS",
+      "4": "RON12",
+      "5": "FB12",
+      "6": "FAULT_RAW_N",
+      "7": "BST12",
+      "8": "BUCK12_SW",
+      "9": "GND"
+    },
+    "footprint": "Package_SO/HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm",
+    "pinLabels": {
+      "1": "GND",
+      "2": "VIN",
+      "3": "EN_UVLO",
+      "4": "RON",
+      "5": "FB",
+      "6": "PGOOD",
+      "7": "BST",
+      "8": "SW",
+      "9": "EP"
+    },
+    "notes": "DDA exposed pad 9 to ground. Land pattern from KiCad LM5164DDA mapping; final manufacturer drawing review pending.",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "LM5164DDAR",
+    "lcsc": "C477928",
+    "sourcingReview": "TI 100V-input buck candidate. Verify EN/PGOOD ratings, current limit maximum, ripple network, stability, inductor and thermal dissipation."
+  },
+  {
+    "ref": "U4",
+    "sheet": "01_Supplies",
+    "kind": "chip",
+    "value": "TPS62160DGKR",
+    "pins": {
+      "1": "GND",
+      "2": "V12",
+      "3": "V12",
+      "4": "GND",
+      "5": "FB5",
+      "6": "V5",
+      "7": "BUCK5_SW",
+      "8": "FAULT_RAW_N"
+    },
+    "footprint": "Package_SO/MSOP-8_3x3mm_P0.65mm",
+    "pinLabels": {
+      "1": "PGND",
+      "2": "VIN",
+      "3": "EN",
+      "4": "AGND",
+      "5": "FB",
+      "6": "VOS",
+      "7": "SW",
+      "8": "PG"
+    },
+    "notes": "DGK has eight pins and no exposed pad; distinct from DDA buck footprint.",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "TPS62160DGKR",
+    "lcsc": "C60726",
+    "sourcingReview": "TI DGK MSOP-8 candidate; this catalogue contains the exact ordering code. Verify pin numbering against DGK, output-capacitance range, current limit and transient rail headroom."
+  },
+  {
+    "ref": "U5",
+    "sheet": "01_Supplies",
+    "kind": "chip",
+    "value": "TLV75533PDBVR",
+    "pins": {
+      "1": "V5",
+      "2": "GND",
+      "3": "V5",
+      "4": null,
+      "5": "V3V3"
+    },
+    "footprint": "Package_TO_SOT_SMD/SOT-23-5",
+    "pinLabels": {
+      "1": "IN",
+      "2": "GND",
+      "3": "EN",
+      "4": "NC",
+      "5": "OUT"
+    },
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "TLV75533PDBVR",
+    "lcsc": "C404027",
+    "sourcingReview": "TI 3.3V LDO candidate. 0.425W at 5V input and 250mA load requires thermal validation on actual copper."
+  },
+  {
+    "ref": "U19",
+    "sheet": "01_Supplies",
+    "kind": "chip",
+    "value": "REF3025EAIDBZR",
+    "pins": {
+      "1": "V5",
+      "2": "REF25",
+      "3": "GND"
+    },
+    "footprint": "Package_TO_SOT_SMD/SOT-23",
+    "pinLabels": {
+      "1": "IN",
+      "2": "OUT",
+      "3": "GND"
+    },
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "REF3025EAIDBZR",
+    "lcsc": "C53222239",
+    "sourcingReview": "TI 2.5V reference candidate; verify output load, accuracy/drift over temperature and decoupling."
+  },
+  {
+    "ref": "L101",
+    "sheet": "01_Supplies",
+    "kind": "inductor",
+    "value": "68 uH",
+    "pins": {
+      "1": "BUCK12_SW",
+      "2": "V12"
+    },
+    "footprint": "Inductor_SMD/L_Coilcraft_MSS1246T-XXX",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "MSS1246T-683MLB",
+    "provisionalReason": "Coilcraft MSS1246T 68 uH, using the matching series footprint. Verify maximum buck current against hot saturation.",
+    "lcsc": "",
+    "sourcingReview": "Coilcraft MSS1246T 68 uH, using the matching series footprint. Verify maximum buck current against hot saturation."
+  },
+  {
+    "ref": "C101",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "2.2 uF, 100 V, X7R",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "AC1210KKX7R0BB225",
+    "lcsc": "C5182466",
+    "sourcingReview": "Catalogue screening: 2.2 uF, 100 V, X7R. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C102",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "2.2 uF, 100 V, X7R",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "AC1210KKX7R0BB225",
+    "lcsc": "C5182466",
+    "sourcingReview": "Catalogue screening: 2.2 uF, 100 V, X7R. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C103",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "22 uF, 25 V, X7R",
+    "pins": {
+      "1": "V12",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC1210KKX7R8BB226",
+    "lcsc": "C5341638",
+    "sourcingReview": "Catalogue screening: 22 uF, 25 V, X7R. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C104",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "22 uF, 25 V, X7R",
+    "pins": {
+      "1": "V12",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC1210KKX7R8BB226",
+    "lcsc": "C5341638",
+    "sourcingReview": "Catalogue screening: 22 uF, 25 V, X7R. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C105",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "2.2 nF, 50 V",
+    "pins": {
+      "1": "BST12",
+      "2": "BUCK12_SW"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603JRNPO9BN222",
+    "lcsc": "C107043",
+    "sourcingReview": "Catalogue screening: 2.2 nF, 50 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "R101",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "100 kohm, 1%",
+    "pins": {
+      "1": "RON12",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1003T5E",
+    "lcsc": "C25803",
+    "sourcingReview": "Catalogue screening: 100 kohm, 1%. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R102",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "448 kohm, 0.1%",
+    "pins": {
+      "1": "V12",
+      "2": "FB12"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "RT0603BRD07448KL",
+    "lcsc": "C861409",
+    "sourcingReview": "Catalogue screening: 448 kohm, 0.1%. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R103",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "49.9 kohm, 0.1%",
+    "pins": {
+      "1": "FB12",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "TNPW060349K9BEEA",
+    "lcsc": "C844267",
+    "sourcingReview": "Catalogue screening: 49.9 kohm, 0.1%. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R104",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "453 kohm, 1%",
+    "pins": {
+      "1": "BUCK12_SW",
+      "2": "RIPPLE12"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "RC0603FR-07453KL",
+    "lcsc": "C273765",
+    "sourcingReview": "Catalogue screening: 453 kohm, 1%. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "C106",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "3.3 nF, 50 V",
+    "pins": {
+      "1": "RIPPLE12",
+      "2": "V12"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603JRNPO9BN332",
+    "lcsc": "C107048",
+    "sourcingReview": "Catalogue screening: 3.3 nF, 50 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C107",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "56 pF, 50 V",
+    "pins": {
+      "1": "RIPPLE12",
+      "2": "FB12"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL10C560JB8NNNC",
+    "lcsc": "C39148",
+    "sourcingReview": "Catalogue screening: 56 pF, 50 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "L102",
+    "sheet": "01_Supplies",
+    "kind": "inductor",
+    "value": "2.2 uH; Isat >=2 A",
+    "pins": {
+      "1": "BUCK5_SW",
+      "2": "V5"
+    },
+    "footprint": "Inductor_SMD/L_Coilcraft_XAL6030-XXX",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Coilcraft XAL6030 2.2 uH, catalog 15.9 A saturation and 7 A rated. Confirm hot characteristics.",
+    "mpn": "XAL6030-222MEC",
+    "lcsc": "C5440776",
+    "sourcingReview": "Coilcraft XAL6030 2.2 uH, catalog 15.9 A saturation and 7 A rated. Confirm hot characteristics."
+  },
+  {
+    "ref": "C108",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "10 uF, 25 V",
+    "pins": {
+      "1": "V12",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC1206KKX7R8BB106",
+    "lcsc": "C70462",
+    "sourcingReview": "Catalogue screening: 10 uF, 25 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C109",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "22 uF, 10 V",
+    "pins": {
+      "1": "V5",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "C2012X5R1C226KT000E",
+    "lcsc": "C76637",
+    "sourcingReview": "TDK C2012X5R1C226KT000E 22uF 16V 10% X5R 0805 candidate. Explicit X5R selection requires <=85C local operation and effective capacitance at 5V/temperature to satisfy U4; nominal value alone is insufficient.",
+    "provisionalReason": "TDK C2012X5R1C226KT000E 22uF 16V 10% X5R 0805 candidate. Explicit X5R selection requires <=85C local operation and effective capacitance at 5V/temperature to satisfy U4; nominal value alone is insufficient."
+  },
+  {
+    "ref": "R105",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "523 kohm, 0.1%",
+    "pins": {
+      "1": "V5",
+      "2": "FB5"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "RT0603BRD07523KL",
+    "lcsc": "C861460",
+    "sourcingReview": "Catalogue screening: 523 kohm, 0.1%. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R106",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "100 kohm, 0.1%",
+    "pins": {
+      "1": "FB5",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "TNPW0603100KBEEA",
+    "lcsc": "C844888",
+    "sourcingReview": "Catalogue screening: 100 kohm, 0.1%. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "C110",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "1 uF, 10 V",
+    "pins": {
+      "1": "V5",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "VJ0603Y105KXJCW1BC",
+    "lcsc": "C2169543",
+    "sourcingReview": "Catalogue screening: 1 uF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C111",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "10 uF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0805KKX7R7BB106",
+    "lcsc": "C326595",
+    "sourcingReview": "Catalogue screening: 10 uF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C112",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "100 nF, 16 V",
+    "pins": {
+      "1": "V5",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 16 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C113",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "1 uF, 10 V",
+    "pins": {
+      "1": "REF25",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "VJ0603Y105KXJCW1BC",
+    "lcsc": "C2169543",
+    "sourcingReview": "Catalogue screening: 1 uF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "TP3",
+    "sheet": "01_Supplies",
+    "kind": "testpoint",
+    "value": "V12",
+    "pins": {
+      "1": "V12"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "TP4",
+    "sheet": "01_Supplies",
+    "kind": "testpoint",
+    "value": "V5",
+    "pins": {
+      "1": "V5"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "TP5",
+    "sheet": "01_Supplies",
+    "kind": "testpoint",
+    "value": "V3V3",
+    "pins": {
+      "1": "V3V3"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "TP6",
+    "sheet": "01_Supplies",
+    "kind": "testpoint",
+    "value": "REF25",
+    "pins": {
+      "1": "REF25"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "U1",
+    "sheet": "02_MCU",
+    "kind": "chip",
+    "value": "STM32G431RBT6",
+    "pins": {
+      "1": "V3V3",
+      "2": null,
+      "3": null,
+      "4": null,
+      "5": "HSE_CLK",
+      "6": null,
+      "7": "RESET_N",
+      "8": "VBUS_SENSE",
+      "9": "NTC_MOTOR_ADC",
+      "10": "NTC_BOARD_ADC",
+      "11": "REF25_MON",
+      "12": "IU_ADC",
+      "13": "IV_ADC",
+      "14": "IW_ADC",
+      "15": "GND",
+      "16": "V3V3",
+      "17": "BRAKE_ON",
+      "18": "ENC_CLK_EN",
+      "19": "ENC_CLK_LOGIC",
+      "20": "ENC_DATA_LOGIC",
+      "21": null,
+      "22": null,
+      "23": "DRV_ENABLE",
+      "24": "LED_FAULT",
+      "25": "EXP_PB1",
+      "26": "EXP_PB2",
+      "27": "GND",
+      "28": "VDDA3V3",
+      "29": "VDDA3V3",
+      "30": "FAULT_LATCH_OK",
+      "31": "GND",
+      "32": "V3V3",
+      "33": "EXP_PB11",
+      "34": "FAULT_RAW_N",
+      "35": "PWM_UL",
+      "36": "PWM_VL",
+      "37": "PWM_WL",
+      "38": "MCU_RUN",
+      "39": "ARM_PULSE",
+      "40": "WDI",
+      "41": "PERMIT_OK",
+      "42": "PWM_UH",
+      "43": "PWM_VH",
+      "44": "PWM_WH",
+      "45": "CAN_RX",
+      "46": "CAN_TX",
+      "47": "GND",
+      "48": "V3V3",
+      "49": "SWDIO",
+      "50": "SWCLK",
+      "51": null,
+      "52": "DRV_SCK",
+      "53": "DRV_SDO",
+      "54": "DRV_MOSI",
+      "55": "DRV_CS_N",
+      "56": "SWO",
+      "57": "EXP_PB4",
+      "58": "CAN_STB",
+      "59": "UART_TX",
+      "60": "UART_RX",
+      "61": "BOOT0",
+      "62": "LED_STATUS",
+      "63": "GND",
+      "64": "V3V3"
+    },
+    "footprint": "Package_QFP/LQFP-64_10x10mm_P0.5mm",
+    "pinLabels": {
+      "1": "VBAT",
+      "2": "PC13",
+      "3": "PC14",
+      "4": "PC15",
+      "5": "PF0",
+      "6": "PF1",
+      "7": "PG10_NRST",
+      "8": "PC0",
+      "9": "PC1",
+      "10": "PC2",
+      "11": "PC3",
+      "12": "PA0",
+      "13": "PA1",
+      "14": "PA2",
+      "15": "VSS",
+      "16": "VDD",
+      "17": "PA3",
+      "18": "PA4",
+      "19": "PA5",
+      "20": "PA6",
+      "21": "PA7",
+      "22": "PC4",
+      "23": "PC5",
+      "24": "PB0",
+      "25": "PB1",
+      "26": "PB2",
+      "27": "VSSA",
+      "28": "VREF+",
+      "29": "VDDA",
+      "30": "PB10",
+      "31": "VSS",
+      "32": "VDD",
+      "33": "PB11",
+      "34": "PB12",
+      "35": "PB13",
+      "36": "PB14",
+      "37": "PB15",
+      "38": "PC6",
+      "39": "PC7",
+      "40": "PC8",
+      "41": "PC9",
+      "42": "PA8",
+      "43": "PA9",
+      "44": "PA10",
+      "45": "PA11",
+      "46": "PA12",
+      "47": "VSS",
+      "48": "VDD",
+      "49": "PA13",
+      "50": "PA14",
+      "51": "PA15",
+      "52": "PC10",
+      "53": "PC11",
+      "54": "PC12",
+      "55": "PD2",
+      "56": "PB3",
+      "57": "PB4",
+      "58": "PB5",
+      "59": "PB6",
+      "60": "PB7",
+      "61": "PB8",
+      "62": "PB9",
+      "63": "VSS",
+      "64": "VDD"
+    },
+    "notes": "PB15 TIM1_CH3N uses AF4. HSE bypass PF0; PF1 NC. Unused pins default analog; firmware is separate.",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "STM32G431RBT6",
+    "lcsc": "C431633",
+    "sourcingReview": "ST manufacturer selected explicitly. Verify pin multiplexing, VDDA/ADC limits, decoupling and LQFP package drawing."
+  },
+  {
+    "ref": "Y1",
+    "sheet": "02_MCU",
+    "kind": "chip",
+    "value": "ASE-8.000MHZ-L-C-T",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND",
+      "3": "OSC8_OUT",
+      "4": "V3V3"
+    },
+    "footprint": "Oscillator/Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm",
+    "pinLabels": {
+      "1": "OE",
+      "2": "GND",
+      "3": "OUT",
+      "4": "VDD"
+    },
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "ASE-8.000MHZ-LC-T",
+    "lcsc": "C6277872",
+    "sourcingReview": "Abracon catalogue order code ASE-8.000MHZ-LC-T differs in punctuation from original. Verify ordering suffix, enable polarity, supply, frequency tolerance and pad numbering."
+  },
+  {
+    "ref": "R201",
+    "sheet": "02_MCU",
+    "kind": "resistor",
+    "value": "33 ohm",
+    "pins": {
+      "1": "OSC8_OUT",
+      "2": "HSE_CLK"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF330JT5E",
+    "lcsc": "C23140",
+    "sourcingReview": "Catalogue screening: 33 ohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "C201",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C202",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C203",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C204",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C209",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C211",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C205",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "4.7 uF, 10 V",
+    "pins": {
+      "1": "V3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0805KKX7R8BB475",
+    "lcsc": "C354262",
+    "sourcingReview": "Catalogue screening: 4.7 uF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "FB201",
+    "sheet": "02_MCU",
+    "kind": "inductor",
+    "value": "Ferrite, >=100 mA, low DCR",
+    "pins": {
+      "1": "V3V3",
+      "2": "VDDA3V3"
+    },
+    "footprint": "Inductor_SMD/L_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Select impedance and damping after analog noise check.",
+    "mpn": "BLM18AG601SN1D",
+    "lcsc": "C19330",
+    "sourcingReview": "Murata BLM18AG601SN1D, 600Ohm@100MHz, 0.38Ohm catalogue DCR. At 100mA: 38mV drop, 3.8mW. Verify actual VDDA load, DC-biased impedance and LC ringing/noise."
+  },
+  {
+    "ref": "C206",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "1 uF, 10 V",
+    "pins": {
+      "1": "VDDA3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "VJ0603Y105KXJCW1BC",
+    "lcsc": "C2169543",
+    "sourcingReview": "Catalogue screening: 1 uF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C207",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "VDDA3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C208",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "VDDA3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C210",
+    "sheet": "02_MCU",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "RESET_N",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "R202",
+    "sheet": "02_MCU",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "RESET_N",
+      "2": "V3V3"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R203",
+    "sheet": "02_MCU",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "BOOT0",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "J7",
+    "sheet": "02_MCU",
+    "kind": "connector",
+    "value": "ARM SWD 10-pin",
+    "pins": {
+      "1": "V3V3",
+      "2": "SWDIO",
+      "3": "GND",
+      "4": "SWCLK",
+      "5": "GND",
+      "6": "SWO",
+      "7": null,
+      "8": null,
+      "9": "GND",
+      "10": "RESET_N"
+    },
+    "footprint": "Connector_PinHeader_1.27mm/PinHeader_2x05_P1.27mm_Vertical",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Confirm keyed connector, pin-7 key and pin-1 orientation.",
+    "mpn": "FTSH-105-01-L-D-K",
+    "lcsc": "C19191796",
+    "sourcingReview": "Samtec FTSH-105-01-L-D-K through-hole 2x5 candidate. Verify hole size, complete keying configuration, missing-pin-7 requirement and probe mating; do not infer key function from suffix."
+  },
+  {
+    "ref": "J9",
+    "sheet": "02_MCU",
+    "kind": "connector",
+    "value": "3.3 V service UART",
+    "pins": {
+      "1": "GND",
+      "2": "UART_TX",
+      "3": "UART_RX",
+      "4": "V3V3"
+    },
+    "footprint": "Connector_PinHeader_2.54mm/PinHeader_1x04_P2.54mm_Vertical",
+    "pinLabels": {},
+    "notes": "Service UART. J9 is independent of the Bota sensor.",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Connector/harness selection pending.",
+    "mpn": "M20-9990445",
+    "lcsc": "C3331449",
+    "sourcingReview": "Harwin M20-9990445 1x4 2.54mm candidate. Verify finished hole size, plating, height and pin-1 orientation."
+  },
+  {
+    "ref": "SW1",
+    "sheet": "02_MCU",
+    "kind": "switch",
+    "value": "Reset pushbutton",
+    "pins": {
+      "1": "RESET_MR_N",
+      "2": "GND"
+    },
+    "footprint": "Button_Switch_SMD/SW_SPST_PTS645",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "C&K PTS645SK43SMTR92LFS reset-switch candidate, catalogue 6x6mm body, 4.3mm height, -40..85C. Replace TL3342 footprint, move to outward side for motor clearance/access; verify actual drawing and contacts. The available TL3342F450QG is listed only to 70C.",
+    "mpn": "PTS645SK43SMTR92LFS",
+    "lcsc": "C221871",
+    "sourcingReview": "C&K PTS645SK43SMTR92LFS reset-switch candidate, catalogue 6x6mm body, 4.3mm height, -40..85C. Replace TL3342 footprint, move to outward side for motor clearance/access; verify actual drawing and contacts. The available TL3342F450QG is listed only to 70C."
+  },
+  {
+    "ref": "D7",
+    "sheet": "02_MCU",
+    "kind": "led",
+    "value": "Power",
+    "pins": {
+      "1": "GND",
+      "2": "LED7_A"
+    },
+    "footprint": "LED_SMD/LED_0603_1608Metric",
+    "pinLabels": {
+      "1": "K",
+      "2": "A"
+    },
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Select LED color and forward voltage.",
+    "mpn": "LTST-C190KGKT",
+    "lcsc": "C125094",
+    "sourcingReview": "Lite-On LTST-C190KGKT yellow-green power indicator. Verify low-current brightness, Vf and cathode polarity with existing 3.3k resistor."
+  },
+  {
+    "ref": "R204",
+    "sheet": "02_MCU",
+    "kind": "resistor",
+    "value": "3.3 kohm",
+    "pins": {
+      "1": "V3V3",
+      "2": "LED7_A"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF3301T5E",
+    "lcsc": "C22978",
+    "sourcingReview": "Catalogue screening: 3.3 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "D8",
+    "sheet": "02_MCU",
+    "kind": "led",
+    "value": "Status",
+    "pins": {
+      "1": "GND",
+      "2": "LED8_A"
+    },
+    "footprint": "LED_SMD/LED_0603_1608Metric",
+    "pinLabels": {
+      "1": "K",
+      "2": "A"
+    },
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Select LED color and forward voltage.",
+    "mpn": "LTST-C190KSKT",
+    "lcsc": "C125095",
+    "sourcingReview": "Lite-On LTST-C190KSKT yellow status indicator. Verify low-current brightness, Vf and cathode polarity."
+  },
+  {
+    "ref": "R205",
+    "sheet": "02_MCU",
+    "kind": "resistor",
+    "value": "3.3 kohm",
+    "pins": {
+      "1": "LED_STATUS",
+      "2": "LED8_A"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF3301T5E",
+    "lcsc": "C22978",
+    "sourcingReview": "Catalogue screening: 3.3 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "D9",
+    "sheet": "02_MCU",
+    "kind": "led",
+    "value": "Fault",
+    "pins": {
+      "1": "GND",
+      "2": "LED9_A"
+    },
+    "footprint": "LED_SMD/LED_0603_1608Metric",
+    "pinLabels": {
+      "1": "K",
+      "2": "A"
+    },
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Select LED color and forward voltage.",
+    "mpn": "LTST-C190KRKT",
+    "lcsc": "C94869",
+    "sourcingReview": "Lite-On LTST-C190KRKT red fault indicator. Verify low-current brightness, Vf and cathode polarity."
+  },
+  {
+    "ref": "R206",
+    "sheet": "02_MCU",
+    "kind": "resistor",
+    "value": "3.3 kohm",
+    "pins": {
+      "1": "LED_FAULT",
+      "2": "LED9_A"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF3301T5E",
+    "lcsc": "C22978",
+    "sourcingReview": "Catalogue screening: 3.3 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "U2",
+    "sheet": "03_GateDriver",
+    "kind": "chip",
+    "value": "DRV8353SRTAR",
+    "pins": {
+      "1": "CP_L",
+      "2": "CP_H",
+      "3": "V12",
+      "4": "VBUS",
+      "5": "VCP",
+      "6": "GH_U",
+      "7": "PH_U",
+      "8": "GL_U",
+      "9": "SHUNT_U_TOP",
+      "10": "GND",
+      "11": "GND",
+      "12": "SHUNT_V_TOP",
+      "13": "GL_V",
+      "14": "PH_V",
+      "15": "GH_V",
+      "16": "GH_W",
+      "17": "PH_W",
+      "18": "GL_W",
+      "19": "SHUNT_W_TOP",
+      "20": "GND",
+      "21": "IW_RAW",
+      "22": "IV_RAW",
+      "23": "IU_RAW",
+      "24": "VDDA3V3",
+      "25": "GND",
+      "26": "FAULT_RAW_N",
+      "27": "DRV_SDO",
+      "28": "DRV_MOSI_DRV",
+      "29": "DRV_SCK_DRV",
+      "30": "DRV_CS_N_DRV",
+      "31": "DRV_ENABLE",
+      "32": "PWM_UH_DRV",
+      "33": "PWM_UL_DRV",
+      "34": "PWM_VH_DRV",
+      "35": "PWM_VL_DRV",
+      "36": "PWM_WH_DRV",
+      "37": "PWM_WL_DRV",
+      "38": "DRV_DVDD",
+      "39": "GND",
+      "40": "DRV_VGLS",
+      "41": "GND"
+    },
+    "footprint": "Package_DFN_QFN/TI_RTA0040B_DRV8353",
+    "pinLabels": {
+      "1": "CPL",
+      "2": "CPH",
+      "3": "VM",
+      "4": "VDRAIN",
+      "5": "VCP",
+      "6": "GHA",
+      "7": "SHA",
+      "8": "GLA",
+      "9": "SPA",
+      "10": "SNA",
+      "11": "SNB",
+      "12": "SPB",
+      "13": "GLB",
+      "14": "SHB",
+      "15": "GHB",
+      "16": "GHC",
+      "17": "SHC",
+      "18": "GLC",
+      "19": "SPC",
+      "20": "SNC",
+      "21": "SOC",
+      "22": "SOB",
+      "23": "SOA",
+      "24": "VREF",
+      "25": "AGND",
+      "26": "nFAULT",
+      "27": "SDO",
+      "28": "SDI",
+      "29": "SCLK",
+      "30": "nSCS",
+      "31": "ENABLE",
+      "32": "INHA",
+      "33": "INLA",
+      "34": "INHB",
+      "35": "INLB",
+      "36": "INHC",
+      "37": "INLC",
+      "38": "DVDD",
+      "39": "GND",
+      "40": "VGLS",
+      "41": "EP"
+    },
+    "notes": "TI DRV8353SRTAR, RTA0040B. Manufacturer land example: 0.6 x 0.22 mm perimeter lands, 5.8 mm centres, 4.15 mm exposed pad.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "DRV8353SRTAR",
+    "provisionalReason": "PCB thermal-via design, paste process, gate waveforms and current ratings require qualification.",
+    "lcsc": "C701785",
+    "sourcingReview": "TI DRV8353S variant, without integrated buck. Verify all RTA pins, EP dimensions/paste, operating/transient limits, charge pump and CSA settings."
+  },
+  {
+    "ref": "C301",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "10 uF, 25 V",
+    "pins": {
+      "1": "V12",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC1206KKX7R8BB106",
+    "lcsc": "C70462",
+    "sourcingReview": "Catalogue screening: 10 uF, 25 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C302",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "100 nF, 25 V",
+    "pins": {
+      "1": "V12",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 25 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C303",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "47 nF, 100 V",
+    "pins": {
+      "1": "CP_L",
+      "2": "CP_H"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0805KKX7R0BB473",
+    "lcsc": "C107126",
+    "sourcingReview": "Catalogue screening: 47 nF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C304",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "1 uF, 25 V",
+    "pins": {
+      "1": "VCP",
+      "2": "VBUS"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL21B105KBFNNNE",
+    "lcsc": "C28323",
+    "sourcingReview": "Catalogue screening: 1 uF, 25 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C305",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "1 uF, 25 V",
+    "pins": {
+      "1": "DRV_VGLS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL21B105KBFNNNE",
+    "lcsc": "C28323",
+    "sourcingReview": "Catalogue screening: 1 uF, 25 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C306",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "1 uF, 10 V",
+    "pins": {
+      "1": "DRV_DVDD",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "VJ0603Y105KXJCW1BC",
+    "lcsc": "C2169543",
+    "sourcingReview": "Catalogue screening: 1 uF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C307",
+    "sheet": "03_GateDriver",
+    "kind": "capacitor",
+    "value": "100 nF, 10 V",
+    "pins": {
+      "1": "VDDA3V3",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CC0603KRX7R9BB104",
+    "lcsc": "C14663",
+    "sourcingReview": "Catalogue screening: 100 nF, 10 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "R301",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "2.2 kohm",
+    "pins": {
+      "1": "DRV_SDO",
+      "2": "V3V3"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF2201T5E",
+    "lcsc": "C4190",
+    "sourcingReview": "Catalogue screening: 2.2 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R302",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "DRV_CS_N_DRV",
+      "2": "V3V3"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R303",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "DRV_ENABLE",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R304",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "33 ohm",
+    "pins": {
+      "1": "DRV_SCK",
+      "2": "DRV_SCK_DRV"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF330JT5E",
+    "lcsc": "C23140",
+    "sourcingReview": "Catalogue screening: 33 ohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R305",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "33 ohm",
+    "pins": {
+      "1": "DRV_MOSI",
+      "2": "DRV_MOSI_DRV"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF330JT5E",
+    "lcsc": "C23140",
+    "sourcingReview": "Catalogue screening: 33 ohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R306",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "33 ohm",
+    "pins": {
+      "1": "DRV_CS_N",
+      "2": "DRV_CS_N_DRV"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF330JT5E",
+    "lcsc": "C23140",
+    "sourcingReview": "Catalogue screening: 33 ohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R307",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "PWM_UH_DRV",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R308",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "PWM_UL_DRV",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R309",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "PWM_VH_DRV",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R310",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "PWM_VL_DRV",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R311",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "PWM_WH_DRV",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R312",
+    "sheet": "03_GateDriver",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "PWM_WL_DRV",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "TP7",
+    "sheet": "03_GateDriver",
+    "kind": "testpoint",
+    "value": "DRV_SCK",
+    "pins": {
+      "1": "DRV_SCK"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "TP8",
+    "sheet": "03_GateDriver",
+    "kind": "testpoint",
+    "value": "DRV_SDO",
+    "pins": {
+      "1": "DRV_SDO"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "TP9",
+    "sheet": "03_GateDriver",
+    "kind": "testpoint",
+    "value": "FAULT_RAW_N",
+    "pins": {
+      "1": "FAULT_RAW_N"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "Q1",
+    "sheet": "04_Inverter",
+    "kind": "mosfet",
+    "value": "100 V N-channel MOSFET",
+    "pins": {
+      "1": "Q1_G",
+      "2": "VBUS",
+      "3": "PH_U"
+    },
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "pinLabels": {
+      "1": "G",
+      "2": "D",
+      "3": "S"
+    },
+    "notes": "Tab is drain. Shared heatsink must electrically insulate different drain nodes.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CSD19536KTT",
+    "provisionalReason": "KTT land pattern and thermal interface drawing review pending.",
+    "lcsc": "C2687963",
+    "sourcingReview": "100V TI MOSFET candidate. KTT lands, drain tab, hot Rds(on), SOA, switching/gate-charge and thermal path require primary verification. Electrically isolate drain tabs from a shared metal plate."
+  },
+  {
+    "ref": "R401",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "4.7 ohm, 0.25 W",
+    "pins": {
+      "1": "GH_U",
+      "2": "Q1_G"
+    },
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CRCW12064R70FKEAHP",
+    "lcsc": "C313986",
+    "sourcingReview": "Catalogue screening: 4.7 ohm, 0.25 W. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R407",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "Q1_G",
+      "2": "PH_U"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "Q2",
+    "sheet": "04_Inverter",
+    "kind": "mosfet",
+    "value": "100 V N-channel MOSFET",
+    "pins": {
+      "1": "Q2_G",
+      "2": "PH_U",
+      "3": "SHUNT_U_TOP"
+    },
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "pinLabels": {
+      "1": "G",
+      "2": "D",
+      "3": "S"
+    },
+    "notes": "Tab is drain. Shared heatsink must electrically insulate different drain nodes.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CSD19536KTT",
+    "provisionalReason": "KTT land pattern and thermal interface drawing review pending.",
+    "lcsc": "C2687963",
+    "sourcingReview": "100V TI MOSFET candidate. KTT lands, drain tab, hot Rds(on), SOA, switching/gate-charge and thermal path require primary verification. Electrically isolate drain tabs from a shared metal plate."
+  },
+  {
+    "ref": "R402",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "4.7 ohm, 0.25 W",
+    "pins": {
+      "1": "GL_U",
+      "2": "Q2_G"
+    },
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CRCW12064R70FKEAHP",
+    "lcsc": "C313986",
+    "sourcingReview": "Catalogue screening: 4.7 ohm, 0.25 W. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R408",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "Q2_G",
+      "2": "SHUNT_U_TOP"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "Q3",
+    "sheet": "04_Inverter",
+    "kind": "mosfet",
+    "value": "100 V N-channel MOSFET",
+    "pins": {
+      "1": "Q3_G",
+      "2": "VBUS",
+      "3": "PH_V"
+    },
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "pinLabels": {
+      "1": "G",
+      "2": "D",
+      "3": "S"
+    },
+    "notes": "Tab is drain. Shared heatsink must electrically insulate different drain nodes.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CSD19536KTT",
+    "provisionalReason": "KTT land pattern and thermal interface drawing review pending.",
+    "lcsc": "C2687963",
+    "sourcingReview": "100V TI MOSFET candidate. KTT lands, drain tab, hot Rds(on), SOA, switching/gate-charge and thermal path require primary verification. Electrically isolate drain tabs from a shared metal plate."
+  },
+  {
+    "ref": "R403",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "4.7 ohm, 0.25 W",
+    "pins": {
+      "1": "GH_V",
+      "2": "Q3_G"
+    },
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CRCW12064R70FKEAHP",
+    "lcsc": "C313986",
+    "sourcingReview": "Catalogue screening: 4.7 ohm, 0.25 W. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R409",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "Q3_G",
+      "2": "PH_V"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "Q4",
+    "sheet": "04_Inverter",
+    "kind": "mosfet",
+    "value": "100 V N-channel MOSFET",
+    "pins": {
+      "1": "Q4_G",
+      "2": "PH_V",
+      "3": "SHUNT_V_TOP"
+    },
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "pinLabels": {
+      "1": "G",
+      "2": "D",
+      "3": "S"
+    },
+    "notes": "Tab is drain. Shared heatsink must electrically insulate different drain nodes.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CSD19536KTT",
+    "provisionalReason": "KTT land pattern and thermal interface drawing review pending.",
+    "lcsc": "C2687963",
+    "sourcingReview": "100V TI MOSFET candidate. KTT lands, drain tab, hot Rds(on), SOA, switching/gate-charge and thermal path require primary verification. Electrically isolate drain tabs from a shared metal plate."
+  },
+  {
+    "ref": "R404",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "4.7 ohm, 0.25 W",
+    "pins": {
+      "1": "GL_V",
+      "2": "Q4_G"
+    },
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CRCW12064R70FKEAHP",
+    "lcsc": "C313986",
+    "sourcingReview": "Catalogue screening: 4.7 ohm, 0.25 W. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R410",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "Q4_G",
+      "2": "SHUNT_V_TOP"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "Q5",
+    "sheet": "04_Inverter",
+    "kind": "mosfet",
+    "value": "100 V N-channel MOSFET",
+    "pins": {
+      "1": "Q5_G",
+      "2": "VBUS",
+      "3": "PH_W"
+    },
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "pinLabels": {
+      "1": "G",
+      "2": "D",
+      "3": "S"
+    },
+    "notes": "Tab is drain. Shared heatsink must electrically insulate different drain nodes.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CSD19536KTT",
+    "provisionalReason": "KTT land pattern and thermal interface drawing review pending.",
+    "lcsc": "C2687963",
+    "sourcingReview": "100V TI MOSFET candidate. KTT lands, drain tab, hot Rds(on), SOA, switching/gate-charge and thermal path require primary verification. Electrically isolate drain tabs from a shared metal plate."
+  },
+  {
+    "ref": "R405",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "4.7 ohm, 0.25 W",
+    "pins": {
+      "1": "GH_W",
+      "2": "Q5_G"
+    },
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CRCW12064R70FKEAHP",
+    "lcsc": "C313986",
+    "sourcingReview": "Catalogue screening: 4.7 ohm, 0.25 W. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R411",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "Q5_G",
+      "2": "PH_W"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "Q6",
+    "sheet": "04_Inverter",
+    "kind": "mosfet",
+    "value": "100 V N-channel MOSFET",
+    "pins": {
+      "1": "Q6_G",
+      "2": "PH_W",
+      "3": "SHUNT_W_TOP"
+    },
+    "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+    "pinLabels": {
+      "1": "G",
+      "2": "D",
+      "3": "S"
+    },
+    "notes": "Tab is drain. Shared heatsink must electrically insulate different drain nodes.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CSD19536KTT",
+    "provisionalReason": "KTT land pattern and thermal interface drawing review pending.",
+    "lcsc": "C2687963",
+    "sourcingReview": "100V TI MOSFET candidate. KTT lands, drain tab, hot Rds(on), SOA, switching/gate-charge and thermal path require primary verification. Electrically isolate drain tabs from a shared metal plate."
+  },
+  {
+    "ref": "R406",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "4.7 ohm, 0.25 W",
+    "pins": {
+      "1": "GL_W",
+      "2": "Q6_G"
+    },
+    "footprint": "Resistor_SMD/R_1206_3216Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CRCW12064R70FKEAHP",
+    "lcsc": "C313986",
+    "sourcingReview": "Catalogue screening: 4.7 ohm, 0.25 W. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "R412",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "10 kohm",
+    "pins": {
+      "1": "Q6_G",
+      "2": "SHUNT_W_TOP"
+    },
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "0603WAF1002T5E",
+    "lcsc": "C25804",
+    "sourcingReview": "Catalogue screening: 10 kohm. Working voltage/pulse rating must be verified in manufacturer datasheet; overload voltage is not a working-voltage rating. Manufacturer land pattern, derating and temperature coefficient require verification."
+  },
+  {
+    "ref": "RSH1",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "1 mohm, 1%, 3 W",
+    "pins": {
+      "1": "SHUNT_U_TOP",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "Two-terminal shunt. Route dedicated Kelvin sense branches from same pads; power-return copper must not carry current through sense branches.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CRE2512-FZ-R001E-3",
+    "lcsc": "C840615",
+    "sourcingReview": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate.",
+    "provisionalReason": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate."
+  },
+  {
+    "ref": "C401",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "4.7 uF, 100 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL32B475KCVZNWE",
+    "lcsc": "C17288249",
+    "sourcingReview": "Catalogue screening: 4.7 uF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C404",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "100 nF, 100 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL21B104KCFNNNE",
+    "lcsc": "C28233",
+    "sourcingReview": "Catalogue screening: 100 nF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "R413",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "2.2 ohm, 1 W",
+    "pins": {
+      "1": "PH_U",
+      "2": "SNUB_U"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": true
+  },
+  {
+    "ref": "C407",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "1 nF, 100 V",
+    "pins": {
+      "1": "SNUB_U",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": true
+  },
+  {
+    "ref": "TP10",
+    "sheet": "04_Inverter",
+    "kind": "testpoint",
+    "value": "PH_U",
+    "pins": {
+      "1": "PH_U"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "RSH2",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "1 mohm, 1%, 3 W",
+    "pins": {
+      "1": "SHUNT_V_TOP",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "Two-terminal shunt. Route dedicated Kelvin sense branches from same pads; power-return copper must not carry current through sense branches.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CRE2512-FZ-R001E-3",
+    "lcsc": "C840615",
+    "sourcingReview": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate.",
+    "provisionalReason": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate."
+  },
+  {
+    "ref": "C402",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "4.7 uF, 100 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL32B475KCVZNWE",
+    "lcsc": "C17288249",
+    "sourcingReview": "Catalogue screening: 4.7 uF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C405",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "100 nF, 100 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL21B104KCFNNNE",
+    "lcsc": "C28233",
+    "sourcingReview": "Catalogue screening: 100 nF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "R414",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "2.2 ohm, 1 W",
+    "pins": {
+      "1": "PH_V",
+      "2": "SNUB_V"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": true
+  },
+  {
+    "ref": "C408",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "1 nF, 100 V",
+    "pins": {
+      "1": "SNUB_V",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": true
+  },
+  {
+    "ref": "TP11",
+    "sheet": "04_Inverter",
+    "kind": "testpoint",
+    "value": "PH_V",
+    "pins": {
+      "1": "PH_V"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "RSH3",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "1 mohm, 1%, 3 W",
+    "pins": {
+      "1": "SHUNT_W_TOP",
+      "2": "GND"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "Two-terminal shunt. Route dedicated Kelvin sense branches from same pads; power-return copper must not carry current through sense branches.",
+    "provisional": true,
+    "dnp": false,
+    "mpn": "CRE2512-FZ-R001E-3",
+    "lcsc": "C840615",
+    "sourcingReview": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate.",
+    "provisionalReason": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate."
+  },
+  {
+    "ref": "C403",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "4.7 uF, 100 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_1210_3225Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL32B475KCVZNWE",
+    "lcsc": "C17288249",
+    "sourcingReview": "Catalogue screening: 4.7 uF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "C406",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "100 nF, 100 V",
+    "pins": {
+      "1": "VBUS",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false,
+    "mpn": "CL21B104KCFNNNE",
+    "lcsc": "C28233",
+    "sourcingReview": "Catalogue screening: 100 nF, 100 V. Manufacturer land pattern and maximum height not yet verified. Manufacturer DC-bias/effective-capacitance and temperature curves required where applicable."
+  },
+  {
+    "ref": "R415",
+    "sheet": "04_Inverter",
+    "kind": "resistor",
+    "value": "2.2 ohm, 1 W",
+    "pins": {
+      "1": "PH_W",
+      "2": "SNUB_W"
+    },
+    "footprint": "Resistor_SMD/R_2512_6332Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": true
+  },
+  {
+    "ref": "C409",
+    "sheet": "04_Inverter",
+    "kind": "capacitor",
+    "value": "1 nF, 100 V",
+    "pins": {
+      "1": "SNUB_W",
+      "2": "GND"
+    },
+    "footprint": "Capacitor_SMD/C_0805_2012Metric",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": true
+  },
+  {
+    "ref": "TP12",
+    "sheet": "04_Inverter",
+    "kind": "testpoint",
+    "value": "PH_W",
+    "pins": {
+      "1": "PH_W"
+    },
+    "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": false,
+    "dnp": false
+  },
+  {
+    "ref": "J2",
+    "sheet": "04_Inverter",
+    "kind": "connector",
+    "value": "Motor U/V/W",
+    "pins": {
+      "1": "PH_U",
+      "2": "PH_V",
+      "3": "PH_W"
+    },
+    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
+    "pinLabels": {},
+    "notes": "",
+    "provisional": true,
+    "dnp": false,
+    "provisionalReason": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
+    "mpn": "1711738",
+    "lcsc": "C91156",
+    "sourcingReview": "Phoenix Contact 1711738 three-position, 5.08mm candidate; catalogue 24A/400V. 22Arms leaves little nominal current margin before hot derating; pulse qualification remains required."
+  },
+  {
+    "ref": "U21",
+    "sheet": "01_Supplies",
+    "kind": "chip",
+    "value": "Bota 9 V current-limited LDO",
+    "mpn": "LT3065EDD#TRPBF",
+    "lcsc": "C670143",
+    "footprint": "Package_DFN_QFN/DFN-10-1EP_3x3mm_P0.5mm_EP1.65x2.38mm",
+    "pins": {
+      "1": "V12",
+      "2": "V12",
+      "3": "V12",
+      "4": null,
+      "5": "BOTA_IMAX",
+      "6": "BOTA_REF",
+      "7": "GND",
+      "8": "BOTA_ADJ",
+      "9": "BOTA_9V",
+      "10": "BOTA_9V",
+      "11": "GND"
+    },
+    "pinLabels": {
+      "1": "IN",
+      "2": "IN",
+      "3": "SHDN",
+      "4": "PWRGD",
+      "5": "IMAX",
+      "6": "REF_BYP",
+      "7": "GND",
+      "8": "ADJ",
+      "9": "OUT",
+      "10": "OUT",
+      "11": "EP"
+    },
+    "notes": "Adjustable DD package. Exposed pad 11 is ground. Current limit nominal 273 mA. PWRGD open drain unused.",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "C114",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "10 uF, 25 V, X7R",
+    "mpn": "CC1206KKX7R8BB106",
+    "lcsc": "C70462",
+    "footprint": "Capacitor_SMD/C_1206_3216Metric",
+    "pins": {
+      "1": "V12",
+      "2": "GND"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "C115",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "10 uF, 25 V, X7R",
+    "mpn": "CC1206KKX7R8BB106",
+    "lcsc": "C70462",
+    "footprint": "Capacitor_SMD/C_1206_3216Metric",
+    "pins": {
+      "1": "BOTA_9V",
+      "2": "GND"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "C116",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "22 nF, 50 V, X7R",
+    "mpn": "CC0603KRX7R9BB223",
+    "lcsc": "C106222",
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pins": {
+      "1": "BOTA_IMAX",
+      "2": "GND"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "C117",
+    "sheet": "01_Supplies",
+    "kind": "capacitor",
+    "value": "10 nF, 50 V, X7R",
+    "mpn": "CC0603KRX7R9BB103",
+    "lcsc": "C100042",
+    "footprint": "Capacitor_SMD/C_0603_1608Metric",
+    "pins": {
+      "1": "BOTA_REF",
+      "2": "GND"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "R107",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "140 kohm, 1%",
+    "mpn": "RC0603FR-07140KL",
+    "lcsc": "C185372",
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pins": {
+      "1": "BOTA_9V",
+      "2": "BOTA_ADJ"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "R108",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "10 kohm, 1%",
+    "mpn": "RC0603FR-0710KL",
+    "lcsc": "C98220",
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pins": {
+      "1": "BOTA_ADJ",
+      "2": "GND"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "R109",
+    "sheet": "01_Supplies",
+    "kind": "resistor",
+    "value": "1.1 kohm, 1%",
+    "mpn": "RC0603FR-071K1L",
+    "lcsc": "C137780",
+    "footprint": "Resistor_SMD/R_0603_1608Metric",
+    "pins": {
+      "1": "BOTA_IMAX",
+      "2": "GND"
+    },
+    "pinLabels": {},
+    "notes": "",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  },
+  {
+    "ref": "J12",
+    "sheet": "01_Supplies",
+    "kind": "connector",
+    "value": "Bota sensor power, 9 V",
+    "mpn": "BM02B-SRSS-TB(LF)(SN)",
+    "lcsc": "C160388",
+    "footprint": "Connector_JST/JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical",
+    "pins": {
+      "1": "BOTA_9V",
+      "2": "GND"
+    },
+    "pinLabels": {
+      "1": "BOTA_9V",
+      "2": "RETURN"
+    },
+    "notes": "J12.1 to Bota red pin 5; J12.2 to white-red pin 6. EtherCAT data goes to the Jetson.",
+    "dnp": false,
+    "provisional": true,
+    "provisionalReason": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype."
+  }
+]

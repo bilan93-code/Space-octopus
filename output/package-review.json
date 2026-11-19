@@ -1,0 +1,2623 @@
+{
+  "status": "passed",
+  "errors": [],
+  "inventoryItems": 259,
+  "independentlyComparedMcuPins": 64,
+  "provisionalParts": 67,
+  "parts": [
+    {
+      "ref": "J1",
+      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+      "mpn": "1711725",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "F1",
+      "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+      "mpn": "BK/MDA-20-R",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D1",
+      "footprint": "Diode_SMD/D_SMC",
+      "mpn": "SMCJ54A",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C1",
+      "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "mpn": "100ZLJ820M18X40",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+      "bodyModel": "manufacturer-dimension maximum envelope; generated STEP"
+    },
+    {
+      "ref": "C2",
+      "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "mpn": "100ZLJ820M18X40",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+      "bodyModel": "manufacturer-dimension maximum envelope; generated STEP"
+    },
+    {
+      "ref": "C3",
+      "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "mpn": "100ZLJ820M18X40",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+      "bodyModel": "manufacturer-dimension maximum envelope; generated STEP"
+    },
+    {
+      "ref": "C4",
+      "footprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "mpn": "100ZLJ820M18X40",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Electrical/ripple selection resolved from Rubycon datasheet. Verify live stock and supplied lead/packing suffix, >=46 mm outward enclosure/vent clearance, vibration retention and measured ripple sharing before production.",
+      "bodyModel": "manufacturer-dimension maximum envelope; generated STEP"
+    },
+    {
+      "ref": "C5",
+      "footprint": "Capacitor_THT/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4",
+      "mpn": "ECWFD2W475K",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Pulse-film capacitor unselected. Footprint allowance only; verify actual dimensions and pulse/ripple rating.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R1",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": "RC2512FK-0722KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP1",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP2",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "U3",
+      "footprint": "Package_SO/HSOP-8-1EP_3.9x4.9mm_P1.27mm_EP2.41x3.1mm",
+      "mpn": "LM5164DDAR",
+      "physicalCopperPads": 9,
+      "logicalPins": 9,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U4",
+      "footprint": "Package_SO/MSOP-8_3x3mm_P0.65mm",
+      "mpn": "TPS62160DGKR",
+      "physicalCopperPads": 8,
+      "logicalPins": 8,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U5",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-5",
+      "mpn": "TLV75533PDBVR",
+      "physicalCopperPads": 5,
+      "logicalPins": 5,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U19",
+      "footprint": "Package_TO_SOT_SMD/SOT-23",
+      "mpn": "REF3025EAIDBZR",
+      "physicalCopperPads": 3,
+      "logicalPins": 3,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "L101",
+      "footprint": "Inductor_SMD/L_Coilcraft_MSS1246T-XXX",
+      "mpn": "MSS1246T-683MLB",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Coilcraft MSS1246T 68 uH, using the matching series footprint. Verify maximum buck current against hot saturation.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C101",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "AC1210KKX7R0BB225",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C102",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "AC1210KKX7R0BB225",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C103",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "CC1210KKX7R8BB226",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C104",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "CC1210KKX7R8BB226",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C105",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN222",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R101",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1003T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R102",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRD07448KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R103",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060349K9BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R104",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RC0603FR-07453KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C106",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN332",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C107",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CL10C560JB8NNNC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "L102",
+      "footprint": "Inductor_SMD/L_Coilcraft_XAL6030-XXX",
+      "mpn": "XAL6030-222MEC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Coilcraft XAL6030 2.2 uH, catalog 15.9 A saturation and 7 A rated. Confirm hot characteristics.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C108",
+      "footprint": "Capacitor_SMD/C_1206_3216Metric",
+      "mpn": "CC1206KKX7R8BB106",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C109",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "C2012X5R1C226KT000E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "TDK C2012X5R1C226KT000E 22uF 16V 10% X5R 0805 candidate. Explicit X5R selection requires <=85C local operation and effective capacitance at 5V/temperature to satisfy U4; nominal value alone is insufficient.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R105",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRD07523KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R106",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW0603100KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C110",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y105KXJCW1BC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C111",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CC0805KKX7R7BB106",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C112",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C113",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y105KXJCW1BC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP3",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP4",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP5",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP6",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "U1",
+      "footprint": "Package_QFP/LQFP-64_10x10mm_P0.5mm",
+      "mpn": "STM32G431RBT6",
+      "physicalCopperPads": 64,
+      "logicalPins": 64,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Y1",
+      "footprint": "Oscillator/Oscillator_SMD_Abracon_ASE-4Pin_3.2x2.5mm",
+      "mpn": "ASE-8.000MHZ-LC-T",
+      "physicalCopperPads": 4,
+      "logicalPins": 4,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "representative body only"
+    },
+    {
+      "ref": "R201",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF330JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C201",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C202",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C203",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C204",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C209",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C211",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C205",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CC0805KKX7R8BB475",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "FB201",
+      "footprint": "Inductor_SMD/L_0603_1608Metric",
+      "mpn": "BLM18AG601SN1D",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select impedance and damping after analog noise check.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C206",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y105KXJCW1BC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C207",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C208",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C210",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R202",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R203",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J7",
+      "footprint": "Connector_PinHeader_1.27mm/PinHeader_2x05_P1.27mm_Vertical",
+      "mpn": "FTSH-105-01-L-D-K",
+      "physicalCopperPads": 10,
+      "logicalPins": 10,
+      "manufacturerReviewPending": true,
+      "openItem": "Confirm keyed connector, pin-7 key and pin-1 orientation.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J9",
+      "footprint": "Connector_PinHeader_2.54mm/PinHeader_1x04_P2.54mm_Vertical",
+      "mpn": "M20-9990445",
+      "physicalCopperPads": 4,
+      "logicalPins": 4,
+      "manufacturerReviewPending": true,
+      "openItem": "Connector/harness selection pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "SW1",
+      "footprint": "Button_Switch_SMD/SW_SPST_PTS645",
+      "mpn": "PTS645SK43SMTR92LFS",
+      "physicalCopperPads": 4,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "C&K PTS645SK43SMTR92LFS reset-switch candidate, catalogue 6x6mm body, 4.3mm height, -40..85C. Replace TL3342 footprint, move to outward side for motor clearance/access; verify actual drawing and contacts. The available TL3342F450QG is listed only to 70C.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D7",
+      "footprint": "LED_SMD/LED_0603_1608Metric",
+      "mpn": "LTST-C190KGKT",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select LED color and forward voltage.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R204",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF3301T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D8",
+      "footprint": "LED_SMD/LED_0603_1608Metric",
+      "mpn": "LTST-C190KSKT",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select LED color and forward voltage.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R205",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF3301T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D9",
+      "footprint": "LED_SMD/LED_0603_1608Metric",
+      "mpn": "LTST-C190KRKT",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select LED color and forward voltage.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R206",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF3301T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U2",
+      "footprint": "Package_DFN_QFN/TI_RTA0040B_DRV8353",
+      "mpn": "DRV8353SRTAR",
+      "physicalCopperPads": 41,
+      "logicalPins": 41,
+      "manufacturerReviewPending": true,
+      "openItem": "PCB thermal-via design, paste process, gate waveforms and current ratings require qualification.",
+      "bodyModel": "representative body only"
+    },
+    {
+      "ref": "C301",
+      "footprint": "Capacitor_SMD/C_1206_3216Metric",
+      "mpn": "CC1206KKX7R8BB106",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C302",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C303",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CC0805KKX7R0BB473",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C304",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CL21B105KBFNNNE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C305",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CL21B105KBFNNNE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C306",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y105KXJCW1BC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C307",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R301",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF2201T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R302",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R303",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R304",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF330JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R305",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF330JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R306",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF330JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R307",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R308",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R309",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R310",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R311",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R312",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP7",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP8",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP9",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "Q1",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "KTT land pattern and thermal interface drawing review pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R401",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R407",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Q2",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "KTT land pattern and thermal interface drawing review pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R402",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R408",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Q3",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "KTT land pattern and thermal interface drawing review pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R403",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R409",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Q4",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "KTT land pattern and thermal interface drawing review pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R404",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R410",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Q5",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "KTT land pattern and thermal interface drawing review pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R405",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R411",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Q6",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "KTT land pattern and thermal interface drawing review pending.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R406",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R412",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "RSH1",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": "CRE2512-FZ-R001E-3",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C401",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "CL32B475KCVZNWE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C404",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CL21B104KCFNNNE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R413",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C407",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP10",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "RSH2",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": "CRE2512-FZ-R001E-3",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C402",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "CL32B475KCVZNWE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C405",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CL21B104KCFNNNE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R414",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C408",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP11",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "RSH3",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": "CRE2512-FZ-R001E-3",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Bourns CRE2512-FZ-R001E-3 candidate: catalogue 1mOhm, 1%, 3W, 50ppm/C. Verify primary specifications, terminal geometry, Kelvin pickup and pulse/hot derating. Original Vishay order not matched; WSLP25121L000FEA is another candidate.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C403",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "CL32B475KCVZNWE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C406",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CL21B104KCFNNNE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R415",
+      "footprint": "Resistor_SMD/R_2512_6332Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C409",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP12",
+      "footprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "J2",
+      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
+      "mpn": "1711738",
+      "physicalCopperPads": 3,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U21",
+      "footprint": "Package_DFN_QFN/DFN-10-1EP_3x3mm_P0.5mm_EP1.65x2.38mm",
+      "mpn": "LT3065EDD#TRPBF",
+      "physicalCopperPads": 11,
+      "logicalPins": 11,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "representative body only"
+    },
+    {
+      "ref": "C114",
+      "footprint": "Capacitor_SMD/C_1206_3216Metric",
+      "mpn": "CC1206KKX7R8BB106",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C115",
+      "footprint": "Capacitor_SMD/C_1206_3216Metric",
+      "mpn": "CC1206KKX7R8BB106",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C116",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB223",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C117",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB103",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R107",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RC0603FR-07140KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R108",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RC0603FR-0710KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R109",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RC0603FR-071K1L",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J12",
+      "footprint": "Connector_JST/JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical",
+      "mpn": "BM02B-SRSS-TB(LF)(SN)",
+      "physicalCopperPads": 4,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify assembler sourcing, thermal behavior and sensor startup on the prototype.",
+      "bodyModel": "part-specific STEP aligned to footprint frame"
+    },
+    {
+      "ref": "U7",
+      "footprint": "Package_SO/TSSOP-14_4.4x5mm_P0.65mm",
+      "mpn": "TLV1704AIPWR",
+      "physicalCopperPads": 14,
+      "logicalPins": 14,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U8",
+      "footprint": "Package_SO/TSSOP-14_4.4x5mm_P0.65mm",
+      "mpn": "TLV1704AIPWR",
+      "physicalCopperPads": 14,
+      "logicalPins": 14,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R501",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF470JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C501",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN102",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R502",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF470JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C502",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN102",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R503",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF470JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C503",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN102",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R504",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "TNPW1206150KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select a 0.1% resistor with >=100 V working-voltage rating; the 1206 footprint alone does not establish voltage or pulse capability.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R505",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "TNPW1206150KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select a 0.1% resistor with >=100 V working-voltage rating; the 1206 footprint alone does not establish voltage or pulse capability.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R506",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060310K0BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C504",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN102",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R507",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRE0728K7L",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R508",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060310K0BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R509",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060310K0BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R510",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRE0728K7L",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R511",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060327K4BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R512",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW0603100KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R513",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRD0795K3L",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R514",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW0603100KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C505",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y103JXAAC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C506",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y103JXAAC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C507",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y103JXAAC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C508",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y103JXAAC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "NTC1",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "NTCG163JF103FT1S",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "TDK NTCG163JF103FT1S, 10k 1%, catalogue B25/85=3435K, -40..150C. Use manufacturer resistance-temperature table, not a single B value over all temperatures; check self-heating.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J3",
+      "footprint": "Connector_JST/JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical",
+      "mpn": "BM02B-GHS-TBT(LF)(SN)",
+      "physicalCopperPads": 4,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "JST GH connector candidate selected for the outward-facing interface. Confirm mating harness, current budget and manufacturer drawing. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R515",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060310K0BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R517",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1001T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C509",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R516",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "TNPW060310K0BEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R518",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1001T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C510",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R519",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1001T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C511",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN102",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C512",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C513",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "TP13",
+      "footprint": "TestPoint/TestPoint_Pad_D1.5mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP14",
+      "footprint": "TestPoint/TestPoint_Pad_D1.5mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "TP15",
+      "footprint": "TestPoint/TestPoint_Pad_D1.5mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 1,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "U9",
+      "footprint": "Package_SO/SSOP-8_2.95x2.8mm_P0.65mm",
+      "mpn": "SN74LVC1G74DCTR",
+      "physicalCopperPads": 8,
+      "logicalPins": 8,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U10",
+      "footprint": "Package_SO/TSSOP-20_4.4x6.5mm_P0.65mm",
+      "mpn": "SN74LVC244APWR",
+      "physicalCopperPads": 20,
+      "logicalPins": 20,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U11",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-6",
+      "mpn": "SN74LVC1G10DBVR",
+      "physicalCopperPads": 6,
+      "logicalPins": 6,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U12",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-6",
+      "mpn": "TPS3808G33QDBVRQ1",
+      "physicalCopperPads": 6,
+      "logicalPins": 6,
+      "manufacturerReviewPending": true,
+      "openItem": "TI TPS3808G33QDBVRQ1 automotive variant candidate, not asserted equivalent to the original ordering string. Verify 3.07V threshold, CT-open timing, /MR pull-up, pin map and output behavior.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U13",
+      "footprint": "Package_DFN_QFN/Texas_DRB0008A",
+      "mpn": "TPS3431SDRBR",
+      "physicalCopperPads": 18,
+      "logicalPins": 9,
+      "manufacturerReviewPending": true,
+      "openItem": "Order code, electrical pins, timing and copper land pattern reviewed. Live sourcing, production stencil/paste and via filling, and hardware heartbeat-failure tests remain pending.",
+      "bodyModel": "representative body only"
+    },
+    {
+      "ref": "U14",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-5",
+      "mpn": "SN74LVC1G17DBVR",
+      "physicalCopperPads": 5,
+      "logicalPins": 5,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U15",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-5",
+      "mpn": "SN74LVC1G17DBVR",
+      "physicalCopperPads": 5,
+      "logicalPins": 5,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C601",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C602",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C603",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C604",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C605",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C606",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C607",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R601",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF2201T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R602",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R603",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R604",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R605",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R606",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R607",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1001T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R608",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C608",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CL10B102KB8NNNC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D10",
+      "footprint": "Diode_SMD/D_SOD-323",
+      "mpn": "BAT54WS-E3-08",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D11",
+      "footprint": "Diode_SMD/D_SOD-323",
+      "mpn": "BAT54WS-E3-08",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J8",
+      "footprint": "Connector_JST/JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical",
+      "mpn": "BM03B-GHS-TBT(LF)(SN)",
+      "physicalCopperPads": 5,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "JST GH connector candidate selected for the outward-facing interface. Confirm mating harness, current budget and manufacturer drawing. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U6",
+      "footprint": "Package_SO/SOIC-8_3.9x4.9mm_P1.27mm",
+      "mpn": "TCAN1042HGVDR",
+      "physicalCopperPads": 8,
+      "logicalPins": 8,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U18",
+      "footprint": "Package_SO/SOIC-8_3.9x4.9mm_P1.27mm",
+      "mpn": "THVD2450DR",
+      "physicalCopperPads": 8,
+      "logicalPins": 8,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U20",
+      "footprint": "Package_SO/SOIC-8_3.9x4.9mm_P1.27mm",
+      "mpn": "THVD2450DR",
+      "physicalCopperPads": 8,
+      "logicalPins": 8,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J4",
+      "footprint": "Connector_PinHeader_1.27mm/PinHeader_1x11_P1.27mm_Vertical",
+      "mpn": "PZ127-1-11-Z",
+      "physicalCopperPads": 11,
+      "logicalPins": 11,
+      "manufacturerReviewPending": true,
+      "openItem": "Confirm pin/drill fit, mating connector and retention for vibration, orientation, and encoder startup current.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "F3",
+      "footprint": "Fuse/Fuse_1206_3216Metric",
+      "mpn": "0437.250WR",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "SMD fuse MPN and 1206 land pattern are provisional. Confirm >=63 Vdc rating, cold-start current, interrupt capability and coordination with D12; 200 mA encoder budget at 12 V is provisional.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "FB701",
+      "footprint": "Inductor_SMD/L_0805_2012Metric",
+      "mpn": "BLM21PG221SN1D",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select actual ferrite, impedance and DCR; 0805 is provisional.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C701",
+      "footprint": "Capacitor_SMD/C_1206_3216Metric",
+      "mpn": "CC1206KKX7R8BB106",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C702",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D12",
+      "footprint": "Diode_SMD/D_SMB",
+      "mpn": "SMBJ15A",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C703",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C704",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R701",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "1206W4F1200T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R702",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R703",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R704",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF330JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R705",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF330JT5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D4",
+      "footprint": "Package_TO_SOT_SMD/SOT-323_SC-70",
+      "mpn": "ESD2CAN24DCKRQ1",
+      "physicalCopperPads": 3,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "Selected TI DCK three-pin SC-70 footprint. Confirm signal/ground numbering against manufacturer drawing before release.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D5",
+      "footprint": "Package_TO_SOT_SMD/SOT-323_SC-70",
+      "mpn": "ESD2CAN24DCKRQ1",
+      "physicalCopperPads": 3,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "Selected TI DCK three-pin SC-70 footprint. Confirm signal/ground numbering against manufacturer drawing before release.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D3",
+      "footprint": "Package_TO_SOT_SMD/SOT-323_SC-70",
+      "mpn": "ESD2CAN24DCKRQ1",
+      "physicalCopperPads": 3,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "Selected TI DCK three-pin SC-70 footprint. Confirm signal/ground numbering against manufacturer drawing before release.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J5",
+      "footprint": "Connector_JST/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical",
+      "mpn": "BM04B-GHS-TBT(LF)(SN)",
+      "physicalCopperPads": 6,
+      "logicalPins": 4,
+      "manufacturerReviewPending": true,
+      "openItem": "JST GH connector candidate selected for the outward-facing interface. Confirm mating harness, current budget and manufacturer drawing. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J6",
+      "footprint": "Connector_JST/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical",
+      "mpn": "BM04B-GHS-TBT(LF)(SN)",
+      "physicalCopperPads": 6,
+      "logicalPins": 4,
+      "manufacturerReviewPending": true,
+      "openItem": "JST GH connector candidate selected for the outward-facing interface. Confirm mating harness, current budget and manufacturer drawing. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C705",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C706",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C707",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "VJ0603Y105KXJCW1BC",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R706",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R707",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "1206W4F1200T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "JP701",
+      "footprint": "Jumper/SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "bare PCB feature"
+    },
+    {
+      "ref": "D6",
+      "footprint": "Package_SON/USON-10_2.5x1.0mm_P0.5mm",
+      "mpn": "TPD4E05U06DQAR",
+      "physicalCopperPads": 10,
+      "logicalPins": 10,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R708",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C708",
+      "footprint": "Capacitor_SMD/C_1206_3216Metric",
+      "mpn": null,
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select actual high-voltage ceramic MPN and verify creepage/land pattern; 1206 is provisional.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J10",
+      "footprint": "Connector_JST/JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal",
+      "mpn": "SM06B-GHS-TB(LF)(SN)",
+      "physicalCopperPads": 8,
+      "logicalPins": 6,
+      "manufacturerReviewPending": true,
+      "openItem": "JST GH connector candidate selected for the outward-facing interface. Confirm mating harness, current budget and manufacturer drawing. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U16",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-5",
+      "mpn": "TLV1701AIDBVR",
+      "physicalCopperPads": 5,
+      "logicalPins": 5,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "U17",
+      "footprint": "Package_TO_SOT_SMD/SOT-23-6",
+      "mpn": "UCC27511DBVR",
+      "physicalCopperPads": 6,
+      "logicalPins": 6,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "Q7",
+      "footprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "mpn": "CSD19536KTT",
+      "physicalCopperPads": 4,
+      "logicalPins": 3,
+      "manufacturerReviewPending": true,
+      "openItem": "Verify KTT land pattern, thermal copper and source-return geometry against manufacturer drawing before layout release.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "F2",
+      "footprint": "Fuse/Fuseholder_Cylinder-6.3x32mm_Schurter_0031-8002_Horizontal_Open",
+      "mpn": "BK/ABC-15-R",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Cartridge and holder selected for review. Confirm DC fault-current coordination, temperature rise and holder power acceptance.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "J11",
+      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+      "mpn": "1711725",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "D2",
+      "footprint": "Package_TO_SOT_THT/TO-220-2_Vertical",
+      "mpn": "STPS20120D",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "UNVERIFIED package numbering: 1=K, 2=A is the conventional TO-220AC mapping used here; exact STPS20120D manufacturer drawing and tab connection were not independently retrieved. Verify https://www.st.com/resource/en/datasheet/stps20120d.pdf before fabrication.",
+      "bodyModel": "stock package with 2 mm lead trim"
+    },
+    {
+      "ref": "R901",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "TNPW1206150KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select >=100 V working-voltage rating and 0.1% tolerance; 1206 size alone does not establish ratings.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R902",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "TNPW1206150KBEEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select >=100 V working-voltage rating and 0.1% tolerance; 1206 size alone does not establish ratings.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R903",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRB0714KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R904",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "RT0603BRD07499KL",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R905",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF2201T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C901",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603JRNPO9BN471",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C902",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C903",
+      "footprint": "Capacitor_SMD/C_0805_2012Metric",
+      "mpn": "CL21B105KBFNNNE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C904",
+      "footprint": "Capacitor_SMD/C_0603_1608Metric",
+      "mpn": "CC0603KRX7R9BB104",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R906",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "CRCW12064R70FKEAHP",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R907",
+      "footprint": "Resistor_SMD/R_1206_3216Metric",
+      "mpn": "RCS12062R20FKEA",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "R908",
+      "footprint": "Resistor_SMD/R_0603_1608Metric",
+      "mpn": "0603WAF1002T5E",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "C905",
+      "footprint": "Capacitor_SMD/C_1210_3225Metric",
+      "mpn": "CL32B475KCVZNWE",
+      "physicalCopperPads": 2,
+      "logicalPins": 2,
+      "manufacturerReviewPending": true,
+      "openItem": "Select actual 100 V capacitor and verify effective capacitance under DC bias, ripple/pulse capability and footprint.",
+      "bodyModel": "stock KiCad package-family model"
+    },
+    {
+      "ref": "H1",
+      "footprint": "MountingHole/MountingHole_4.5mm",
+      "mpn": null,
+      "physicalCopperPads": 0,
+      "logicalPins": 0,
+      "manufacturerReviewPending": true,
+      "openItem": "Nominal mounting pattern sourced; actual screw length, PCB support/standoffs and electrical isolation require assembly review.",
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "H2",
+      "footprint": "MountingHole/MountingHole_4.5mm",
+      "mpn": null,
+      "physicalCopperPads": 0,
+      "logicalPins": 0,
+      "manufacturerReviewPending": true,
+      "openItem": "Nominal mounting pattern sourced; actual screw length, PCB support/standoffs and electrical isolation require assembly review.",
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "H3",
+      "footprint": "MountingHole/MountingHole_4.5mm",
+      "mpn": null,
+      "physicalCopperPads": 0,
+      "logicalPins": 0,
+      "manufacturerReviewPending": true,
+      "openItem": "Nominal mounting pattern sourced; actual screw length, PCB support/standoffs and electrical isolation require assembly review.",
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "H4",
+      "footprint": "MountingHole/MountingHole_4.5mm",
+      "mpn": null,
+      "physicalCopperPads": 0,
+      "logicalPins": 0,
+      "manufacturerReviewPending": true,
+      "openItem": "Nominal mounting pattern sourced; actual screw length, PCB support/standoffs and electrical isolation require assembly review.",
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "H5",
+      "footprint": "MountingHole/MountingHole_4.5mm",
+      "mpn": null,
+      "physicalCopperPads": 0,
+      "logicalPins": 0,
+      "manufacturerReviewPending": true,
+      "openItem": "Nominal mounting pattern sourced; actual screw length, PCB support/standoffs and electrical isolation require assembly review.",
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "H6",
+      "footprint": "MountingHole/MountingHole_4.5mm",
+      "mpn": null,
+      "physicalCopperPads": 0,
+      "logicalPins": 0,
+      "manufacturerReviewPending": true,
+      "openItem": "Nominal mounting pattern sourced; actual screw length, PCB support/standoffs and electrical isolation require assembly review.",
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "FID1",
+      "footprint": "Fiducial/Fiducial_1mm_Mask2mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 0,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "FID2",
+      "footprint": "Fiducial/Fiducial_1mm_Mask2mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 0,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    },
+    {
+      "ref": "FID3",
+      "footprint": "Fiducial/Fiducial_1mm_Mask2mm",
+      "mpn": null,
+      "physicalCopperPads": 1,
+      "logicalPins": 0,
+      "manufacturerReviewPending": false,
+      "openItem": null,
+      "bodyModel": "no body required or unavailable"
+    }
+  ],
+  "limitations": [
+    "Pin presence and the MCU library comparison do not qualify manufacturer land patterns.",
+    "Exact DRV8353 RTA, FLUX cable mapping for J4, provisional diode pinouts and remaining open component choices require manufacturer review.",
+    "Direct manufacturer access remains blocked. Archived manufacturer PDFs now verify the targeted Rubycon bulk selection and TI TPS3431 pins/timing/copper; other unresolved drawings are not claimed verified.",
+    "The new JST GH candidates change the provisional XH mating harness. Verify exact mating parts and current/voltage ratings.",
+    "Phoenix MKDS 3 terminal families are candidates; exact ordering codes, wire ratings and the >=100 Vdc requirement are unconfirmed."
+  ],
+  "manufacturerAccessEvidence": {
+    "attemptDateUtc": "2026-11-16",
+    "purpose": "Recheck official manufacturer drawing availability before tscircuit completion.",
+    "results": [
+      {
+        "name": "DRV8353",
+        "url": "https://www.ti.com/lit/ds/symlink/drv8353.pdf",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      },
+      {
+        "name": "STM32G431",
+        "url": "https://www.st.com/resource/en/datasheet/stm32g431rb.pdf",
+        "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+      }
+    ],
+    "manufacturerQualificationCompleted": false
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "circuitJsonSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "method": "Remove the intended shunt electrode only from its physical copper layer, join only real copper and barrels, and require the driver pickup to have no other port or plane connection. No package-internal or logical-net equivalence is used. Full copper DRC is a separate design check.",
+  "branches": [
+    {
+      "phase": "U",
+      "polarity": "positive",
+      "driverPin": 9,
+      "pickup": "RSH1.1",
+      "passed": true,
+      "connectedToPickup": true,
+      "portsConnectedBeforePickup": [],
+      "planeConnectedBeforePickup": false
+    },
+    {
+      "phase": "U",
+      "polarity": "negative",
+      "driverPin": 10,
+      "pickup": "RSH1.2",
+      "passed": true,
+      "connectedToPickup": true,
+      "portsConnectedBeforePickup": [],
+      "planeConnectedBeforePickup": false
+    },
+    {
+      "phase": "V",
+      "polarity": "positive",
+      "driverPin": 12,
+      "pickup": "RSH2.1",
+      "passed": true,
+      "connectedToPickup": true,
+      "portsConnectedBeforePickup": [],
+      "planeConnectedBeforePickup": false
+    },
+    {
+      "phase": "V",
+      "polarity": "negative",
+      "driverPin": 11,
+      "pickup": "RSH2.2",
+      "passed": true,
+      "connectedToPickup": true,
+      "portsConnectedBeforePickup": [],
+      "planeConnectedBeforePickup": false
+    },
+    {
+      "phase": "W",
+      "polarity": "positive",
+      "driverPin": 19,
+      "pickup": "RSH3.1",
+      "passed": true,
+      "connectedToPickup": true,
+      "portsConnectedBeforePickup": [],
+      "planeConnectedBeforePickup": false
+    },
+    {
+      "phase": "W",
+      "polarity": "negative",
+      "driverPin": 20,
+      "pickup": "RSH3.2",
+      "passed": true,
+      "connectedToPickup": true,
+      "portsConnectedBeforePickup": [],
+      "planeConnectedBeforePickup": false
+    }
+  ]
+}

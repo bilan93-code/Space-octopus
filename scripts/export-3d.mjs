@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import {convertCircuitJsonToGltf} from 'circuit-json-to-gltf';
+const sourceBytes=fs.readFileSync(process.argv[2]??'output/space-octopus.circuit.json');const j=JSON.parse(sourceBytes);
+const target=process.argv[3]??'output/space-octopus.glb';
+console.log('Exporting tscircuit Circuit JSON to a self-contained 3D GLB…');
+const glb=await convertCircuitJsonToGltf(j,{format:'glb',includeModels:true,boardTextureResolution:2048,boardDrillQuality:'high',showBoundingBoxes:true});
+fs.writeFileSync(target,Buffer.from(glb));
+const cad=j.filter(x=>x.type==='cad_component');
+fs.writeFileSync(target==='output/space-octopus.glb'?'output/3d-status.json':target+'.status.json',JSON.stringify({source:'tscircuit Circuit JSON',sourceCircuitSha256:createHash('sha256').update(sourceBytes).digest('hex'),cadComponents:cad.length,withStepModel:cad.filter(x=>x.model_step_url).length,placeholderCount:cad.filter(x=>!x.model_step_url&&!x.model_glb_url).length,representativeBodies:['Y1','U2','U13','U21'],units:'Exporter scene uses millimetres; viewer fits the board bounds.',assemblyFitVerified:false,notes:'Package-family models are visual aids. Y1, U2, U13 and U21 use representative bodies; exposed-pad geometry is not validated by these models. DNP parts, the bare solder jumper, test pads, fiducials and mounting holes have no component bodies.'},null,2)+'\n');
+console.log(`Wrote ${target} (${fs.statSync(target).size} bytes).`);

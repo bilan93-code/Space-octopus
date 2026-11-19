@@ -1,0 +1,111 @@
+{
+  "sweepDescription": {
+    "caseCount": 180,
+    "limitCorners": {
+      "low": 0.24302430243024303,
+      "nominal": 0.2727272727272727,
+      "high": 0.30303030303030304
+    },
+    "load5A": [
+      0.25,
+      0.5,
+      0.55,
+      0.6,
+      0.75,
+      1
+    ],
+    "sensorDemandA": [
+      0.17777777777777778,
+      0.2,
+      0.24,
+      0.25,
+      0.273,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5
+    ],
+    "data": "load-sweep.csv",
+    "model": "Existing 5 V converter is a constant-power load, with a 6 V numerical floor after failure. Motor encoder and gate loads use constant current. Sensor loading is resistive below 9 V. Steps last 2 ms on a running rail.",
+    "screen": "Minimum shared rail 11.4 V and minimum sensor port 6 V over the modeled step. Passing does not demonstrate sensor boot or thermal margin."
+  },
+  "regulatedOutputRangeV": {
+    "minimum": 8.648506099009902,
+    "maximum": 9.361574909090908,
+    "basis": "In regulation with 1% divider resistors and 0.588–0.612 V reference. A 60 nA ADJ bias allowance uses the datasheet test condition. Startup, dropout and component faults are outside this calculation."
+  },
+  "circuitSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "settings": {
+    "busMaxV": 54,
+    "busMinV": 42,
+    "regulatedRailFloorV": 11.4,
+    "encoderA": 0.2,
+    "gateAndBrakeA": 0.1,
+    "ldoGroundA": 0.025,
+    "buck5Efficiency": 0.8,
+    "load5A": 0.5,
+    "outputToleranceR": 0.01,
+    "currentLimitScreenFraction": 0.1,
+    "inductorMinH": 0.0000544,
+    "switchingFrequencyMinHz": 270000,
+    "effectiveCapFraction": 0.5
+  },
+  "vinSet": 11.973547094188376,
+  "outputSet": 9,
+  "nominalSensor": 0.17777777777777778,
+  "nominalLimitA": 0.2727272727272727,
+  "minLimitScreenA": 0.24302430243024303,
+  "maxLimitScreenA": 0.30303030303030304,
+  "worstScreenRippleApp": 0.6344379300177335,
+  "conservativeRailCapacityA": 0.9327810349911332,
+  "steadyMarginA": 0.15588045019581145,
+  "startupMarginA": 0.0306279249432862,
+  "maximumConcurrent5VloadAtLimitedStartupA": 0.5558653350965543,
+  "effectiveRailCapF": 0.0000376,
+  "effectiveOutCapF": 0.000005,
+  "runs": [
+    {
+      "name": "operating",
+      "load5A": 0.5,
+      "sensorDemandA": 0.17777777777777778,
+      "modeledLimitA": 0.24302430243024303,
+      "railMinV": 11.903574829294152,
+      "sensorMinV": 8.985763534545244,
+      "peakSupplyA": 0.8213079465765917
+    },
+    {
+      "name": "startup_250mA",
+      "load5A": 0.5,
+      "sensorDemandA": 0.25,
+      "modeledLimitA": 0.2727272727272727,
+      "railMinV": 11.893716603289972,
+      "sensorMinV": 8.979994886283881,
+      "peakSupplyA": 0.9074859146719846
+    },
+    {
+      "name": "startup_500mA",
+      "load5A": 0.5,
+      "sensorDemandA": 0.5,
+      "modeledLimitA": 0.30303030303030304,
+      "railMinV": 11.881048013885941,
+      "sensorMinV": 5.453890988321033,
+      "peakSupplyA": 0.9324900488129026
+    },
+    {
+      "name": "heavy_5V_and_startup",
+      "load5A": 1,
+      "sensorDemandA": 0.5,
+      "modeledLimitA": 0.30303030303030304,
+      "railMinV": 8.60344139068278,
+      "sensorMinV": 5.453890988321033,
+      "peakSupplyA": 0.9327810340562862
+    }
+  ],
+  "limitations": [
+    "Bounded engineering scenarios; frequency, effective capacitance, regulator response and gate-driver budgets require measurement. No switching-loop or manufacturer macro-model.",
+    "Existing electronics are modeled as a matched resistive load for transient screening; use DC budget for the constant-power 5 V converter envelope.",
+    "Unknown sensor startup is swept as an equivalent load. A current-limited sensor may brown out or restart; the model cannot predict successful boot.",
+    "The 10% current-limit spread is a screen extrapolated from the LT3065 test conditions, not a guaranteed 12 V/9 V specification. Thermal foldback, cable and cold startup are not modeled."
+  ]
+}

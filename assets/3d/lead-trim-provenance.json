@@ -1,0 +1,11 @@
+{
+  "source": "assets/3d/Package_TO_SOT_THT.3dshapes__TO-220-2_Vertical.step",
+  "sourceSha256": "7656d388eca6f6d919aeb1661b7e60b68bc363359af24e92c0d3447fa0fe5801",
+  "derivative": "assets/3d/generated__TO-220-2_Vertical_LeadTrim2mm.step",
+  "derivativeSha256": "71a803f24880eb14beb2635d024fee266cbd8b4af9cdb629f437d9d17664ad5f",
+  "operation": "Intersect the stock package with local Z >= -3.6 mm: 1.6 mm PCB plus 2 mm lead projection. Package body and land pattern unchanged.",
+  "cadqueryVersion": "2.7.0",
+  "minimumLocalZMm": -3.6,
+  "maximumLocalZMm": 18.775,
+  "assemblyRequirement": "Physically trim D2 leads to <=2 mm below the motor-facing PCB surface; representative display color."
+}

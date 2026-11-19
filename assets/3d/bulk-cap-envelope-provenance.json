@@ -1,0 +1,15 @@
+{
+  "model": "assets/3d/generated__Rubycon_ZLJ_D18_40_MaxEnvelope.step",
+  "sha256": "99c900718eae6653b8105c0055bc1ae0cb8d8d8d9d2bfa3e8352a2b89029cc22",
+  "manufacturer_model": false,
+  "can_max_diameter_mm": 18.5,
+  "can_max_length_mm": 42,
+  "seating_allowance_mm": 1,
+  "outward_projection_mm": 43,
+  "lead_pitch_mm": 7.5,
+  "lead_diameter_mm": 0.8,
+  "lead_projection_below_board_mm": 2,
+  "required_outward_clearance_including_vent_mm": 46,
+  "source": "Rubycon ZLJ manufacturer series PDF, dimensions p81 and 100V/820uF/18x40 row p83; archived public copy.",
+  "limitations": "Envelope for mechanical clearance; polarity marking and pressure vent are not vendor geometry. Physically trim leads to <=2mm below the PCB."
+}

@@ -1,0 +1,16 @@
+{
+  "source": "tscircuit Circuit JSON",
+  "sourceCircuitSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "cadComponents": 226,
+  "withStepModel": 226,
+  "placeholderCount": 0,
+  "representativeBodies": [
+    "Y1",
+    "U2",
+    "U13",
+    "U21"
+  ],
+  "units": "Exporter scene uses millimetres; viewer fits the board bounds.",
+  "assemblyFitVerified": false,
+  "notes": "Package-family models are visual aids. Y1, U2, U13 and U21 use representative bodies; exposed-pad geometry is not validated by these models. DNP parts, the bare solder jumper, test pads, fiducials and mounting holes have no component bodies."
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "circuitSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "faces": [
+    {
+      "face": "top",
+      "gerberFlashes": 160
+    },
+    {
+      "face": "bottom",
+      "gerberFlashes": 563
+    }
+  ],
+  "packageApertures": {
+    "U2": 49,
+    "U13": 13,
+    "U21": 11
+  },
+  "errors": [],
+  "method": "Read metric RS-274X flashes, including LR rotation, and compare count, shape, dimensions, placement, side and overlap with native electrical lands."
+}

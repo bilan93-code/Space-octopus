@@ -1,0 +1,14 @@
+{
+  "rubycon": {
+    "mirror": "https://github.com/hank-bond/digikey-cap-finder/blob/37c424a900e3784d245f79d2d9c9938dea847907/series_pdfs/rubycon/ZLJ.pdf",
+    "sha256": "d114d9cc51a22ed3e643e2b084853dd20bd0750a3a53b6acdf5f27e8feef921f"
+  },
+  "watchdog": {
+    "mirror": "https://github.com/nvh1811/WatdogMonitor/blob/main/Documents/tps3431.pdf",
+    "sha256": "ab95b8b3aeb3d2f00cb45fce0021b658d170da68a1fda055794d4f2604386fa7",
+    "independent_second_mirror": "https://github.com/RamazanBozkurrtt/circuitBuilderAi-Astra/blob/e0339b6f79ef9a33a94fd2df5f0f1f4849d8aa35/datasheets/power/tps3431_datasheet_rev_a.pdf",
+    "second_copy_sha256": "99bf5dbfffe06e8f85d9a86cfb777a0151e85b4a103033bc025f4897a0bdc6f3",
+    "manufacturer_content_pages_1_to_22_equal": true
+  },
+  "live_network_checks": "Direct TI, Rubycon and PCB Parts hosted endpoint remained blocked; public copies used, not a current manufacturer-host fetch."
+}

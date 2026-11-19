@@ -1,0 +1,35 @@
+import fs from 'node:fs';
+const output=process.argv[2]??'output';
+const files=['build/three.module.js','build/three.core.js','examples/jsm/loaders/GLTFLoader.js','examples/jsm/controls/OrbitControls.js','examples/jsm/utils/BufferGeometryUtils.js','LICENSE'];
+for(const f of files){const dest=`${output}/vendor/three/${f}`;fs.mkdirSync(dest.slice(0,dest.lastIndexOf('/')),{recursive:true});fs.copyFileSync(`node_modules/three/${f}`,dest);}
+fs.writeFileSync(`${output}/3d.html`,`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Space Octopus — tscircuit 3D</title>
+<style>body{margin:0;background:#10171b;color:#eaf3ee;font:14px system-ui}header{position:absolute;z-index:2;top:18px;left:20px;background:#142329e8;padding:18px;border:1px solid #3d5559;border-radius:8px;max-width:440px}h1{font-size:21px;margin:0 0 10px}p{font-size:12px;color:#aabdbf;margin:8px 0}button,a{background:#223a3d;color:#cde4dc;border:1px solid #476460;padding:7px 12px;border-radius:4px;cursor:pointer;text-decoration:none}canvas{display:block;width:100vw;height:100vh}.warning{color:#e7bd7e}#status{max-width:420px}</style>
+<header><h1>Space Octopus · Ø112 mm</h1><p>tscircuit model · Four copper layers · Ø28 proposed opening</p><button id="top">Top</button> <button id="bottom">Bottom</button> <button id="angle">Angled</button> <a href="index.html">2D &amp; checks</a><p><button id="mount">Show motor</button> <button id="explode">Separate assembly</button></p><p>Drag to rotate · Wheel to zoom · Right-drag to pan</p><p id="status">Loading the board and component models…</p><p class="warning" id="routing-status">Routing audit pending.</p><p id="mount-status">Connectors and tall capacitors face outward. Proposed 7 mm cap-to-PCB gap.</p><p class="warning">Spacer concept only: replacement fasteners and end-cap clamping require engineering. Package and power-stage qualification remain open.</p><a href="space-octopus.glb" download>Download PCB 3D model</a></header>
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from './vendor/three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from './vendor/three/examples/jsm/controls/OrbitControls.js';
+const scene=new THREE.Scene();scene.background=new THREE.Color('#10171b');
+const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;document.body.appendChild(renderer.domElement);
+// Coordinates are millimetres; a 1 mm near plane preserves depth precision on thin metal lids.
+const camera=new THREE.PerspectiveCamera(37,innerWidth/innerHeight,1,10000);
+const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;
+scene.add(new THREE.HemisphereLight(0xffffff,0x54726a,2.4));for(const [x,y,z,intensity] of [[90,160,100,3],[-120,70,-120,2],[0,-120,0,2]]){const l=new THREE.DirectionalLight(0xffffff,intensity);l.position.set(x,y,z);scene.add(l);}
+let center=new THREE.Vector3(),distance=190;
+const motor=new THREE.Group();motor.name='Nominal motor rear envelope';motor.visible=false;scene.add(motor);
+const grey=new THREE.MeshStandardMaterial({color:0x87999f,metalness:.65,roughness:.35,transparent:true,opacity:.42,side:THREE.DoubleSide});
+function ring(outer,inner,height){const s=new THREE.Shape();s.absarc(0,0,outer,0,Math.PI*2,false);const h=new THREE.Path();h.absarc(0,0,inner,0,Math.PI*2,true);s.holes.push(h);const g=new THREE.ExtrudeGeometry(s,{depth:height,bevelEnabled:false,curveSegments:128});g.rotateX(-Math.PI/2);return g;}
+const cap=new THREE.Mesh(ring(56,14,6),grey);cap.position.y=-13.8;motor.add(cap);
+const housing=new THREE.Mesh(ring(56,48,35),grey);housing.position.y=-48.8;motor.add(housing);
+const shaft=new THREE.Mesh(new THREE.CylinderGeometry(6,6,21,64),new THREE.MeshStandardMaterial({color:0xb8c6c8,metalness:.8,roughness:.2}));shaft.position.y=-3.3;motor.add(shaft);
+for(let i=0;i<6;i++){const a=(30+60*i)*Math.PI/180;const spacer=new THREE.Mesh(ring(3.5,2.25,7),new THREE.MeshStandardMaterial({color:0xc3a96d,metalness:.5,roughness:.4}));spacer.position.set(52*Math.cos(a),-7.8,-52*Math.sin(a));spacer.name='Concept spacer '+(i+1);motor.add(spacer);}
+document.getElementById('mount').onclick=()=>{motor.visible=!motor.visible;document.getElementById('mount').textContent=motor.visible?'Hide motor':'Show motor';};
+let exploded=false;document.getElementById('explode').onclick=()=>{exploded=!exploded;motor.visible=true;motor.position.y=exploded?-25:0;document.getElementById('mount').textContent='Hide motor';document.getElementById('explode').textContent=exploded?'Join assembly':'Separate assembly';};
+function view(mode){const d=mode==='top'?[0,1,.0001]:mode==='bottom'?[0,-1,.0001]:[.7,1,.8];camera.position.copy(center).add(new THREE.Vector3(...d).normalize().multiplyScalar(distance));camera.up.set(0,mode==='bottom'?0:1,mode==='top'?-1:mode==='bottom'?1:0);controls.target.copy(center);controls.update();}
+for(const mode of ['top','bottom','angle'])document.getElementById(mode).onclick=()=>view(mode);
+new GLTFLoader().load('space-octopus.glb',async gltf=>{scene.add(gltf.scene);window.boardScene=gltf.scene;window.motorEnvelope=motor;const box=new THREE.Box3().setFromObject(gltf.scene);box.getCenter(center);const size=box.getSize(new THREE.Vector3());distance=Math.max(size.x,size.y,size.z)*1.95;view('angle');const status=await(await fetch('3d-status.json')).json();document.getElementById('status').textContent=status.withStepModel+' populated component models. Representative bodies include '+(status.representativeBodies||[]).join(', ')+'.';try{const routing=await(await fetch('copper-audit.json')).json();document.getElementById('routing-status').textContent=status.mechanicalPreview?'Mechanical preview; copper routing revision is in progress.':routing.fullyConnectedNets+'/'+routing.nets+' nets connected. Engineering review.';const fit=await(await fetch('motor-mount-audit.json')).json();document.getElementById('mount-status').textContent='Proposed '+fit.provisionalGapMm+' mm cap-to-PCB gap; minimum modeled clearance '+fit.minimumModeledMotorClearanceMm.toFixed(2)+' mm. Connectors face outward.';}catch{}window.boardReady=true;window.boardBounds={min:box.min.toArray(),max:box.max.toArray()};},undefined,e=>{document.getElementById('status').textContent='3D load failed: '+e.message;window.boardError=String(e);});
+window.addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
+renderer.setAnimationLoop(()=>{controls.update();renderer.render(scene,camera)});
+</script></html>`);
+console.log('Created offline 3D viewer and vendored Three.js modules.');

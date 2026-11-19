@@ -1,0 +1,17 @@
+Bota branch load step extracted from Space Octopus Circuit JSON
+Bcommand cmd 0 V=min(max((11.973547094188376-v(rail))/.08,0),0.9327810349911332)
+Rresponse cmd response 1k
+Cresponse response 0 5n
+Bsource 0 rail I=v(response)
+Crail rail 0 0.0000376
+Rexisting rail 0 20.85537614572154
+Breg rail sensor I=min(max((min(9,v(rail)-.51)-v(sensor))/.08,0),0.30303030303030304)
+Cout sensor 0 0.000005
+Rdivider sensor 0 150000
+Iground rail 0 0.025
+Vload step 0 PWL(0 0 .999m 0 1m 0.5 2.999m 0.5 3m 0.17777777777777778 5m 0.17777777777777778)
+Bload sensor 0 I=v(step)*max(v(sensor),0)/9
+
+.tran 2u 5m
+.save v(rail) v(sensor) v(response)
+.end

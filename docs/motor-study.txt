@@ -1,0 +1,2064 @@
+ Motor design and
+ Gmsh–Elmer analysis
+ Space Octopus • 12-slot / 10-pole permanent-magnet motor • 6 November 2026
+
+
+
+
+ This report extends the previous Pyleecan/FEMM dimension report with actual three-dimensional geometry,
+ electromagnetic finite elements, insulated-wire thermal calculations, complete motor conduction, and rotor
+ structural calculations. Gmsh prepares the geometry and meshes; Elmer performs the field solves. CalculiX
+ supplies the orthotropic rotor and contact analyses.
+
+ The deliverable is a simulation design candidate for independent validation. Supplier magnetic curves,
+ composite strength, adhesive temperature/creep properties, bearing data and manufacturing tolerances
+ remain material design inputs. Numerical completion does not constitute a fabrication or hardware
+ qualification.
+
+ Torque finding: at 12.2 Arms and 120°C magnets, the eight-position 3D mean is 4.9001 N·m. After the
+ stated 18 W non-copper loss allowance, the estimated mean shaft torque is 4.6273 N·m against the 4.3651
+ N·m requirement.
+
+ Thermal limit: continuous 22 A hot holding reaches 154.7°C and fails the declared 130°C limit. The refined
+ 18.5 A case reaches 126.4°C. A five-second 22 A pulse from the 12.2 A hot holding field reaches 103.3°C
+ under the stated cooling and material assumptions.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                              1
+ 1. Requirement, operating point and interpretation
+
+   Quantity                                    Value / meaning
+
+   Actuator torque reference                   220 N·m; actuator mechanics are outside this report
+
+   Assumed reduction / efficiency              63:1 / 0.80
+
+   Actuator / motor speed                      10 rpm / 630 rpm
+
+   Required motor shaft torque                 220/(63×0.80) = 4.365079 N·m
+
+   Required motor shaft power                  287.979 W at 630 rpm
+
+   DC supply                                   48 V nominal; 42 V minimum
+
+   Current ceiling                             22 Arms; pulse/voltage/temperature limits apply
+
+   Declared winding temperature limit          130°C
+
+   Cooling boundary                            Distributed barrel-to-sink resistance 0.05 K/W
+
+   Sink cases                                  50°C nominal; 70°C hot boundary
+
+   Mechanical screening speed / torque         1,890 rpm / 13.416 N·m; final B outward pressure 2 MPa
+
+
+ The original native model required approximately 10.834 Arms for the nominal target. The additional 12.2
+ Arms case is a design-margin scenario; its electromagnetic result must be read with the corresponding
+ temperature, rotor position and steel model. A static torque point is not a full-period mean rating.
+
+ The 22 A steady thermal calculation tests thermal capacity. It does not establish that 22 A is electrically
+ available at every speed on a 42 V bus. The earlier angle-resolved optional 400 N·m actuator point failed
+ the reserved 42 V voltage criterion and is not reclassified as a pass here.
+
+ All dimensions in the sketches/tables are millimetres unless marked otherwise. The motor has an inner
+ rotor: the shaft and magnet-bearing rotor turn inside the stator. The motor contains no second internal
+ motor.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                               2
+ 2. Changes from the preceding PDF
+
+   Item                        Earlier dimensional basis                        Declared three-dimensional candidate
+
+   Shaft                       Basic Ø12 × 130                                  Ø12 × 155; z = −35 to 120
+
+   Coil end geometry           12 mm electrical half-turn allowance; physical   Closed stranded-coil envelope with 180° formed end turns
+                               route unresolved
+
+   Mean turn length            218 mm                                           220.174618 mm
+
+   Net coil-side envelope      35.75 mm² native half-slot                       31.410266 mm² after liner/separator
+
+   Magnet bond                 Not a separate radial solid                      0.05 mm outside rotor iron; magnet radii 23.05–26.05
+
+   Outer magnet retention      Proposed 0.20 mm wrap                            Wrap radii 26.05–26.25; cold free radial gap 0.25
+
+   Magnet axial                Four segments proposed                           Four × 21.175 mm, three × 0.10 mm insulating seams
+   segmentation
+
+   Housing / end support       Preliminary envelopes                            Barrel, two end caps, bearings, collars, nuts and 12 bolts
+                                                                                in CAD
+
+   Sleeve capture revision B   Revision A lips touch the 0/85 mm core end       0.15 mm nominal axial clearance at each retention lip;
+                               faces                                            sleeve z −0.15 to 85.15
+
+
+ Revision A was retained as an analysed comparison. Bonding its sleeve/lip interfaces imposes strong
+ thermal constraints and produces high local stresses. Revision B introduces axial clearance and explicitly
+ evaluates sliding sleeve contact. Its active magnetic solids are unchanged, so the magnetic geometry is
+ shared. Revision B receives a separate thermal and structural check.
+
+ The former report remains a historical reference: Motor_Dimensions_and_Analysis.pdf, SHA-256
+ 560495945e37bcd89a2af78bca3e1a77938f5467ca1e12a78cf3cccc54d999f3. This report identifies every
+ new geometric proposal explicitly.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                             3
+ 3. Radial dimensions and magnetic stack
+
+
+
+
+   Feature                                         Radius / diameter            Axial extent
+
+   Stator outer surface                            R48 / Ø96                    z 0–85
+
+   Stator bore                                     R26.5 / Ø53                  z 0–85
+
+   Rotor iron                                      R6–23 / Ø12–46               z 0–85
+
+   Magnet adhesive                                 R23–23.05                    Under each segment
+
+   Magnets                                         R23.05–26.05 / bare Ø52.10   Total magnetic length 84.70
+
+   Retention sleeve                                R26.05–26.25 / Ø52.50        Revision B z −0.15–85.15
+
+   Free radial mechanical gap                      26.50−26.25 = 0.250          Excludes thermal growth/runout
+
+   Housing barrel                                  R48–56 / Ø96–112             z 0–85
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                 4
+ 4. Stator tooth and slot sketch coordinates
+
+   Native point                                Radial x [mm]                             Tangential y [mm]
+
+   Z1                                          26.481125                                 -1.000000
+
+   Z2                                          27.481125                                 -1.000000
+
+   Z3                                          28.481125                                 -3.000000
+
+   Z4                                          28.481125                                 -1.000000
+
+   Z5                                          41.481125                                 -4.500000
+
+   Z6                                          41.481125                                 4.500000
+
+   Z7                                          28.481125                                 1.000000
+
+   Z8                                          28.481125                                 3.000000
+
+   Z9                                          27.481125                                 1.000000
+
+   Z10                                         26.481125                                 1.000000
+
+
+ Use straight segments Z1→Z2→…→Z10 and close along the bore arc of radius 26.5 mm through (26.5, 0).
+ Rotate this local slot by 15° for slot 1 and repeat at 30° pitch. This preserves the native SlotW10 tooth tips
+ and slot neck; a rectangular replacement changes the electromagnetic geometry.
+
+   Slot parameter                                                  Dimension
+
+   W0 / H0                                                         2/1
+
+   W1 / H1                                                         6/1
+
+   H2 / W2                                                         13 / 9
+
+   Total native slot opening area                                  77.474832 mm²
+
+   Native active winding window                                    71.500 mm²; 35.750 per side before new insulation
+
+   Minimum nominal back iron                                       6.275502 mm
+
+   Outer slot liner / middle separator                             0.20 / 0.10 total
+
+
+ The liner and central separator are physical CAD volumes. Their nominal dimensions reduce each active
+ half-slot to the polygon on the next page. No insulation strength, partial-discharge limit or process
+ tolerance is established by geometric fit.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                       5
+ 5. Coil-side packing and insulation
+
+
+
+
+   Quantity                                                        Value
+
+   Turns per coil / strands in hand                                12 / 2
+
+   Bare conductor diameter                                         0.950 mm
+
+   Assumed radial enamel thickness                                 0.025 mm
+
+   Insulated diameter                                              1.000 mm
+
+   Net half-slot area                                              31.410266 mm²
+
+   Bare copper fraction of net envelope                            54.1598%
+
+   Insulated-wire area fraction                                    60.0108%
+
+   Minimum wire centre separation                                  1.02000 mm
+
+   Minimum coating-to-envelope clearance                           18.660 µm
+
+
+ Twenty-four coated circles fit at nominal dimensions. The small minimum residual clearance is not a
+ manufacturing tolerance allowance. The selected wire must meet the stated maximum coated diameter,
+ and the liner/separator process must preserve the net envelope.
+
+   Net polygon vertex                          x [mm]                              y [mm]
+
+   1                                           28.681125                           -0.846724
+
+   2                                           41.281125                           -4.239032
+
+   3                                           41.281125                           -0.050000
+
+   4                                           28.681125                           -0.050000
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                       6
+ 6. Wire centre coordinates for CAD
+
+   Strand                                      Local x [mm]                   Local y [mm]
+
+   1                                           29.779965                      -0.605437
+
+   2                                           30.799965                      -0.605437
+
+   3                                           31.819965                      -0.605437
+
+   4                                           32.839965                      -0.605437
+
+   5                                           33.349965                      -1.488783
+
+   6                                           33.859965                      -0.605437
+
+   7                                           34.369965                      -1.488783
+
+   8                                           34.879965                      -0.605437
+
+   9                                           35.389965                      -1.488783
+
+   10                                          35.899965                      -0.605437
+
+   11                                          36.409965                      -1.488783
+
+   12                                          36.919965                      -2.372129
+
+   13                                          36.919965                      -0.605437
+
+   14                                          37.429965                      -1.488783
+
+   15                                          37.939965                      -0.605437
+
+   16                                          37.939965                      -2.372129
+
+   17                                          38.449965                      -1.488783
+
+   18                                          38.959965                      -0.605437
+
+   19                                          38.959965                      -2.372129
+
+   20                                          39.469965                      -1.488783
+
+   21                                          39.979965                      -0.605437
+
+   22                                          39.979965                      -2.372129
+
+   23                                          40.489965                      -1.488783
+
+   24                                          40.489965                      -3.255475
+
+
+ These are nominal centres for one lined half-slot. Mirror the tangential coordinate for its opposite half, then
+ rotate the slot coordinate frame to the required slot centre. They locate conductor cross-sections; they are
+ not a fabrication routing of all end-turn strands or terminal leads.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                   7
+ 7. Winding connections and physical end turns
+
+   Coil                               Phase                        Signed turns                      Tooth axis [deg]
+
+   1                                  A                            12                                0
+
+   2                                  A                            -12                               30
+
+   3                                  B                            -12                               60
+
+   4                                  B                            12                                90
+
+   5                                  C                            12                                120
+
+   6                                  C                            -12                               150
+
+   7                                  A                            -12                               180
+
+   8                                  A                            12                                210
+
+   9                                  B                            12                                240
+
+   10                                 B                            -12                               270
+
+   11                                 C                            -12                               300
+
+   12                                 C                            12                                330
+
+
+ The three phases are Y connected, with four series coils and 48 series turns per phase. Signed turns specify
+ the current direction relative to the positive local coil direction. Coil side T0 in slot s returns through the
+ mirrored T1 side in slot s−1. The table retains the native Pyleecan connection matrix.
+
+   End-turn quantity                                                     Value
+
+   Closed mean turn length                                               220.174618 mm
+
+   Active straight-leg contribution                                      2 × 85 = 170 mm
+
+   Mean total end-turn contribution                                      50.174618 mm
+
+   Nominal cold phase resistance                                         0.128522351 Ω at 20°C
+
+   Copper temperature coefficient                                        0.00393 K⁻¹
+
+   Physical axial end-turn overhang                                      Approximately 10.636 mm from the exact coil-side profile
+
+
+ The CAD coils are connected homogenized stranded-current solids. The end-turn geometry is a 180°
+ revolution of the lined coil-side polygon about its tooth radial axis at each stack end. The electromagnetic
+ source follows that closed loop; it is not a shorted solid copper ring.
+
+ An independent CAD volume check found about 0.123% difference between kernel quadrature and the
+ analytical swept-volume value for each curved coil. Electrical resistance uses the conservative analytical
+ 220.174618 mm turn length. This small geometry/integration difference is disclosed rather than hidden in
+ an exact-volume claim.
+
+   Conductor loading                                                       Value
+
+   Two-strand copper area per turn                                         1.417644 mm²
+
+   Copper current density at 12.2 / 13 / 22 Arms                           8.606 / 9.170 / 15.519 A/mm²
+
+   Worst holding phase current density                                     √2 times the corresponding dq RMS value
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                    8
+ 8. Magnets, sleeve, adhesive and capture clearances
+
+   Feature                                                 Nominal definition
+
+   Pole pitch / arc                                        36° / 28.8°
+
+   Pole 1 angular extent / centre                          3.6°–32.4° / 18°
+
+   Magnetization                                           Alternating outward/inward radial direction
+
+   Segments per pole / total                               4 / 40
+
+   Segment axial length / seam                             21.175 / 0.100
+
+   Segment z intervals                                     0–21.175; 21.275–42.450; 42.550–63.725; 63.825–85.000
+
+   Inner bond thickness                                    0.050 radial
+
+   Sleeve radial thickness                                 0.200
+
+   Revision B sleeve z interval                            −0.150 to 85.150
+
+   Revision B front / rear retention lips                  −0.650 to −0.150 / 85.150 to 85.650
+
+   Lip radial interval                                     22.500 to 26.250
+
+   Cold axial core-to-lip clearance                        0.150 each side
+
+
+ The radial sleeve consumes mechanical clearance but is treated as approximately nonmagnetic. The bond
+ moves the magnet radially outward by 0.05 mm. The total nonmagnetic radial path from rotor iron to stator
+ remains approximately 0.50 mm because the inner bond replaces an equal amount of external
+ bare-magnet gap.
+
+ Revision B axial clearance is a proposed change derived from the hot restraint study. A stress-free 20°C
+ steel stack growing to 150°C increases its 85 mm length by approximately 0.1326 mm, or 0.0663 mm per
+ end about the midplane. The stated 0.15 mm nominal clearance leaves approximately 0.0837 mm per end
+ before tolerances and differential sleeve effects.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                   9
+ 9. Shaft, bearings and enclosure dimensions
+
+   Part / feature                                      Basic dimensions and locations
+
+   Shaft                                               Ø12 × 155; z −35 to 120
+
+   Equivalent 6201 bearings                            Ø12 ID × Ø32 OD × 10; centres z −14 and 99
+
+   Bearing seat intervals                              Front z −19…−9; rear z 94…104
+
+   Bearing support span                                113
+
+   Barrel                                              Ø96 ID / Ø112 OD × 85
+
+   End caps                                            Front z −20…0; rear z 85…105
+
+   End-cap plate thickness                             6; plates z −20…−14 and 99…105
+
+   Bearing boss / shoulder opening                     Basic Ø44 boss / Ø28 shoulder opening
+
+   Inner collars                                       Ø12/18 × 4; z −9…−5 and 90…94
+
+   Locknut envelopes                                   M12×1 equivalent, Ø19 × 3; z −22…−19 and 104…107
+
+   Cap screws                                          Six M4×30 per end; PCD104; cap clearance Ø4.5
+
+   Barrel screw engagement                             10 mm at each end; Ø4 thread-equivalent cylinders
+
+
+ Bearings, collars, nuts and fasteners are dimensional envelopes in CAD. Bearing internal geometry,
+ preload, journal fits, screw thread helices, rotor-to-shaft joint capacity and output coupling interfaces are
+ not selected by the electromagnetic solver. These must be assigned for a manufactured assembly and for a
+ final bearing/contact model.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                             10
+ 10. Verified Pyleecan–Elmer coupling
+ The installed Pyleecan source is kept unchanged. The stock MagElmer mesh-conversion method is used;
+ this project supplies the missing physical field/flux extraction through a motor-specific adapter. That
+ adapter runs inside native Simu1, integrates depth exactly once, returns actual B fields and phase fluxes,
+ and feeds native ForceMT.
+
+   Check                                                           Executed result
+
+   Native Pyleecan API angular positions                           24
+
+   Elmer mean torque [N·m]                                         4.440
+
+   Reference FEMM mean torque [N·m]                                4.427214318
+
+   Mean-torque difference                                          Approximately 0.290% for 24 samples
+
+   Same-mesh vector-potential comparison                           Linear and nonlinear Elmer versus independent scikit-fem: about
+                                                                   0.0117% relative error
+
+   Force coupling                                                  Native Pyleecan ForceMT executed with returned magnetic field
+
+   Depth normalization                                             Project flux/torque divided by stack length before native integration
+
+
+ The earlier 12-position torque-ripple result aliased the waveform and was replaced by the 24-position run.
+ The 24-position peak-to-peak torque ripple is about 0.654 N·m. Mean torque agreement alone does not
+ establish ripple convergence or all high-frequency losses.
+
+ This is an explicit project repair of an incomplete upstream interface, not a claim that the unmodified stock
+ MagElmer extractor supplies all of these quantities. The adapter and readback are included with the
+ reproducible study.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                           11
+ 11. Three-dimensional magnetic mesh and constitutive law
+
+   Mesh                             Nodes                          Tetrahedra         Near-gap target [mm]
+
+   coarse                           65307                          367755             1.200
+
+   fine                             141627                         803193             0.700
+
+   segmented                        65990                          372724             1.200
+
+
+ The axial-half domain starts at the 42.5 mm midplane. Magnetic normal flux is zero on that symmetry
+ plane; total torque and phase flux integrals are multiplied by two. The far cylinder radius is 90 mm and its
+ outer axial plane is z = 155 mm. The complete closed coil end region is present. The nonmagnetic housing,
+ liner, bond and wrap are replaced by air in static magnetics; exterior ferromagnetic fastener effects are a
+ separate unresolved material scenario.
+
+ The STEP rotor is at the nominal CAD reference, with pole 1 centred at 18°. The first magnetic case adds
+ 50.999972° mechanical rotation to that rotor while keeping stator/coils fixed. Its phase currents are [0,
+ +√(3/2) Iq, −√(3/2) Iq]. Other sweep cases use electrical angle 5(θ−50.999972°). Preserve this reference
+ when recreating the cases in Ansys; CAD zero and the first solved rotor position are different.
+
+ The linear check uses relative permeabilities 1500 in the lamination plane and 19.75 axially. The nonlinear
+ model uses the bundled M270-35A B–H curve and 95% steel fill, mixing parallel permeability and series
+ axial reluctivity. The supplied curve ends at 1.8 T; higher-field extrapolation remains an unqualified
+ material assumption.
+
+ A boundary-rooted spanning-tree gauge removes every active gradient mode and is checked by graph
+ rank. The native interior forest left one mode in this mesh. Failed/nonphysical configurations are excluded.
+ Direct and iterative comparisons, mesh refinement, finite field checks and actual solver residuals are
+ recorded; an Elmer process merely exiting successfully is insufficient.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                12
+ 12. Executed three-dimensional magnetic results
+
+   Mesh / case                               Iq [Arms]     Magnet [°C]   Torque [N·m]          ψd,rms [Wb]       Peak |B| [T]
+
+   segmented/design12p2_80C                  12.200        80.0          4.988276              0.0272065         3.0905
+
+   segmented/fault_minus55d_150C             0.000         150.0         0.005064              -0.0198218        3.0133
+
+   segmented/peak22_150C                     22.000        150.0         8.808578              0.0266198         3.0309
+
+   segmented/design12p2_120C                 12.200        120.0         4.927990              0.0268765         3.0529
+
+   coarse/linear_rooted_cholmod              10.814        80.0          4.411918              0.0268723         2.1799
+
+   coarse/nonlinear_tensor_newton            10.814        80.0          4.472416              0.0272560         2.0071
+
+   fine/linear_bicg                          10.814        80.0          4.382280              0.0268217         2.4691
+
+   fine/nonlinear_tensor_newton              10.814        80.0          4.444000              0.0272112         1.7773
+
+
+ The accepted torque is Elmer’s Component variational torque, multiplied by two for axial symmetry. It is
+ cross-checked by independently integrating the air Maxwell tensor against a piecewise-linear nodal virtual
+ rotation. The legacy Torque Group readout and a separately integrated narrow continuous weighting
+ function disagree with that mesh-consistent result and are excluded from rating conclusions.
+
+   Torque method / check                                                            Linear coarse result [N·m]
+
+   Component variational torque                                                     4.411918
+
+   Independent discrete air Maxwell tensor                                          4.411387
+
+   Fixed-current energy derivative, ±0.25°                                          4.410494
+
+   Fixed-current energy derivative, ±0.50°                                          4.407909
+
+
+ For linear tetrahedral Nedelec elements, A inside a cell is reconstructed as A at the centroid plus ½
+ B×(r−rcentroid). Coil flux is then integrated with 64-point Duffy quadrature along the actual curved current
+ direction. The 27-versus-64-point change is recorded to separate end-turn integration error from magnetic
+ mesh error.
+
+ With the accepted component method, coarse-to-fine linear torque changes 0.672% (4.411918→4.382280
+ N·m); nonlinear torque changes 0.635% (4.472416→4.444000 N·m). The fine nonlinear ψd,rms is
+ 0.02721123 Wb. The independent discrete Maxwell torque differs from the component result by less than
+ 0.02% in the principal comparison cases. Local sharp-corner |B| maxima are less converged than integral
+ torque, especially near the axial magnet seams.
+
+ The approximately 3 T global maxima in the segmented cases occur in tiny air regions near the inner
+ bond/seam edges, not as a uniform steel induction. At the 12.2 A/120°C reference position, the maximum
+ homogenized steel |B| is about 1.686 T and its volume-weighted p99 is 1.303 T. Intrinsic lamination BFe can
+ exceed bulk B because of fill. The near-zero d-axis fault torque is not a useful relative-error benchmark; its
+ extraction difference is about 0.0016 N·m in absolute terms.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                13
+ 12A. Angular mean, shaft torque and actuator requirement
+
+
+
+
+   Rotor angle [deg]                          3D torque [N·m]                          ψd,rms [Wb]
+
+   51.000                                     4.927990                                 0.0268765
+
+   46.500                                     5.336322                                 0.0268698
+
+   42.000                                     4.821576                                 0.0269097
+
+   37.500                                     4.471982                                 0.0268176
+
+   33.000                                     5.003394                                 0.0270008
+
+   28.500                                     5.279470                                 0.0268859
+
+   24.000                                     4.836896                                 0.0269332
+
+   19.500                                     4.523192                                 0.0269530
+
+
+
+   Quantity                                                        Executed result
+
+   Current / magnet temperature                                    12.2 Arms / 120°C
+
+   Repeat interval / samples                                       36° mechanical / eight positions at 4.5°
+
+   Mean electromagnetic torque                                     4.900103 N·m
+
+   Sampled torque extrema                                          4.471982 to 5.336322 N·m
+
+   Four-versus-eight mean change                                   0.054%
+
+   Non-copper shaft-drag allowance                                 18 W / 65.97345 rad/s = 0.272837 N·m
+
+   Estimated mean shaft torque                                     4.627266 N·m
+
+   Required shaft torque                                           4.365079 N·m
+
+   Estimated mean actuator torque                                  233.214 N·m at 63:1 and 80% efficiency
+
+   Mean shaft-torque margin                                        6.01%
+
+
+ The eight-position sampling spans the native 36° repeat interval. Applied to the existing 24-position 2D
+ data, the same eight positions change the mean by approximately 0.022%. That is a sampling check using
+ the reference waveform; sampled 3D extrema still do not prove ripple convergence. The four-versus-eight
+ 3D mean comparison is reported above.
+
+ Electromagnetic torque is converted to an estimated shaft value by deducting the entire stated 18 W
+ non-copper loss envelope at 630 rpm. Copper loss affects voltage, efficiency and temperature but is not
+ subtracted again as shaft drag. Replace the allowance with actual core, magnet, bearing and windage
+ losses when supplier data and measurements are available. Mean torque does not ensure the minimum
+ instantaneous torque without controller ripple compensation.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                              14
+ 12B. Flux-derived voltage and hot-duty efficiency
+
+   Quantity                                                        Calculated value
+
+   Resistance temperature upper bound                              82.539°C winding hotspot
+
+   Phase resistance upper bound                                    0.16011012 Ω
+
+   Maximum sampled-harmonic dq voltage circle                      16.2246 V phase peak
+
+   Maximum phase-voltage span                                      28.0895 V
+
+   42 V bus reserved ceilings                                      21.824 V phase circle / 37.800 V span
+
+   Moving copper loss                                              71.074 W
+
+   Additional motor loss allowance                                 18.000 W
+
+   Estimated shaft power at 630 rpm                                305.277 W
+
+   Estimated motor electrical input                                394.351 W
+
+   Estimated motor efficiency                                      77.41%
+
+   Estimated 48 V DC current                                       8.216 A, before inverter loss
+
+
+ The voltage estimate interpolates the eight-position 3D dq flux waveform and differentiates it with rotor
+ angle. With RMS dq quantities, Vd = R Id + ωm(dψd/dθ−5ψq), Vq = R Iq + ωm(dψq/dθ+5ψd). Three phase
+ voltages are reconstructed and their span is compared with the reserved bus voltage. The resistance uses
+ the full winding hotspot as a conservative phase-temperature bound.
+
+ Only harmonics resolved by the eight samples are represented; higher space harmonics and switching
+ components remain outside this new estimate. The earlier full-period FEMM/drive work remains relevant.
+ These values are a nominal-duty model check, not a controller or inverter qualification. The estimated
+ efficiency includes the new hot copper loss and 18 W motor loss allowance; it excludes inverter power loss.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                             15
+ 12C. Torque trough and current-control headroom
+
+   Check                                                           Result
+
+   Selected lowest-torque sampled rotor angle                      37.500°
+
+   12.2 A electromagnetic / estimated shaft torque                 4.471982 / 4.199145 N·m
+
+   13 A verified electromagnetic / estimated shaft torque          4.792408 / 4.519571 N·m
+
+   Required motor shaft torque                                     4.365079 N·m
+
+   13 A sampled-trough shaft margin                                3.54%
+
+   13 A steady hot holding winding                                 96.137°C; refined low-resin/poor-contact model
+
+   13 A moving winding / magnet maxima                             84.188 / 121.313°C
+
+   22 A, 5 s pulse from 13 A holding field                         105.964°C winding
+
+   Linearized compensation current range                           10.601 to 12.693 Arms
+
+   Linearized compensation voltage circle                          17.522 V peak; reserved ceiling 21.824 V
+
+
+ An additional 13 A trough solve at 150°C magnets gives 4.752052 N·m electromagnetic and 4.479215 N·m
+ estimated shaft torque, a 2.61% margin. This magnet temperature is above the 121.3°C moving thermal
+ result and adds a temperature sensitivity check.
+
+ Constant 12.2 A meets the mean torque criterion under the stated assumptions, but the sampled trough
+ after the 18 W drag allowance falls below the shaft requirement. A separate nonlinear 13 A solve at the
+ lowest sampled position tests available headroom. A controller can use an angle/current lookup and
+ feedback to compensate ripple; the table reports a linearized feasibility profile, not an implemented
+ controller.
+
+ The profile estimates Iq(θ) by scaling the sampled torque curve, then includes the resulting q-flux
+ derivative in voltage. Cogging is not strictly proportional to current, and current-dependent cross-saturation
+ is only approximated. Exact continuum extrema, sensor/commutation errors, dynamic current tracking and
+ inverter limits require controller calibration. The constant 13 A thermal cases conservatively bound the
+ heating of a profile that remains below 13 A.
+
+   Mean-duty sensitivity at 12.2 A                                    Threshold / scope
+
+   Maximum non-copper loss compatible with 220 N·m                    35.297 W at 630 rpm
+
+   Extra loss budget beyond the assumed 18 W                          17.297 W
+
+   Minimum gearbox efficiency for this mean shaft torque              75.47% at 63:1
+
+   Approximate Br20 floor if torque scaled linearly                   0.9938 T; first-order sensitivity only
+
+
+ The 6% mean torque margin is not a material or manufacturing safety factor. Supplier remanence variation,
+ actual gap, loss and gearbox efficiency can consume it. The remanence threshold is an algebraic first-order
+ sensitivity, not another finite-element validation.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                    16
+ 13. Electrical use, demagnetization and losses
+
+   Model input / inherited result                              Value / scope
+
+   Magnet Br at 20°C                                           1.05 T
+
+   Br temperature coefficient                                  −0.0003 K⁻¹
+
+   Magnet recoil μr                                            1.05
+
+   Magnet electrical resistivity                               0.9 µΩ·m at 20°C; assumed +0.0003 K⁻¹
+
+   Phase resistance at 20°C                                    0.128522351 Ω for new coil length
+
+   Phase resistance at 100 / 130°C                             0.16892978 / 0.18408256 Ω
+
+   Native nominal phase voltage peak                           15.734 V at the former nominal operating point
+
+   42 V reserved phase-voltage ceiling                         21.824 V peak in the inherited drive criterion
+
+   Inherited nonlinear fault current / torque                  55.27 Arms vector envelope / 13.416 N·m
+
+   Inherited reverse-field knee requirement                    About 852 kA/m for the prior cold 1,890 rpm nonlinear fault case
+
+
+ A linear recoil magnet model cannot prove irreversible demagnetization resistance. The negative field must
+ be checked against the selected supplier’s temperature-dependent intrinsic curve and knee, including
+ segment-edge fields and tolerances. Br alone does not specify coercivity.
+
+   New segmented 3D case                                              Maximum reverse H [kA/m]           Volume-weighted p99 [kA/m]
+
+   design12p2_80C                                                     422.802                            336.032
+
+   fault_minus55d_150C                                                711.916                            476.501
+
+   peak22_150C                                                        431.326                            337.275
+
+   design12p2_120C                                                    417.896                            332.083
+
+
+ The −55.27 A d-axis, 150°C magnet case requires approximately 712 kA/m at its largest sampled local
+ reverse field. This is a directional fault scenario, not an exhaustive current-angle demagnetization
+ envelope. The inherited cold maximum of approximately 852 kA/m remains a separate requirement;
+ neither result supplies the missing intrinsic magnet curve.
+
+ The preceding study already ran native winding, core-loss, magnet-loss and force models, full-period FEMM
+ field histories, direct AC wire impedance, DC-biased harmonic magnet response and ideal-switch drive
+ spectra. Steel loss coefficients remain calibrated to a generic 3 W/kg point, not supplier data. The new
+ thermal campaign deliberately uses a stated additional motor-loss envelope rather than claiming those
+ generic coefficients are measured losses.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                      17
+ 14. Three-dimensional magnet segmentation and AC
+ response
+   Mesh                   Segments         f [Hz]                  Field axis   Pole loss [W] at 10 mT peak
+
+   rooted_coarse          1                126                     x            0.00123717
+
+   rooted_coarse          1                126                     y            0.00009175
+
+   rooted_coarse          1                20000                   x            30.90838684
+
+   rooted_coarse          1                20000                   y            2.31014604
+
+   rooted_coarse          1                630                     x            0.03092895
+
+   rooted_coarse          1                630                     y            0.00229382
+
+   rooted_coarse          4                126                     x            0.00086415
+
+   rooted_coarse          4                126                     y            0.00008422
+
+   rooted_coarse          4                20000                   x            21.59503466
+
+   rooted_coarse          4                20000                   y            2.12014729
+
+   rooted_coarse          4                630                     x            0.02160358
+
+   rooted_coarse          4                630                     y            0.00210552
+
+   rooted_fine            1                126                     x            0.00123316
+
+   rooted_fine            1                126                     y            0.00008662
+
+   rooted_fine            1                20000                   x            30.78416488
+
+   rooted_fine            1                20000                   y            2.18001168
+
+   rooted_fine            1                40000                   x            119.92452079
+
+   rooted_fine            1                40000                   y            8.69242806
+
+   rooted_fine            1                80000                   x            438.39037821
+
+   rooted_fine            1                80000                   y            34.35897052
+
+   rooted_fine            4                126                     x            0.00086131
+
+   rooted_fine            4                126                     y            0.00007991
+
+   rooted_fine            4                20000                   x            21.51000121
+
+   rooted_fine            4                20000                   y            2.01099517
+
+   rooted_fine            4                40000                   x            83.89039661
+
+   rooted_fine            4                40000                   y            8.01494314
+
+   rooted_fine            4                80000                   x            307.78901661
+
+   rooted_fine            4                80000                   y            31.62939164
+
+
+ These are three-dimensional harmonic A–V conductor solves with electrical isolation of each segment, finite
+ conductivity, closed return currents and internal conductive reaction. A uniform boundary induction is
+ clamped on one pole; surrounding motor steel/air reaction and the actual rotating/PWM boundary spectrum
+ are absent. Multiply by ten poles only for a genuinely identical excitation on every pole. Loss scales with the
+ square of boundary amplitude in this linear test.
+
+ A separate low-frequency conduction formulation was solved with Elmer StatCurrentSolver and
+ independently with scikit-fem on the same 3D mesh. Potential differences were below 0.00001% and
+ spurious reference-node current was negligible. Four axial segments reduce the tested radial-field
+ low-frequency loss by approximately 30%; tangential-field reduction is much smaller. A 1/N² segmentation
+ rule is not valid for this magnet geometry.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                               18
+ 14A. Recorded PWM spectra and segmentation sensitivity
+
+   f [kHz]                     Four/one segment loss ratio, radial              Four/one segment loss ratio, tangential
+
+   20                          0.698736                                         0.922470
+
+   40                          0.699527                                         0.922060
+
+   80                          0.702089                                         0.920557
+
+
+
+   Recorded current waveform                                         2D continuous reference [W]      3D shape sensitivity [W]
+
+   PWM_42_0_100C                                                     0.086861                         0.060773–0.080083
+
+   PWM_42_1e-06_100C                                                 0.084728                         0.059274–0.078120
+
+   PWM_42_1e-06_130C                                                 0.085407                         0.059748–0.078746
+
+   PWM_48_1e-06_100C                                                 0.111742                         0.078186–0.103020
+
+   PWM_150C_substeps40                                               0.091705                         0.064151–0.084556
+
+   PWM_150C_substeps80                                               0.085895                         0.060091–0.079197
+
+   PWM_20C_substeps40                                                0.093751                         0.065574–0.086446
+
+   PWM_20C_substeps80                                                0.085158                         0.059574–0.078518
+
+
+ The recorded dq current spectra are applied to the earlier full-motor DC-biased Hermitian FEMM response
+ at 20/40/80 kHz. The new Elmer isolated-pole four/one-segment ratios are then used as directional shape
+ sensitivities at those frequencies. They predict roughly 0.06–0.10 W magnet PWM loss for those recorded
+ waveforms, well below the stated 3.6 W rotor heat allocation in the 18 W moving-loss scenario.
+
+ This is a quantified transfer sensitivity, not a complete 3D motor PWM loss bound. The actual motor fields
+ are nonuniform; the old drive waveforms/bias are retained; response temperature is 80°C. Approximately
+ 25–41% of the current variance lies outside 20–80 kHz, where the original response uses a low-frequency
+ clamp or high-frequency continuation. The new 13 A compensation controller is not re-simulated here.
+ Winding proximity, steel PWM loss and inverter power remain separate uncertainties.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                 19
+ 15. Thermal conductivity from 24 actual insulated strands
+
+
+
+
+   Resin k [W/m·K]                             Conservative transverse k   Dirichlet tensor eigenvalues
+
+   0.400                                       0.991185                    1.078015, 1.296595
+
+   0.200                                       0.584125                    0.670977, 0.906967
+
+
+ Copper is 390 W/m·K and enamel is 0.15 W/m·K. The actual 24-wire cross-section is meshed, including
+ every enamel ring. Dirichlet and Neumann apparent-conductivity experiments are run in two directions.
+ The minimum Neumann-tensor eigenvalue is used as a conservative transverse scalar in the motor. The
+ along-wire conductivity is approximately 211.3 W/m·K from actual copper/enamel/resin fractions.
+
+ The winding conductivity tensor follows the curved end turn: K = kt I + (ka−kt) t⊗t. A fixed global axial
+ conductivity would incorrectly conduct through the curved end region. These values remain conditional on
+ impregnation quality and the assumed resin/enamel properties; they are not measurements of a
+ manufactured winding.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                             20
+ 16. Full-motor thermal model and cooling requirements
+
+   Thermal feature                                         Declared value / treatment
+
+   Domain                                                  Axial half of complete declared motor solids
+
+   Vacuum-facing surfaces                                  Adiabatic; no internal gas convection or radiation
+
+   External sink                                           Full Ø112 × 85 barrel only; 0.05 K/W distributed Robin boundary
+
+   Equivalent barrel coefficient                           668.718 W/m²·K = 1/(0.05 × 2π × 0.056 × 0.085); equivalent sink coupling
+
+   Stator-to-housing interface                             50 µm equivalent layer; k = thickness × contact conductance
+
+   Contact conductance cases                               5,000 and 1,000 W/m²·K
+
+   Stator / rotor laminated k                              20 in-plane / 1.5 axial W/m·K
+
+   Aluminium k                                             167 W/m·K
+
+   Liner / bond / wrap k                                   0.2 / 0.2 / 0.3 W/m·K
+
+   Equivalent bearing k                                    0.5 W/m·K; no measured bearing resistance
+
+   Copper source                                           Local temperature-dependent I²R, except explicitly fixed-hot pulse bound
+
+
+ All coil end-turn heat and heat capacity are present. Moving operation applies phase RMS heating. Holding
+ uses instantaneous balanced phase currents. The initial angle-zero pattern [0, +√(3/2) Iq, −√(3/2) Iq] was
+ extended by a 0°/15°/30°/45°/60° electrical-angle sweep. The hottest selected position is 30°, with [−Iq/√2,
+ +√2 Iq, −Iq/√2], concentrating heat in one phase. Every pattern has the same total current square, 3 Iq².
+
+ Additional motor losses are distributed 80% into stator iron and 20% into rotor iron plus magnets,
+ proportional to their volumes. The moving design cases use 18 W; the 22 A moving screening case uses 25
+ W; hot holding/pulse cases use 2 W. These are stated heat-load scenarios, not a measured or
+ supplier-calibrated partition.
+
+ The 50 µm thermal contact layer replaces only the outermost stator steel in the FE conduction model. It is
+ an equivalent resistance, not an extra mechanical CAD gap. Exterior bolts are omitted from thermal
+ meshing; cap/barrel contact is idealized. Bearing and interface data must be replaced with measured or
+ supplier values for a final thermal qualification.
+
+ The basic Ø96 stator/barrel dimensions do not define an interference fit. With generic aluminium/steel
+ expansion coefficients 23/12 µm/m·K, common 50 K heating creates 26.4 µm radial differential expansion
+ at R48. A selected fit, bond or retained interface must preserve the assumed conductance as temperature
+ changes. Fit tolerances and retention are not supplied by thermal conductivity alone.
+
+ Thermal transient steel density is the full-material 7650 kg/m³; the nominal CAD mass table applies 95% fill
+ to laminated steel. This small heat-capacity difference is an input uncertainty. Homogenized coil
+ temperature does not resolve a defective impregnation void or an individual poorly cooled strand.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                      21
+ 16A. Thermal material properties for independent recreation
+
+   Material                                       Density [kg/m³]   Heat capacity [J/kg·K]          k [W/m·K]
+
+   Copper                                         8960              385                             390
+
+   Enamel                                         1200              1400                            0.15
+
+   Resin                                          1200              1100                            0.4 or 0.2
+
+   Laminated stator/rotor steel                   7650              460                             20 x/y; 1.5 z
+
+   Shaft, collars, locknuts                       7650              460                             45
+
+   SmCo magnet                                    8300              350                             10
+
+   Aluminium housing/caps                         2700              900                             167
+
+   Liner / wedge / bond                           1200              1100                            0.2
+
+   Sleeve / lips                                  1600              1000                            0.3
+
+   Equivalent bearing                             5000              460                             0.5
+
+   Equivalent stator contact                      1200              1000                            0.25 or 0.05
+
+
+
+   Impregnated winding property                                     Value
+
+   Homogenized density                                              5402.7972 kg/m³
+
+   Homogenized heat capacity                                        461.6960 J/kg·K
+
+   Copper / enamel / resin volume fractions                         0.5415976 / 0.0585105 / 0.3998919
+
+   Along-wire conductivity                                          211.31–211.39 W/m·K; constituent mixture
+
+   Conservative transverse conductivity                             0.584125 (low resin) / 0.991185 (nominal resin) W/m·K
+
+
+ All values are declared generic inputs. Winding k follows the curved wire direction as described in section
+ 15. The stator contact conductivity is conductance × 50 µm; its density and heat capacity are numerical
+ equivalents. Replace these properties with selected-material data before using the model as a hardware
+ qualification.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                            22
+ 17. Steady temperatures and mesh sensitivity
+
+
+
+
+   Mesh / case                                 Iq           Sink [°C]   Winding max [°C]   Magnet max [°C]   Cu loss [W]
+
+   coarse/continuous22A                        22.000       70          111.148            145.865           248.695
+
+   coarse/design12p2_hold70                    12.200       70          89.930             78.734            71.964
+
+   coarse/design12p2_moving70                  12.200       70          82.539             119.078           71.074
+
+   coarse/holding70                            10.834       70          81.818             77.910            55.741
+
+   coarse/holding70_low_resin                  10.834       70          83.288             77.917            55.821
+
+   coarse/holding70_poor_contact               10.834       70          85.590             77.926            56.190
+
+   coarse/moving70                             10.834       70          80.110             118.288           55.688
+
+   coarse/nominal                              10.834       50          59.536             98.101            52.045
+
+   fine/continuous22A                          22.000       70          111.318            148.374           248.752
+
+   fine/holding70_low_resin                    10.834       70          83.197             78.116            55.814
+
+   fine/nominal                                10.834       50          59.576             99.907            52.048
+
+   revisionB/design12p2_hold70                 12.200       70          89.884             78.734            71.964
+
+   revisionB/hold12p2_angle15                  12.200       70          91.833             78.734            71.969
+
+   revisionB/hold12p2_angle30                  12.200       70          92.945             78.734            71.970
+
+   revisionB/hold12p2_angle45                  12.200       70          91.869             78.734            71.962
+
+   revisionB/hold12p2_angle60                  12.200       70          89.827             78.733            71.952
+
+   revisionB/hold18.5_angle30                  18.500       70          126.584            84.085            176.420
+
+   revisionB/hold19.0_angle30                  19.000       70          130.124            84.641            187.290
+
+   revisionB/hold22_angle30                    22.000       70          154.732            88.483            262.277
+
+   revisionB/nominal                           10.834       50          59.525             98.100            52.046
+
+   revisionB_fine/hold12p2_angle30             12.200       70          92.870             78.924            71.959
+
+   revisionB_fine/hold13_angle30               13.000       70          96.137             79.450            82.234
+
+   revisionB_fine/hold18p5_angle30             18.500       70          126.387            84.272            176.388
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                           23
+   Mesh / case                                 Iq           Sink [°C]   Winding max [°C]   Magnet max [°C]   Cu loss [W]
+
+   revisionB_fine/moving13_hot70               13.000       70          84.188             121.313           81.041
+
+
+ The original coarse and refined full-motor meshes contain 99,278 / 177,525 nodes and 459,445 / 870,663
+ tetrahedra. Refinement changes the nominal winding hotspot by about 0.04°C, the low-resin hot holding
+ point by 0.09°C, and the 22 A steady thermal case by 0.17°C. These changes quantify numerical sensitivity
+ for the declared material/contact/cooling assumptions.
+
+ New holding limit: with a 70°C sink, 0.2 W/m·K resin, 1000 W/m²·K interface conductance and the 30°
+ holding phase pattern, 22 A reaches 154.732°C and fails the 130°C criterion. At 19.0 A the coarse result is
+ 130.124°C. Select 18.5 A as a conservative analysed continuous holding point: 126.584°C coarse,
+ 126.387°C refined. This is conditional on the specified sink and impregnation, not a universal motor current
+ rating.
+
+ Revision B’s refined model contains 177,964 nodes and 869,688 tetrahedra. At 12.2 A in the same hot
+ holding scenario, coarse/refined winding temperatures are 92.945/92.870°C, a change of 0.075°C. The 18.5
+ A change is 0.198°C.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                           24
+ 18. End-turn temperature and five-second current pulse
+
+
+
+
+   Time steps                Δt [s]                     Winding max [°C]     End-turn max [°C]   Imposed Cu [W]
+
+   20                        0.250                      91.681656            90.217131           267.288
+
+   100                       0.050                      91.686162            90.221098           267.288
+
+
+ The table above is the temporal-refinement check for the earlier angle-zero holding case: 20 versus 100
+ BDF2 time steps change the winding result by 0.0045°C. It is retained as a numerical check, not the worst
+ holding result.
+
+   Final 30° holding pulse                         Winding max [°C]        End-turn max [°C]     Imposed Cu [W]
+
+   revisionB                                       103.427400              100.424830            267.328
+
+   revisionB_fine                                  103.265990              100.109290            267.289
+
+
+ The final pulse starts from the converged 12.2 A, 70°C-sink, low-resin, poor-interface field at the hotter 30°
+ holding position. Apply 22 A for 5 s with 0.05 s steps and heat based on 130°C copper resistance. The
+ refined winding/end-turn maxima are 103.266/100.109°C; the coarse winding result is 103.427°C. The
+ imposed refined copper heat is 267.289 W. This heat-input bound is conservative while the winding remains
+ below 130°C; actual strand temperatures, heat capacities and cooling must still be qualified.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                  25
+ 19. Rotor loading, material model and mesh
+
+   Structural input                                        Value / scope
+
+   Full rotor domain                                       Shaft, rotor iron, 40 magnets, 40 bond pads, sleeve and retention lips
+
+   Mesh baseline                                           228,336 tetrahedra; 364,694 nodes for the A quadratic model
+
+   Thermal state                                           Uniform 150°C rotor from stress-free 20°C assembly
+
+   Speed / torque                                          1,890 rpm / 13.416 N·m
+
+   A historical outward pressure                           0.591525 MPa from earlier 2D fault screening
+
+   B final outward pressure                                2.000 MPa, simultaneously on all magnet outer faces
+
+   B pressure selection                                    3D sampled outer-gap |B|max 1.817 T → |B|²/(2µ0) 1.314 MPa; round up to 2
+                                                           MPa
+
+   Bearings                                                On-axis mean journal translation springs; 5 MN/m per bearing
+
+   Shaft / magnet E                                        210 / 150 GPa; generic input values
+
+   Sleeve E radial / hoop / axial                          10 / 100 / 10 GPa; orthotropic cylindrical axes
+
+   Sleeve CTE radial / hoop / axial                        25 / 0 / 0 µm/m·K
+
+   Bond reference law                                      E 2.6 MPa, ν 0.3; G 1 MPa
+
+   Contact sensitivity                                     Frictionless unilateral sleeve; compressible neo-Hookean bond
+
+
+ The final bearings act on mean journal translations through on-axis reference springs, with 5 MN/m per
+ bearing in each radial direction. They exert no torsional restraint. The output constraint removes mean tip
+ rotation only; the front journal fixes mean axial rigid motion. Magnet-face load integration preserves zero
+ resultant force and exactly 13.416 N·m in the undeformed geometry. Final contact uses linear tetrahedra;
+ the original quadratic geometry benchmark remains a separate reference.
+
+ The B sleeve’s floating axial reference follows the rotor core’s mean midplane translation. Holding the
+ sleeve at zero absolute axial displacement while locating the shaft at the front bearing would create an
+ artificial thermal offset and consume one lip gap. The selected centered representative is checked against
+ both deformed core-to-lip clearances; it is not an assumed bonded axial interface.
+
+ All reported design stresses below are unaveraged element integration-point values. Smoothed nodal
+ stresses mix material interfaces and are retained for visualization only. Composite von Mises stress is not a
+ composite failure criterion, and magnet tensile strength cannot be assessed from steel yield stress.
+
+ The final 2 MPa scalar pressure is approximately 52% above the largest sampled outer-gap |B|²/(2µ0) value
+ in the new d-axis fault case. It is a deliberately increased screening load, not a direct mapped Maxwell
+ traction analysis or a mesh-converged local peak bound. Higher sharp-edge fields occur inside the inner
+ bond/segment seam. Physical edge radii and a resolved local electromagnetic/contact submodel are
+ required for local strength qualification.
+
+ Normal pressure uses native element-face follower loading, updating surface normals and area with
+ deformation. Tangential nodal loads have 13.416 N·m nominal moment in the undeformed geometry; the
+ actual applied and reaction moments are evaluated in the deformed geometry. Fixed global radial nodal
+ forces were excluded because they introduce an artificial drag moment when the rotor turns.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                    26
+ 19A. Structural constitutive inputs and constraints
+
+   Isotropic material                   E [Pa]                     Poisson ν              Density [kg/m³]            CTE [µm/m·K]
+
+   Steel                                2.10×10¹¹                  0.3                    7650                       12
+
+   Magnet                               1.50×10¹¹                  0.24                   8300                       6
+
+   Linear comparison bond               2.60×10⁶                   0.3                    1200                       80
+
+
+
+   Sleeve cylindrical material axis                                       Declared engineering constant
+
+   Axis 1 / 2 / 3                                                         Radial / hoop / axial
+
+   E1 / E2 / E3                                                           10 / 100 / 10 GPa
+
+   ν12 / ν13 / ν23                                                        0.025 / 0.25 / 0.25; reciprocal values follow elastic symmetry
+
+   G12 / G13 / G23                                                        5 / 3 / 5 GPa
+
+   Thermal expansion α1 / α2 / α3                                         25 / 0 / 0 µm/m·K
+
+   Density                                                                1600 kg/m³
+
+
+
+   Nonlinear bond input                                                   Value
+
+   Compressible neo-Hookean C10                                           0.500 MPa
+
+   D1                                                                     9.230769×10⁻⁷ Pa⁻¹
+
+   Equivalent reference G / K                                             1.000 / 2.166667 MPa
+
+   Stress-free temperature                                                20°C
+
+   Bond CTE                                                               80 µm/m·K
+
+
+ Each radial bearing contributes 5 MN/m through an on-axis reference point coupled to the affine mean
+ journal translation. The averaging annihilates rigid shaft rotation. Mean output-tip rotation fixes phase;
+ mean front-journal axial displacement fixes the axial reference. Sleeve rotation is stabilized by a weak 0.01
+ N·m/rad numerical spring; its actual torque must remain below 0.001 N·m. The centered axial sleeve
+ reference follows the core midplane. Contact is frictionless with a 10¹² Pa/m normal penalty. No adhesive
+ damage, creep, composite interaction failure, rolling bearing contact or fit interference is included.
+
+ Rotor laminations are represented mechanically by isotropic steel in this screening model. Interlaminar slip,
+ stack preload, selected shaft fit/joint capacity and actual orthotropic stack mechanics remain to be
+ assigned. The 1,890 rpm case is a mechanical stress screen; it does not assert available loaded torque at
+ that speed on the 48 V inverter.
+
+ The corrected load path is verified independently. A pure 13.416 N·m torque solve gives an output reaction
+ of −13.416000 N·m. Away from interfaces, the Ø12 shaft shear is 39.614 MPa versus the analytical
+ 16T/(πd³) = 39.541 MPa, a 0.184% difference. The final hot-contact output reaction is also checked against
+ the full applied torque before acceptance.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                      27
+ 20. Stress, sleeve interface and the design revision
+
+   Model                                Material    Hoop max [MPa]   Tensile principal         Shear max            VM p99 [MPa]
+                                                                     max
+
+   A bonded, corrected supports         wrap        435.771          761.158                   512.778              486.362
+
+   A bonded, corrected supports         bond        -0.037           0.026                     1.936                1.055
+
+   A bonded, corrected supports         magnet      130.953          258.398                   153.983              186.584
+
+   A bonded, corrected supports         steel       112.012          130.557                   238.589              99.662
+
+   B sliding, corrected supports        wrap        215.875          217.258                   129.077              169.968
+
+   B sliding, corrected supports        bond        3.130            4.357                     0.681                0.651
+
+   B sliding, corrected supports        magnet      2.828            7.645                     6.176                5.645
+
+   B sliding, corrected supports        steel       48.991           87.329                    73.206               77.497
+
+
+ With the corrected supports, the A bonded linear-tetrahedron comparison gives approximately 435.8 MPa
+ peak sleeve hoop stress and 258.4 MPa peak magnet tensile principal stress. Its sleeve hoop requirement
+ alone is approximately 871.5 MPa at factor two. These are comparison requirements, not strength passes.
+ B introduces axial clearance and a sliding interface to release the original end-face restraint.
+
+ Earlier supports grounded the sleeve angle and distributed Cartesian bearing-node motions, allowing
+ unintended external torque reactions. Tying sleeve rotation rigidly to the core also produced an artificial
+ internal torque through faceted contact. Those results are excluded from final strength evidence. The final
+ mean-bearing/free-sleeve model checks both output reaction and the weak numerical spring torque. Sharp
+ interface peaks and contact penalty/mesh effects still require qualification; historical P1/P2 agreement
+ under the earlier supports is not treated as convergence of this contact solution.
+
+ A and B are different screening scenarios: B changes the pressure, contact law, axial capture and
+ displacement basis. Their stress difference cannot be attributed solely to the added lip clearance. The A
+ comparison provides a restraint/mesh warning; the final B numbers apply to its explicitly stated 2 MPa
+ centered sliding model.
+
+   Revision B completed contact check                                         Result
+
+   Interface                                                                  Frictionless node-to-surface, small sliding; thermal
+                                                                              preheat then fault load
+
+   Applied final screening pressure                                           2.000 MPa; A comparison used 0.591525 MPa
+
+   Normal penalty                                                             1×10¹² Pa/m
+
+   Peak / p99 penetration                                                     13.466 / 11.928 µm
+
+   Peak / p99 contact pressure                                                10.848 / 9.389 MPa
+
+   Outer radial growth                                                        49.215 µm
+
+   Required sleeve hot hoop strength, factor two                              431.750 MPa
+
+
+ The final contact model uses linear tetrahedra and a finite-strain soft-bond law. The larger sliding surface
+ formulation and earlier time-limited runs were excluded. A small-sliding contact model is appropriate only
+ while relative motion remains small compared with its facets; penalty penetration and mesh/facet effects
+ are numerical uncertainty. Composite interaction failure, adhesive creep/fatigue and brittle magnet
+ strength still require selected material data.
+
+ The numerical rotational spring carries 0.0003158 N·m; output reaction is -13.502385 N·m against 13.416
+ N·m nominal tangential loading. The proxy coordinate is q = 0.02625 θs in metres, with translational spring
+ stiffness 0.01/(0.02625²) = 14.51247 N/m. This removes the floating mode with negligible torque rather
+ than rigidly holding the sleeve angle.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                     28
+ The actual current-geometry applied moment is 13.502634 N·m, including the follower-pressure
+ contribution 0.060383 N·m. The complete deformed-geometry balance residual is 0.000067 N·m. Structural
+ p99 values are percentiles by integration-point count; they are not volume-weighted percentiles.
+
+   Sleeve material-axis stress                             Peak [MPa]   p99 [MPa]   Factor-two peak allowable [MPa]
+
+   radial tension                                          65.261       26.645      130.523
+
+   radial compression                                      106.945      27.626      213.889
+
+   hoop tension                                            215.875      164.385     431.750
+
+   hoop compression                                        6.914        0.000       13.829
+
+   axial tension                                           41.446       10.270      82.893
+
+   axial compression                                       54.257       24.742      108.515
+
+   shear radial hoop                                       19.790       9.742       39.580
+
+   shear radial axial                                      22.637       10.730      45.273
+
+   shear hoop axial                                        13.285       3.798       26.570
+
+
+ Principal maximum shear is an invariant on rotated planes; it is not automatically the laminate interlaminar
+ shear stress. The table above gives actual radial/hoop/axial normal and shear components for comparison
+ to selected composite allowables. A combined failure criterion and qualified laminate layup are still
+ required.
+
+ The conservative deformed front/rear axial capture clearances are 30.319 / 30.585 µm. These use the
+ extrema of the relevant end faces, so a positive value confirms that the assumed open axial lip interfaces
+ remain open in the analysed centered hot load case. Manufacturing and assembly errors are not included.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                 29
+ 21. Air-gap budget, bearing support and rotor modes
+
+   Clearance contribution                                                  Value / calculation
+
+   Cold radial free gap                                                    250 µm
+
+   A corrected-support hot-fault outer growth                              41.556 µm
+
+   A residual gap before tolerance/runout                                  208.444 µm
+
+   Declared residual-gap target                                            100 µm
+
+   A combined tolerance/runout/deflection budget                           108.444 µm
+
+   Static radial support compliance                                        100 N / 10 MN/m = 10 µm, plus shaft bending
+
+   First corrected-support unprestressed mode                              416.0083 Hz
+
+   Equivalent 1× mode speed                                                24960.5 rpm; not an installed critical-speed map
+
+
+ The modal comparison uses the A bonded rotor and the corrected mean-bearing springs; it is not a
+ prestressed solution of the final B sliding contact state. The first two modes are 416.008/416.013 Hz and
+ the next is 525.304 Hz. Shaft rotation at 1,890 rpm is 31.5 Hz, but electromagnetic harmonics can excite
+ much higher frequencies. Comparing only 1× shaft frequency with the first mode would miss possible
+ coincidences.
+
+   Forcing order × shaft speed                  Speed at first-mode coincidence                  Interpretation
+
+   1                                            24960.5 rpm                                      Unbalance crossing above speed range
+
+   10                                           2496.0 rpm                                       2× electrical-frequency order; above maximum
+
+   12                                           2080.0 rpm                                       Slot-passing crossing above screening
+                                                                                                 maximum
+
+   20                                           1248.0 rpm                                       Harmonic crossing inside screening range
+
+   30                                           832.0 rpm                                        Harmonic crossing inside screening range
+
+   40                                           624.0 rpm                                        Possible crossing near the 630 rpm duty
+
+
+ These are frequency coincidences, not predictions of vibration amplitude. Force spatial order, modal
+ projection, damping, real bearing/housing compliance and the actual spectrum determine whether a mode
+ is excited. Bearing speed dependence, preload, gyroscopic terms and installed support dynamics are
+ absent. The results therefore identify a follow-up forced-response/installed-support requirement and do not
+ establish a resonance-free operating range.
+
+ Minimum running clearance must be checked with the selected sleeve/interface result, actual measured
+ runout, rotor/stator diameter tolerances, bearing clearance and magnetic pull. A nominal 0.25 mm gap is
+ not a tolerance-qualified running gap. The CAD fit does not allocate these unknown errors automatically.
+
+ For the completed revision B contact scenario, the calculated outer radial growth is 49.215 µm. The
+ nominal residual gap is therefore 200.785 µm; retaining a 100 µm residual target leaves 100.785 µm for
+ the combined unmodelled tolerance, runout and deflection budget. Stator thermal expansion is omitted
+ from this conservative clearance subtraction.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                            30
+ 21A. Nominal assembly mass and rotor inertia
+
+   Material class                                                  Nominal mass [kg]
+
+   steel                                                           3.690248
+
+   winding                                                         0.448372
+
+   insulation                                                      0.015520
+
+   magnet                                                          0.260258
+
+   bond                                                            0.000588
+
+   wrap                                                            0.005404
+
+   aluminum                                                        1.096600
+
+   bearing_equivalent                                              0.069115
+
+
+
+   Quantity                                                        Value
+
+   Nominal complete CAD assembly mass                              5.586106 kg
+
+   Active rotating FE body mass                                    1.357110 kg
+
+   Active rotating polar inertia                                   0.0004340688 kg·m²
+
+
+ The nominal assembly includes housing, end caps, fastener envelopes, equivalent bearings, insulation and
+ impregnated winding. Laminated iron mass uses 95% steel fill. Winding density follows the actual
+ copper/insulation/resin area fractions; bearing density is an equivalent 5000 kg/m³. Masses come from
+ independent OpenCascade integration of the delivered revision B solids. The rotating inertia includes the
+ shaft, rotor iron, magnets, bond and sleeve; it excludes the rotating fraction of bearings, the coupling and
+ the actuator.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                31
+ 22. Design decision and remaining qualification inputs
+ The study supplies a concrete CAD/FEA candidate and executed numerical evidence. A hardware strength
+ or irreversible-demagnetization pass requires the actual supplier curves and allowables. The sleeve
+ attachment, axial capture clearance and adhesive law are design variables; treating them as arbitrary
+ bonded interfaces changes the result materially.
+
+   Gate                                    Status                  Evidence / implication
+
+   Nominal CAD geometry                    PASS                    143 valid solids and STEP round trip; Ø112 housing, Ø12×155 shaft;
+                                                                   revision B axial sleeve clearance 0.15 mm each end.
+
+   Native Pyleecan/Elmer coupling          PASS                    24 positions; mean torque differs from native FEMM by 0.290%.
+
+   3D torque numerical checks              PASS                    Nonlinear coarse/fine torque change 0.635%; component, discrete air
+                                                                   Maxwell tensor and finite-rotation energy checked.
+
+   220 N·m mean duty                       CONDITIONAL             At 12.2 A/120°C magnets, mean shaft 4.6273 N·m after 18 W allowance;
+                                           PASS                    actuator 233.21 N·m with assumed 63:1/80%; margin 6.01%. Generic
+                                                                   materials and loss allowance apply.
+
+   42 V nominal-duty voltage               CONDITIONAL             Flux-derived sampled-harmonic phase-voltage circle 16.225 V peak
+                                           PASS                    versus 21.824 V reserved ceiling; switching and higher harmonics
+                                                                   unresolved.
+
+   Torque-trough control headroom          CONDITIONAL             Constant 12.2 A sampled minimum misses the shaft target; 13 A/150°C
+                                           PASS                    magnets at the sampled trough gives 4.4792 N·m shaft versus 4.3651.
+                                                                   Ripple compensation, tracking and continuum extrema remain to qualify.
+
+   12.2 A hot holding                      PASS                    Refined winding 92.870°C; 70°C sink, low resin conductivity, reduced
+                                                                   interface conductance, 30° holding angle.
+
+   Thermal joint retention                 UNQUALIFIED             The 1000–5000 W/m²K contact conductance must be maintained by an
+                                                                   engineered fit or bond. With generic Al/steel CTE, common 50 K heating
+                                                                   opens a nominally zero-clearance Ø96 interface by 26.4 µm radially
+                                                                   unless retained.
+
+   18.5 A continuous hot holding           CONDITIONAL             Refined winding 126.387°C, only 3.613°C below 130°C; requires the
+                                           PASS                    stated cooling and impregnation.
+
+   22 A continuous hot holding             FAIL                    Winding 154.732°C exceeds 130°C. Do not assign 22 A continuous
+                                                                   holding.
+
+   22 A for 5 seconds                      CONDITIONAL             Refined winding 103.266°C from the 12.2 A hot holding field; fixed
+                                           PASS                    130°C-resistance source and stated heat capacities/cooling.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                          32
+ 22A. Mechanical and material qualification
+
+   Gate                                    Status                  Evidence / implication
+
+   Rotor contact calculation               NUMERICALLY             Thermal preheat then full 1890 rpm/13.416 N·m/2 MPa/150°C case;
+                                           COMPLETED               finite-strain bond, frictionless small sliding. Uniform pressure is a
+                                                                   screening envelope, not mapped local traction.
+
+   Structural torque load path             PASS                    Current-geometry applied 13.502634 N·m, output reaction -13.502385
+                                                                   N·m, weak reference 0.000316 N·m; residual 0.000067 N·m.
+                                                                   Independent shaft torsion error 0.184%.
+
+   Hot axial sleeve capture                NOMINAL PASS            Deformed front/rear lip gaps 30.3/30.6 µm with the centered floating
+                                                                   sleeve; manufacturing tolerances excluded.
+
+   Sleeve, bond and magnet strength        UNQUALIFIED             Sleeve factor-two peak requirements: hoop 431.8, radial tension 130.5,
+                                                                   axial tension 82.9 MPa. Transverse/shear peaks and sharp corners
+                                                                   require checked layup, mesh/penalty sensitivity and actual hot
+                                                                   allowables; adhesive creep and brittle-magnet data absent.
+
+   Irreversible demagnetization            UNQUALIFIED             3D −55.27 A d-axis/150°C reverse H max 712 kA/m; inherited cold fault
+                                                                   requirement 852 kA/m. Supplier intrinsic curves/knee are absent.
+
+   Running gap and installed bearings      CONDITIONAL             Nominal residual gap 200.8 µm in the B hot fault case, before
+                                                                   tolerances/runout. Generic bearing stiffness/conductance; fits, preload
+                                                                   and supplier ratings not assigned.
+
+   Installed vibration / forced response   UNQUALIFIED             Corrected-support A bonded first mode 416.008 Hz; 40× shaft-order
+                                                                   coincidence is 624.0 rpm, near 630 rpm duty. Actual excitation
+                                                                   projection, damping and installed bearing/housing dynamics are
+                                                                   required; coincidence alone is not amplitude.
+
+   Optional 400 N·m drive point            FAIL                    Inherited angle-resolved 42 V reserved-voltage check failed; no pass is
+                                                                   asserted by the new 22 A thermal or torque cases.
+
+
+ Retain the full-period native electromagnetic maps and controller voltage limit when comparing to the
+ actuator. Gearbox efficiency, actuator shock loads and installed thermal boundaries are assumptions
+ inherited from the requirement; the actuator itself is not analysed by the Pyleecan motor model.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                             33
+ 23. CAD and Ansys transfer
+
+   Artifact                                               Units / contents
+
+   Motor_Gmsh_Elmer_Candidate_mm.step                     Millimetres; named nominal 143-solid assembly, independent round-trip check
+
+   Motor_Gmsh_Elmer_Candidate.FCStd                       FreeCAD document with per-part names and analysis material labels
+
+   Magnetic Gmsh .msh / Abaqus .inp                       Metres; axial half-domain, labelled field regions and boundaries
+
+   Thermal Gmsh .msh / .inp                               Metres; actual lined coil/end-turn geometry and declared equivalent contact
+                                                          region
+
+   Rotor CalculiX .inp                                    SI m, N, Pa, kg, s; explicit loads, materials, supports and contact definitions
+
+   Reproduction source / case records                     Project adapters, F90 material/gauge callbacks, solver inputs and compact
+                                                          result tables
+
+
+ STEP imports in millimetres. Solver meshes/decks use metres: do not apply the STEP scale to an already-SI
+ mesh. Check the imported shaft length 155 mm and housing diameter 112 mm. Bearings and fasteners
+ remain explicit dimensional envelopes. Closed coil solids represent stranded winding regions; do not assign
+ them solid-copper eddy-current conductivity in a magnetic solver.
+
+ When recreating the magnetic half-model, preserve Bnormal = 0 at the stack midplane, the stated
+ far-domain planes, current directions, 12 turns per coil, magnet radial orientation, coil/end-turn geometry
+ and lamination tensor. In a full model, remove the symmetry multiplier. For thermal analysis, preserve
+ complete barrel cooling and resolve the physical liner or a documented equivalent resistance.
+
+ No Ansys solve is claimed. The open-source model inputs and results are provided so that the user can
+ independently recreate the same physics, then refine contacts, materials, mesh and installed conditions in
+ Ansys or another solver.
+
+ The optional model archive also contains moving13_hot70_temperature_full_SI.csv: a 349,587-point
+ full-motor temperature cloud obtained by mirroring the executed axial-half 13 A moving solution.
+ Coordinates are metres and temperature is °C. It supports independent interpolation/comparison; the
+ structural screen in this report still uses uniform 150°C, not a claimed mapped-temperature structural run.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                            34
+ 24. Numerical provenance and result boundaries
+
+   Software / input                                 Recorded basis
+
+   Pyleecan                                         1.5.2; installed Python source integrity checked against distribution RECORD
+
+   Gmsh                                             4.13; OpenCascade geometry, conformal meshes
+
+   Elmer                                            Official release 26.2 source; local serial and MPI/HYPRE builds
+
+   Elmer CHOLMOD integration                        Recorded 64-bit-index type correction; reference scalar solve versus UMFPACK
+
+   Elmer nonlinear tensor Newton                    Recorded differentiation of complete H(B) vector; used by the nonlinear 3D HPC cases
+
+   Project extensions                               Boundary-rooted tree gauge; motor-specific Pyleecan adapter; lamination and
+                                                    curved-winding material callbacks
+
+   CalculiX                                         2.20; linear/quadratic tetrahedra, orthotropic sleeve and nonlinear contact
+
+   Independent checks                               scikit-fem/SciPy magnetic and conducting-potential solves; FreeCAD/OpenCascade
+                                                    geometry readback
+
+   Elmer source archive SHA-256                     7addfb102d735929a40929be08be0c16703d734498d33bc70c96e7d526fe249c
+
+
+ All six selected upstream reference tests passed after the nonlinear correction: HeatAniso,
+ mgdyn_anisotropic_rel, mgdyn_anisotropic_rel2, mgdyn_bh_relfun, mgdyn_hypre_ams and
+ mgdyn_steady_2ndorder. The CHOLMOD scalar comparison to UMFPACK gives a 2.52×10⁻¹⁰ relative field
+ difference. The project also checks finite-rotation energy torque, discrete Maxwell torque, native API
+ results, wire packing, mesh/time refinement and mechanical load balance. Rejected and time-limited runs
+ are excluded from accepted-result tables.
+
+ The recorded Elmer source corrections and project callbacks are required to reproduce these particular
+ nonlinear 3D runs; results are not presented as an unmodified stock MagElmer workflow. Build recipes and
+ hashes are supplied, although installation into a fresh empty host has not been tested. There is no claim of
+ an Ansys solve or hardware correlation.
+
+ This report does not claim that every analysis Elmer or Pyleecan can perform has been run. There is no
+ finite exhaustive software checklist that proves a motor correct. Its conclusions apply to the declared
+ geometry, loads, material assumptions and numerical checks. Supplier-based demagnetization,
+ composite/adhesive failure, manufacturing fits and physical test correlation remain qualification inputs.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                                     35
+ Appendix A. Complete solid inventory and CAD bounds
+ Nominal axis-aligned CAD bounds in millimetres. Kernel bounding boxes for curved coils include a small
+ numerical tolerance; use the exact swept geometry when constructing end turns. All 143 solids passed
+ independent BREP validity checking and STEP round-trip count checks for the delivered revision.
+
+   Part name                                  Material class       Minimum x,y,z [mm]          Maximum x,y,z [mm]
+
+   StatorIron                                 steel                -48.000, -48.000, -0.000    48.000, 48.000, 85.000
+
+   RotorIron                                  steel                -23.000, -23.000, -0.000    23.000, 23.000, 85.000
+
+   Shaft                                      steel                -6.000, -6.000, -35.000     6.000, 6.000, 120.000
+
+   Coil01_A                                   winding              27.693, -10.659, -10.659    40.995, 10.659, 95.659
+
+   Coil02_A                                   winding              20.293, 7.448, -10.659      39.885, 29.178, 95.659
+
+   Coil03_B                                   winding              7.448, 20.293, -10.659      29.178, 39.885, 95.659
+
+   Coil04_B                                   winding              -10.659, 27.693, -10.659    10.659, 40.995, 95.659
+
+   Coil05_C                                   winding              -29.178, 20.293, -10.659    -7.448, 39.885, 95.659
+
+   Coil06_C                                   winding              -39.885, 7.448, -10.659     -20.293, 29.178, 95.659
+
+   Coil07_A                                   winding              -40.995, -10.659, -10.659   -27.693, 10.659, 95.659
+
+   Coil08_A                                   winding              -39.885, -29.178, -10.659   -20.293, -7.448, 95.659
+
+   Coil09_B                                   winding              -29.178, -39.885, -10.659   -7.448, -20.293, 95.659
+
+   Coil10_B                                   winding              -10.659, -40.995, -10.659   10.659, -27.693, 95.659
+
+   Coil11_C                                   winding              7.448, -39.885, -10.659     29.178, -20.293, 95.659
+
+   Coil12_C                                   winding              20.293, -29.178, -10.659    39.885, -7.448, 95.659
+
+   LinerSeparator01                           insulation           27.252, 6.389, -0.000       41.232, 15.083, 85.000
+
+   SlotWedge01                                insulation           26.286, 4.474, -0.000       28.287, 10.269, 85.000
+
+   LinerSeparator02                           insulation           19.432, 19.432, -0.000      32.514, 32.514, 85.000
+
+   SlotWedge02                                insulation           18.018, 18.018, -0.000      22.261, 22.261, 85.000
+
+   LinerSeparator03                           insulation           6.389, 27.252, -0.000       15.083, 41.232, 85.000
+
+   SlotWedge03                                insulation           4.474, 26.286, -0.000       10.269, 28.287, 85.000
+
+   LinerSeparator04                           insulation           -15.083, 27.252, -0.000     -6.389, 41.232, 85.000
+
+   SlotWedge04                                insulation           -10.269, 26.286, -0.000     -4.474, 28.287, 85.000
+
+   LinerSeparator05                           insulation           -32.514, 19.432, -0.000     -19.432, 32.514, 85.000
+
+   SlotWedge05                                insulation           -22.261, 18.018, -0.000     -18.018, 22.261, 85.000
+
+   LinerSeparator06                           insulation           -41.232, 6.389, -0.000      -27.252, 15.083, 85.000
+
+   SlotWedge06                                insulation           -28.287, 4.474, -0.000      -26.286, 10.269, 85.000
+
+   LinerSeparator07                           insulation           -41.232, -15.083, -0.000    -27.252, -6.389, 85.000
+
+   SlotWedge07                                insulation           -28.287, -10.269, -0.000    -26.286, -4.474, 85.000
+
+   LinerSeparator08                           insulation           -32.514, -32.514, -0.000    -19.432, -19.432, 85.000
+
+   SlotWedge08                                insulation           -22.261, -22.261, -0.000    -18.018, -18.018, 85.000
+
+   LinerSeparator09                           insulation           -15.083, -41.232, -0.000    -6.389, -27.252, 85.000
+
+   SlotWedge09                                insulation           -10.269, -28.287, -0.000    -4.474, -26.286, 85.000
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                          36
+   Part name                                  Material class       Minimum x,y,z [mm]        Maximum x,y,z [mm]
+
+   LinerSeparator10                           insulation           6.389, -41.232, -0.000    15.083, -27.252, 85.000
+
+   SlotWedge10                                insulation           4.474, -28.287, -0.000    10.269, -26.286, 85.000
+
+   LinerSeparator11                           insulation           19.432, -32.514, -0.000   32.514, -19.432, 85.000
+
+   SlotWedge11                                insulation           18.018, -22.261, -0.000   22.261, -18.018, 85.000
+
+   LinerSeparator12                           insulation           27.252, -15.083, -0.000   41.232, -6.389, 85.000
+
+   SlotWedge12                                insulation           26.286, -10.269, -0.000   28.287, -4.474, 85.000
+
+   Magnet01_Segment1                          magnet               19.462, 1.447, -0.000     25.999, 13.958, 21.175
+
+   Bond01_Segment1                            bond                 19.419, 1.444, -0.000     23.005, 12.351, 21.175
+
+   Magnet01_Segment2                          magnet               19.462, 1.447, 21.275     25.999, 13.958, 42.450
+
+   Bond01_Segment2                            bond                 19.419, 1.444, 21.275     23.005, 12.351, 42.450
+
+   Magnet01_Segment3                          magnet               19.462, 1.447, 42.550     25.999, 13.958, 63.725
+
+   Bond01_Segment3                            bond                 19.419, 1.444, 42.550     23.005, 12.351, 63.725
+
+   Magnet01_Segment4                          magnet               19.462, 1.447, 63.825     25.999, 13.958, 85.000
+
+   Bond01_Segment4                            bond                 19.419, 1.444, 63.825     23.005, 12.351, 85.000
+
+   Magnet02_Segment1                          magnet               8.485, 14.693, -0.000     20.072, 24.221, 21.175
+
+   Bond02_Segment1                            bond                 8.467, 14.661, -0.000     17.760, 21.431, 21.175
+
+   Magnet02_Segment2                          magnet               8.485, 14.693, 21.275     20.072, 24.221, 42.450
+
+   Bond02_Segment2                            bond                 8.467, 14.661, 21.275     17.760, 21.431, 42.450
+
+   Magnet02_Segment3                          magnet               8.485, 14.693, 42.550     20.072, 24.221, 63.725
+
+   Bond02_Segment3                            bond                 8.467, 14.661, 42.550     17.760, 21.431, 63.725
+
+   Magnet02_Segment4                          magnet               8.485, 14.693, 63.825     20.072, 24.221, 85.000
+
+   Bond02_Segment4                            bond                 8.467, 14.661, 63.825     17.760, 21.431, 85.000
+
+   Magnet03_Segment1                          magnet               -6.478, 22.326, -0.000    6.478, 26.050, 21.175
+
+   Bond03_Segment1                            bond                 -5.732, 22.277, -0.000    5.732, 23.050, 21.175
+
+   Magnet03_Segment2                          magnet               -6.478, 22.326, 21.275    6.478, 26.050, 42.450
+
+   Bond03_Segment2                            bond                 -5.732, 22.277, 21.275    5.732, 23.050, 42.450
+
+   Magnet03_Segment3                          magnet               -6.478, 22.326, 42.550    6.478, 26.050, 63.725
+
+   Bond03_Segment3                            bond                 -5.732, 22.277, 42.550    5.732, 23.050, 63.725
+
+   Magnet03_Segment4                          magnet               -6.478, 22.326, 63.825    6.478, 26.050, 85.000
+
+   Bond03_Segment4                            bond                 -5.732, 22.277, 63.825    5.732, 23.050, 85.000
+
+   Magnet04_Segment1                          magnet               -20.072, 14.693, -0.000   -8.485, 24.221, 21.175
+
+   Bond04_Segment1                            bond                 -17.760, 14.661, -0.000   -8.467, 21.431, 21.175
+
+   Magnet04_Segment2                          magnet               -20.072, 14.693, 21.275   -8.485, 24.221, 42.450
+
+   Bond04_Segment2                            bond                 -17.760, 14.661, 21.275   -8.467, 21.431, 42.450
+
+   Magnet04_Segment3                          magnet               -20.072, 14.693, 42.550   -8.485, 24.221, 63.725
+
+   Bond04_Segment3                            bond                 -17.760, 14.661, 42.550   -8.467, 21.431, 63.725
+
+   Magnet04_Segment4                          magnet               -20.072, 14.693, 63.825   -8.485, 24.221, 85.000
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                       37
+   Part name                                  Material class       Minimum x,y,z [mm]         Maximum x,y,z [mm]
+
+   Bond04_Segment4                            bond                 -17.760, 14.661, 63.825    -8.467, 21.431, 85.000
+
+   Magnet05_Segment1                          magnet               -25.999, 1.447, -0.000     -19.462, 13.958, 21.175
+
+   Bond05_Segment1                            bond                 -23.005, 1.444, -0.000     -19.419, 12.351, 21.175
+
+   Magnet05_Segment2                          magnet               -25.999, 1.447, 21.275     -19.462, 13.958, 42.450
+
+   Bond05_Segment2                            bond                 -23.005, 1.444, 21.275     -19.419, 12.351, 42.450
+
+   Magnet05_Segment3                          magnet               -25.999, 1.447, 42.550     -19.462, 13.958, 63.725
+
+   Bond05_Segment3                            bond                 -23.005, 1.444, 42.550     -19.419, 12.351, 63.725
+
+   Magnet05_Segment4                          magnet               -25.999, 1.447, 63.825     -19.462, 13.958, 85.000
+
+   Bond05_Segment4                            bond                 -23.005, 1.444, 63.825     -19.419, 12.351, 85.000
+
+   Magnet06_Segment1                          magnet               -25.999, -13.958, -0.000   -19.462, -1.447, 21.175
+
+   Bond06_Segment1                            bond                 -23.005, -12.351, -0.000   -19.419, -1.444, 21.175
+
+   Magnet06_Segment2                          magnet               -25.999, -13.958, 21.275   -19.462, -1.447, 42.450
+
+   Bond06_Segment2                            bond                 -23.005, -12.351, 21.275   -19.419, -1.444, 42.450
+
+   Magnet06_Segment3                          magnet               -25.999, -13.958, 42.550   -19.462, -1.447, 63.725
+
+   Bond06_Segment3                            bond                 -23.005, -12.351, 42.550   -19.419, -1.444, 63.725
+
+   Magnet06_Segment4                          magnet               -25.999, -13.958, 63.825   -19.462, -1.447, 85.000
+
+   Bond06_Segment4                            bond                 -23.005, -12.351, 63.825   -19.419, -1.444, 85.000
+
+   Magnet07_Segment1                          magnet               -20.072, -24.221, -0.000   -8.485, -14.693, 21.175
+
+   Bond07_Segment1                            bond                 -17.760, -21.431, -0.000   -8.467, -14.661, 21.175
+
+   Magnet07_Segment2                          magnet               -20.072, -24.221, 21.275   -8.485, -14.693, 42.450
+
+   Bond07_Segment2                            bond                 -17.760, -21.431, 21.275   -8.467, -14.661, 42.450
+
+   Magnet07_Segment3                          magnet               -20.072, -24.221, 42.550   -8.485, -14.693, 63.725
+
+   Bond07_Segment3                            bond                 -17.760, -21.431, 42.550   -8.467, -14.661, 63.725
+
+   Magnet07_Segment4                          magnet               -20.072, -24.221, 63.825   -8.485, -14.693, 85.000
+
+   Bond07_Segment4                            bond                 -17.760, -21.431, 63.825   -8.467, -14.661, 85.000
+
+   Magnet08_Segment1                          magnet               -6.478, -26.050, -0.000    6.478, -22.326, 21.175
+
+   Bond08_Segment1                            bond                 -5.732, -23.050, -0.000    5.732, -22.277, 21.175
+
+   Magnet08_Segment2                          magnet               -6.478, -26.050, 21.275    6.478, -22.326, 42.450
+
+   Bond08_Segment2                            bond                 -5.732, -23.050, 21.275    5.732, -22.277, 42.450
+
+   Magnet08_Segment3                          magnet               -6.478, -26.050, 42.550    6.478, -22.326, 63.725
+
+   Bond08_Segment3                            bond                 -5.732, -23.050, 42.550    5.732, -22.277, 63.725
+
+   Magnet08_Segment4                          magnet               -6.478, -26.050, 63.825    6.478, -22.326, 85.000
+
+   Bond08_Segment4                            bond                 -5.732, -23.050, 63.825    5.732, -22.277, 85.000
+
+   Magnet09_Segment1                          magnet               8.485, -24.221, -0.000     20.072, -14.693, 21.175
+
+   Bond09_Segment1                            bond                 8.467, -21.431, -0.000     17.760, -14.661, 21.175
+
+   Magnet09_Segment2                          magnet               8.485, -24.221, 21.275     20.072, -14.693, 42.450
+
+   Bond09_Segment2                            bond                 8.467, -21.431, 21.275     17.760, -14.661, 42.450
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                        38
+   Part name                                  Material class       Minimum x,y,z [mm]          Maximum x,y,z [mm]
+
+   Magnet09_Segment3                          magnet               8.485, -24.221, 42.550      20.072, -14.693, 63.725
+
+   Bond09_Segment3                            bond                 8.467, -21.431, 42.550      17.760, -14.661, 63.725
+
+   Magnet09_Segment4                          magnet               8.485, -24.221, 63.825      20.072, -14.693, 85.000
+
+   Bond09_Segment4                            bond                 8.467, -21.431, 63.825      17.760, -14.661, 85.000
+
+   Magnet10_Segment1                          magnet               19.462, -13.958, -0.000     25.999, -1.447, 21.175
+
+   Bond10_Segment1                            bond                 19.419, -12.351, -0.000     23.005, -1.444, 21.175
+
+   Magnet10_Segment2                          magnet               19.462, -13.958, 21.275     25.999, -1.447, 42.450
+
+   Bond10_Segment2                            bond                 19.419, -12.351, 21.275     23.005, -1.444, 42.450
+
+   Magnet10_Segment3                          magnet               19.462, -13.958, 42.550     25.999, -1.447, 63.725
+
+   Bond10_Segment3                            bond                 19.419, -12.351, 42.550     23.005, -1.444, 63.725
+
+   Magnet10_Segment4                          magnet               19.462, -13.958, 63.825     25.999, -1.447, 85.000
+
+   Bond10_Segment4                            bond                 19.419, -12.351, 63.825     23.005, -1.444, 85.000
+
+   RetainingWrap                              wrap                 -26.250, -26.250, -0.150    26.250, 26.250, 85.150
+
+   FrontRetentionLip                          wrap                 -26.250, -26.250, -0.650    26.250, 26.250, -0.150
+
+   RearRetentionLip                           wrap                 -26.250, -26.250, 85.150    26.250, 26.250, 85.650
+
+   HousingBarrel                              aluminum             -56.000, -56.000, -0.000    56.000, 56.000, 85.000
+
+   EndCap_left                                aluminum             -56.000, -56.000, -20.000   56.000, 56.000, 0.000
+
+   EndCap_right                               aluminum             -56.000, -56.000, 85.000    56.000, 56.000, 105.000
+
+   FrontBearing                               bearing_equivalent   -16.000, -16.000, -19.000   16.000, 16.000, -9.000
+
+   RearBearing                                bearing_equivalent   -16.000, -16.000, 94.000    16.000, 16.000, 104.000
+
+   FrontInnerCollar                           steel                -9.000, -9.000, -9.000      9.000, 9.000, -5.000
+
+   RearInnerCollar                            steel                -9.000, -9.000, 90.000      9.000, 9.000, 94.000
+
+   FrontLocknut                               steel                -9.500, -9.500, -22.000     9.500, 9.500, -19.000
+
+   RearLocknut                                steel                -9.500, -9.500, 104.000     9.500, 9.500, 107.000
+
+   FrontM4Bolt1                               steel                41.533, 22.500, -24.000     48.533, 29.500, 10.000
+
+   RearM4Bolt1                                steel                41.533, 22.500, 75.000      48.533, 29.500, 109.000
+
+   FrontM4Bolt2                               steel                -3.500, 48.500, -24.000     3.500, 55.500, 10.000
+
+   RearM4Bolt2                                steel                -3.500, 48.500, 75.000      3.500, 55.500, 109.000
+
+   FrontM4Bolt3                               steel                -48.533, 22.500, -24.000    -41.533, 29.500, 10.000
+
+   RearM4Bolt3                                steel                -48.533, 22.500, 75.000     -41.533, 29.500, 109.000
+
+   FrontM4Bolt4                               steel                -48.533, -29.500, -24.000   -41.533, -22.500, 10.000
+
+   RearM4Bolt4                                steel                -48.533, -29.500, 75.000    -41.533, -22.500, 109.000
+
+   FrontM4Bolt5                               steel                -3.500, -55.500, -24.000    3.500, -48.500, 10.000
+
+   RearM4Bolt5                                steel                -3.500, -55.500, 75.000     3.500, -48.500, 109.000
+
+   FrontM4Bolt6                               steel                41.533, -29.500, -24.000    48.533, -22.500, 10.000
+
+   RearM4Bolt6                                steel                41.533, -29.500, 75.000     48.533, -22.500, 109.000
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                                           39
+ Appendix B. Magnetic material curve and lamination law
+
+   B in steel [T]                         H [A/m]                  Basis
+
+   0.000                                  0.000                    Bundled M270-35A
+
+   0.100                                  30.000                   Bundled M270-35A
+
+   0.200                                  39.600                   Bundled M270-35A
+
+   0.300                                  46.000                   Bundled M270-35A
+
+   0.400                                  52.000                   Bundled M270-35A
+
+   0.500                                  58.200                   Bundled M270-35A
+
+   0.600                                  65.200                   Bundled M270-35A
+
+   0.700                                  73.300                   Bundled M270-35A
+
+   0.800                                  83.100                   Bundled M270-35A
+
+   0.900                                  95.500                   Bundled M270-35A
+
+   1.000                                  112.000                  Bundled M270-35A
+
+   1.100                                  136.000                  Bundled M270-35A
+
+   1.200                                  178.000                  Bundled M270-35A
+
+   1.300                                  272.000                  Bundled M270-35A
+
+   1.400                                  596.000                  Bundled M270-35A
+
+   1.500                                  1700.000                 Bundled M270-35A
+
+   1.600                                  3880.000                 Bundled M270-35A
+
+   1.700                                  7160.000                 Bundled M270-35A
+
+   1.800                                  11600.000                Bundled M270-35A
+
+   2.000                                  20480.000                Linear high-field extrapolation
+
+   2.500                                  42680.000                Linear high-field extrapolation
+
+   3.000                                  64880.000                Linear high-field extrapolation
+
+   4.000                                  109280.000               Linear high-field extrapolation
+
+
+ The tabulated isotropic steel curve is interpolated linearly in H(B). For fill kf = 0.95, solve νFe =
+ H(|BFe|)/|BFe| with BFe,parallel = Bparallel/[kf+(1−kf)µ0νFe] and BFe,z = Bz. The homogenized reluctivity
+ is νparallel = νFe/[kf+(1−kf)µ0νFe] and νz = kfνFe+(1−kf)/µ0. This preserves a conservative nonlinear
+ anisotropic laminate law, rather than simply multiplying a scalar permeability by fill.
+
+ The linear numerical check uses µr,parallel = 1500 and µr,z = 19.75. The PM recoil model uses Br20 = 1.05
+ T, αBr = −0.0003 K⁻¹ and µr = 1.05, with alternating radial magnetization. Its source magnetization is
+ Br/(µ0µr). The magnet’s intrinsic demagnetization curve is not supplied by this recoil model.
+
+
+
+
+Space Octopus • Motor study • 06 Nov 2026 • Simulation candidate                                             40
+

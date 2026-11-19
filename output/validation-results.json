@@ -1,0 +1,97 @@
+{
+  "allPassed": true,
+  "circuitJsonSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "fabricationReady": false,
+  "checks": [
+    {
+      "name": "copper geometry",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "load-current copper backbone",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "drill web spacing",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "electrical capture",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "rendered capture and native DRC",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "assembly envelopes",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "local bypass and converter placement",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "Kelvin pickup isolation",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "Kelvin fault detection",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "motor dimensions",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "electrical mutations",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "mounting and through-hole copper",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "copper mutations",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "package pin capture",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "bulk capacitor and watchdog manufacturer review",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "nominal analog simulations",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "motor body and lead clearance",
+      "passed": true,
+      "exitCode": 0
+    },
+    {
+      "name": "rendered silkscreen",
+      "passed": true,
+      "exitCode": 0
+    }
+  ]
+}

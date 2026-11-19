@@ -1,0 +1,26 @@
+{
+  "sourceSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "copperFilesSha256": {
+    "F_Cu": "7f05a9f8618f5925ab7f163bc32a765c2c9b62d30c3585ccf7b5132d73a4efed",
+    "In1_Cu": "c86ffcf39634ecb5eb04753a4302973cd806231a1f63e5a701233789b8d6ea89",
+    "In2_Cu": "df890a2a28b6b184ca1582123d7076c3d3edde1fb0c19301c5bad6661b07d1f3",
+    "B_Cu": "026e50cca8cab147c0b2c06bf9e0fbf7e8b221eb9c4144dfa3b9f2b52cdd0a3d"
+  },
+  "reader": "Gerbonara 1.6.3, RS-274X geometry with artwork polarity and plated drill spans",
+  "edgeLossMm": 0,
+  "nets": 138,
+  "physicalSmtPads": 736,
+  "physicalPlatedPads": 52,
+  "vias": 1428,
+  "copperIslandsByLayer": {
+    "top": 1046,
+    "inner1": 1128,
+    "inner2": 987,
+    "bottom": 1132
+  },
+  "missingTerminalCopper": [],
+  "opens": {},
+  "shorts": [],
+  "viaNetDisagreements": [],
+  "passed": true
+}

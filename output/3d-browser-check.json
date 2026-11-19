@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "ready": true,
+  "bounds": {
+    "min": [
+      -56,
+      -5.220000000000001,
+      -56
+    ],
+    "max": [
+      56,
+      43.8,
+      56
+    ]
+  },
+  "status": "226 populated component models. Representative bodies include Y1, U2, U13, U21.",
+  "routing": "138/138 nets connected. Engineering review.",
+  "views": [
+    "angle",
+    "top",
+    "bottom",
+    "motor",
+    "separated"
+  ],
+  "motorControls": true,
+  "modelSha256": "a7d7bcd55350b020453a971fc3871ed3091d48934f82100ed83ca68cabc65062"
+}

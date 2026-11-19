@@ -1,0 +1,141 @@
+{
+  "branches": [
+    {
+      "phase": "U",
+      "positiveDriverPin": 9,
+      "negativeDriverPin": 10,
+      "shunt": "RSH1",
+      "isolateFromGroundPlaneAt": [
+        {
+          "x": -16,
+          "y": -2.25,
+          "radius": 0.51
+        },
+        {
+          "x": -25.4,
+          "y": 22.5,
+          "radius": 0.51
+        }
+      ],
+      "positiveTraceId": "kelvin_8",
+      "negativeTraceId": "kelvin_9",
+      "positiveLengthMm": 33.32412230684572,
+      "negativeLengthMm": 33.375283325295065,
+      "pairPitchMm": 0.6,
+      "traceWidthMm": 0.15,
+      "planeLayer": "inner2",
+      "sourceVia": [
+        -16,
+        -2.25
+      ],
+      "pickupGroundVia": [
+        -25.4,
+        22.5
+      ],
+      "groundPickupPad": [
+        -24.9625,
+        24.54
+      ],
+      "positiveSourceVia": [
+        -17.5,
+        -1.75
+      ],
+      "positivePickupVia": [
+        -17.9,
+        26.5
+      ]
+    },
+    {
+      "phase": "V",
+      "positiveDriverPin": 12,
+      "negativeDriverPin": 11,
+      "shunt": "RSH2",
+      "isolateFromGroundPlaneAt": [
+        {
+          "x": -17.75,
+          "y": -5,
+          "radius": 0.51
+        },
+        {
+          "x": 24.9625,
+          "y": 21.5,
+          "radius": 0.51
+        }
+      ],
+      "positiveTraceId": "kelvin_18",
+      "negativeTraceId": "kelvin_19",
+      "positiveLengthMm": 72.51611150922614,
+      "negativeLengthMm": 71.18641892039136,
+      "pairPitchMm": 0.6,
+      "traceWidthMm": 0.15,
+      "planeLayer": "inner2",
+      "sourceVia": [
+        -17.75,
+        -5
+      ],
+      "pickupGroundVia": [
+        24.9625,
+        21.5
+      ],
+      "groundPickupPad": [
+        24.9625,
+        19.46
+      ],
+      "positiveSourceVia": [
+        -18.25,
+        -3.55
+      ],
+      "positivePickupVia": [
+        17.65,
+        21.5
+      ]
+    },
+    {
+      "phase": "W",
+      "positiveDriverPin": 19,
+      "negativeDriverPin": 20,
+      "shunt": "RSH3",
+      "isolateFromGroundPlaneAt": [
+        {
+          "x": -22.25,
+          "y": -6.1,
+          "radius": 0.51
+        },
+        {
+          "x": 15.9625,
+          "y": -26.5,
+          "radius": 0.51
+        }
+      ],
+      "positiveTraceId": "kelvin_28",
+      "negativeTraceId": "kelvin_29",
+      "positiveLengthMm": 46.496947730078006,
+      "negativeLengthMm": 47.70274812836502,
+      "pairPitchMm": 0.6,
+      "traceWidthMm": 0.15,
+      "planeLayer": "inner2",
+      "sourceVia": [
+        -22.25,
+        -6.1
+      ],
+      "pickupGroundVia": [
+        15.9625,
+        -26.5
+      ],
+      "groundPickupPad": [
+        15.9625,
+        -24.54
+      ],
+      "positiveSourceVia": [
+        -21.75,
+        -7.3
+      ],
+      "positivePickupVia": [
+        8.85,
+        -26.5
+      ]
+    }
+  ],
+  "groundViaInPadCount": 101,
+  "requires": "Filled and capped via-in-pad manufacture; explicit antipads at all three negative pickup source vias."
+}

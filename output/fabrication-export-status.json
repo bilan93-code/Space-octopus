@@ -1,0 +1,85 @@
+{
+  "purpose": "engineering review only",
+  "fabricationReady": false,
+  "circuitJsonSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "files": [
+    {
+      "file": "F_Cu.gbr",
+      "bytes": 705942,
+      "sha256": "7f05a9f8618f5925ab7f163bc32a765c2c9b62d30c3585ccf7b5132d73a4efed"
+    },
+    {
+      "file": "F_SilkScreen.gbr",
+      "bytes": 277423,
+      "sha256": "07aa92e93f2359a2ec248b3c81a6f39d71e0bf44cec7502a1bd51e986232e12f"
+    },
+    {
+      "file": "F_Mask.gbr",
+      "bytes": 13311,
+      "sha256": "3a88f3032d0dc1296901a6bd06325aafdb600766e7265e8d7745659ef6bf9961"
+    },
+    {
+      "file": "F_Paste.gbr",
+      "bytes": 11093,
+      "sha256": "aa43785939efda0f6e7175fdfed7d6d18a115f5a1b87d4c5270c50892469e1c8"
+    },
+    {
+      "file": "B_Cu.gbr",
+      "bytes": 1105558,
+      "sha256": "026e50cca8cab147c0b2c06bf9e0fbf7e8b221eb9c4144dfa3b9f2b52cdd0a3d"
+    },
+    {
+      "file": "B_SilkScreen.gbr",
+      "bytes": 245912,
+      "sha256": "b909a24b8580f6cdc42f4787be3854a1b1af28d8cad06644a3593d5943d1c29d"
+    },
+    {
+      "file": "B_Mask.gbr",
+      "bytes": 27062,
+      "sha256": "cfbe34257ea764089ad84033ed9416efb69757c600f0aba60c409d4368134b28"
+    },
+    {
+      "file": "B_Paste.gbr",
+      "bytes": 25204,
+      "sha256": "91a3532afd95d5cc14cba059ae89805303008aee023202260dcbb5a1355aac44"
+    },
+    {
+      "file": "Edge_Cuts.gbr",
+      "bytes": 6923,
+      "sha256": "c4ffc2c04e92d8837dfe4c9ed5720faa770ebd183faecc3f1b07c8a473a607c2"
+    },
+    {
+      "file": "In1_Cu.gbr",
+      "bytes": 1046560,
+      "sha256": "c86ffcf39634ecb5eb04753a4302973cd806231a1f63e5a701233789b8d6ea89"
+    },
+    {
+      "file": "In2_Cu.gbr",
+      "bytes": 498250,
+      "sha256": "df890a2a28b6b184ca1582123d7076c3d3edde1fb0c19301c5bad6661b07d1f3"
+    },
+    {
+      "file": "F_Fab.gbr",
+      "bytes": 40348,
+      "sha256": "7fc58448837172ce7b4f5ea6845b97f2ff899721228e7a24d442c2546372eec3"
+    },
+    {
+      "file": "B_Fab.gbr",
+      "bytes": 32650,
+      "sha256": "bf76b57f2003097e2b1635d4198c817c9bce34465f421e2d7049997e4b4364c9"
+    },
+    {
+      "file": "drill-L1-L4.drl",
+      "bytes": 26770,
+      "sha256": "31a3a7e8e2888da865ae61a25751c0a0db4bbba208e0473208b60f1066cdce01"
+    },
+    {
+      "file": "drill_npth.drl",
+      "bytes": 532,
+      "sha256": "708a7727e907c0302d0c0ed240cb386cc562819ac9398687a481b054cff6834e"
+    }
+  ],
+  "pickAndPlaceWarnings": [],
+  "source": "circuit-json-to-gerber 0.0.123 / circuit-json-to-pnp-csv",
+  "notes": "Mechanical aperture machining and assembly rotations require review."
+}

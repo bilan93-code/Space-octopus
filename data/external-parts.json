@@ -1,0 +1,91 @@
+[
+  {
+    "ref": "R_BRAKE_EXT",
+    "category": "external braking resistor",
+    "value": "4.7 ohm, 200 W continuous with specified heatsink",
+    "connectsTo": "J11",
+    "pins": {
+      "1": "BRAKE_PLUS",
+      "2": "BRAKE_DRAIN"
+    },
+    "provisional": true,
+    "notes": "PDF section 18, 08 Brake. External assembly only; no PCB footprint. Approximately 12.25 A / 705 W while on at 57.6 V; a 200 W continuous rating does not permit continuous 705 W operation. Terminal numbers here denote the J11 harness, not an asserted manufacturer terminal map. Prototype bench envelope: horizontal axis, up to 10 rpm, 220 Nm, one-second linear stop, 250 J/event budget at up to 6 events/min. Select for 0.8 kW pulses; verify pulse curve, mounting and heatsink. See docs/BOTA_PROTOTYPE.md.",
+    "sheet": "External",
+    "kind": "external braking resistor",
+    "dnp": false,
+    "pinLabels": {},
+    "provisionalReason": "Confirm actual reflected inertia, duty, pulse-rated resistor order code, thermal cutoff, cooling and mounting."
+  },
+  {
+    "ref": "ENC1",
+    "category": "external absolute motor-shaft encoder",
+    "value": "FLUX IND-ROT MINI, 45 mm, 15 mm bore, 19-bit, BIS10 BiSS-C",
+    "mpn": "IND-ROT-045-C2115-19-BIS10-AL",
+    "connectsTo": "J4",
+    "pins": {
+      "1": "ENC12",
+      "2": "GND",
+      "3": null,
+      "4": null,
+      "5": null,
+      "6": null,
+      "7": "ENC_CLK_P",
+      "8": "ENC_CLK_N",
+      "9": "ENC_DATA_P",
+      "10": "ENC_DATA_N",
+      "11": "SHIELD"
+    },
+    "pinLabels": {
+      "1": "12 V supply",
+      "2": "GND",
+      "3": "NC incremental output",
+      "4": "NC incremental output",
+      "5": "NC incremental output",
+      "6": "NC incremental output",
+      "7": "CLOCK+",
+      "8": "CLOCK-",
+      "9": "DATA+",
+      "10": "DATA-",
+      "11": "SHIELD"
+    },
+    "provisional": true,
+    "notes": "PDF section 18 External and section 10 harness. External assembly only; no PCB footprint. Fused/filtered 12 V via J4; published supply range 4.35-36 V. Requires precision 12-to-15 mm shaft adapter, nominal 0.50 mm sensing gap and thermal mounting below +85 C. Pins 3-6 left unconnected for BIS10. Board and encoder pin numbers match. Mark pin 1 and secure the harness.",
+    "sheet": "External",
+    "kind": "external absolute motor-shaft encoder",
+    "dnp": false,
+    "provisionalReason": "Proposed factory order string must be confirmed with FLUX. Confirm 12 V maximum/startup current, encoder-end clock termination, harness orientation and mechanical clearance."
+  },
+  {
+    "ref": "TORQUE1",
+    "sheet": "External",
+    "kind": "external torque sensor",
+    "category": "gearbox-output torque",
+    "value": "Bota 300 Nm EtherCAT torque sensor",
+    "mpn": "BTS-T300-CAT",
+    "connectsTo": "Jetson EtherCAT master and J12 power",
+    "pins": {
+      "1": "ETH_TX_P",
+      "2": "ETH_TX_N",
+      "3": "ETH_RX_P",
+      "4": "ETH_RX_N",
+      "5": "BOTA_9V",
+      "6": "GND",
+      "7": "USB_DP",
+      "8": "USB_DM"
+    },
+    "pinLabels": {
+      "1": "TD+",
+      "2": "TD-",
+      "3": "RD+",
+      "4": "RD-",
+      "5": "PWR",
+      "6": "GND",
+      "7": "USB D+",
+      "8": "USB D-"
+    },
+    "notes": "Use a Bota-compatible breakout. Cable pins 1–4 carry Ethernet pairs to a dedicated Jetson EtherCAT master port; 5 and 6 receive power from J12. Insulate unused USB conductors. Keep sensor within 0–55 C.",
+    "provisional": true,
+    "provisionalReason": "Confirm maximum supply voltage and startup current with Bota, integration manual, output-side fit and five-unit availability.",
+    "dnp": false
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "source": "output/space-octopus.circuit.json",
+  "physicalDrills": 1488,
+  "minimumDrillEdgeGapMm": 0.2,
+  "violationCount": 0,
+  "violations": [],
+  "notes": "Exact duplicate drill definitions are counted once. The routed central cutout is checked by the copper and assembly audits."
+}

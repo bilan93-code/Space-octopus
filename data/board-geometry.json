@@ -1,0 +1,47 @@
+{
+  "shape": "circle",
+  "outerDiameterMm": 112,
+  "diameterConfirmed": true,
+  "diameterBasis": "Motor_Gmsh_Elmer_Design_Study.pdf p4: housing R48\u201356, OD112; p10: barrel OD112; appendix p39 confirms end-cap bounds \u00b156 mm. Nominal simulation/CAD candidate, not measured hardware.",
+  "motorHousingDiameterMm": 112,
+  "edgeMarginMm": 1,
+  "courtyardGapMm": 0.4,
+  "outlineSegments": 256,
+  "centralOpeningDiameterMm": 28,
+  "centralOpeningConfirmed": false,
+  "centralOpeningNote": "Proposed PCB aperture matches the motor shoulder opening \u00d828 (study p10), clearing \u00d812 shaft and \u00d819 locknut. Encoder support and board axial mounting need CAD confirmation.",
+  "mounting": {
+    "confirmed": true,
+    "boltCircleDiameterMm": 104,
+    "holeDiameterMm": 4.5,
+    "anglesDegrees": [
+      30,
+      90,
+      150,
+      210,
+      270,
+      330
+    ],
+    "fastenerEnvelopeDiameterMm": 7,
+    "keepoutDiameterMm": 9.5,
+    "note": "Study p10: six M4\u00d730 per end, PCD104, cap clearance4.5. Appendix p39 bolt centers imply 30\u00b0+60\u00b0k. Head envelope \u00d87. This transfers nominal CAD dimensions; PCB fastener lengths, load paths and standoffs remain to be selected.",
+    "edgeClearanceNote": "Drill edge-to-board margin is 1.75 mm nominal (56-52-2.25). Library fastener keepout may extend past the PCB boundary; keepout is reserved on both faces. Nominal study head \u00d87 fits inside housing OD with 0.5 mm radial margin.",
+    "copperKeepoutShape": "square",
+    "copperKeepoutGapMm": 0.2
+  },
+  "installation": "External rear annular PCB. All connectors and C1-C5 face outward. Proposed 7 mm cap-to-PCB gap: cap end z105, PCB motor-facing plane z112, outward plane z113.6, shaft end z120. Six replacement spacer/fastener concepts require structural and insulation review.",
+  "source": "Motor_Gmsh_Elmer_Design_Study.pdf pp4,10,39; electrical baseline remains Space_Octopus_Motor_PCB_Plan_RevA.pdf.",
+  "nominalMotorDimensionsSourced": true,
+  "assemblyFitVerified": false,
+  "placementPolicy": "Face body courtyards plus opposite-face solder/lead projections. Connectors and tall capacitors outward; low-profile motor-facing devices; protected Kelvin pickup barrels. Original cap clamp hardware must be redesigned for PCB mounting.",
+  "centralOpeningPlacementKeepout": "circle",
+  "centralOpeningKeepoutNote": "Physical aperture is circular \u00d828. Placement conservatively reserves its bounding square plus 1 mm edge gap to satisfy the current tscircuit hole overlap checker.",
+  "axialMounting": {
+    "provisional": true,
+    "motorCapEndZMm": 105,
+    "pcbMotorFacingZMm": 112,
+    "boardThicknessMm": 1.6,
+    "gapMm": 7,
+    "hardwareApproved": false
+  }
+}

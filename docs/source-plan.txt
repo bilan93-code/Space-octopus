@@ -1,0 +1,1724 @@
+ Space Octopus
+
+
+
+ Motor controller PCB
+ A component and connection plan
+ for schematic capture in tscircuit
+
+  Motor basis                  Controller target                            Feedback
+
+  48 V nominal / 42 V          13 Arms normal target                        Purchased FLUX IND-ROT-045
+  minimum
+
+  3 phases / 5 pole pairs      22 Arms conditional pulse                    BiSS-C differential interface
+
+
+
+
+         48 V DC input                                 Three-phase inverter                                 External motor
+      Fuse, TVS, bus capacitors                            6 MOSFETs + 3 shunts                             U / V / W connections
+
+
+
+
+          Supply rails                                        Gate driver                                    FLUX encoder
+          12 V / 5 V / 3.3 V                                    DRV8353S                                    BiSS-C / motor shaft
+
+
+
+
+                                                           MCU + fault logic
+  CAN host + torque sensor
+                                                           STM32G431 / local FOC
+
+
+
+ The controller uses STM32G431RBT6 + DRV8353SRTAR + six CSD19536KTT MOSFETs, with three
+ low-side phase-current shunts. It includes the supply rails, bus monitoring, hardware shutdown, CAN,
+ debugging, temperature inputs, and a regenerative brake chopper. One purchased FLUX IND-ROT-045
+ motor-shaft encoder connects through a differential BiSS-C interface. The encoder itself and torque sensor
+ are external assemblies.
+
+ Read this document together with PCB_BOM_RevA.csv, the three pin-assignment CSV files, Net_Classes.csv
+ and tscircuit_build_brief.md. The JSON file preserves the numerical design basis. BOM rows with provisional
+ status deliberately identify parts that cannot be ordered responsibly until dimensions, cable requirements or
+ fault energy are known.
+
+ Revision A • 13 November 2026
+ Status: schematic planning baseline; electrical and thermal validation pending.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                       1
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ Contents
+ 1. Requirements extracted from the supplied motor study                 3
+
+
+ 2. Architecture and physical boundaries                                 4
+
+
+ 3. Selected FLUX motor encoder                                          4
+
+
+ 4. DC input, bus capacitors and power budgeting                         5
+
+
+ 5. Regulator schematic details                                          5
+
+
+ 6. MCU, clock, programming and default state                            6
+
+
+ 7. Gate driver and inverter connections                                 6
+
+
+ 8. Phase-current measurement and ADC timing                             7
+
+
+ 9. Hardware fault chain                                                 7
+
+
+ 10. Encoder electrical interface and harness                            8
+
+
+ 11. Torque sensor, CAN and temperature inputs                           9
+
+
+ 12. Regenerative brake chopper                                          9
+
+
+ 13. Firmware settings and startup sequence                              9
+
+
+ 14. PCB layout and thermal constraints                                 10
+
+
+ 15. tscircuit implementation order                                     10
+
+
+ 16. Verification gates before fabrication and full-current operation   11
+
+
+ 17. Decisions still required before layout freeze                      12
+
+
+ 18. Component inventory by schematic sheet                             13
+
+
+ 19. MCU pin assignment                                                 22
+
+
+ 20. Gate-driver pin assignment                                         24
+
+
+ 21. Supporting IC pin connections                                      25
+
+
+ 22. Sources and document status                                        28
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                2
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 1. Requirements extracted from the supplied
+ motor study
+  Parameter                 Design basis                                  Meaning for this PCB
+
+  DC supply                 48 V nominal; 42 V minimum [M1, p2]           Use 48 V as nominal. A 54 V maximum is an added design
+                                                                          assumption.
+
+  Motor                     Three-phase, Y-connected, 12 slots / 10       Three half bridges; five pole pairs in firmware; no
+                            poles [M1, pp1,8]                             star-point connection.
+
+  Shaft                     12 mm diameter [M1, p9]                       Encoder mounting must accommodate the existing shaft.
+
+  Working speed             630 rpm motor / 10 rpm actuator, 63:1 [M1,    Electrical frequency is 52.5 Hz.
+                            p2]
+
+  Required shaft torque     4.3651 Nm for 220 Nm output at assumed        The motor controller regulates motor current. Output
+                            80% gearbox efficiency [M1, p2]               torque depends on the gearbox.
+
+  Operating current         12.2 Arms evaluated; 13 Arms                  Propose 13 Arms as normal current ceiling, subject to
+                            trough-margin case [M1, sections 12A–12C]     thermal validation.
+
+  Upper current case        22 Arms, conditional [M1, thermal sections]   31.11 A sinusoidal phase peak. Permit only a validated
+                                                                          pulse envelope.
+
+  Phase resistance          0.128522 ohm at 20 C [M1, winding section]    About 0.16893 ohm at 100 C. Measure real hardware too.
+
+  Winding temperature       130 C study limit [M1, p2]                    Temperature sensing and derating are required.
+
+  Missing data              Incremental Ld/Lq, measured flux/torque       Current-loop gains, PWM ripple and production ratings
+                            map, maximum DC voltage, actual cooling       remain open.
+
+
+ The report's 22 Arms continuous holding calculation reaches about 154.7 C and fails its own limit. Its
+ five-second 22 Arms pulse case starts from specific lower-current thermal states. Repeated pulses, different
+ mounting and an already hot motor require a new thermal duty assessment. This PCB must not label 22
+ Arms as a continuous motor rating.
+
+ For balanced sinusoidal currents, I_peak = sqrt(2) × I_rms. Thus 13 Arms corresponds to 18.38 A peak and
+ 22 Arms to 31.11 A peak. An amplitude-invariant Park transform uses peak-equivalent dq current; the study's
+ RMS convention must be converted explicitly. DC supply current is a different quantity; the study's
+ approximately 394 W electrical case corresponds to about 8.2 A at 48 V before inverter losses.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                      3
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 2. Architecture and physical boundaries
+  Block                     Power or information path                 Responsibility
+
+  DC entry                  J1 → F1 → VBUS and bus capacitors         Supplies the inverter, brake chopper and regulators.
+
+  Motor power               VBUS → three MOSFET half bridges → J2     Switches the DC bus to control phase currents.
+                            U/V/W
+
+  Gate control              MCU timers → U10 buffer → U2 driver →     MCU generates PWM timing; driver provides gate charge;
+                            MOSFET gates                              MOSFETs switch motor power.
+
+  Current feedback          Three shunts → U2 amplifiers → ADCs and   FOC current regulation and hardware current-window
+                            fault comparators                         shutdown.
+
+  Rotor feedback            External FLUX encoder → differential      Provides motor angle for commutation and speed control.
+                            receiver → MCU
+
+  Torque feedback           Purchased conditioned CAN sensor → J5 →   Optional outer torque/force feedback; no strain-gauge
+                            CAN MCU peripheral                        electronics on this PCB.
+
+  Supplies                  VBUS → approximately 12 V → 5 V → 3.3 V   Gate driver/encoder, CAN/reference, logic/ADCs
+                                                                      respectively.
+
+  Braking                   VBUS → external resistor → Q7 → GND       Absorbs returned energy when the supply cannot accept
+                                                                      it.
+
+
+ This is one common-ground motor drive. The gate driver, inverter and MCU belong together on the controller
+ PCB even when the motor is mechanically separate from the gearbox. Keep the board near the motor to
+ shorten phase wiring. The motor housing and cable shield require an enclosure bonding plan.
+
+ The upstream power source must provide controlled precharge or a slow voltage ramp, correct polarity, a
+ suitable disconnect and current limiting. These are explicit system boundaries of this first board. A keyed
+ connector is not electronic reverse-polarity protection. Do not insert a one-way series protection diode
+ without reassessing regeneration and the brake circuit.
+
+ Start with a 120 × 100 mm planning envelope, four copper layers, and space for four radial bus
+ capacitors. These are layout allowances, not a solved mechanical fit. Place the board on a cooled bracket or
+ enclosure surface; the motor study's thermal boundary does not establish PCB cooling.
+
+
+ 3. Selected FLUX motor encoder
+ Use IND-ROT-045-C2115-19-BIS10-AL as the proposed configuration to confirm with FLUX. It is an
+ inductive absolute encoder, with a 45 mm stator and a 15 mm rotor bore in this mounting variant. A
+ precision 12-to-15 mm split adapter is needed for the study's 12 mm shaft. Check concentricity, the existing
+ 19 mm locknut envelope, and rear-cap axial clearance in CAD before freezing the mount. [E1]
+
+ This is my preferred fit for motor commutation because it accommodates the shaft through an adapter and
+ offers enough resolution without moving to the larger GMI families. Its 19-bit output gives a theoretical step
+ of 0.000687 mechanical degrees, or 0.00343 electrical degrees with five pole pairs. Resolution is not
+ accuracy. Use the published standard ±0.040° accuracy as the baseline; the tighter ±0.025° figure depends
+ on improved mounting. [E1,E2]
+
+ Reserve a protected rear-end mounting region with the nominal 0.50 mm sensing gap. Keep the encoder
+ below its +85 C operating limit; a target below 75 C provides initial margin. It cannot be placed on the 130 C
+ winding hotspot. The sensor may need an end-cap spacer and a thermal path separate from the windings.
+ [E1]
+
+ Power the encoder from fused 12 V. Its published supply range is 4.35–36 V, so neither the 48 V bus nor the
+ 3.3 V rail is suitable. Allocate 200 mA at 12 V as a provisional rail budget; the public current figures are at
+ other supply voltages and exclude termination loads. Obtain the exact 12 V maximum and startup current
+ before finalizing F3. [E1]
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                 4
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+ The encoder's own calibration does not determine the motor's electrical zero. During commissioning,
+ determine phase order, direction and electrical offset. Use theta_e = 5 × theta_motor + theta_offset,
+ wrapped to one electrical revolution. A single-turn motor encoder also does not establish absolute gearbox
+ output position after arbitrary unpowered motion. Joint-level absolute position would require an output
+ encoder or an appropriate homing strategy.
+
+
+ 4. DC input, bus capacitors and power budgeting
+ J1 brings DC_IN and GND onto the PCB. F1 feeds VBUS. D1, the capacitor bank, bleeder, inverter and
+ regulator input connect downstream of F1. Place the TVS beside the input loop, and the ceramic
+ commutation capacitors directly beside their half bridges. All motor return current goes back to the bus
+ capacitors through short, broad copper paths.
+
+ Four starting 470 uF capacitors give 1880 uF. Stored energy at 48 V is 2.17 J. Only about 0.95 J is added
+ between 48 V and the proposed 57.6 V braking threshold; capacitance therefore cannot replace the braking
+ resistor. Specify the capacitor bank by both capacitance and ripple capability, with a provisional combined
+ target of at least 12 Arms at the actual switching frequency and case temperature. Confirm this from
+ simulated/measured bus-current waveforms. Increase the count or change capacitor technology if selected
+ parts cannot meet the target.
+
+ The 22k bleeder dissipates about 0.105 W at 48 V. With 1880 uF, its time constant is 41.4 s, so the bus
+ remains charged after disconnection. The fuse does not replace semiconductor overcurrent detection. F1's
+ 20 A value is a starting selection; its DC interrupt rating must exceed the actual source's available fault
+ current.
+
+ Use 100 V MOSFETs, bus capacitors and a 100 V input buck. The SMCJ54A is a transient absorber; its
+ published pulse clamp is around 87 V at its specified test current. Real wiring inductance and pulse energy
+ still determine the voltage at the MOSFET and IC pins. Target measured power-node overshoot below 90 V,
+ with documented margin to every relevant absolute maximum. A 100 V label alone does not prove surge
+ survival. [D2,D3,D4]
+
+  Rail                      Planned load allocation                      Check before release
+
+  V12                       Up to 0.5 A normal design budget; U3 rated   Encoder allowance 0.2 A, gate drive, downstream buck
+                            1A                                           input, startup peaks.
+
+  V5                        Up to 0.4 A design budget                    CAN dominant-state current, 3.3 V LDO input and
+                                                                         reference.
+
+  V3V3                      Up to 0.25 A design budget                   MCU, clock, logic, analog and encoder line driver loading.
+
+  REF25                     Less than 1 mA expected                      Comparator references and ADC monitoring only.
+
+
+ At 0.25 A the 5-to-3.3 V LDO dissipates about 0.42 W. Its actual junction rise must be checked on the
+ selected land pattern. The maximum budgets are allocations, not measured consumption.
+
+
+ 5. Regulator schematic details
+ U3, LM5164, generates V12. Follow the manufacturer's 12 V application topology, using the listed 68 uH
+ inductor, 100k RON, 448k/49.9k output divider and 2.2 nF bootstrap capacitor. Keep the three-component
+ ripple network: SW → 453k → RIPPLE12; RIPPLE12 → 3.3 nF → V12; RIPPLE12 → 56 pF → FB12. The calculated
+ nominal output is 11.974 V. Tie EN/UVLO to VBUS for this baseline. PGOOD contributes to FAULT_RAW_N.
+ [D4]
+
+ U4, TPS62160, generates V5. Its 2.2 uH inductor connects SW to V5; VOS senses V5 at the output
+ capacitor. The feedback divider is 523k over 100k, for 4.984 V nominal. Connect AGND and PGND to the
+ same ground system using the layout arrangement in its datasheet. PG contributes to FAULT_RAW_N. [D5]
+
+ U5, TLV75533, generates V3V3. Tie EN to V5 and decouple both sides. U19, REF3025E, generates
+ REF25 from V5 for the independent voltage thresholds. The ADC reference remains VDDA3V3, not REF25.
+ The MCU measures REF25 to check ADC scaling. [D6,D7]
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                     5
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+ Validate every buck with its actual effective ceramic capacitance, inductor saturation limit, input range,
+ output load step and PCB parasitics. Do not substitute an arbitrary 8-pin footprint: the pinouts and thermal
+ pads differ between regulator families and package variants.
+
+
+ 6. MCU, clock, programming and default state
+ Use the STM32G431RBT6 in LQFP64. It provides complementary timer outputs, two ADCs and FDCAN
+ suitable for this control architecture. The included 64-row table assigns every physical pin. Of particular
+ importance, PB15 uses AF4 for TIM1_CH3N; PB13/PB14 use AF6. [D1]
+
+ Decouple every VDD individually with 100 nF. Add local bulk capacitance, filter VDDA, and decouple VREF+.
+ Tie VBAT to V3V3. VSSA is a quiet connection to the same ground plane. The 8 MHz oscillator drives PF0 in
+ HSE bypass mode through 33 ohm; PF1 is unused. Connect SWD and a 3.3 V UART header for bring-up. Set
+ boot option bytes explicitly and keep BOOT0 low by default.
+
+ At reset, external pulldowns hold DRV_ENABLE, MCU_RUN and ARM_PULSE low. U10's output enable defaults
+ high, disabling all six PWM buffers. The six U2 input pulldowns then command zero gate activity. CAN
+ defaults to standby. The driver must be awake for setup and current-offset calibration while PWM remains
+ blocked.
+
+ There is no need for a second application computer on this PCB. A Jetson or other robot computer sends
+ motion commands over CAN; the STM32 closes the fast current loop locally. The motor-control firmware is a
+ separate deliverable from this hardware plan.
+
+
+ 7. Gate driver and inverter connections
+ Choose the SPI DRV8353S, specifically the 40-pin RTA package. The RS variant with an integrated buck has
+ a different pinout. The included driver table includes all 40 pins and the exposed ground pad. [D8]
+
+ Connect VM to V12 and VDRAIN to VBUS. The high-side charge pump is supplied through the driver's power
+ circuitry; it is not powered by the MCU PWM pins. C303 connects CPL to CPH. C304 connects VCP to VDRAIN
+ and floats above the bus. Do not connect C304's lower end to ground. VGLS and DVDD have their own
+ ground-referenced capacitors. Do not use the driver's DVDD to power the MCU.
+
+  Phase     High MOSFET                   Low MOSFET          Switching node      Low-side source and shunt
+
+  U         Q1 drain to VBUS, source to   Q2 drain to PH_U    PH_U to J2.1 and    Q2 source to RSH1 top; RSH1 bottom
+            PH_U                                              U2.SHA              to GND
+
+  V         Q3 drain to VBUS, source to   Q4 drain to PH_V    PH_V to J2.2 and    Q4 source to RSH2 top; RSH2 bottom
+            PH_V                                              U2.SHB              to GND
+
+  W         Q5 drain to VBUS, source to   Q6 drain to PH_W    PH_W to J2.3 and    Q6 source to RSH3 top; RSH3 bottom
+            PH_W                                              U2.SHC              to GND
+
+
+ Each gate has its own 4.7-ohm series resistor and 10k gate-to-source pulldown. Gate/source return geometry
+ matters more than straight-line placement. Connect SPA/SPB/SPC to their respective shunt top pads, and
+ SNA/SNB/SNC to the bottom pads using Kelvin routing. For low-side gate reference, follow the DRV8353
+ source-sense arrangement exactly.
+
+ The D2PAK tabs are drains. The high-side tabs are on VBUS; low-side tabs are on three different phases. Any
+ common metal heat spreader requires suitable electrical insulation and a verified thermal interface. One
+ uninsulated heatsink must not join those nodes.
+
+ Initial driver settings: six-PWM mode; CSA gain 20; bidirectional VREF/2 bias; shunt sensing rather than FET
+ sensing; source drive 150 mA and sink drive 300 mA; approximately 2 us drive duration; VDS OCP 0.2 V with
+ 1 us deglitch and latched fault response. Use a 200 ns driver dead-time setting plus an initial 300 ns MCU
+ dead-time request, then measure the resulting effective non-overlap. These are bench starting settings, not
+ final optimized values. Read registers back after programming.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                      6
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 8. Phase-current measurement and ADC timing
+ Select three 1-milliohm shunts. With CSA gain 20, the nominal transfer slope magnitude is 20 mV/A. In the
+ driver's documented SP-to-SN sign convention, I_shunt = (VREF/2 - VSO)/(20 × 0.001). Confirm the sign
+ against actual phase current and PWM state during commissioning; define one consistent motor-current sign
+ convention in firmware. [D8]
+
+ At zero current, VSO is approximately 1.65 V. At ±31.11 A it is approximately 1.028 V or 2.272 V. Using a
+ 0.25–3.05 V usable analog interval gives roughly ±70 A measurement range. A 12-bit ADC with 3.3 V
+ reference resolves approximately 0.040 A per count before noise, offset and calibration errors.
+
+ The 1-milliohm resistor dissipates 0.169 W at 13 Arms, or 0.484 W at 22 Arms if it carried a full sinusoid. At
+ standstill a phase carrying 31.11 A continuously would dissipate 0.968 W in its shunt when that path
+ conducts. PWM duty and cooling determine the real value. The 3 W component rating must be derated at
+ operating temperature.
+
+ Use the 47-ohm/1-nF filters at the ADC pins. Perform the driver's offset calibration with PWM blocked,
+ followed by ADC zero calibration. Input-referred CSA offset can represent several amperes with a 1-milliohm
+ shunt, so raw measurements and hardware trip thresholds need an error budget and bench checks. Validate
+ gain using a calibrated current source or current probe.
+
+ A low-side shunt does not continuously observe phase current. Sample only during valid low-side
+ conduction windows after switching transients settle. Use simultaneous ADC1/ADC2 conversions for two valid
+ phases and reconstruct the third from iU+iV+iW=0. PA0 and PA1 can use either ADC; PA2 uses ADC1, so pair
+ W with U or V on ADC2. Do not assume three sequential samples are simultaneous.
+
+ Start at 20 kHz center-aligned PWM, with a conservative modulation ceiling and a target quiet acquisition
+ window of at least 3 us. The provisional 90% duty ceiling is not proof that every sector has a valid window.
+ Implement sector-dependent sampling and verify it with the actual timer pattern and measured CSA settling.
+ If a valid pair is unavailable, reduce modulation or change sampling strategy.
+
+ The study does not supply the incremental inductances needed to calculate switching ripple or PI gains.
+ Measure Ld/Lq over useful currents, with the rotor controlled, before enabling 22 Arms pulses. Use the
+ measured values for the current-loop model and anti-windup tuning.
+
+
+ 9. Hardware fault chain
+ U7/U8 implement six current-window comparisons and bus over/undervoltage. Their open-collector outputs,
+ U2 nFAULT, buck power-good outputs and U13 WDO share FAULT_RAW_N. U14/U15 add buffered reset and
+ permit signals through Schottky OR diodes. A low on this net clears U9 asynchronously and also asserts
+ TIM1_BKIN. Do not tie push-pull outputs directly onto this wired fault net.
+
+  Function                  Comparator inputs (+ / -)            Nominal threshold
+
+  Low current-output        Current ADC node / I_LOW             I_LOW = 0.853 V
+  voltage, each phase
+
+  High current-output       I_HIGH / current ADC node            I_HIGH = 2.447 V
+  voltage, each phase
+
+  Bus overvoltage           OV_REF / VBUS_SENSE                  60.83 V bus
+
+  Bus undervoltage          VBUS_SENSE / UV_REF                  39.68 V bus
+
+
+ The current window corresponds to about ±39.9 A in the nominal shunt-amplifier convention. It is an
+ independent trip target, not a precision current limiter. Include shunt tolerance, CSA gain/offset, resistor
+ errors and switching artifacts in its minimum/maximum trip analysis. The driver's VDS protection provides
+ additional coverage when low-side shunts are not observing current. Neither the window nor the fuse
+ guarantees survival of every short circuit without response-time and MOSFET SOA validation.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                     7
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+ U9 has D and /PRE held high. A deliberate MCU pulse on CLK sets its Q high only after FAULT_RAW_N has
+ recovered. The NAND output enables PWM only when Q, MCU_RUN and PERMIT_OK are all high. A trip latches
+ motor PWM off; recovery must never automatically resume torque. Keep DRV_ENABLE independent so
+ diagnostic registers and current calibration remain accessible with PWM blocked.
+
+ U12 supervises V3V3 with a 3.07 V threshold and an open CT pin for its fixed reset delay. U13's fixed
+ watchdog is nominally 200 ms, with the specified tolerance range. This watchdog detects a stalled controller;
+ it is too slow to serve as short-circuit protection. The hardware current comparators and driver perform the
+ fast path. A software command timeout may be much shorter, for example 20 ms, after system timing is
+ established.
+
+ The external permit is a local 3.3 V interface, with a pull-down, RC filter and Schmitt input. An open cable
+ disables permission. It can be driven by a local supervisor or a dry contact to the supplied 3.3 V reference.
+ This circuit is a functional disable, without a claim of certified Safe Torque Off or redundant safety integrity.
+
+
+ 10. Encoder electrical interface and harness
+ The chosen FLUX option uses BIS10 BiSS-C, carried as differential clock and differential data. It does not
+ connect directly to the MCU's 3.3 V SPI pins. U18 converts the clock to a differential pair; U20 converts the
+ incoming data pair to 3.3 V logic. Both are THVD2450 devices, one configured for transmit and one for
+ receive. [D16]
+
+  J4 / FLUX pin             Controller net                         Connection
+
+  1                         ENC12                                  Fused and filtered 12 V supply
+
+  2                         GND                                    Signal/power return
+
+  3, 4, 5, 6                NC                                     Leave incremental-output pins unconnected for BIS10
+
+  7                         ENC_CLK_P                              U18 A, clock positive
+
+  8                         ENC_CLK_N                              U18 B, clock negative
+
+  9                         ENC_DATA_P                             U20 A, data positive
+
+  10                        ENC_DATA_N                             U20 B, data negative
+
+  11                        SHIELD                                 Cable shield / enclosure bond strategy
+
+
+ Use paired conductors for clock and data, plus supply/return, in a shielded harness. Fit the receiving data
+ termination on this PCB; 120 ohm is the starting value for a matching cable. Verify the clock receiver's
+ built-in termination with FLUX and terminate at the encoder end if necessary. Do not add a second clock
+ termination at the transmitting board merely because a footprint exists. The official cable or mating harness
+ must be checked for pin numbering and connector orientation before powering it.
+
+ Start the clock at 2 MHz. The BIS10 field comprises 24 position bits, two status bits and a six-bit CRC, with
+ separate framing/ACK/start behavior. The 19-bit position is left aligned in the 24-bit field. Its CRC polynomial
+ is x^6+x+1, initialized to zero and inverted for transmission. Data changes after rising clock edges and is
+ sampled on falling edges. [E3]
+
+ A 32-bit payload occupies 16 us at 2 MHz; include framing, timeout and processing in the 50 us PWM
+ schedule. The STM32 SPI/DMA engine can assist data collection, but firmware must implement BiSS framing
+ and verify its waveform. Reserve timer/DMA fallback if the required clock and idle timing cannot be
+ generated cleanly. Do not treat a plain SPI register read as a completed BiSS implementation.
+
+ Wait for valid encoder startup data before arming; the published power-up allowance is 0.8 s. Keep the
+ watchdog serviced during that controlled startup state. Check CRC, warning/error flags, impossible position
+ jumps and stale samples on every reading. On loss of valid angle, command zero torque and disable PWM.
+ The mechanical angle at the sampling instant must be time-aligned with FOC; compensate deterministic
+ delay after measuring it.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                            8
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 11. Torque sensor, CAN and temperature inputs
+ Use a purchased torque sensor with conditioned CAN output for this baseline. J5 and J6 are two connectors
+ on the same non-isolated CAN bus, one for the torque sensor and one for the robot controller/daisy chain.
+ They do not create two independent CAN channels. The exact sensor protocol, update rate, node ID and
+ power voltage are still unselected. Supply that sensor externally until its specification is known.
+
+ The TCAN1042HGV has 5 V bus power and 3.3 V I/O power. Set STB low for normal operation and leave it
+ high at reset. Provide 120-ohm termination through a normally open jumper, used only if this board is a
+ physical bus endpoint. Keep connector stubs short. If the purchased sensor uses an analog bridge, SPI or
+ RS-485, the interface sheet must change; a raw bridge cannot connect to the CAN header. [D9]
+
+ Retain phase-current sensing even with an external torque sensor. FOC needs phase-current information to
+ regulate magnetic torque; an output torque sensor measures a different quantity after gearbox losses,
+ friction and compliance.
+
+ The board measures one local MOSFET-area NTC and one external winding NTC. The starting contracts are
+ 10k/B3435 for the board and 10k/B3950 for the winding. Each uses a 10k pull-up and a 1k/100nF ADC filter.
+ In firmware use the actual thermistor curve: R_NTC = R_pullup × V/(Vref-V), followed by the selected
+ sensor's temperature equation or table. Open and shorted sensors must be faults.
+
+ Initial conservative policies are winding derating above 100 C and stop at 115 C; board derating above 70 C
+ and stop at 80 C. These are provisional measured-sensor thresholds. Confirm sensor-to-hotspot error, lag
+ and MOSFET junction rise before raising them. The FLUX unit requires its own thermal mounting assessment.
+
+
+ 12. Regenerative brake chopper
+ The brake circuit operates from the bus whenever its rails are alive, independently of MCU_RUN. U16
+ compares a divided bus signal with REF25. R904 adds positive feedback. U17 switches Q7. Connect the
+ external resistor between BRAKE_PLUS and BRAKE_DRAIN. Q7's source returns to the power ground. D2
+ returns wire-inductance current to BRAKE_PLUS when Q7 turns off.
+
+ Using ideal 2.5 V reference and 0/3.3 V comparator output:
+
+ V_on = 2.5 × (1 + 300/14 + 300/499) = 57.57 V.
+
+ V_off = V_on - 3.3 × 300/499 = 55.59 V.
+
+ The turn-off level stays above the assumed 54 V maximum supply, providing room for tolerance. Calculate
+ worst-case thresholds using the actual reference drift, resistor tolerance, comparator offset and output
+ levels. Validate the 470 pF input-filter delay and resulting voltage overshoot before selecting final values.
+
+ The starting 4.7-ohm external resistor draws 12.25 A and dissipates about 705 W while the chopper is on. A
+ resistor labelled 200 W cannot absorb 705 W continuously. Its duty cycle, pulse energy, heatsink and thermal
+ cutoff must be sized from returned mechanical energy. Even an ideal 200 W continuous allowance limits
+ average ON duty to roughly 28%; thermal margins reduce that value.
+
+ Calculate stopping energy from reflected inertia and speed, plus energy delivered by the load: E = 0.5 ×
+ J_equivalent × omega_motor^2, adjusted for other moving masses, gravity if relevant, and externally
+ imposed motion. The study does not define a complete robot-load inertia or braking duty. Reserve this
+ resistor provision in the schematic now and finalize its energy rating with the mechanism model.
+
+ Turning off all six inverter MOSFETs does not isolate a back-driven motor: their body diodes can still return
+ energy to VBUS. The brake path and bus disconnect strategy therefore remain necessary even when the
+ controller is in a fault state.
+
+
+ 13. Firmware settings and startup sequence
+  1. Keep MCU_RUN low, ARM_PULSE low, CAN in standby and all PWM outputs inactive while rails settle.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                    9
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+  2. Start the clock, ADC calibration and watchdog service. Validate rail readings and sensor sanity. Wait for
+    valid FLUX feedback.
+  3. Wake U2 with DRV_ENABLE high, leaving U10 disabled. Program and read back the driver registers.
+    Calibrate current offsets with no PWM.
+  4. Check bus range, encoder flags, phase-current zeros, temperatures and external permit. Leave automatic
+    output restart disabled in TIM1.
+  5. Configure center-aligned PWM, complementary outputs, dead time and ADC triggers. Verify low-level
+    output states before pulsing ARM_PULSE.
+  6. Set MCU_RUN high only after the latched permission reads high. Begin with a 1–2 A commissioning
+    current limit and a restrained mechanism.
+  7. Establish current sign, phase order, pole-pair count, encoder direction and electrical offset at low energy.
+    Then tune current and outer loops.
+  8. Raise the current limit progressively after waveform and thermal checks. The normal 13 Arms and
+    conditional 22 Arms settings remain bounded by measured temperature, voltage headroom and a
+    validated pulse-energy model.
+ Use Id=0 as the initial surface-PM control strategy. Do not assume field weakening is necessary at 630 rpm.
+ The study's angle-dependent torque results do not provide a complete calibrated ripple-compensation table.
+ Current-loop bandwidth and gains must come from the measured motor/control delay model, not copied
+ values from an unrelated motor.
+
+
+ 14. PCB layout and thermal constraints
+ Use a four-layer starting stack with 2 oz outer copper and continuous inner ground reference. Allocate the
+ top layer to compact switching cells and critical components, an inner layer to ground, another to
+ power/quiet signals as appropriate, and the bottom to additional copper and control routing. Obtain the
+ actual manufacturer stackup before calculating copper temperature rise or impedance.
+
+ Place each half bridge, its shunt and ceramic bus capacitors as a compact cell. Keep the
+ VBUS-capacitor/high-FET/low-FET/shunt loop small. Do the same for Q7 and its capacitor. Keep high-dv/dt
+ phase copper away from encoders, current-amplifier traces and MCU analog pins. Avoid unnecessarily large
+ switch-node copper even when other power polygons need to be broad.
+
+ Route every SP/SN pair from the shunt pads as a true Kelvin pair. The ground-side Kelvin branch is
+ electrically GND, but carries only sense current. Do not create a floating analog-ground island or cut the
+ ground plane under digital return paths. Keep load current out of the driver and MCU reference connections
+ through placement and return-path geometry.
+
+ The first-order bridge conduction estimate, using an assumed hot Rds(on) of 4.8 milliohm, is 3 × Irms^2 ×
+ Rds: about 2.43 W at 13 Arms and 6.97 W at 22 Arms. This excludes switching, diode, gate-drive, shunt,
+ capacitor and regulator losses. Total average gate charge demand at 20 kHz, using 118 nC per MOSFET, is
+ about 14.2 mA. Neither estimate is a thermal proof. [D3]
+
+ Specify copper widths and via arrays from allowable temperature rise, layer thickness, current waveform and
+ connection geometry. Do not use a universal width-per-amp rule. Reserve at least 1 mm spacing in the
+ power area where practical, while respecting validated component footprints; a final clearance rule also
+ depends on the manufacturing and environmental requirements.
+
+ Route critical power, gate-drive, Kelvin and feedback networks manually or with explicit geometry
+ constraints. An autorouter's connectivity success does not validate power integrity, heat flow or current
+ sampling. Separate the buck switch nodes from the current amplifiers and encoder connector.
+
+
+ 15. tscircuit implementation order
+ Create nine named schematic sheets: 00_Input, 01_Supplies, 02_MCU, 03_GateDriver, 04_Inverter,
+ 05_Sensing, 06_FaultLogic, 07_Interfaces and 08_Brake. Keep reference designators unique across the
+ board. Use the supplied CSVs to create exact symbols and audit pin numbers before adding connectivity.
+
+
+Rev A • Schematic planning • 13 November 2026                                                                       10
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+ Start with the power rails and default-off circuit; then add the gate driver and one complete phase cell.
+ Replicate that phase cell with explicit U/V/W net substitutions and verify all three. Add current feedback,
+ hardware fault logic, the FLUX interface and CAN. Finish with the brake circuit and diagnostic headers.
+ Preserve the distinction between external parts and PCB components.
+
+ Current tscircuit supports named schematic sheets, chip pin labels, custom footprints and cross-subcircuit
+ selectors. Use routingDisabled during initial capture. A generic package name must not stand in for an
+ audited thermal-pad land pattern. Import or construct the exact manufacturer footprint, including its pin-1
+ orientation and exposed pad. Check the two 8-pin buck footprints separately. [T1,T2,T3]
+
+ Before allowing PCB routing, export an expanded netlist and check every power pin, driver pin, comparator
+ polarity, MOSFET gate/source/drain and connector number against the tables. Confirm that disabling U10
+ produces six low driver commands and that every fault can clear the latch. Keep raw millivolt sense nets
+ separate from phase power nodes in the routing rules even where they terminate on the same component
+ pad.
+
+
+ 16. Verification gates before fabrication and
+ full-current operation
+  Stage                                                    Required evidence
+
+  Schematic review                                         All pin tables reconciled with selected package drawings; no
+                                                           floating logic controls; no wrong-polarity comparators or diodes.
+
+  Power review                                             Actual capacitor ripple ratings; fuse fault clearing; buck
+                                                           stability/saturation; inrush plan; encoder supply and current
+                                                           confirmed.
+
+  Low-energy power-up                                      Rails stable through startup/shutdown; no gate pulses at reset;
+                                                           fault latch and external permit work with MCU held reset.
+
+  Driver tests                                             Differential gate/source and drain waveforms; no shoot-through;
+                                                           real dead time; ringing and bus overshoot below chosen limits.
+
+  Feedback tests                                           Calibrated current gain/sign/offset; two valid simultaneous
+                                                           samples in each PWM sector; encoder CRC, delay, direction and
+                                                           electrical zero.
+
+  Protection tests                                         Controlled injected comparator faults, disconnects, watchdog
+                                                           loss and rail faults; measured shutdown latency and
+                                                           deliberate-only restart.
+
+  Load tests                                               Progressive current and duty; measured
+                                                           semiconductor/capacitor/encoder temperatures; motor
+                                                           winding-to-sensor correlation.
+
+  Braking tests                                            Return energy and bus rise at realistic inertia; resistor pulse
+                                                           temperature; chopper behavior with main PWM disabled.
+
+
+ The initial verification work can proceed at restricted voltage/current. Reaching the motor's 42–54 V
+ operating range, 13 Arms normal target and 22 Arms pulse envelope follows successful staged tests. Record
+ the actual conditions; a simulation or BOM check alone cannot establish those ratings.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                11
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 17. Decisions still required before layout freeze
+  Open item                   Baseline used here                         What resolves it
+
+  Maximum source              54 V maximum; 20 A input fuse starting     EPS/battery/bench supply specification, including
+  voltage and fault current   value                                      regeneration and disconnect behavior.
+
+  Motor inductance and        Unspecified                                Measurement or validated incremental electromagnetic
+  actual electrical                                                      model over current and angle.
+  constants
+
+  Encoder installation        IND-ROT-045, 12-to-15 mm adapter, BiSS-C   FLUX order confirmation, 12 V current, clock termination
+                                                                         and rear-cap CAD fit.
+
+  Torque sensor               External conditioned CAN unit              Model, protocol, power supply and required control
+                                                                         bandwidth.
+
+  Winding temperature         10k B3950, >=150 C                         Actual purchased/installed sensor and hotspot correlation.
+  sensor
+
+  Brake resistor              4.7 ohm / 200 W chassis candidate          Robot inertia, returned energy, repetition rate and
+                                                                         thermal mounting.
+
+  Bus capacitors and          Four 470 uF / 100 V footprints; stated     Exact component data, dimensions, ripple and derating.
+  connectors                  current targets
+
+  Board thermal path and      120 × 100 mm / four layers                 Enclosure CAD, temperature environment, heatsinking
+  outline                                                                and board-loss tests.
+
+
+ These open items do not prevent schematic capture. They prevent treating this revision as a verified build
+ specification. All proposed parts and networks are listed below and in the editable files so the next revision
+ can resolve them without losing design intent.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                   12
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 18. Component inventory by schematic sheet
+ All resistors default to 1% unless a tighter value is specified. Use the stated voltage, power and pulse ratings;
+ package size alone does not establish them. DNP means retain a footprint but do not populate in the
+ baseline. Pin tables take precedence over a generic schematic symbol.
+
+ 00 Input
+
+  Reference        Value / function             Part or selection             Connection / design intent
+
+  J1               DC input, 2 poles            Select keyed connector        1=DC_IN; 2=GND Upstream source must provide
+                                                                              polarity protection, current limiting and precharge.
+
+  F1               20 A fuse, >=100 Vdc         Select DC fuse and holder     DC_IN to VBUS Select time/current curve and interrupt
+                                                                              rating from actual source fault current.
+
+  D1               54 V standoff TVS            SMCJ54A                       Cathode=VBUS; anode=GND Pulse clamp is not a
+                                                                              continuous braking load. Check actual clamping and
+                                                                              overshoot.
+
+  C1–C4            470 uF, 100 V, 105 C         Select low-ESR electrolytic   VBUS to GND, positive at VBUS 1880 uF nominal bank.
+                                                                              Bank target >=12 Arms ripple at actual
+                                                                              frequency/temperature; increase count if necessary.
+
+  C5               4.7 uF, 100 V pulse film     Select polypropylene pulse    VBUS to GND High-frequency bus support. Select
+                                                capacitor                     pulse/ripple capability.
+
+  R1               22 kohm, 1 W, >=150 V        Generic resistor              VBUS to GND Bleeder; nominal time constant 41.4 s with
+                                                                              1880 uF.
+
+  TP1,TP2          Bus and ground test          Test pads                     TP1=VBUS; TP2=GND Label high-voltage power nodes
+                   pads                                                       clearly.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                        13
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 01 Supplies
+
+  Reference        Value / function             Part or selection          Connection / design intent
+
+  U3               100 V buck, nominal 12       LM5164DDAR                 VIN/EN=VBUS; OUT=V12
+                   V
+
+  U4               12 V to 5 V buck             TPS62160DGKR               VIN/EN=V12; OUT=V5
+
+  U5               3.3 V / 500 mA LDO           TLV75533PDBVR              IN/EN=V5; OUT=V3V3
+
+  U19              2.5 V precision reference    REF3025EAIDBZR             IN=V5; OUT=REF25
+
+  L101             68 uH                        Coilcraft                  BUCK12_SW to V12 Check saturation against LM5164
+                                                MSS1246T-683MLB            maximum current limit, not only the 0.5 A load budget.
+
+  C101,C102        2.2 uF, 100 V, X7R           CGA6N3X7R2A225K230AB       VBUS to GND at U3 Apply DC-bias derating.
+                                                or equivalent
+
+  C103,C104        22 uF, 25 V, X7R             TMK325B7226KMHT or         V12 to GND Verify effective capacitance and regulator
+                                                equivalent                 response.
+
+  C105             2.2 nF, 50 V                 C0G ceramic                U3 BST to BUCK12_SW Use the LM5164-specific
+                                                                           bootstrap value.
+
+  R101             100 kohm, 1%                 Generic                    U3 RON to GND Nominal switching frequency about 300
+                                                                           kHz.
+
+  R102             448 kohm, 0.1%               Generic                    V12 to FB12 V12=1.2*(1+448/49.9)=11.974 V nominal.
+
+  R103             49.9 kohm, 0.1%              Generic                    FB12 to GND
+
+  R104             453 kohm, 1%                 Generic                    BUCK12_SW to RIPPLE12 Type-3 ripple injection, retain
+                                                                           all three components.
+
+  C106             3.3 nF, 50 V                 C0G ceramic                RIPPLE12 to V12
+
+  C107             56 pF, 50 V                  C0G ceramic                RIPPLE12 to FB12
+
+  L102             2.2 uH; Isat >=2 A           Select shielded inductor   BUCK5_SW to V5 Verify against U4 peak current and
+                                                                           ripple.
+
+  C108             10 uF, 25 V                  X7R ceramic                V12 to GND at U4
+
+  C109             22 uF, 10 V                  X7R ceramic                V5 to GND at U4
+
+  R105             523 kohm, 0.1%               Generic                    V5 to FB5 V5=0.8*(1+523/100)=4.984 V nominal.
+
+  R106             100 kohm, 0.1%               Generic                    FB5 to GND
+
+  C110             1 uF, 10 V                   X7R ceramic                V5 to GND at U5
+
+  C111             10 uF, 10 V                  X7R ceramic                V3V3 to GND at U5
+
+  C112             100 nF, 16 V                 X7R ceramic                V5 to GND at U19
+
+  C113             1 uF, 10 V                   X7R ceramic                REF25 to GND
+
+  TP3–TP6          Rail test pads               Test pads                  V12, V5, V3V3, REF25 respectively
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                      14
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 02 MCU
+
+  Reference        Value / function             Part or selection           Connection / design intent
+
+  U1               FOC controller               STM32G431RBT6               VDD=V3V3; VDDA/VREF+=VDDA3V3
+
+  Y1               8 MHz, 3.3 V oscillator      ASE-8.000MHZ-L-C-T          1=V3V3; 2=GND; 3 through R201 to PF0; 4=V3V3 HSE
+                                                                            bypass mode; PF1 left available.
+
+  R201             33 ohm                       Generic                     Y1 output to MCU PF0
+
+  C201–C204        100 nF, 10 V                 X7R ceramic                 One directly at each MCU VDD pin 16/32/48/64
+
+  C205             4.7 uF, 10 V                 X7R ceramic                 V3V3 to GND at MCU
+
+  FB201            Ferrite, low DC              Select >=100 mA bead        V3V3 to VDDA3V3 Select impedance and damping after
+                   resistance                                               analog rail noise check.
+
+  C206             1 uF, 10 V                   X7R ceramic                 VDDA3V3 to GND at VDDA
+
+  C207,C208        100 nF, 10 V                 X7R ceramic                 VDDA and VREF+ local decoupling, respectively
+
+  C209             100 nF, 10 V                 X7R ceramic                 V3V3 to GND at Y1
+
+  C210             100 nF, 10 V                 X7R ceramic                 RESET_N to GND Supervisor and U14 Schmitt buffer
+                                                                            handle reset edge.
+
+  C211             100 nF, 10 V                 X7R ceramic                 V3V3 to GND at VBAT pin 1
+
+  R202             10 kohm                      Generic                     RESET_N to V3V3
+
+  R203             10 kohm                      Generic                     PB8/BOOT0 to GND Set boot option bytes deliberately.
+
+  J7               ARM SWD, 10 pins             Select keyed Cortex debug   1=V3V3 sense; 2=SWDIO; 3=GND; 4=SWCLK; 5=GND;
+                                                header                      6=PB3/SWO; 7=key/NC; 8=NC; 9=GND; 10=RESET_N
+                                                                            Vref is a sense pin; do not back-power the power rails.
+
+  J9               UART debug, 4 pins           Select connector            1=GND; 2=PB6/TX; 3=PB7/RX; 4=V3V3 sense 3.3 V
+                                                                            logic only.
+
+  SW1              Reset pushbutton             Momentary switch            U12 MR to GND
+
+  D7–D9            Power, status, fault LEDs    Select LEDs                 D7 from V3V3; D8 from PB9; D9 from PB0; cathodes
+                                                                            GND
+
+  R204–R206        3.3 kohm                     Generic                     Series resistors for D7/D8/D9, respectively
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                     15
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 03 Gate driver
+
+  Reference        Value / function             Part or selection        Connection / design intent
+
+  U2               3-phase gate driver, SPI,    DRV8353SRTAR             VM=V12; VDRAIN=VBUS; VREF=VDDA3V3
+                   three CSAs
+
+  C301             10 uF, 25 V                  X7R ceramic              U2 VM=V12 to GND
+
+  C302             100 nF, 25 V                 X7R ceramic              U2 VM to GND, closest to pin
+
+  C303             47 nF, 100 V                 X7R ceramic              CPL to CPH Flying charge-pump capacitor.
+
+  C304             1 uF, 25 V                   X7R ceramic              VCP to VDRAIN Floating capacitor: its other end is VBUS,
+                                                                         not GND.
+
+  C305             1 uF, 25 V                   X7R ceramic              VGLS to GND
+
+  C306             1 uF, 10 V                   X7R ceramic              DVDD to GND Internal driver supply; no external logic
+                                                                         loads.
+
+  C307             100 nF, 10 V                 X7R ceramic              VREF=VDDA3V3 to GND
+
+  R301             2.2 kohm                     Generic                  DRV_SDO to V3V3 SDO is open drain.
+
+  R302             10 kohm                      Generic                  DRV_CS_N to V3V3
+
+  R303             10 kohm                      Generic                  DRV_ENABLE to GND
+
+  R304–R306        33 ohm                       Generic                  Series at MCU for DRV_SCK / DRV_MOSI / DRV_CS_N
+
+  R307–R312        10 kohm                      Generic                  Each U2 PWM input to GND Keeps six gate commands
+                                                                         low when U10 is disabled.
+
+  TP7–TP9          Driver diagnostic pads       Test pads                DRV_SCK, DRV_SDO, FAULT_RAW_N
+
+
+
+
+ 04 Inverter
+
+  Reference        Value / function             Part or selection        Connection / design intent
+
+  Q1–Q6            100 V N-MOSFET               CSD19536KTT              Q1/Q2=U high/low; Q3/Q4=V high/low; Q5/Q6=W
+                                                                         high/low Pin 1 gate; pin 2/tab drain; pin 3 source. Check
+                                                                         chosen CAD land pattern.
+
+  R401–R406        4.7 ohm, 0.25 W              Generic                  Series gate resistor, one per Q1..Q6 Starting value; tune
+                                                                         with gate/drain waveforms.
+
+  R407–R412        10 kohm                      Generic                  Gate-to-source pulldown, one per Q1..Q6 High-side
+                                                                         pulldown returns to its phase node.
+
+  RSH1–RSH3        1 mohm, 1%, 3 W              WSLP2512R0010FEA         Low-side sources U/V/W to GND Kelvin traces to the
+                                                                         same resistor pads. Not a four-terminal package.
+
+  C401–C403        4.7 uF, 100 V                X7R ceramic              VBUS to GND at each half bridge Effective capacitance
+                                                                         at 54 V must be checked.
+
+  C404–C406        100 nF, 100 V                X7R ceramic              VBUS to GND at each half bridge
+
+  R413–R415        2.2 ohm, 1 W, DNP            Pulse-rated resistor     Series RC snubber from U/V/W phase to GND Populate
+                                                                         only after ringing measurements.
+
+  C407–C409        1 nF, 100 V, DNP             C0G ceramic              Series with the respective snubber resistor Starting
+                                                                         footprint/value, not a validated snubber.
+
+  J2               Motor phase connector,       Select power connector   1=PH_U; 2=PH_V; 3=PH_W Motor star point stays
+                   3 poles                                               internal; separate motor housing bond.
+
+  TP10–TP12        Phase probe pads             Test pads                PH_U, PH_V, PH_W Do not put a grounded oscilloscope
+                                                                         clip on a phase.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                    16
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 05 Sensing
+
+  Reference        Value / function             Part or selection        Connection / design intent
+
+  U7,U8            Eight window/voltage         TLV1704PWR               V+=V3V3; V-=GND; outputs=FAULT_RAW_N
+                   comparators
+
+  R501–R503        47 ohm                       Generic                  SOA/SOB/SOC to IU_ADC/IV_ADC/IW_ADC
+
+  C501–C503        1 nF, 10 V                   C0G ceramic              IU_ADC/IV_ADC/IW_ADC to GND Comparator windows
+                                                                         also monitor these filtered nodes.
+
+  R504,R505        150 kohm, 0.1%, >=100        Generic                  Series from VBUS to VBUS_SENSE
+                   V
+
+  R506             10 kohm, 0.1%                Generic                  VBUS_SENSE to GND VBUS_SENSE=VBUS/31.
+
+  C504             1 nF, 10 V                   C0G ceramic              VBUS_SENSE to GND
+
+  R507,R508        28.7 kohm / 10 kohm,         Generic                  VREF current low divider:
+                   0.1%                                                  VDDA3V3--28.7k--I_LOW--10k--GND
+
+  R509,R510        10 kohm / 28.7 kohm,         Generic                  VREF current high divider:
+                   0.1%                                                  VDDA3V3--10k--I_HIGH--28.7k--GND
+
+  C505,C506        10 nF, 10 V                  X7R ceramic              I_LOW / I_HIGH to GND
+
+  R511,R512        27.4 kohm / 100 kohm,        Generic                  REF25--27.4k--OV_REF--100k--GND Hardware OV
+                   0.1%                                                  nominal 60.83 V.
+
+  R513,R514        95.3 kohm / 100 kohm,        Generic                  REF25--95.3k--UV_REF--100k--GND Hardware UV
+                   0.1%                                                  nominal 39.68 V.
+
+  C507,C508        10 nF, 10 V                  X7R ceramic              OV_REF / UV_REF to GND
+
+  NTC1             10 kohm at 25 C, B3435       Select NTC, >=125 C      NTC_BOARD_RAW to GND, close to MOSFETs Actual
+                                                                         thermistor curve goes in firmware.
+
+  J3               External winding NTC, 2      Select keyed connector   1=NTC_MOTOR_RAW; 2=GND Contract: 10k B3950,
+                   poles                                                 >=150 C. Confirm actual installed motor sensor.
+
+  R515,R516        10 kohm, 0.1%                Generic                  Pull up NTC_MOTOR_RAW / NTC_BOARD_RAW to
+                                                                         VDDA3V3
+
+  R517,R518        1 kohm                       Generic                  NTC_MOTOR_RAW / NTC_BOARD_RAW to respective ADC
+                                                                         nodes
+
+  C509,C510        100 nF, 10 V                 X7R ceramic              Each NTC ADC node to GND
+
+  R519             1 kohm                       Generic                  REF25 to REF25_MON
+
+  C511             1 nF, 10 V                   C0G ceramic              REF25_MON to GND
+
+  C512,C513        100 nF, 10 V                 X7R ceramic              U7/U8 local supply bypass
+
+  TP13–TP15        Current ADC pads             Test pads                IU_ADC, IV_ADC, IW_ADC
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                              17
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 06 Fault logic
+
+  Reference        Value / function             Part or selection        Connection / design intent
+
+  U9               Latched motor                SN74LVC1G74DCTR          VCC=V3V3; /CLR=FAULT_RAW_N; Q=FAULT_LATCH_OK
+                   permission
+
+  U10              Six PWM isolation            SN74LVC244APWR           VCC=V3V3; both /OE=PWM_OE_N
+                   buffers
+
+  U11              Three-input enable           SN74LVC1G10DBVR          Y=PWM_OE_N; inputs=FAULT_LATCH_OK, MCU_RUN,
+                   NAND                                                  PERMIT_OK
+
+  U12              3.07 V supply supervisor     TPS3808G33DBVR           VDD/SENSE=V3V3; /RESET=RESET_N; CT open
+
+  U13              External watchdog            TPS3431DRBR              VDD/EN/SET1=V3V3; WDO=FAULT_RAW_N; CWD
+                                                                         through 10k to V3V3
+
+  U14,U15          Reset and permit             SN74LVC1G17DBVR          U14 input=RESET_N; U15 input=PERMIT_FILT
+                   Schmitt buffers
+
+  C601–C607        100 nF, 10 V                 X7R ceramic              One at U9/U10/U11/U12/U13/U14/U15
+
+  R601             2.2 kohm                     Generic                  FAULT_RAW_N to V3V3
+
+  R602             10 kohm                      Generic                  ARM_PULSE to GND
+
+  R603             10 kohm                      Generic                  MCU_RUN to GND
+
+  R604             10 kohm                      Generic                  PWM_OE_N to V3V3
+
+  R605             10 kohm                      Generic                  U13 CWD to V3V3 Fixed watchdog timeout 200 ms
+                                                                         nominal (170..230 ms).
+
+  R606             10 kohm                      Generic                  WDI to GND
+
+  R607             1 kohm                       Generic                  PERMIT_IN connector to PERMIT_FILT
+
+  R608             10 kohm                      Generic                  PERMIT_FILT to GND
+
+  C608             1 nF, 10 V                   X7R ceramic              PERMIT_FILT to GND
+
+  D10,D11          Schottky fault OR diodes     BAT54WS                  Anodes=FAULT_RAW_N; cathodes=U14.Y / U15.Y
+                                                                         Buffered low reset or low permit clears the latch.
+
+  J8               External motor permit, 3     Select keyed connector   1=V3V3 reference; 2=PERMIT_IN; 3=GND Local 3.3 V
+                   poles                                                 signal or dry contact to pin1; no 24 V industrial input.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                       18
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 07 Interfaces
+
+  Reference        Value / function             Part or selection         Connection / design intent
+
+  U6               CAN FD physical              TCAN1042HGVDR             VCC=V5; VIO=V3V3; RX/TX to FDCAN1
+                   interface
+
+  U18,U20          BiSS clock driver / data     THVD2450DR                VCC=V3V3; U18 drives clock; U20 receives data
+                   receiver
+
+  J4               FLUX motor encoder, 11       10114830-11111LF          Same numbered functions as FLUX encoder; see harness
+                   poles                                                  table Use a verified pin-for-pin harness; latch side must
+                                                                          be checked in CAD.
+
+  F3               250 mA fast fuse, >=63       Select SMD fuse           V12 to ENC12_FUSED Encoder budget 200 mA at 12 V is
+                   Vdc                                                    provisional; check cold start and fault clearing.
+
+  FB701            Ferrite >=0.5 A, low         Select ferrite            ENC12_FUSED to ENC12 Optional 0-ohm substitute for
+                   DCR                                                    first rail tests.
+
+  C701             10 uF, 25 V                  X7R ceramic               ENC12 to GND near J4
+
+  C702             100 nF, 25 V                 X7R ceramic               ENC12 to GND near J4
+
+  D12              15 V standoff TVS            SMBJ15A                   Cathode=ENC12; anode=GND Coordinate with F3;
+                                                                          encoder supply maximum is 36 V.
+
+  C703,C704        100 nF, 10 V                 X7R ceramic               Local V3V3 bypass at U18/U20
+
+  R701             120 ohm, 0.25 W              Generic                   ENC_DATA_P to ENC_DATA_N at U20 Receiver
+                                                                          termination for approximately 120-ohm cable. Match
+                                                                          actual cable.
+
+  R702             10 kohm                      Generic                   ENC_CLK_EN to GND
+
+  R703             10 kohm                      Generic                   ENC_CLK_LOGIC to V3V3 BiSS idle clock high.
+
+  R704             33 ohm                       Generic                   MCU PA5 to U18.D
+
+  R705             33 ohm                       Generic                   U20.R to MCU PA6
+
+  D4,D5            Differential pair ESD        ESD2CAN24DBZRQ1           D4 clock pair; D5 data pair; grounds to GND Pair
+                   clamps                                                 protection is protocol-independent; validate clamp
+                                                                          coordination and capacitance.
+
+  J5,J6            CAN torque-sensor port /     Select keyed connectors   1=CANH; 2=CANL; 3=GND; 4=SHIELD Same CAN bus,
+                   host port                                              no internal torque sensing. Sensor uses its own specified
+                                                                          power source.
+
+  C705             100 nF, 10 V                 X7R ceramic               V5 to GND at U6
+
+  C706             100 nF, 10 V                 X7R ceramic               V3V3 to GND at U6 VIO
+
+  C707             1 uF, 10 V                   X7R ceramic               V5 to GND at U6
+
+  R706             10 kohm                      Generic                   CAN_STB to V3V3 Standby at reset.
+
+  R707             120 ohm, 0.25 W              Generic                   Across CANH/CANL through JP701 Fit/enable only at a
+                                                                          physical bus end.
+
+  JP701            CAN termination jumper       Solder jumper             Series with R707 Default OPEN.
+
+  D3               CAN ESD clamp                ESD2CAN24DBZRQ1           IO1=CANH; IO2=CANL; GND=GND
+
+  D6               External low-voltage         TPD4E05U06DQAR            Channels protect NTC_MOTOR_RAW and PERMIT_IN;
+                   signal ESD                                             spare channels NC
+
+  R708             1 Mohm, DNP                  Generic                   SHIELD to GND Chassis strategy must be chosen at
+                                                                          enclosure integration.
+
+  C708             1 nF, 1 kV, DNP              High-voltage ceramic      SHIELD to GND Provide direct chassis bond pad; avoid
+                                                                          long shield pigtails.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                    19
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+  Reference        Value / function             Part or selection            Connection / design intent
+
+  J10              Spare logic expansion        Select connector             1=GND; 2=V3V3 sense; 3=PB1; 4=PB2; 5=PB4; 6=PB11
+                                                                             Future output-position interface requires its own verified
+                                                                             front end.
+
+
+
+
+ 08 Brake
+
+  Reference        Value / function             Part or selection            Connection / design intent
+
+  U16              Brake hysteresis             TLV1701AIDBVR                V+=V3V3; IN-=REF25; OUT=BRAKE_ON
+                   comparator
+
+  U17              Brake MOSFET gate            UCC27511DBVR                 VDD=V12; IN+=BRAKE_ON; IN-=GND
+                   driver
+
+  Q7               100 V N-MOSFET               CSD19536KTT                  Drain=BRAKE_DRAIN; source=GND
+
+  F2               15 A fuse, >=100 Vdc         Select DC fuse and holder    VBUS to BRAKE_PLUS Coordinate with resistor wiring
+                                                                             and source fault current.
+
+  J11              External braking             Select power connector       1=BRAKE_PLUS; 2=BRAKE_DRAIN External resistor is a
+                   resistor, 2 poles                                         separate thermal component.
+
+  D2               120 V, 20 A freewheel        STPS20120D                   Anode=BRAKE_DRAIN; cathode=BRAKE_PLUS Catches
+                   diode                                                     cable/resistor inductive current; verify surge and
+                                                                             dissipation.
+
+  R901,R902        150 kohm, 0.1%, >=100        Generic                      Series VBUS to BRAKE_SENSE
+                   V
+
+  R903             14.0 kohm, 0.1%              Generic                      BRAKE_SENSE to GND
+
+  R904             499 kohm, 0.1%               Generic                      BRAKE_ON to BRAKE_SENSE Positive feedback creates
+                                                                             hysteresis.
+
+  R905             2.2 kohm                     Generic                      BRAKE_ON to V3V3
+
+  C901             470 pF, 10 V                 C0G ceramic                  BRAKE_SENSE to GND Filter delay about 6 us; verify bus
+                                                                             overshoot.
+
+  C902             100 nF, 10 V                 X7R ceramic                  V3V3 to GND at U16
+
+  C903             1 uF, 25 V                   X7R ceramic                  V12 to GND at U17
+
+  C904             100 nF, 25 V                 X7R ceramic                  V12 to GND at U17
+
+  R906             4.7 ohm, 0.25 W              Generic                      U17 OUTH to Q7 gate
+
+  R907             2.2 ohm, 0.25 W              Generic                      U17 OUTL to Q7 gate
+
+  R908             10 kohm                      Generic                      Q7 gate to source
+
+  C905             4.7 uF, 100 V                X7R ceramic                  VBUS to GND close to brake switching loop
+
+  R_BRAKE_EXT      4.7 ohm, 200 W               Select pulse-rated chassis   Across J11 About 705 W while ON at 57.6 V. Energy
+                   continuous with              resistor                     rating, duty, thermal cutoff and mounting remain to be
+                   specified heatsink                                        sized.
+
+
+
+
+ Mechanical
+
+  Reference        Value / function             Part or selection            Connection / design intent
+
+  H1–H4            Mounting holes               Mechanical                   Non-plated by default Place after enclosure CAD and
+                                                                             isolation-pad design.
+
+  FID1–FID3        Assembly fiducials           Mechanical                   Unconnected
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                       20
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ External
+
+  Reference        Value / function             Part or selection          Connection / design intent
+
+  ENC1             Motor-shaft absolute         IND-ROT-045-C2115-19-BIS   J4; 12 V power, BiSS-C differential clock/data Proposed
+                   encoder                      10-AL                      order string follows public guide; confirm current factory
+                                                                           code. 12-to-15 mm precision adapter needed.
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                     21
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 19. MCU pin assignment
+ The CSV includes every package pin. Unused pins should be deliberately configured and left unconnected.
+
+  Pin    Label         Net                      Function / note
+  1      VBAT          V3V3                     Supply; Tie to VDD; no backup battery
+  2      PC13          NC                       Unused analog input; No copper unless later explicitly allocated
+  3      PC14          NC                       Unused analog input; No copper unless later explicitly allocated
+  4      PC15          NC                       Unused analog input; No copper unless later explicitly allocated
+  5      PF0           HSE_CLK                  HSE bypass; 8 MHz from Y1
+  6      PF1           NC                       Unused analog input; No copper unless later explicitly allocated
+  7      PG10_NRST     RESET_N                  Reset; Do not reassign NRST to GPIO
+  8      PC0           VBUS_SENSE               ADC1/2_IN6; Regular sequence
+  9      PC1           NTC_MOTOR_ADC            ADC1/2_IN7; Regular sequence
+  10     PC2           NTC_BOARD_ADC            ADC1/2_IN8; Regular sequence
+  11     PC3           REF25_MON                ADC1/2_IN9; Checks ADC scaling
+  12     PA0           IU_ADC                   ADC1/2_IN1; Injected phase-current measurement
+  13     PA1           IV_ADC                   ADC1/2_IN2; Injected phase-current measurement
+  14     PA2           IW_ADC                   ADC1_IN3; Use ADC2 for U or V when pairing with W
+  15     VSS           GND                      Supply
+  16     VDD           V3V3                     Supply; 100nF at each physical VDD
+  17     PA3           BRAKE_ON                 GPIO input; Brake activity monitoring
+  18     PA4           ENC_CLK_EN               GPIO output; Default low
+  19     PA5           ENC_CLK_LOGIC            AF5 SPI1_SCK; BiSS clock; CPOL=1; verify framing with capture
+  20     PA6           ENC_DATA_LOGIC           AF5 SPI1_MISO; BiSS incoming stream
+  21     PA7           NC                       Unused / optional SPI1_MOSI; No external connection; transmit dummy words if
+                                                needed
+  22     PC4           NC                       Spare GPIO
+  23     PC5           DRV_ENABLE               GPIO output; Default low; independent of PWM fault latch
+  24     PB0           LED_FAULT                GPIO output
+  25     PB1           EXP_PB1                  Spare GPIO/analog; J10; default analog
+  26     PB2           EXP_PB2                  Spare GPIO; J10; default analog
+  27     VSSA          GND                      Supply; Quiet analog return to same ground plane
+  28     VREF+         VDDA3V3                  ADC reference
+  29     VDDA          VDDA3V3                  Supply
+  30     PB10          FAULT_LATCH_OK           GPIO input; Read latched permission
+  31     VSS           GND                      Supply
+  32     VDD           V3V3                     Supply; 100nF at each physical VDD
+  33     PB11          EXP_PB11                 Spare GPIO; J10; default analog
+  34     PB12          FAULT_RAW_N              AF6 TIM1_BKIN; Active-low break; no automatic restart
+  35     PB13          PWM_UL                   AF6 TIM1_CH1N; U low-side PWM
+  36     PB14          PWM_VL                   AF6 TIM1_CH2N; V low-side PWM
+  37     PB15          PWM_WL                   AF4 TIM1_CH3N; AF4, not AF6
+  38     PC6           MCU_RUN                  GPIO output; Default low
+  39     PC7           ARM_PULSE                GPIO output; Low except deliberate rising-edge arm
+  40     PC8           WDI                      GPIO output; Heartbeat only after control tasks finish; not a free-running timer
+  41     PC9           PERMIT_OK                GPIO input; After U15 Schmitt buffer
+  42     PA8           PWM_UH                   AF6 TIM1_CH1; U high-side PWM
+  43     PA9           PWM_VH                   AF6 TIM1_CH2; V high-side PWM
+  44     PA10          PWM_WH                   AF6 TIM1_CH3; W high-side PWM
+  45     PA11          CAN_RX                   AF9 FDCAN1_RX
+  46     PA12          CAN_TX                   AF9 FDCAN1_TX
+  47     VSS           GND                      Supply
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                                      22
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+  Pin    Label         Net                      Function / note
+  48     VDD           V3V3                     Supply; 100nF at each physical VDD
+  49     PA13          SWDIO                    AF0 SWD
+  50     PA14          SWCLK                    AF0 SWD
+  51     PA15          NC                       Unused analog input; No copper unless later explicitly allocated
+  52     PC10          DRV_SCK                  AF6 SPI3_SCK; Separate bus for driver
+  53     PC11          DRV_SDO                  AF6 SPI3_MISO
+  54     PC12          DRV_MOSI                 AF6 SPI3_MOSI
+  55     PD2           DRV_CS_N                 GPIO output; Default high
+  56     PB3           SWO                      AF0 trace; Optional debug
+  57     PB4           EXP_PB4                  Spare GPIO; J10; disable JTAG and retain SWD
+  58     PB5           CAN_STB                  GPIO output; Default high; low for normal operation
+  59     PB6           UART_TX                  AF7 USART1_TX
+  60     PB7           UART_RX                  AF7 USART1_RX
+  61     PB8           BOOT0                    Boot / GPIO; 10k pulldown; verify option bytes
+  62     PB9           LED_STATUS               GPIO output
+  63     VSS           GND                      Supply
+  64     VDD           V3V3                     Supply; 100nF at each physical VDD
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                      23
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 20. Gate-driver pin assignment
+ DRV8353SRTAR, 40-pin RTA plus exposed pad. SHUNT_*_GND_K denotes a Kelvin-routed branch of GND, not
+ an isolated electrical ground. The package exposed pad must be included in both symbol and footprint.
+
+  Pin      Driver label              PCB net
+  1        CPL                       CP_L
+  2        CPH                       CP_H
+  3        VM                        V12
+  4        VDRAIN                    VBUS
+  5        VCP                       VCP
+  6        GHA                       GH_U
+  7        SHA                       PH_U
+  8        GLA                       GL_U
+  9        SPA                       SHUNT_U_TOP
+  10       SNA                       SHUNT_U_GND_K
+  11       SNB                       SHUNT_V_GND_K
+  12       SPB                       SHUNT_V_TOP
+  13       GLB                       GL_V
+  14       SHB                       PH_V
+  15       GHB                       GH_V
+  16       GHC                       GH_W
+  17       SHC                       PH_W
+  18       GLC                       GL_W
+  19       SPC                       SHUNT_W_TOP
+  20       SNC                       SHUNT_W_GND_K
+  21       SOC                       IW_RAW
+  22       SOB                       IV_RAW
+  23       SOA                       IU_RAW
+  24       VREF                      VDDA3V3
+  25       AGND                      GND
+  26       nFAULT                    FAULT_RAW_N
+  27       SDO                       DRV_SDO
+  28       SDI                       DRV_MOSI
+  29       SCLK                      DRV_SCK
+  30       nSCS                      DRV_CS_N
+  31       ENABLE                    DRV_ENABLE
+  32       INHA                      PWM_UH_DRV
+  33       INLA                      PWM_UL_DRV
+  34       INHB                      PWM_VH_DRV
+  35       INLB                      PWM_VL_DRV
+  36       INHC                      PWM_WH_DRV
+  37       INLC                      PWM_WL_DRV
+  38       DVDD                      DRV_DVDD
+  39       GND                       GND
+  40       VGLS                      DRV_VGLS
+  41       EP                        GND
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                        24
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 21. Supporting IC pin connections
+ These mappings are for the exact package suffixes in the BOM. “Rxxx to net” denotes a component
+ connection rather than an invented power net. NC pins remain unconnected.
+
+  IC      Pin     Function               Connection
+  U3      1       GND                    GND
+  U3      2       VIN                    VBUS
+  U3      3       EN/UVLO                VBUS
+  U3      4       RON                    R101
+  U3      5       FB                     FB12
+  U3      6       PGOOD                  FAULT_RAW_N
+  U3      7       BST                    BST12
+  U3      8       SW                     BUCK12_SW
+  U3      EP      PAD                    GND
+  U4      1       PGND                   GND
+  U4      2       VIN                    V12
+  U4      3       EN                     V12
+  U4      4       AGND                   GND
+  U4      5       FB                     FB5
+  U4      6       VOS                    V5
+  U4      7       SW                     BUCK5_SW
+  U4      8       PG                     FAULT_RAW_N
+  U5      1       IN                     V5
+  U5      2       GND                    GND
+  U5      3       EN                     V5
+  U5      4       NC                     NC
+  U5      5       OUT                    V3V3
+  U19     1       IN                     V5
+  U19     2       OUT                    REF25
+  U19     3       GND                    GND
+  U6      1       TXD                    CAN_TX
+  U6      2       GND                    GND
+  U6      3       VCC                    V5
+  U6      4       RXD                    CAN_RX
+  U6      5       VIO                    V3V3
+  U6      6       CANL                   CANL
+  U6      7       CANH                   CANH
+  U6      8       STB                    CAN_STB
+  U7      3       V+                     V3V3
+  U7      12      V-                     GND
+  U7      5       IN+ 2                  IU_ADC
+  U7      4       IN- 2                  I_LOW
+  U7      2       OUT                    FAULT_RAW_N
+  U7      7       IN+ 1                  I_HIGH
+  U7      6       IN- 1                  IU_ADC
+  U7      1       OUT                    FAULT_RAW_N
+  U7      9       IN+ 14                 IV_ADC
+  U7      8       IN- 14                 I_LOW
+  U7      14      OUT                    FAULT_RAW_N
+  U7      11      IN+ 13                 I_HIGH
+  U7      10      IN- 13                 IV_ADC
+  U7      13      OUT                    FAULT_RAW_N
+
+
+Rev A • Schematic planning • 13 November 2026                                                      25
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+  IC      Pin     Function               Connection
+  U8      3       V+                     V3V3
+  U8      12      V-                     GND
+  U8      5       IN+ 2                  IW_ADC
+  U8      4       IN- 2                  I_LOW
+  U8      2       OUT                    FAULT_RAW_N
+  U8      7       IN+ 1                  I_HIGH
+  U8      6       IN- 1                  IW_ADC
+  U8      1       OUT                    FAULT_RAW_N
+  U8      9       IN+ 14                 OV_REF
+  U8      8       IN- 14                 VBUS_SENSE
+  U8      14      OUT                    FAULT_RAW_N
+  U8      11      IN+ 13                 VBUS_SENSE
+  U8      10      IN- 13                 UV_REF
+  U8      13      OUT                    FAULT_RAW_N
+  U9      1       CLK                    ARM_PULSE
+  U9      2       D                      V3V3
+  U9      3       /Q                     NC
+  U9      4       GND                    GND
+  U9      5       Q                      FAULT_LATCH_OK
+  U9      6       /CLR                   FAULT_RAW_N
+  U9      7       /PRE                   V3V3
+  U9      8       VCC                    V3V3
+  U10     1       /1OE                   PWM_OE_N
+  U10     2       1A1                    PWM_UH
+  U10     3       2Y4                    NC
+  U10     4       1A2                    PWM_UL
+  U10     5       2Y3                    NC
+  U10     6       1A3                    PWM_VH
+  U10     7       2Y2                    PWM_WL_DRV
+  U10     8       1A4                    PWM_VL
+  U10     9       2Y1                    PWM_WH_DRV
+  U10     10      GND                    GND
+  U10     11      2A1                    PWM_WH
+  U10     12      1Y4                    PWM_VL_DRV
+  U10     13      2A2                    PWM_WL
+  U10     14      1Y3                    PWM_VH_DRV
+  U10     15      2A3                    GND
+  U10     16      1Y2                    PWM_UL_DRV
+  U10     17      2A4                    GND
+  U10     18      1Y1                    PWM_UH_DRV
+  U10     19      /2OE                   PWM_OE_N
+  U10     20      VCC                    V3V3
+  U11     1       A                      FAULT_LATCH_OK
+  U11     2       GND                    GND
+  U11     3       B                      MCU_RUN
+  U11     4       Y                      PWM_OE_N
+  U11     5       VCC                    V3V3
+  U11     6       C                      PERMIT_OK
+  U12     1       /RESET                 RESET_N
+  U12     2       GND                    GND
+  U12     3       /MR                    SW1; internal pullup
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                   26
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+  IC      Pin     Function               Connection
+  U12     4       CT                     NC (20 ms fixed delay)
+  U12     5       SENSE                  V3V3
+  U12     6       VDD                    V3V3
+  U13     1       VDD                    V3V3
+  U13     2       CWD                    R605 to V3V3
+  U13     3       EN                     V3V3
+  U13     4       GND                    GND
+  U13     5       SET1                   V3V3
+  U13     6       WDI                    WDI
+  U13     7       WDO                    FAULT_RAW_N
+  U13     8       ENOUT                  NC
+  U13     EP      PAD                    GND
+  U14     1       NC                     NC
+  U14     2       A                      RESET_N
+  U14     3       GND                    GND
+  U14     4       Y                      RESET_BUF_N
+  U14     5       VCC                    V3V3
+  U15     1       NC                     NC
+  U15     2       A                      PERMIT_FILT
+  U15     3       GND                    GND
+  U15     4       Y                      PERMIT_OK
+  U15     5       VCC                    V3V3
+  U16     1       IN+                    BRAKE_SENSE
+  U16     2       V-                     GND
+  U16     3       IN-                    REF25
+  U16     4       OUT                    BRAKE_ON
+  U16     5       V+                     V3V3
+  U17     1       VDD                    V12
+  U17     2       OUTH                   R906 to Q7.G
+  U17     3       OUTL                   R907 to Q7.G
+  U17     4       GND                    GND
+  U17     5       IN-                    GND
+  U17     6       IN+                    BRAKE_ON
+  U18     1       R                      NC
+  U18     2       /RE                    V3V3
+  U18     3       DE                     ENC_CLK_EN
+  U18     4       D                      ENC_CLK_LOGIC after R704
+  U18     5       GND                    GND
+  U18     6       A                      ENC_CLK_P
+  U18     7       B                      ENC_CLK_N
+  U18     8       VCC                    V3V3
+  U20     1       R                      R705 to ENC_DATA_LOGIC
+  U20     2       /RE                    GND
+  U20     3       DE                     GND
+  U20     4       D                      GND
+  U20     5       GND                    GND
+  U20     6       A                      ENC_DATA_P
+  U20     7       B                      ENC_DATA_N
+  U20     8       VCC                    V3V3
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                       27
+SPACE OCTOPUS / MOTOR CONTROLLER PCB
+
+
+
+
+ 22. Sources and document status
+ Manufacturer documentation was checked on 13 November 2026. Public FLUX documents may have older
+ revision dates than the website; request the current order-specific datasheet before purchasing. Source M1
+ is a simulation study, not a motor production test report. The calculations and proposed circuit connections
+ in this plan are engineering work based on these sources.
+
+ • [M1] User-supplied Motor_Gmsh_Elmer_Design_Study(1).pdf. Supplied source; motor/thermal simulation candidate dated 06
+ Nov 2026
+
+ • [D1] STM32G431 datasheet. https://www.st.com/resource/en/datasheet/stm32g431rb.pdf
+
+ • [D2] SMCJ TVS family.
+ https://www.littelfuse.com/assetdocs/tvs-diodes-smcj-datasheet?assetguid=37388813-0d6d-4329-969b-1aa8b7614ac1
+
+ • [D3] CSD19536KTT MOSFET. https://www.ti.com/lit/ds/symlink/csd19536ktt.pdf
+
+ • [D4] LM5164 buck regulator. https://www.ti.com/lit/ds/symlink/lm5164.pdf
+
+ • [D5] TPS62160 buck regulator. https://www.ti.com/lit/ds/symlink/tps62160.pdf
+
+ • [D6] TLV755P LDO. https://www.ti.com/lit/ds/symlink/tlv755p.pdf
+
+ • [D7] REF30 / REF30E reference. https://www.ti.com/lit/ds/sbvs032k/sbvs032k.pdf
+
+ • [D8] DRV8353 gate driver. https://www.ti.com/lit/ds/symlink/drv8353.pdf
+
+ • [D9] TCAN1042H CAN transceiver. https://www.ti.com/lit/ds/symlink/tcan1042h.pdf
+
+ • [D10] TLV170x comparators. https://www.ti.com/lit/ds/symlink/tlv1704.pdf
+
+ • [D11] SN74LVC1G74 latch. https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf
+
+ • [D12] SN74LVC244A buffer. https://www.ti.com/lit/ds/symlink/sn74lvc244a.pdf
+
+ • [D13] TPS3808 supervisor. https://www.ti.com/lit/ds/symlink/tps3808.pdf
+
+ • [D14] TPS3431 watchdog. https://www.ti.com/lit/ds/symlink/tps3431.pdf
+
+ • [D15] UCC27511 brake gate driver. https://www.ti.com/lit/ds/symlink/ucc27511.pdf
+
+ • [D16] THVD2450 differential transceiver. https://www.ti.com/lit/ds/symlink/thvd2450.pdf
+
+ • [D17] ESD2CAN24 pair protection. https://www.ti.com/lit/ds/symlink/esd2can24-q1.pdf
+
+ • [D18] SN74LVC1G17 Schmitt buffer. https://www.ti.com/lit/ds/symlink/sn74lvc1g17.pdf
+
+ • [D19] SN74LVC1G10 NAND. https://www.ti.com/lit/ds/symlink/sn74lvc1g10.pdf
+
+ • [D20] Abracon ASE oscillator. https://abracon.com/Oscillators/ASEseries.pdf
+
+ • [D21] Vishay WSLP current shunt family. https://www.vishay.com/en/product/30122/
+
+ • [D22] TPD4E05U06 ESD array. https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf
+
+ • [D23] STPS20120D brake freewheel diode. https://www.st.com/resource/en/datasheet/stps20120d.pdf
+
+ • [E1] FLUX IND-ROT MINI datasheet, rev07.
+ https://flux.gmbh/Datasheets/INDUCTIVE-ROTARY-034-045-Encoders-Datasheet-web.pdf
+
+ • [E2] FLUX inductive rotary product selection. https://flux.gmbh/products/inductive-rotary-encoder/
+
+ • [E3] FLUX interface guide, rev02. https://flux.gmbh/Datasheets/FLUX-Interfaces-Guide-web.pdf
+
+ • [E4] FLUX encoder installation manual.
+ https://flux.gmbh/wp-content/uploads/INDUCTIVE-ROTARY-Encoders-User-Manual-rev01.pdf
+
+ • [T1] tscircuit chip and pin mapping. https://docs.tscircuit.com/elements/chip
+
+ • [T2] tscircuit schematic sheets. https://docs.tscircuit.com/elements/schematicsheet
+
+ • [T3] tscircuit subcircuits and selection scope. https://docs.tscircuit.com/elements/subcircuit
+
+
+
+
+Rev A • Schematic planning • 13 November 2026                                                                              28
+

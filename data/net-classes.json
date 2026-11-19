@@ -1,0 +1,108 @@
+{
+  "status": "Routing intent and qualification requirements; 0.20\u20130.25 mm connectivity routes do not meet the motor-current power requirement.",
+  "stackup": {
+    "layers": 4,
+    "thickness_mm": 1.6,
+    "outer_copper_oz_target": 2,
+    "inner1": "continuous GND reference",
+    "inner2": "power and quiet signals; final allocation pending"
+  },
+  "classes": [
+    {
+      "name": "bus and phase power",
+      "nets": [
+        "DC_IN",
+        "VBUS",
+        "PH_U",
+        "PH_V",
+        "PH_W",
+        "SHUNT_U_TOP",
+        "SHUNT_V_TOP",
+        "SHUNT_W_TOP",
+        "BRAKE_PLUS",
+        "BRAKE_DRAIN"
+      ],
+      "route": "manual polygons and via arrays; minimize each commutation loop",
+      "clearance_target_mm": 1,
+      "width": "determine from current waveform, copper stack, temperature rise and geometry"
+    },
+    {
+      "name": "MOSFET gate loops",
+      "nets": [
+        "GH_U",
+        "GL_U",
+        "GH_V",
+        "GL_V",
+        "GH_W",
+        "GL_W",
+        "Q1_G",
+        "Q2_G",
+        "Q3_G",
+        "Q4_G",
+        "Q5_G",
+        "Q6_G",
+        "BRAKE_GATE"
+      ],
+      "route": "short gate/source loops with individual series resistor; no phase copper under quiet circuitry"
+    },
+    {
+      "name": "Kelvin shunt branches",
+      "driver_pairs": [
+        [
+          "U2.9",
+          "U2.10"
+        ],
+        [
+          "U2.12",
+          "U2.11"
+        ],
+        [
+          "U2.19",
+          "U2.20"
+        ]
+      ],
+      "shunts": [
+        "RSH1",
+        "RSH2",
+        "RSH3"
+      ],
+      "route": "dedicated paired branches from resistor pads; negative sense branch is electrically GND, never floating"
+    },
+    {
+      "name": "quiet analog",
+      "nets": [
+        "IU_ADC",
+        "IV_ADC",
+        "IW_ADC",
+        "I_LOW",
+        "I_HIGH",
+        "VDDA3V3",
+        "REF25",
+        "OV_REF",
+        "UV_REF",
+        "VBUS_SENSE",
+        "BRAKE_SENSE"
+      ],
+      "route": "short, over continuous ground, separate from phase and buck switching copper"
+    },
+    {
+      "name": "differential cables",
+      "pairs": [
+        [
+          "CANH",
+          "CANL"
+        ],
+        [
+          "ENC_CLK_P",
+          "ENC_CLK_N"
+        ],
+        [
+          "ENC_DATA_P",
+          "ENC_DATA_N"
+        ]
+      ],
+      "route": "paired traces with short stubs; impedance from actual stackup and connector/cable contract"
+    }
+  ],
+  "mechanicalGeometry": "data/board-geometry.json: nominal motor OD112 / PCD104 / six \u00d84.5; proposed \u00d828 aperture; assembly fit unverified"
+}

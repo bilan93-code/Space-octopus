@@ -1,0 +1,1011 @@
+{
+  "provisionalGapMm": 7,
+  "changes": [
+    {
+      "ref": "J1",
+      "oldFootprint": "TerminalBlock_RND/TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal",
+      "newFootprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -47.5,
+        0
+      ],
+      "newCenterMm": [
+        -48.5,
+        0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C1",
+      "oldFootprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "newFootprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -36,
+        10.5
+      ],
+      "newCenterMm": [
+        -35,
+        12.1
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C2",
+      "oldFootprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "newFootprint": "Capacitor_THT/CP_Radial_D18.0mm_P7.50mm",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -36,
+        -10.5
+      ],
+      "newCenterMm": [
+        -35,
+        -12.1
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C5",
+      "oldFootprint": "Capacitor_THT/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4",
+      "newFootprint": "Capacitor_THT/C_Rect_L26.5mm_W8.5mm_P22.50mm_MKS4",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -24,
+        -20
+      ],
+      "newCenterMm": [
+        -19.3,
+        -17.3
+      ],
+      "newRotationDeg": 270
+    },
+    {
+      "ref": "TP4",
+      "oldFootprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "newFootprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -53,
+        1
+      ],
+      "newCenterMm": [
+        -53.0,
+        1.0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R201",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        51,
+        -16
+      ],
+      "newCenterMm": [
+        51.0,
+        -12.5
+      ],
+      "newRotationDeg": 180
+    },
+    {
+      "ref": "C210",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        49,
+        -16
+      ],
+      "newCenterMm": [
+        51.5,
+        -15.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "J7",
+      "oldFootprint": "Connector_PinHeader_1.27mm/PinHeader_2x05_P1.27mm_Vertical",
+      "newFootprint": "Connector_PinHeader_1.27mm/PinHeader_2x05_P1.27mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        47,
+        18
+      ],
+      "newCenterMm": [
+        48.7,
+        -17
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "J9",
+      "oldFootprint": "Connector_PinHeader_2.54mm/PinHeader_1x04_P2.54mm_Vertical",
+      "newFootprint": "Connector_PinHeader_2.54mm/PinHeader_1x04_P2.54mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -15,
+        14
+      ],
+      "newCenterMm": [
+        -15,
+        14
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "SW1",
+      "oldFootprint": "Button_Switch_SMD/SW_SPST_TL3342",
+      "newFootprint": "Button_Switch_SMD/SW_SPST_TL3342",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        43,
+        -17
+      ],
+      "newCenterMm": [
+        42.5,
+        -17.0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "C304",
+      "oldFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "newFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -17.3,
+        -7.5
+      ],
+      "newCenterMm": [
+        -16.3,
+        -7.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C307",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -26,
+        -1.5
+      ],
+      "newCenterMm": [
+        -27.8,
+        -2.3000000000000003
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R302",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -28,
+        -5
+      ],
+      "newCenterMm": [
+        -29.0,
+        -5.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R308",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -36,
+        26
+      ],
+      "newCenterMm": [
+        -36.0,
+        27.0
+      ],
+      "newRotationDeg": 180
+    },
+    {
+      "ref": "R310",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -24,
+        33
+      ],
+      "newCenterMm": [
+        -24.0,
+        33.5
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R311",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -38,
+        26
+      ],
+      "newCenterMm": [
+        -39.0,
+        26.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "TP9",
+      "oldFootprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "newFootprint": "TestPoint/TestPoint_Pad_D2.0mm",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -36,
+        18
+      ],
+      "newCenterMm": [
+        -38.0,
+        18.5
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R401",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -24,
+        24
+      ],
+      "newCenterMm": [
+        -24.0,
+        21.0
+      ],
+      "newRotationDeg": 180
+    },
+    {
+      "ref": "R405",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        15,
+        -23
+      ],
+      "newCenterMm": [
+        14.0,
+        -23.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C401",
+      "oldFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "newFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -24,
+        32
+      ],
+      "newCenterMm": [
+        -24.0,
+        33.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R413",
+      "oldFootprint": "Resistor_SMD/R_2512_6332Metric",
+      "newFootprint": "Resistor_SMD/R_2512_6332Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -17,
+        10
+      ],
+      "newCenterMm": [
+        -21.0,
+        8.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C407",
+      "oldFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "newFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -25.8,
+        -5.25
+      ],
+      "newCenterMm": [
+        -26.6,
+        -6.2
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C402",
+      "oldFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "newFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -37,
+        22
+      ],
+      "newCenterMm": [
+        -37.0,
+        22.0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R414",
+      "oldFootprint": "Resistor_SMD/R_2512_6332Metric",
+      "newFootprint": "Resistor_SMD/R_2512_6332Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -24,
+        11
+      ],
+      "newCenterMm": [
+        -26.0,
+        12.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C403",
+      "oldFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "newFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -25,
+        45
+      ],
+      "newCenterMm": [
+        -25.0,
+        45.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R415",
+      "oldFootprint": "Resistor_SMD/R_2512_6332Metric",
+      "newFootprint": "Resistor_SMD/R_2512_6332Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -14,
+        -13
+      ],
+      "newCenterMm": [
+        -12.0,
+        -15.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C409",
+      "oldFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "newFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        30,
+        -33
+      ],
+      "newCenterMm": [
+        27.5,
+        -33.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "J2",
+      "oldFootprint": "TerminalBlock_RND/TerminalBlock_RND_205-00242_1x03_P10.16mm_Horizontal",
+      "newFootprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        48.3,
+        0
+      ],
+      "newCenterMm": [
+        30.5,
+        -31.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R504",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -37,
+        11
+      ],
+      "newCenterMm": [
+        -37.0,
+        11.5
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R510",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -40,
+        19
+      ],
+      "newCenterMm": [
+        -41.0,
+        19.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R513",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -30,
+        -19
+      ],
+      "newCenterMm": [
+        -32.0,
+        -16.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C505",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -36,
+        21
+      ],
+      "newCenterMm": [
+        -34.5,
+        19.0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "C506",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -36,
+        23
+      ],
+      "newCenterMm": [
+        -36.0,
+        25.0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "C507",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -24,
+        31
+      ],
+      "newCenterMm": [
+        -24.0,
+        31.5
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "J3",
+      "oldFootprint": "Connector_JST/JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+      "newFootprint": "Connector_JST/JST_GH_BM02B-GHS-TBT_1x02-1MP_P1.25mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -46,
+        17
+      ],
+      "newCenterMm": [
+        -27.5,
+        0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "C512",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -18,
+        -9.8
+      ],
+      "newCenterMm": [
+        -20.0,
+        -9.8
+      ],
+      "newRotationDeg": 270
+    },
+    {
+      "ref": "J8",
+      "oldFootprint": "Connector_JST/JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+      "newFootprint": "Connector_JST/JST_GH_BM03B-GHS-TBT_1x03-1MP_P1.25mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -27,
+        -40
+      ],
+      "newCenterMm": [
+        49.5,
+        9
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "J4",
+      "oldFootprint": "Connector_PinHeader_1.27mm/PinHeader_1x11_P1.27mm_Vertical",
+      "newFootprint": "Connector_PinHeader_1.27mm/PinHeader_1x11_P1.27mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        32,
+        -25
+      ],
+      "newCenterMm": [
+        -25.22,
+        29.2
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C702",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "bottom",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        30,
+        -28
+      ],
+      "newCenterMm": [
+        33.0,
+        -29.0
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "J5",
+      "oldFootprint": "Connector_JST/JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+      "newFootprint": "Connector_JST/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        12,
+        48
+      ],
+      "newCenterMm": [
+        -24.1,
+        23.099999999999998
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "J6",
+      "oldFootprint": "Connector_JST/JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+      "newFootprint": "Connector_JST/JST_GH_BM04B-GHS-TBT_1x04-1MP_P1.25mm_Vertical",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -12,
+        48
+      ],
+      "newCenterMm": [
+        19,
+        -24
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "J10",
+      "oldFootprint": "Connector_JST/JST_XH_B6B-XH-A_1x06_P2.50mm_Vertical",
+      "newFootprint": "Connector_JST/JST_GH_SM06B-GHS-TB_1x06-1MP_P1.25mm_Horizontal",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        -35,
+        -30
+      ],
+      "newCenterMm": [
+        -30.8,
+        37.2
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "U16",
+      "oldFootprint": "Package_TO_SOT_SMD/SOT-23-5",
+      "newFootprint": "Package_TO_SOT_SMD/SOT-23-5",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -28,
+        -33
+      ],
+      "newCenterMm": [
+        -26.5,
+        -33.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "U17",
+      "oldFootprint": "Package_TO_SOT_SMD/SOT-23-6",
+      "newFootprint": "Package_TO_SOT_SMD/SOT-23-6",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -24,
+        -14
+      ],
+      "newCenterMm": [
+        -24,
+        -14
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "Q7",
+      "oldFootprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "newFootprint": "Package_TO_SOT_SMD/TO-263-3_TabPin2",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -19,
+        -23
+      ],
+      "newCenterMm": [
+        -31.5,
+        -24.5
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "J11",
+      "oldFootprint": "TerminalBlock_RND/TerminalBlock_RND_205-00241_1x02_P10.16mm_Horizontal",
+      "newFootprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+      "oldFace": "bottom",
+      "newFace": "top",
+      "oldCenterMm": [
+        30,
+        -34
+      ],
+      "newCenterMm": [
+        -30.5,
+        -34.8
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R901",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        -31,
+        -21
+      ],
+      "newCenterMm": [
+        -30.0,
+        -22.5
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "R902",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -32,
+        -34
+      ],
+      "newCenterMm": [
+        -33.5,
+        -34.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R905",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "top",
+      "newFace": "top",
+      "oldCenterMm": [
+        15,
+        -18
+      ],
+      "newCenterMm": [
+        15.0,
+        -18.0
+      ],
+      "newRotationDeg": 180
+    },
+    {
+      "ref": "C902",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -24,
+        -34
+      ],
+      "newCenterMm": [
+        -23.5,
+        -34.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C903",
+      "oldFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "newFootprint": "Capacitor_SMD/C_0805_2012Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -20,
+        -15
+      ],
+      "newCenterMm": [
+        -26.0,
+        -10.75
+      ],
+      "newRotationDeg": 0
+    },
+    {
+      "ref": "C904",
+      "oldFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "newFootprint": "Capacitor_SMD/C_0603_1608Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -21,
+        -12
+      ],
+      "newCenterMm": [
+        -20.5,
+        -13.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R906",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -40,
+        -33
+      ],
+      "newCenterMm": [
+        -21.5,
+        -18.5
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R907",
+      "oldFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "newFootprint": "Resistor_SMD/R_1206_3216Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -32,
+        -39
+      ],
+      "newCenterMm": [
+        -27.7,
+        -16.0
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "R908",
+      "oldFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "newFootprint": "Resistor_SMD/R_0603_1608Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -38,
+        -37
+      ],
+      "newCenterMm": [
+        -19.0,
+        -20.2
+      ],
+      "newRotationDeg": 90
+    },
+    {
+      "ref": "C905",
+      "oldFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "newFootprint": "Capacitor_SMD/C_1210_3225Metric",
+      "oldFace": "top",
+      "newFace": "bottom",
+      "oldCenterMm": [
+        -30.1,
+        -29
+      ],
+      "newCenterMm": [
+        -20.7,
+        -24.4
+      ],
+      "newRotationDeg": 90
+    }
+  ],
+  "mountingHardwareApproved": false,
+  "connectorHarnessChange": "J3/J5/J6/J8/J10 use compact JST GH candidates in place of provisional XH connectors. Recheck mating harness and connector ratings.",
+  "routingRefinements": [
+    {
+      "ref": "TP8",
+      "old": {
+        "x": -12.0,
+        "y": -23.0,
+        "rotation": 0,
+        "bodyCenter": [
+          -12,
+          -23
+        ],
+        "courtyard": [
+          -13.5,
+          -24.5,
+          -10.5,
+          -21.5
+        ],
+        "fixed": false,
+        "layer": "bottom",
+        "occupiesLayers": [
+          "bottom"
+        ],
+        "assemblyEnvelopes": {
+          "bottom": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  -13.5,
+                  -24.5
+                ],
+                [
+                  -13.5,
+                  -21.5
+                ],
+                [
+                  -10.5,
+                  -21.5
+                ],
+                [
+                  -10.5,
+                  -24.5
+                ],
+                [
+                  -13.5,
+                  -24.5
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "new": {
+        "x": 20.25,
+        "y": 5.5,
+        "rotation": 0,
+        "bodyCenter": [
+          20.25,
+          5.5
+        ],
+        "courtyard": [
+          18.75,
+          4.0,
+          21.75,
+          7.0
+        ],
+        "fixed": false,
+        "layer": "top",
+        "occupiesLayers": [
+          "top"
+        ],
+        "assemblyEnvelopes": {
+          "top": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  21.75,
+                  4.0
+                ],
+                [
+                  21.75,
+                  7.0
+                ],
+                [
+                  18.75,
+                  7.0
+                ],
+                [
+                  18.75,
+                  4.0
+                ],
+                [
+                  21.75,
+                  4.0
+                ]
+              ]
+            ]
+          }
+        }
+      },
+      "displaced": [
+        "finish_2367",
+        "finish_2474"
+      ],
+      "reason": "Accessible outward-facing SPI test point connected to the existing MCU signal via. Only ordinary interfering signal tracks require rerouting."
+    }
+  ]
+}

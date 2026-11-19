@@ -1,0 +1,13 @@
+{
+  "sourceCircuitSha256": "29e4eb191f0bb3c1be96f8e0f0dd42dc576b6155245c2352691e5876ecb381f8",
+  "schematicCaptureSha256": "d8e8ee7bf28bb9cd6a6da692034b3d01e8d50621c96afa686a934061d6a882fb",
+  "canonicalCircuitUnchanged": true,
+  "componentCount": 250,
+  "netCount": 138,
+  "allPinNetAssignmentsMatchCanonical": true,
+  "traceCount": 588,
+  "labelCounts": {},
+  "pdf": "output/Space_Octopus_Connected_Schematic.pdf",
+  "pcbRelativePresentation": true,
+  "copperRoutesModified": false
+}
