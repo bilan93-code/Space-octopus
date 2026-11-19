@@ -16,7 +16,9 @@ const catalog = append?JSON.parse(fs.readFileSync('footprints/catalog.json')):{}
 for (const key of [...new Set(requested.length?requested:parts.map(p=>p.footprint))].sort()) {
  const [lib,name]=key.split('/');
  const file=`footprints/kicad/${lib}__${name}.kicad_mod`;
- const custom=customPatterns[key];
+ const custom=key.startsWith('Wire/DirectSolder_')
+  ? {url:file,source:'Space Octopus wire land pattern. Original 5.08 mm pitch and 2.6 mm copper with a 1.8 mm finished plated bore.'}
+  : customPatterns[key];
  const url=custom?.url ?? `https://raw.githubusercontent.com/KiCad/kicad-footprints/master/${lib}.pretty/${name}.kicad_mod`;
  if(!fs.existsSync(file)) {
   if(custom)throw Error('Missing project land pattern: '+file);

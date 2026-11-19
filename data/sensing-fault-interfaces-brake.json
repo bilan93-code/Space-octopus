@@ -2133,8 +2133,8 @@
     "ref": "J11",
     "sheet": "08_Brake",
     "kind": "connector",
-    "value": "External braking resistor, 2 poles",
-    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+    "value": "Brake resistor, solder wires",
+    "footprint": "Wire/DirectSolder_1x02_P5.08mm",
     "pins": {
       "1": "BRAKE_PLUS",
       "2": "BRAKE_DRAIN"
@@ -2144,12 +2144,10 @@
       "2": "BRAKE_DRAIN"
     },
     "provisional": true,
-    "notes": "External R_BRAKE_EXT connects across pins 1 and 2; resistor is not a PCB component.",
+    "notes": "Wire the external 4.7 ohm braking resistor across 1 (BRAKE_PLUS) and 2 (BRAKE_DRAIN). Both are active circuit nodes. Solder the harness into the numbered plated holes from the outward face. Support the bundle at the chassis.",
     "dnp": false,
-    "provisionalReason": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
-    "mpn": "1711725",
-    "lcsc": "C89120",
-    "sourcingReview": "Phoenix Contact 1711725 two-position, 5.08mm candidate; catalogue 24A/400V. Verify MKDS3 ordering-code association, exact body, wire gauge, temperature derating and DC ratings."
+    "provisionalReason": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
+    "assembly": "wire-termination"
   },
   {
     "ref": "D2",

@@ -21,6 +21,31 @@ for l in openings:prepare(openings[l]);prepare(bodies[l])
 for text,x,y in [('SPACE OCTOPUS',17,48),('48V / MOUNT',-16,48)]:
  font=.8;width=len(text)*font*.8+.25;height=font+.3;g=box(x-width/2,y-height/2,x+width/2,y+height/2)
  if board.covers(g) and not g.intersects(openings['top']) and not g.intersects(bodies['top']):occupied['top'].append(g);texts.append({'text':text,'x':x,'y':y,'fontSize':font,'layer':'top','purpose':'identity'})
+# Mark each exposed harness termination at the pad rather than relying on
+# connector numbering after the plastic blocks have been removed.
+wire_names={'DC_IN':'DC+','GND':'GND','PH_U':'U','PH_V':'V','PH_W':'W',
+            'BRAKE_PLUS':'BR+','BRAKE_DRAIN':'BR_SW'}
+for pad in s['bytype']['pcb_plated_hole']:
+ pid=pad.get('pcb_port_id')
+ if not pid:continue
+ ref,pin=s['portlabel'](pid).split('.')
+ if ref not in by or not by[ref]['footprint'].startswith('Wire/DirectSolder_'):continue
+ net=by[ref]['pins'][pin];label=wire_names[net];layer=placement[ref]['layer']
+ font=.8;width=max(.8,len(label)*font*.8+.25);height=font+.3
+ # All three banks run vertically. Keep each legend on its terminal's row.
+ px,py=pad['x'],pad['y']
+ for gap in [.55,.8,1.05,1.3,1.55,1.8,2.3]:
+  done=False
+  for side in [1,-1]:
+   x=px+side*(2.3+gap+width/2)
+   g=box(x-width/2,py-height/2,x+width/2,py+height/2)
+   if not board.covers(g) or g.intersects(openings[layer]) or g.intersects(bodies[layer]) or any(g.distance(o)<.25 for o in occupied[layer]):continue
+   occupied[layer].append(g)
+   texts.append({'text':label,'x':round(x,5),'y':py,'fontSize':font,'layer':layer,
+                 'purpose':'wire terminal','terminal':f'{ref}.{pin}','net':net})
+   done=True;break
+  if done:break
+ else:raise RuntimeError(f"No clear silkscreen location for wire terminal {ref}.{pin} {net}")
 for ref,p in sorted(by.items(),key=lambda x:(0 if x[1]['kind'] in ['connector','chip'] else 1,-len(x[0]),x[0])):
  if p['kind'] in ['hole','fiducial']:continue
  v=placement[ref];l=v['layer'];own=shape(v['assemblyEnvelopes'][l]);cx,cy=v['bodyCenter'];font=.8;width=max(.8,len(ref)*font*.8+.25);height=font+.3
@@ -60,5 +85,5 @@ for e in j:
 Path('data/silkscreen-plan.json').write_text(json.dumps({'enabled':True,'texts':texts,'paths':paths},indent=2)+'\n')
 with Path('output/reference-locations.csv').open('w') as f:w=csv.writer(f);w.writerow(['Reference','Face','Location','X mm','Y mm']);w.writerows(manifest)
 reference_count=sum(not t.get('purpose') for t in texts)
-Path('output/silkscreen-audit.json').write_text(json.dumps({'status':'passed','referencesOnSilk':reference_count,'referencesOnFabOnly':len(manifest)-reference_count,'identityLabels':len(texts)-reference_count,'clippedArtworkSegments':len(paths),'fontSizeMm':.8,'maskClearanceMm':.25,'note':'References that do not fit remain in assembly drawings, BOM and KiCad fabrication layer. Stock polarity artwork is clipped around mask openings.'},indent=2)+'\n')
+Path('output/silkscreen-audit.json').write_text(json.dumps({'status':'passed','referencesOnSilk':reference_count,'referencesOnFabOnly':len(manifest)-reference_count,'identityLabels':sum(t.get('purpose')=='identity' for t in texts),'wireTerminalLabels':sum(t.get('purpose')=='wire terminal' for t in texts),'clippedArtworkSegments':len(paths),'fontSizeMm':.8,'maskClearanceMm':.25,'note':'References that do not fit remain in assembly drawings, BOM and KiCad fabrication layer. Stock polarity artwork is clipped around mask openings.'},indent=2)+'\n')
 print('Silkscreen:',reference_count,'references;',len(manifest)-reference_count,'on fabrication layer;',len(paths),'clipped artwork paths.')

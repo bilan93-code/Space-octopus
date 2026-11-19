@@ -3,20 +3,18 @@
     "ref": "J1",
     "sheet": "00_Input",
     "kind": "connector",
-    "value": "DC input, 2 poles",
+    "value": "48 V DC input, solder wires",
     "pins": {
       "1": "DC_IN",
       "2": "GND"
     },
-    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+    "footprint": "Wire/DirectSolder_1x02_P5.08mm",
     "pinLabels": {},
-    "notes": "",
+    "notes": "Wire 1 carries DC input positive. Wire 2 is supply return. Solder the harness into the numbered plated holes from the outward face. Support the bundle at the chassis.",
     "provisional": true,
     "dnp": false,
-    "provisionalReason": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
-    "mpn": "1711725",
-    "lcsc": "C89120",
-    "sourcingReview": "Phoenix Contact 1711725 two-position, 5.08mm candidate; catalogue 24A/400V. Verify MKDS3 ordering-code association, exact body, wire gauge, temperature derating and DC ratings."
+    "provisionalReason": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
+    "assembly": "wire-termination"
   },
   {
     "ref": "F1",
@@ -2536,21 +2534,19 @@
     "ref": "J2",
     "sheet": "04_Inverter",
     "kind": "connector",
-    "value": "Motor U/V/W",
+    "value": "Motor U/V/W, solder wires",
     "pins": {
       "1": "PH_U",
       "2": "PH_V",
       "3": "PH_W"
     },
-    "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
+    "footprint": "Wire/DirectSolder_1x03_P5.08mm",
     "pinLabels": {},
-    "notes": "",
+    "notes": "Wire 1 is motor phase U, wire 2 is V and wire 3 is W. Solder the harness into the numbered plated holes from the outward face. Support the bundle at the chassis.",
     "provisional": true,
     "dnp": false,
-    "provisionalReason": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
-    "mpn": "1711738",
-    "lcsc": "C91156",
-    "sourcingReview": "Phoenix Contact 1711738 three-position, 5.08mm candidate; catalogue 24A/400V. 22Arms leaves little nominal current margin before hot derating; pulse qualification remains required."
+    "provisionalReason": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
+    "assembly": "wire-termination"
   },
   {
     "ref": "U21",

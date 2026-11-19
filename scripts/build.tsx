@@ -37,8 +37,9 @@ for(const [i,sheet] of (process.argv.includes('--pcb-only')?[]:Array.from(sheets
  fs.writeFileSync(`output/schematics/${sheet}.svg`,svg);
 }
 const q=(s:unknown)=>`"${String(s??'').replaceAll('"','""')}"`;
-fs.writeFileSync('output/bom.csv',[['Reference','Sheet','Value','MPN','Footprint','DNP','Provisional','Open item','PCB face','LCSC'],...parts.filter(p=>!['hole','fiducial','testpoint'].includes(p.kind)).map(p=>[p.ref,p.sheet,p.value,p.mpn??'',p.footprint,p.dnp,p.provisional,p.provisionalReason??'',placement[p.ref].layer,p.lcsc??''])].map(row=>row.map(q).join(',')).join('\n')+'\n');
-fs.writeFileSync('output/pcb-features.csv',[['Reference','Feature','Footprint'],...parts.filter(p=>['hole','fiducial','testpoint'].includes(p.kind)).map(p=>[p.ref,p.kind,p.footprint])].map(row=>row.map(q).join(',')).join('\n')+'\n');
+const pcbFeatures = new Set(parts.filter(p=>p.assembly==='wire-termination'||['hole','fiducial','testpoint'].includes(p.kind)));
+fs.writeFileSync('output/bom.csv',[['Reference','Sheet','Value','MPN','Footprint','DNP','Provisional','Open item','PCB face','LCSC'],...parts.filter(p=>!pcbFeatures.has(p)).map(p=>[p.ref,p.sheet,p.value,p.mpn??'',p.footprint,p.dnp,p.provisional,p.provisionalReason??'',placement[p.ref].layer,p.lcsc??''])].map(row=>row.map(q).join(',')).join('\n')+'\n');
+fs.writeFileSync('output/pcb-features.csv',[['Reference','Feature','Footprint'],...Array.from(pcbFeatures,p=>[p.ref,p.assembly??p.kind,p.footprint])].map(row=>row.map(q).join(',')).join('\n')+'\n');
 // Expanded netlist is read from rendered source traces, independently of data.
 const sources=new Map(j.filter(e=>e.type==='source_component').map(e=>[e.source_component_id,e]));
 const ports=new Map(j.filter(e=>e.type==='source_port').map(e=>[e.source_port_id,e]));

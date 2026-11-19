@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
+from assembly_parts import assembly_suffix, is_fitted, load_board_parts
 
 out=Path('output')
 def read(path):
@@ -37,17 +38,20 @@ for name,edge in [('gerber-connectivity.json',0),('gerber-etch-screen.json',.025
     check=read(out/name)
     assert check['sourceSha256']==signature and check['edgeLossMm']==edge and check['passed'],name
     assert all(digest(folder/(n+'.gbr'))==v for n,v in check['copperFilesSha256'].items())
-fitted={}
-for file in ['input-supplies-mcu-driver-inverter','sensing-fault-interfaces-brake','mechanical']:
-    for row in read(Path('data')/(file+'.json')):
-        if not row['dnp'] and row['kind'] not in {'hole','fiducial','testpoint'} and row['ref']!='JP701':
-            fitted[row['ref']]=row
-legacy_fuses = all(fitted[ref].get('holder') for ref in ('F1','F2'))
-stock_file = 'five-board-stock.csv' if legacy_fuses else 'five-board-stock-soldered.csv'
-dest = out / ('jlcpcb-bota' if legacy_fuses else 'jlcpcb-bota-soldered')
+parts = load_board_parts()
+fitted = {ref: part for ref, part in parts.items() if is_fitted(part)}
+suffix = assembly_suffix(parts)
+stock_file = f'five-board-stock{suffix}.csv'
+dest = out / f'jlcpcb-bota{suffix}'
 stock=csv_rows(out/'prototype'/stock_file)
 records=read(circuit)
 rendered_parts={row['name']:row for row in records if row['type']=='source_component'}
+wire_refs = {ref for ref, part in parts.items() if part.get('assembly') == 'wire-termination'}
+for ref in wire_refs:
+    assert not rendered_parts[ref].get('manufacturer_part_number'), (ref, 'stale rendered connector')
+    assert rendered_parts[ref].get('display_name') == parts[ref]['value'], (ref, 'stale rendered wire termination')
+board_refs = [ref for row in stock if row['Installation'] == 'board component' for ref in row['References'].split()]
+assert Counter(board_refs) == Counter(ref for ref, part in fitted.items() if not part.get('holder')), 'stale stock references'
 for ref in ('F1','F2'):
     assert rendered_parts[ref].get('manufacturer_part_number') == fitted[ref]['mpn'], (ref, 'stale rendered fuse')
     assert rendered_parts[ref].get('display_name') == fitted[ref]['value'], (ref, 'stale rendered fuse value')

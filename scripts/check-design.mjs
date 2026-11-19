@@ -210,6 +210,22 @@ export function audit({ components = [], catalog = null, inputs = [], inputError
   return { ok: !mismatches.length, mismatches };
  });
  for (const [ref, expected] of Object.entries(CONNECTORS)) exact(ref, expected);
+ for (const ref of ['J1', 'J2', 'J11']) {
+  run(`assembly.${ref}.wire-termination`, [ref], () => {
+   const terminal = part(ref);
+   const pads = catalog?.[terminal.footprint]?.elements.filter(e => ['pcb_hole', 'pcb_plated_hole', 'pcb_smtpad'].includes(e.type)) ?? [];
+   const numbers = Object.keys(CONNECTORS[ref]);
+   const correctLands = pads.length === numbers.length && numbers.every(pin => {
+    const p = pads.find(pad => pad.port_hints?.includes(pin));
+    if (p?.type !== 'pcb_plated_hole' || p.hole_diameter !== 1.8 || p.x !== (Number(pin) - 1) * 5.08 || p.y !== 0) return false;
+    return pin === '1'
+     ? p.shape === 'circular_hole_with_rect_pad' && p.rect_pad_width === 2.6 && p.rect_pad_height === 2.6
+     : p.shape === 'circle' && p.outer_diameter === 2.6;
+   });
+   return { ok: terminal.assembly === 'wire-termination' && !terminal.mpn && !terminal.lcsc && correctLands,
+    assembly: terminal.assembly, correctLands, expectedPadCount: numbers.length };
+  }, 'Power harness direct-solder footprint drawing');
+ }
  const tpNets = 'VBUS GND V12 V5 V3V3 REF25 DRV_SCK DRV_SDO FAULT_RAW_N PH_U PH_V PH_W IU_ADC IV_ADC IW_ADC'.split(' ');
  tpNets.forEach((n, i) => {
   if (i === 6) run('testpoint.TP7', ['TP7', 'U1', 'U2'], () => ({ ok: pins('TP7').length === 1 && [net('U1', 52), net('U2', 29)].includes(net('TP7', 1)), actual: net('TP7', 1) }));

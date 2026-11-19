@@ -25,6 +25,11 @@ for(const p of parts){
   const pads=j.filter(e=>['pcb_smtpad','pcb_plated_hole','pcb_hole'].includes(e.type)&&e.pcb_component_id===pcb.pcb_component_id);
   const expected=catalog[p.footprint].elements.filter(e=>['pcb_smtpad','pcb_plated_hole','pcb_hole'].includes(e.type));
   check(pads.length===expected.length,`${p.ref}: rendered pad/hole count ${pads.length} != ${expected.length}`);
+  if(p.assembly==='wire-termination'){
+   check(!source.manufacturer_part_number && pcb.do_not_place===true,`${p.ref}: wire lands must be excluded from component assembly`);
+   check(pads.every(pad=>pad.type==='pcb_plated_hole' && pad.hole_diameter===1.8 && ['top','inner1','inner2','bottom'].every(layer=>pad.layers.includes(layer))),`${p.ref}: wire terminals require 1.8 mm four-layer plated holes`);
+   check(!j.some(e=>e.pcb_component_id===pcb.pcb_component_id && ['cad_component','pcb_solder_paste'].includes(e.type)),`${p.ref}: wire lands should have neither a component body nor stencil apertures`);
+  }
  }
 }
 const geometry=read('data/board-geometry.json');

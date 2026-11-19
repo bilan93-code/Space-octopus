@@ -502,5 +502,21 @@
     "source": "Space Octopus axial fuse land pattern. PCB Parts lists body 21.5 × Ø5.5 mm. Verify project lead form and finished-hole fit on a sample.",
     "sha256": "f501ce7ff57f41a6b79826dd65f9f32ea274972305c987f7567dabbffebdf12f",
     "warnings": []
+  },
+  {
+    "footprint": "Wire/DirectSolder_1x02_P5.08mm",
+    "url": "footprints/kicad/Wire__DirectSolder_1x02_P5.08mm.kicad_mod",
+    "file": "footprints/kicad/Wire__DirectSolder_1x02_P5.08mm.kicad_mod",
+    "source": "Space Octopus wire land pattern. Original 5.08 mm pitch and 2.6 mm copper with a 1.8 mm finished plated bore.",
+    "sha256": "645bac2dabc3338a9b23249f8c3b47aeba864810249b37143db126d0f032f0d4",
+    "warnings": []
+  },
+  {
+    "footprint": "Wire/DirectSolder_1x03_P5.08mm",
+    "url": "footprints/kicad/Wire__DirectSolder_1x03_P5.08mm.kicad_mod",
+    "file": "footprints/kicad/Wire__DirectSolder_1x03_P5.08mm.kicad_mod",
+    "source": "Space Octopus wire land pattern. Original 5.08 mm pitch and 2.6 mm copper with a 1.8 mm finished plated bore.",
+    "sha256": "bf9097520acde829726e831befcccde6c1cbabdb6d998bae6d9b85e8f255e98e",
+    "warnings": []
   }
 ]

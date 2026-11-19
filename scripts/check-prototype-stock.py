@@ -5,6 +5,7 @@ import json
 import subprocess
 from collections import defaultdict
 from pathlib import Path
+from assembly_parts import assembly_suffix, is_fitted, load_board_parts
 
 parser = argparse.ArgumentParser()
 parser.add_argument('catalogue', type=Path, help='Checkout of Averyy/pcbparts-mcp')
@@ -13,16 +14,14 @@ data = args.catalogue / 'data'
 stamp = json.loads((data / 'manifest.json').read_text())['scraped_at']
 commit = subprocess.check_output(['git', '-C', str(args.catalogue), 'rev-parse', 'HEAD'], text=True).strip()
 groups = defaultdict(list)
-cartridge_refs = set()
-for filename in ('input-supplies-mcu-driver-inverter', 'sensing-fault-interfaces-brake', 'mechanical'):
-    for part in json.loads(Path(f'data/{filename}.json').read_text()):
-        if part['dnp'] or part['kind'] in ('hole', 'fiducial', 'testpoint') or part['ref'] == 'JP701':
-            continue
-        stage = 'hand-insert cartridge' if part.get('holder') else 'board component'
-        groups[part['mpn'], part.get('lcsc', ''), stage].append(part['ref'])
-        if part.get('holder'):
-            cartridge_refs.add(part['ref'])
-            groups[part['holder']['mpn'], '', 'through-hole fuse holder'].append(part['ref'] + ' holder')
+parts = load_board_parts()
+for part in parts.values():
+    if not is_fitted(part):
+        continue
+    stage = 'hand-insert cartridge' if part.get('holder') else 'board component'
+    groups[part['mpn'], part.get('lcsc', ''), stage].append(part['ref'])
+    if part.get('holder'):
+        groups[part['holder']['mpn'], '', 'through-hole fuse holder'].append(part['ref'] + ' holder')
 
 mpns = {k[0].upper() for k in groups}
 codes = {k[1] for k in groups if k[1]}
@@ -51,7 +50,7 @@ for (mpn, code, stage), refs in sorted(groups.items()):
     qty = stock.get(item['l']) if exact else None
     status = ('MPN/code mismatch' if item and not exact else 'no unique exact listing') if not exact else ('stock unknown' if qty is None else ('below batch quantity' if qty < needed else 'covers batch in snapshot'))
     rows.append([mpn, code or (item['l'] if item else ''), item['m'] if item else '', item['f'] if item else '', ' '.join(refs), stage, len(refs), needed, qty, status, stamp, commit])
-filename = 'five-board-stock.csv' if {'F1', 'F2'} <= cartridge_refs else 'five-board-stock-soldered.csv'
+filename = f'five-board-stock{assembly_suffix(parts)}.csv'
 with (dest / filename).open('w',newline='') as f:
     out=csv.writer(f)
     out.writerow(['Selected MPN','LCSC','Catalogue MPN','Manufacturer','References','Installation','Per board','Five boards minimum','Snapshot quantity','Result','Catalogue timestamp UTC','PCB Parts commit'])

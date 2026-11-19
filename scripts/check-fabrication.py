@@ -1,6 +1,7 @@
 """Check exported drills, contours, layers, fiducials and assembly rows."""
 import csv,hashlib,json,math,re
 from pathlib import Path
+from assembly_parts import is_fitted
 
 root=Path(__file__).resolve().parents[1];out=root/'output';folder=out/'review-fabrication'
 j=json.loads((out/'space-octopus.circuit.json').read_text());errors=[]
@@ -167,10 +168,14 @@ require(cutout_arcs==2,'Expected two exact 14 mm radius semicircles for the rout
 for face in ['F_Cu','In1_Cu','In2_Cu','B_Cu']:require((folder/(face+'.gbr')).stat().st_size>100,f'Missing copper layer {face}')
 fiducial_mask_openings,fiducial_paste_openings=check_fiducials()
 parts=sum([json.loads((root/'data'/f'{n}.json').read_text()) for n in ['input-supplies-mcu-driver-inverter','sensing-fault-interfaces-brake','mechanical']],[])
-expected_rows=sum(not p['dnp'] and p['ref']!='JP701' and p['kind'] not in ['hole','fiducial','testpoint'] for p in parts)
-rows=list(csv.reader((out/'pick-and-place-review.csv').open()))
-require(len(rows)-1==expected_rows,f'Assembly rows {len(rows)-1} != {expected_rows}')
+expected_refs = {p['ref'] for p in parts if is_fitted(p)}
+with (out/'pick-and-place-review.csv').open(newline='') as placement_file:
+ rows = list(csv.DictReader(placement_file))
+actual_refs = [row['Designator'] for row in rows]
+require(len(rows) == len(expected_refs) and set(actual_refs) == expected_refs,
+        f'Pick-and-place mismatch: missing {sorted(expected_refs - set(actual_refs))}, extra {sorted(set(actual_refs) - expected_refs)}, rows {len(rows)}')
+require(not {'J1','J2','J11'}.intersection(actual_refs),'Direct-solder wire terminations must be excluded from placement data')
 manifest=json.loads((out/'fabrication-export-status.json').read_text())
 for entry in manifest['files']:require(hashlib.sha256((folder/entry['file']).read_bytes()).hexdigest()==entry['sha256'],'Changed fabrication file '+entry['file'])
-report={'status':'failed' if errors else 'passed','platedDrills':len(pth),'nonplatedDrills':len(npth),'mountingDrills':6,'outerDiameterMm':112,'routedOpeningDiameterMm':28,'closedProfileContours':len(contours),'cutoutSemicircles':cutout_arcs,'copperLayers':4,'assemblyRows':len(rows)-1,'fiducialMaskOpenings':fiducial_mask_openings,'fiducialPasteOpenings':fiducial_paste_openings,'errors':errors,'fabricationReady':False}
+report={'status':'failed' if errors else 'passed','platedDrills':len(pth),'nonplatedDrills':len(npth),'mountingDrills':6,'outerDiameterMm':112,'routedOpeningDiameterMm':28,'closedProfileContours':len(contours),'cutoutSemicircles':cutout_arcs,'copperLayers':4,'assemblyRows':len(rows),'fiducialMaskOpenings':fiducial_mask_openings,'fiducialPasteOpenings':fiducial_paste_openings,'errors':errors,'fabricationReady':False}
 (out/'fabrication-file-audit.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));raise SystemExit(bool(errors))

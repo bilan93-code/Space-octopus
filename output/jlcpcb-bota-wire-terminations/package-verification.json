@@ -1,0 +1,40 @@
+{
+  "purpose": "DFM and price quote only",
+  "approvedForManufacture": false,
+  "sourceSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "gerberMembers": [
+    "F_Cu.gbr",
+    "In1_Cu.gbr",
+    "In2_Cu.gbr",
+    "B_Cu.gbr",
+    "F_Mask.gbr",
+    "B_Mask.gbr",
+    "F_Paste.gbr",
+    "B_Paste.gbr",
+    "F_SilkScreen.gbr",
+    "B_SilkScreen.gbr",
+    "Edge_Cuts.gbr",
+    "drill-L1-L4.drl",
+    "drill_npth.drl"
+  ],
+  "bomLines": 96,
+  "cplPlacements": 223,
+  "sides": {
+    "Top": 68,
+    "Bottom": 155
+  },
+  "additionalCartridgesPerBoard": 0,
+  "missingExactCatalogueListings": [
+    "LM5164DDAR",
+    "MSS1246T-683MLB",
+    "SN74LVC1G74DCTR",
+    "TPS3431SDRBR"
+  ],
+  "stockSnapshotUTC": "2026-11-18T21:02:59.285989+00:00",
+  "checks": 18,
+  "sha256": {
+    "Space-Octopus-Bota-JLCPCB-Gerbers-DFM-quote.zip": "b9b8e258fb6429aabef490cc1fb8765c1cf105dde7c6aca392ac1fa09cf054d2",
+    "JLCPCB-BOM-quote.csv": "fd2991c7a140c156c1a937d9aa40f26aea7a05f5b3d54f9e87f0771d6c5896f3",
+    "JLCPCB-CPL-quote.csv": "35a80222540cf7e5284fd8c568da6ac6068e743d0afeb8a1e53e278428b35c66"
+  }
+}

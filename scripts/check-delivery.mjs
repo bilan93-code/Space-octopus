@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {isFitted} from './assembly-parts.mjs';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
@@ -10,7 +11,7 @@ const circuit=read('space-octopus.circuit.json'),sourceSha=sha('output/space-oct
 const parts=['input-supplies-mcu-driver-inverter','sensing-fault-interfaces-brake','mechanical']
  .flatMap(name=>JSON.parse(fs.readFileSync(`data/${name}.json`)));
 const netCount=new Set(parts.flatMap(part=>Object.values(part.pins)).filter(Boolean)).size;
-const assemblyCount=parts.filter(part=>!part.dnp&&part.ref!=='JP701'&&!['hole','fiducial','testpoint'].includes(part.kind)).length;
+const assemblyCount=parts.filter(isFitted).length;
 const checks=[];
 function check(name,condition){assert(condition,name);checks.push({name,passed:true});}
 const validation=read('validation-results.json'),copper=read('copper-audit.json');

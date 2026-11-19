@@ -6,7 +6,7 @@ import xy from '../data/placement.json';
 export interface Part {
  ref:string; sheet:string; kind:string; value:string; mpn?:string; lcsc?:string; footprint:string;
  pins:Record<string,string|null>; pinLabels:Record<string,string>; notes:string;
- dnp:boolean; provisional:boolean; provisionalReason?:string;
+ assembly?:'wire-termination'; dnp:boolean; provisional:boolean; provisionalReason?:string;
 }
 export interface Footprint { elements:Record<string,unknown>[]; box:number[]; pads:string[] }
 export interface Placement {x:number;y:number;rotation:number;courtyard:number[];bodyCenter:number[];fixed:boolean;layer:'top'|'bottom';occupiesLayers:string[]}

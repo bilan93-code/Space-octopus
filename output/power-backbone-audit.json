@@ -1,5 +1,5 @@
 {
-  "circuitJsonSha256": "ff1e48f2960bccf378bcd8dab0480bd3c0c3b5b4138d2fc547490f8275391db6",
+  "circuitJsonSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
   "status": "passed",
   "source": "output/space-octopus.circuit.json",
   "minimumIncludedTrackWidthMm": 2.0,
@@ -226,6 +226,66 @@
       "passed": true
     }
   ],
-  "method": "Keep pads, plated barrels and tracks at least 2 mm wide. Both VBUS and GND load terminals must connect even with every fill removed. Require each listed set of load-current terminals to share one physical copper island. Independently require both complete input paths on their declared layers and minimum widths.",
+  "wireTerminalContacts": [
+    {
+      "terminal": "J1.1",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "inner2": 2.3324,
+        "bottom": 2.2639
+      },
+      "minimumAnnulusMm": 0.4
+    },
+    {
+      "terminal": "J1.2",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "inner1": 1.2149,
+        "bottom": 2.488
+      },
+      "minimumAnnulusMm": 0.4
+    },
+    {
+      "terminal": "J2.1",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "top": 1.5535
+      },
+      "minimumAnnulusMm": 0.4
+    },
+    {
+      "terminal": "J2.2",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "top": 2.7625
+      },
+      "minimumAnnulusMm": 0.4
+    },
+    {
+      "terminal": "J2.3",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "top": 2.7625
+      },
+      "minimumAnnulusMm": 0.4
+    },
+    {
+      "terminal": "J11.1",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "top": 3.816
+      },
+      "minimumAnnulusMm": 0.4
+    },
+    {
+      "terminal": "J11.2",
+      "passed": true,
+      "contactAreaMm2ByLayer": {
+        "bottom": 2.7625
+      },
+      "minimumAnnulusMm": 0.4
+    }
+  ],
+  "method": "Keep pads, plated barrels and tracks at least 2 mm wide. Both VBUS and GND load terminals must connect even with every fill removed. Require each listed set of load-current terminals to share one physical copper island. Independently require both complete input paths on their declared layers and minimum widths. For each wire termination, subtract its bore and check for positive-area overlap between the remaining annulus and the specified load-width tracks.",
   "limitations": "This excludes thin-signal bottlenecks. It does not qualify copper weight, thermal rise, via current sharing or pulse capability."
 }

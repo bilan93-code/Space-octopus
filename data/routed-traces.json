@@ -1,6 +1,6 @@
 {
-  "signature": "4d762aa893a1ebc",
-  "backend": "Motor and Bota supply with direct-solder axial fuses on the original power lands",
+  "signature": "8eeed9427551b788",
+  "backend": "Motor and Bota supply with direct-solder axial fuses and power wire terminations on retained lands",
   "netNamesById": {
     "source_net_0": "ARM_PULSE",
     "source_net_1": "BOOT0",

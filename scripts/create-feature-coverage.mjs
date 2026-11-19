@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const read=p=>JSON.parse(fs.readFileSync(p));
 const delivery=read('output/delivery-audit.json'),validation=read('output/validation-results.json'),status=read('output/engineering-status.json'),model=read('output/3d-status.json'),mount=read('output/motor-mount-audit.json'),sim=read('output/simulation/audit.json'),packages=read('output/package-review.json'),backbone=read('output/power-backbone-audit.json');
-assert(delivery.status==='passed'&&validation.allPassed&&validation.checks.length===17);
+assert(delivery.status==='passed'&&validation.allPassed&&validation.checks.length===18);
 assert(delivery.circuitJsonSha256===status.circuitJsonSha256,'Delivery and engineering status must describe the same circuit.');
 assert(backbone.status==='passed'&&backbone.minimumIncludedTrackWidthMm>=2&&backbone.method?.includes('Both VBUS and GND load terminals must connect even with every fill removed.'),'The saved backbone audit must verify wide GND and VBUS paths with all copper fills excluded.');
 const wideBackbones=['GND','VBUS'].map(net=>{
@@ -26,7 +26,7 @@ This board uses locked tscircuit 0.0.3169. The relevant board-design workflows b
 | Workflow | Delivered evidence |
 |---|---|
 | Editable React/TypeScript design | Source, canonical inventory, footprints, placement and locked dependencies; type checking |
-| Electrical capture | 250 inventory items, ${status.nets} nets, nine schematic sheets, physical pin maps and mutation checks |
+| Electrical capture | ${status.inventoryItems} inventory items, ${status.nets} nets, nine schematic sheets, physical pin maps and mutation checks |
 | Circular PCB and motor interface | Ø112 outline, four copper layers, proposed Ø28 aperture, six Ø4.5 holes on Ø104 PCD |
 | Routing and native checks | ${status.fullyConnectedNets}/${status.nets} nets connected; zero native tscircuit errors; independent copper, drill, power and Kelvin checks |
 | Power and reference copper | ${status.groundRegions} native GND-fill regions (${groundFillSummary}); ${status.powerRegionsByLayer.inner2} VBUS-fill regions on inner2; wide power branches, thermal/transfer arrays and protected sense pickups |
@@ -41,10 +41,10 @@ This board uses locked tscircuit 0.0.3169. The relevant board-design workflows b
 | Motor-clearance concept | Proposed ${mount.provisionalGapMm} mm gap; ${mount.minimumModeledMotorClearanceMm.toFixed(2)} mm minimum modeled clearance, including lead trim |
 | Analog simulation | ${sim.benches.length} source-derived DC, transient and AC benches; ${sim.checks.length} passing assertions, Circuit JSON graphs, CSV and SPICE decks |
 | Signal-path review | Measured planar differential and gate paths with explicit timing/impedance limits |
-| BOM and assembly | BOM, physical pin maps, 217 pick-and-place rows; bare solder jumper excluded |
+| BOM and assembly | BOM, physical pin maps, ${status.populatedComponents} pick-and-place rows; wire terminals and bare solder jumper excluded |
 | Fabrication review | Four-layer Gerbers, drills, exact routed-aperture arcs, contours and checksums |
 | KiCad interoperability | Editable routed derivative, schematics, local footprints/models, native PDFs, schematic ERC, PCB DRC and pad/net/layer parity |
-| Regression and delivery | 17 design checks, fault injections, offline browser verification and a checksum-verified archive |
+| Regression and delivery | ${validation.checks.length} design checks, fault injections, offline browser verification and a checksum-verified archive |
 
 The four distinct power tests above are recorded in [the power-backbone audit](../output/power-backbone-audit.json) by [scripts/check-power-backbone.py](../scripts/check-power-backbone.py), within the existing load-current design check. **All copper fills are excluded** from the GND and VBUS backbone tests; each parallel DC_IN path is also checked without fills. These geometric tests do not qualify current capacity, thermal rise, via current sharing or pulse capability.
 
@@ -65,7 +65,7 @@ const readme=`# Space Octopus motor-controller PCB
 
 Circular tscircuit design with an editable KiCad derivative and an outward-facing interface revision.
 
-**Engineering draft — ${status.fullyConnectedNets}/${status.nets} nets connected; zero native tscircuit and KiCad errors; all 17 design checks pass.** KiCad warnings: ${warnings}. Fabrication approval remains open.
+**Engineering draft — ${status.fullyConnectedNets}/${status.nets} nets connected; zero native tscircuit and KiCad errors; all ${validation.checks.length} design checks pass.** KiCad warnings: ${warnings}. Fabrication approval remains open.
 
 Native GND-fill counts by layer are ${groundFillSummary}; VBUS has ${status.powerRegionsByLayer.inner2} fill regions on inner2. The [power-backbone audit](output/power-backbone-audit.json), produced by [scripts/check-power-backbone.py](scripts/check-power-backbone.py), verifies four distinct geometric tests: wide GND and VBUS backbones with **all copper fills excluded** and tracks at least ${backbone.minimumIncludedTrackWidthMm} mm wide; an independent complete DC_IN J1.1–F1.1 path on inner2 at minimum ${parallelInputPaths[0].minimumTrackWidthMm} mm; and an independent complete path on bottom at minimum ${parallelInputPaths[1].minimumTrackWidthMm} mm. These checks do not qualify current capacity or current sharing.
 
@@ -75,7 +75,7 @@ Open [the review](output/index.html), [interactive 3D](output/3d.html), [analog 
 
 The populated assembly has ${model.withStepModel} STEP-backed models and zero bounding-box placeholders. The model report documents the representative bodies and their fit assumptions. D2 requires leads trimmed to no more than 2 mm below the motor-facing PCB surface. The nominal source model records that trim.
 
-Install dependencies with \`npm ci\` and \`python -m pip install -r requirements-copper.txt\`. Run \`npm run test\` for type checking, native rendering, 3D generation and the 17 design checks. KiCad 9 is required for the native derivative/export checks. CadQuery in \`requirements-mechanical.txt\` is only needed to regenerate the vendored trimmed STEP asset.
+Install dependencies with \`npm ci\` and \`python -m pip install -r requirements-copper.txt\`. Run \`npm run test\` for type checking, native rendering, 3D generation and the ${validation.checks.length} design checks. KiCad 9 is required for the native derivative/export checks. CadQuery in \`requirements-mechanical.txt\` is only needed to regenerate the vendored trimmed STEP asset.
 
 Use \`output/kicad/SpaceOctopus.kicad_pro\` for the current KiCad project. The root \`kicad/\` directory is the earlier snapshot. The earlier fully reviewed archive is retained separately as \`Space-octopus-RevA-reviewed.zip\`.
 

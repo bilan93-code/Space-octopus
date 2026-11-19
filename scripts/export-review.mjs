@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {convertCircuitJsonToGerberFiles,convertCircuitJsonToExcellonDrillCommands,stringifyExcellonDrill} from 'circuit-json-to-gerber';
 import {convertCircuitJsonToPickAndPlaceCsv} from 'circuit-json-to-pnp-csv';
 import {orderGerberPours} from './gerber-input.mjs';
+import {isFitted} from './assembly-parts.mjs';
 const json=JSON.parse(fs.readFileSync('output/space-octopus.circuit.json'));
 const parts=['input-supplies-mcu-driver-inverter','sensing-fault-interfaces-brake','mechanical'].flatMap(n=>JSON.parse(fs.readFileSync(`data/${n}.json`)));
 const audit=fs.existsSync('output/copper-audit.json')?JSON.parse(fs.readFileSync('output/copper-audit.json')):null;
@@ -19,9 +20,9 @@ for(const [name,content] of Object.entries(files)){
  const dest=path.join(dir,path.basename(name));fs.writeFileSync(dest,content);
  report.push({file:path.basename(name),bytes:Buffer.byteLength(content),sha256:createHash('sha256').update(content).digest('hex')});
 }
-const omit=new Set(parts.filter(p=>p.dnp||p.ref==='JP701'||['hole','fiducial','testpoint'].includes(p.kind)).map(p=>p.ref));
+const fitted=new Set(parts.filter(isFitted).map(p=>p.ref));
 const sources=new Map(json.filter(e=>e.type==='source_component').map(e=>[e.source_component_id,e.name]));
-const assemblyJson=json.filter(e=>e.type!=='pcb_component'||(sources.has(e.source_component_id)&&!omit.has(sources.get(e.source_component_id))));
+const assemblyJson=json.filter(e=>e.type!=='pcb_component'||fitted.has(sources.get(e.source_component_id)));
 const warnings=[];const csv=convertCircuitJsonToPickAndPlaceCsv(assemblyJson,{onRotationWarning:w=>warnings.push(w)});
 fs.writeFileSync('output/pick-and-place-review.csv',csv);
 fs.writeFileSync(`${dir}/README.txt`,`ENGINEERING REVIEW ONLY — DO NOT FABRICATE\n\nGenerated from the tscircuit Circuit JSON, including the current copper.\nCopper audit: ${audit?.status??'not run'}; ${audit?.unconnectedNetCount??'unknown'} disconnected nets.\nPower-current capacity, switching behavior, differential timing, selected packages, stackup, cooling and motor assembly fit require engineering validation. Dedicated Kelvin branches have a separate isolation audit.\nThe layout requires filled and capped via-in-pad manufacture, including bypass and exposed-pad vias. Specify the actual stackup, copper weights, mask and paste process with the provider.\nThe proposed 28 mm central opening is exported as a routed circular cutout on the board-outline layer. Confirm machining tolerances with the fabricator.\nPick-and-place rotations are footprint coordinates and require assembly-provider review.\nRead output/copper-audit.json, output/kelvin-audit.json and output/electrical-audit.json before using these files.\n`);

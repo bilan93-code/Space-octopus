@@ -6,6 +6,8 @@ const components=['input-supplies-mcu-driver-inverter','sensing-fault-interfaces
 const catalog=read('footprints/catalog.json');
 assert.equal(audit({components,catalog}).status,'passed');
 const cases=[
+ ['Component ordered for bare DC wire pads',p=>p('J1').mpn='1711725','assembly.J1.wire-termination'],
+ ['Two-wire footprint used for three motor phases',p=>p('J2').footprint=p('J1').footprint,'assembly.J2.wire-termination'],
  ['Cartridge holder substituted for the soldered input fuse',p=>p('F1').holder={mpn:'0031.8002'},'assembly.F1.axial-fuse'],
  ['Input fuse fitted in the brake position',p=>p('F2').mpn=p('F1').mpn,'assembly.F2.axial-fuse'],
  ['Grounded charge-pump reservoir',p=>p('C304').pins['2']='GND','connection.C304'],

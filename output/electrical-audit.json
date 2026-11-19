@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T11:37:30.344Z",
+  "generatedAt": "2026-11-19T13:16:52.664Z",
   "status": "passed",
   "fabricationReady": false,
   "scope": "Independent component/netlist audit against Rev A PDF. A pass is not PCB, firmware, datasheet-limit, or fabrication approval.",
@@ -14,13 +14,13 @@
   "inputs": [
     {
       "file": "data/input-supplies-mcu-driver-inverter.json",
-      "sha256": "39eb710d52683c0c8f7355451a2a3a247805a5c26e621de33a22326030086664",
-      "bytes": 85094
+      "sha256": "a776599d81df710854f4035ec68bcf9708b3d843ed0a3b0ea81d347507c987a9",
+      "bytes": 84785
     },
     {
       "file": "data/sensing-fault-interfaces-brake.json",
-      "sha256": "7d9db46336677ec130d70bb1968360fc055709f45078f98ac4b0a91f61ed5bf9",
-      "bytes": 83865
+      "sha256": "5b7cb41f7d326ed1141755d22057923c902446a0971e08d7ff833f0a12a432ce",
+      "bytes": 83672
     },
     {
       "file": "data/mechanical.json",
@@ -34,8 +34,8 @@
     },
     {
       "file": "footprints/catalog.json",
-      "sha256": "41899f4e3211d707c96e442c57e0f7d94938a2b67a7fdf421ba58818d3d5c903",
-      "bytes": 387931
+      "sha256": "965de54d91f11e2cde2f544152d539460164ea785ed83a1b56412d6f0a869215",
+      "bytes": 390874
     },
     {
       "file": "docs/Space_Octopus_Motor_PCB_Plan_RevA.pdf",
@@ -604,11 +604,11 @@
     "actualCount": 262
   },
   "summary": {
-    "passed": 1624,
+    "passed": 1627,
     "failed": 0,
     "unresolved": 8,
     "blockingUnresolved": 0,
-    "total": 1632
+    "total": 1635
   },
   "checks": [
     {
@@ -8812,6 +8812,45 @@
       "pin": "2",
       "expected": "BRAKE_DRAIN",
       "actual": "BRAKE_DRAIN"
+    },
+    {
+      "id": "assembly.J1.wire-termination",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "J1"
+      ],
+      "source": "Power harness direct-solder footprint drawing",
+      "assembly": "wire-termination",
+      "correctLands": true,
+      "expectedPadCount": 2
+    },
+    {
+      "id": "assembly.J2.wire-termination",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "J2"
+      ],
+      "source": "Power harness direct-solder footprint drawing",
+      "assembly": "wire-termination",
+      "correctLands": true,
+      "expectedPadCount": 3
+    },
+    {
+      "id": "assembly.J11.wire-termination",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "J11"
+      ],
+      "source": "Power harness direct-solder footprint drawing",
+      "assembly": "wire-termination",
+      "correctLands": true,
+      "expectedPadCount": 2
     },
     {
       "id": "package.TP1.pins",
@@ -19594,7 +19633,7 @@
         "J1"
       ],
       "source": "Rev A PDF §§18–21",
-      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+      "footprint": "Wire/DirectSolder_1x02_P5.08mm",
       "expectedPackagePins": [
         "1",
         "2"
@@ -22617,7 +22656,7 @@
         "J2"
       ],
       "source": "Rev A PDF §§18–21",
-      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
+      "footprint": "Wire/DirectSolder_1x03_P5.08mm",
       "expectedPackagePins": [
         "1",
         "2",
@@ -25039,7 +25078,7 @@
         "J11"
       ],
       "source": "Rev A PDF §§18–21",
-      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
+      "footprint": "Wire/DirectSolder_1x02_P5.08mm",
       "expectedPackagePins": [
         "1",
         "2"

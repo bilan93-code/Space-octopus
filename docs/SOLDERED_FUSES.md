@@ -19,7 +19,7 @@ The catalogue lists a 21.5 mm long, 5.5 mm diameter body for both fuses. The new
 
 ### Verification and prototype quote
 
-All 18 project checks passed on the rebuilt board. Independent Gerber readback recovered all 138 nets with zero opens, shorts or via-net disagreements, including after a 0.025 mm copper-edge reduction. Both stencils passed. The revised quote contains 226 placements and 98 assembly BOM lines. F1 and F2 each occupy one fitted position per board.
+The quote files in this section apply to the axial-fuse revision at commit `21ed605`, which used screw terminals. The [direct-wire revision](DIRECT_WIRE_HARNESS.md) supersedes that quote. All 18 project checks passed on the axial-fuse revision. Independent Gerber readback recovered all 138 nets with zero opens, shorts or via-net disagreements, including after a 0.025 mm copper-edge reduction. Both stencils passed. The revised quote contains 226 placements and 98 assembly BOM lines. F1 and F2 each occupy one fitted position per board.
 
 The 18 November PCB Parts snapshot listed 140 units of F1 and 62 units of F2. Five boards need five of each before assembly allowance. Confirm current stock, lead forming and through-hole assembly when obtaining a quote. Four other exact order codes still require sourcing confirmation in that snapshot. The package is for DFM and pricing review. Hardware qualification and fabrication approval remain open.
 

@@ -1563,8 +1563,7 @@
     "source_component_id": "source_component_0",
     "ftype": "simple_chip",
     "name": "J1",
-    "manufacturer_part_number": "1711725",
-    "display_name": "DC input, 2 poles",
+    "display_name": "48 V DC input, solder wires",
     "source_group_id": "source_group_0"
   },
   {
@@ -8182,8 +8181,7 @@
     "source_component_id": "source_component_125",
     "ftype": "simple_chip",
     "name": "J2",
-    "manufacturer_part_number": "1711738",
-    "display_name": "Motor U/V/W",
+    "display_name": "Motor U/V/W, solder wires",
     "source_group_id": "source_group_0"
   },
   {
@@ -14291,8 +14289,7 @@
     "source_component_id": "source_component_235",
     "ftype": "simple_chip",
     "name": "J11",
-    "manufacturer_part_number": "1711725",
-    "display_name": "External braking resistor, 2 poles",
+    "display_name": "Brake resistor, solder wires",
     "source_group_id": "source_group_0"
   },
   {
@@ -28082,7 +28079,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_0",
-    "text": "1711725",
+    "text": "",
     "schematic_component_id": "schematic_component_0",
     "anchor": "left",
     "rotation": 0,
@@ -28096,7 +28093,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_1",
-    "text": "DC input, 2 poles",
+    "text": "48 V DC input, solder wires",
     "schematic_component_id": "schematic_component_0",
     "anchor": "left",
     "rotation": 0,
@@ -31603,7 +31600,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_82",
-    "text": "1711738",
+    "text": "",
     "schematic_component_id": "schematic_component_125",
     "anchor": "left",
     "rotation": 0,
@@ -31617,7 +31614,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_83",
-    "text": "Motor U/V/W",
+    "text": "Motor U/V/W, solder wires",
     "schematic_component_id": "schematic_component_125",
     "anchor": "left",
     "rotation": 0,
@@ -34812,7 +34809,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_160",
-    "text": "1711725",
+    "text": "",
     "schematic_component_id": "schematic_component_235",
     "anchor": "left",
     "rotation": 0,
@@ -34826,7 +34823,7 @@
   {
     "type": "schematic_text",
     "schematic_text_id": "schematic_text_161",
-    "text": "External braking resistor, 2 poles",
+    "text": "Brake resistor, solder wires",
     "schematic_component_id": "schematic_component_235",
     "anchor": "left",
     "rotation": 0,

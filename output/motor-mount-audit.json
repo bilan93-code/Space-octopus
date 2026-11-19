@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "sourceModel": "output/space-octopus.glb",
-  "sourceModelSha256": "fd8076742fe8414221247f39f6185a55f44c06f9998c977b1983cb2d56cafe5a",
+  "sourceModelSha256": "0060040db8e769d630d014c97ea1fa1b04128b97647b97c1afd866eafa7325f9",
   "maximumOutwardProtrusionMm": 43,
   "capToHighestModeledPartMm": 51.6,
   "provisionalGapMm": 7,
@@ -36,28 +36,13 @@
     {
       "name": "Bare solder jumper has no invented component body",
       "passed": true
+    },
+    {
+      "name": "Direct-solder wire terminals have no connector bodies",
+      "passed": true
     }
   ],
   "components": [
-    {
-      "ref": "J1",
-      "face": "top",
-      "modelBounds": {
-        "min": [
-          43.032,
-          -4.2,
-          -5.655
-        ],
-        "max": [
-          54.232,
-          18.8,
-          5.075
-        ]
-      },
-      "protrusionMm": 18,
-      "motorFacingProtrusionMm": 3.4000000000000004,
-      "motorClearanceMm": 3.5999999999999996
-    },
     {
       "ref": "F1",
       "face": "top",
@@ -2244,25 +2229,6 @@
       "motorClearanceMm": 7
     },
     {
-      "ref": "J2",
-      "face": "top",
-      "modelBounds": {
-        "min": [
-          -35.968,
-          -4.2,
-          -39.695
-        ],
-        "max": [
-          -24.768,
-          18.8,
-          -23.885
-        ]
-      },
-      "protrusionMm": 18,
-      "motorFacingProtrusionMm": 3.4000000000000004,
-      "motorClearanceMm": 3.5999999999999996
-    },
-    {
       "ref": "U7",
       "face": "bottom",
       "modelBounds": {
@@ -4047,25 +4013,6 @@
       "protrusionMm": 6.5,
       "motorFacingProtrusionMm": 1.9999999999999998,
       "motorClearanceMm": 5
-    },
-    {
-      "ref": "J11",
-      "face": "top",
-      "modelBounds": {
-        "min": [
-          25.032,
-          -4.2,
-          -40.455
-        ],
-        "max": [
-          36.232,
-          18.8,
-          -29.724999999999998
-        ]
-      },
-      "protrusionMm": 18,
-      "motorFacingProtrusionMm": 3.4000000000000004,
-      "motorClearanceMm": 3.5999999999999996
     },
     {
       "ref": "D2",

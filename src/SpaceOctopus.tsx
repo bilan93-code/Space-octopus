@@ -22,8 +22,9 @@ function Component({part:p,index,chipIndex}:{part:Part;index:number;chipIndex:nu
  const schY=major ? 17-Math.floor(chipIndex/5)*14 : -10-Math.floor(index/9)*6;
  const footprint=<ImportedFootprint data={fp} refdes={p.ref} hideReference={p.kind==='hole'}/>;
  const connections=Object.fromEntries(Object.entries(p.pins).filter(([,n])=>n!==null).map(([pin,net])=>[`pin${pin}`,`net.${net}`]));
- const cadModel=p.dnp||p.ref==='JP701'||['hole','fiducial','testpoint'].includes(p.kind)?null:(cadModels as Record<string,any>)[p.footprint];
- const common={name:p.ref,footprint,cadModel,pinAttributes:pinAttributesFor(p),pcbX:loc.x,pcbY:loc.y,pcbRotation:loc.rotation,layer:loc.layer,schX,schY,connections,doNotPlace:p.dnp};
+ const omitAssembly=p.dnp||p.assembly==='wire-termination';
+ const cadModel=omitAssembly||p.ref==='JP701'||['hole','fiducial','testpoint'].includes(p.kind)?null:(cadModels as Record<string,any>)[p.footprint];
+ const common={name:p.ref,footprint,cadModel,pinAttributes:pinAttributesFor(p),pcbX:loc.x,pcbY:loc.y,pcbRotation:loc.rotation,layer:loc.layer,schX,schY,connections,doNotPlace:omitAssembly};
  if(p.kind==='resistor')return <resistor {...common} resistance={electricalValue(p.value)} />;
  if(p.kind==='capacitor'&&!p.pinLabels['1'])return <capacitor {...common} capacitance={electricalValue(p.value)} />;
  return <chip {...common} manufacturerPartNumber={p.mpn} displayName={p.value}

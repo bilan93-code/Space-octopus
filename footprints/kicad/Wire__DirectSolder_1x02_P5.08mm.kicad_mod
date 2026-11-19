@@ -1,0 +1,11 @@
+(footprint "DirectSolder_1x02_P5.08mm"
+  (version 20241229)
+  (generator "space_octopus")
+  (layer "F.Cu")
+  (descr "Direct solder wire terminations. 5.08 mm pitch; 1.80 mm finished plated holes; 2.60 mm copper lands. Square pad is pin 1. Keep 4.6 mm wide on top for soldering and insulated wire exits. Provide off-board strain relief.")
+  (attr through_hole exclude_from_pos_files exclude_from_bom)
+  (property "Reference" "REF**" (at 2.54 -3.5) (layer "F.SilkS") (effects (font (size 0.8 0.8) (thickness 0.12))))
+  (fp_rect (start -2.30 -2.30) (end 7.38 2.30) (stroke (width 0.05) (type solid)) (fill none) (layer "F.CrtYd"))
+  (pad "1" thru_hole roundrect (at 0 0) (size 2.6 2.6) (drill 1.8) (layers "*.Cu" "*.Mask") (roundrect_rratio 0.096154) (remove_unused_layers no))
+  (pad "2" thru_hole circle (at 5.08 0) (size 2.6 2.6) (drill 1.8) (layers "*.Cu" "*.Mask") (remove_unused_layers no))
+)

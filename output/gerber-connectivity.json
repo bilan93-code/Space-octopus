@@ -1,10 +1,10 @@
 {
-  "sourceSha256": "ff1e48f2960bccf378bcd8dab0480bd3c0c3b5b4138d2fc547490f8275391db6",
+  "sourceSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
   "copperFilesSha256": {
-    "F_Cu": "3abf2233f30388d545c3c87e71b82deca0c0ed108a799a46f822112e68a70477",
-    "In1_Cu": "b84117557e93005299d6d345c028936d3f253e1734c65434e02ddfb9685e6e01",
-    "In2_Cu": "159c70dda91565d04027d11d3063030336c36f927bd4934085d507ae97fd5c8f",
-    "B_Cu": "25ea005c306e6dcddcd6590aff7d77d5820764b473a0ac114fb074a6c891ee50"
+    "F_Cu": "8a8e18a2f7df6b298027c6d8450bf574d8232da5ab085917b1900d9f8a160d95",
+    "In1_Cu": "0f93af09dee00ca78d3e0e0357616d5ab75f6ff8d7334bfbc4c9643e162bdc4b",
+    "In2_Cu": "e37f65edc268f5b6e34cc39d3b1608b828ffbe583df8dbb834d4f47b3e3ddf9c",
+    "B_Cu": "92b544e2f32dd7861388f481b1c9ba61ee381d89aa376786af468fa26af9b840"
   },
   "reader": "Gerbonara 1.6.3, RS-274X geometry with artwork polarity and plated drill spans",
   "edgeLossMm": 0,

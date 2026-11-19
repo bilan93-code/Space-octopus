@@ -1,8 +1,8 @@
 # Space Octopus actuator PCB — tscircuit stage
 
-The 19 November 2026 revision of the 112 mm motor-drive PCB fits a directly soldered 20 A input fuse at F1 and a directly soldered 15 A braking fuse at F2. It uses the Bota prototype from commit `79d4fc1` as its baseline. Fuse coordination, assembler fit and manufacturing release remain open.
+The 19 November 2026 revision replaces the DC input, motor phase and braking resistor screw terminals with seven direct-solder wire lands. It builds on the soldered-fuse design at commit `21ed605`. The harness and its chassis supports require qualification for the intended vacuum and vibration environment.
 
-[Soldered fuse selection and layout](docs/SOLDERED_FUSES.md) · [Integration assumptions](docs/BOTA_PROTOTYPE.md) · [Connected schematic](output/Space_Octopus_Connected_Schematic.pdf) · [Five-board parts and dated stock](output/prototype/five-board-stock-soldered.csv)
+[Wire assignments and harness requirements](docs/DIRECT_WIRE_HARNESS.md) · [Fuse selection](docs/SOLDERED_FUSES.md) · [Connected schematic](output/Space_Octopus_Connected_Schematic.pdf) · [Five-board parts and dated stock](output/prototype/five-board-stock-wire-terminations.csv)
 
 Rebuild the current layout with `npm ci` and `npm run build`. Run `npm run simulate:bota` for the sensor supply study. The GLB export runs with `npm run export:3d`.
 

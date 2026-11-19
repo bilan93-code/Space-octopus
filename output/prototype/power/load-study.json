@@ -35,7 +35,7 @@
     "maximum": 9.361574909090908,
     "basis": "In regulation with 1% divider resistors and 0.588–0.612 V reference. A 60 nA ADJ bias allowance uses the datasheet test condition. Startup, dropout and component faults are outside this calculation."
   },
-  "circuitSha256": "ff1e48f2960bccf378bcd8dab0480bd3c0c3b5b4138d2fc547490f8275391db6",
+  "circuitSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
   "settings": {
     "busMaxV": 54,
     "busMinV": 42,

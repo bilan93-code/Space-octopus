@@ -12,7 +12,11 @@ The circular 112 mm motor PCB supplies 9 V to the Bota BTS-T300-CAT. A dedicated
 | J5 or J6 → robot CAN interface | Setpoints and drive status. Both ports share one CAN bus. Terminate the two physical bus ends. |
 | J4 → FLUX encoder | Board and harness pin numbers match. Pins 1/2 supply power, 7/8 carry clock, 9/10 carry data and 11 carries the shield. Pins 3–6 are unused. Secure the unkeyed connector. |
 | J9 → service tool | 3.3 V UART. |
-| J11 → external brake resistor | Mount the pulse-rated element on its specified heatsink. |
+| J1 → DC supply | Solder positive to pad 1 and return to pad 2. |
+| J2 → motor | Solder U, V and W to pads 1, 2 and 3. |
+| J11 → external brake resistor | Solder the resistor leads to pads 1 and 2. Mount the pulse-rated element on its specified heatsink. |
+
+[Direct-solder harness fit and support](DIRECT_WIRE_HARNESS.md)
 
 ## Sensor supply
 
@@ -48,7 +52,7 @@ Use a horizontal test fixture, 10 rpm maximum output speed, up to 220 N·m braki
 
 ## Ordering and release
 
-Order the Bota sensor, mating harness, Ethernet breakout and external brake resistor separately from JLCPCB assembly. The PCB Parts stock sheet covers installed motor-drive components, including the two soldered axial fuses. Qty for five is the engineering minimum. JLCPCB determines loading allowance and through-hole assembly support.
+Order the Bota sensor, mating harness, Ethernet breakout and external brake resistor separately from JLCPCB assembly. The current PCB Parts stock sheet covers fitted motor-drive components, including the two soldered axial fuses. Qty for five is the engineering minimum. JLCPCB determines loading allowance and through-hole assembly support.
 
 Verify F1/F2 inrush, braking pulses, hot derating and DC interruption, D2/D3–D5 pin assignments, the C5 case, FLUX startup demand on F3, the 48 V source and actual thermal load before assembly release. Qualify the gate-driver vias and stencil with the assembler. Independent copper connectivity, electrical function, thermal qualification and stock each need their own passing result.
 

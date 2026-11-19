@@ -7,13 +7,13 @@
   "parts": [
     {
       "ref": "J1",
-      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
-      "mpn": "1711725",
+      "footprint": "Wire/DirectSolder_1x02_P5.08mm",
+      "mpn": null,
       "physicalCopperPads": 2,
       "logicalPins": 2,
       "manufacturerReviewPending": true,
-      "openItem": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
-      "bodyModel": "stock KiCad package-family model"
+      "openItem": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
+      "bodyModel": "bare PCB feature"
     },
     {
       "ref": "F1",
@@ -1257,13 +1257,13 @@
     },
     {
       "ref": "J2",
-      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-3-5.08_1x03_P5.08mm_Horizontal",
-      "mpn": "1711738",
+      "footprint": "Wire/DirectSolder_1x03_P5.08mm",
+      "mpn": null,
       "physicalCopperPads": 3,
       "logicalPins": 3,
       "manufacturerReviewPending": true,
-      "openItem": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
-      "bodyModel": "stock KiCad package-family model"
+      "openItem": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
+      "bodyModel": "bare PCB feature"
     },
     {
       "ref": "U21",
@@ -2357,13 +2357,13 @@
     },
     {
       "ref": "J11",
-      "footprint": "TerminalBlock_Phoenix/TerminalBlock_Phoenix_MKDS-3-2-5.08_1x02_P5.08mm_Horizontal",
-      "mpn": "1711725",
+      "footprint": "Wire/DirectSolder_1x02_P5.08mm",
+      "mpn": null,
       "physicalCopperPads": 2,
       "logicalPins": 2,
       "manufacturerReviewPending": true,
-      "openItem": "Compact Phoenix Contact MKDS 3 terminal candidate. Confirm exact ordering code, >=100 Vdc/current ratings, wire size and manufacturer drawing before fabrication. Land pattern follows the installed KiCad library.",
-      "bodyModel": "stock KiCad package-family model"
+      "openItem": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
+      "bodyModel": "bare PCB feature"
     },
     {
       "ref": "D2",
@@ -2601,6 +2601,6 @@
     "Exact DRV8353 RTA, FLUX cable mapping for J4, provisional diode pinouts and remaining open component choices require manufacturer review.",
     "Direct manufacturer access remains blocked. Archived manufacturer PDFs now verify the targeted Rubycon bulk selection and TI TPS3431 pins/timing/copper; other unresolved drawings are not claimed verified.",
     "The new JST GH candidates change the provisional XH mating harness. Verify exact mating parts and current/voltage ratings.",
-    "Phoenix MKDS 3 terminal families are candidates; exact ordering codes, wire ratings and the >=100 Vdc requirement are unconfirmed."
+    "J1, J2 and J11 have direct-solder wire lands. Verify harness fit, soldering, current capacity and external strain relief."
   ]
 }

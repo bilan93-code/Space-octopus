@@ -10263,22 +10263,12 @@
     {
       "chipId": "schematic_component_0",
       "center": {
-        "x": -136.92919999999998,
-        "y": -7.855999999999999
-      },
-      "width": 0.705600000000004,
-      "height": 0.17999999999999972,
-      "text": "1711725"
-    },
-    {
-      "chipId": "schematic_component_0",
-      "center": {
-        "x": -136.589,
+        "x": -136.18849999999998,
         "y": -6.411
       },
-      "width": 1.5060000000000002,
+      "width": 2.3070000000000164,
       "height": 0.2499999999999991,
-      "text": "DC input, 2 poles"
+      "text": "48 V DC input, solder wires"
     },
     {
       "chipId": "schematic_component_1",
@@ -10963,22 +10953,12 @@
     {
       "chipId": "schematic_component_125",
       "center": {
-        "x": 84.2708,
-        "y": -103.318
-      },
-      "width": 0.705600000000004,
-      "height": 0.18000000000000682,
-      "text": "1711738"
-    },
-    {
-      "chipId": "schematic_component_125",
-      "center": {
-        "x": 84.43369999999999,
+        "x": 84.9647,
         "y": -101.57300000000001
       },
-      "width": 1.1514000000000095,
+      "width": 2.213400000000007,
       "height": 0.2500000000000142,
-      "text": "Motor U/V/W"
+      "text": "Motor U/V/W, solder wires"
     },
     {
       "chipId": "schematic_component_126",
@@ -11703,22 +11683,12 @@
     {
       "chipId": "schematic_component_235",
       "center": {
-        "x": -86.5292,
-        "y": -105.29599999999998
-      },
-      "width": 0.705600000000004,
-      "height": 0.18000000000000682,
-      "text": "1711725"
-    },
-    {
-      "chipId": "schematic_component_235",
-      "center": {
-        "x": -85.56710000000001,
+        "x": -85.79480000000001,
         "y": -103.851
       },
-      "width": 2.7498000000000076,
+      "width": 2.29440000000001,
       "height": 0.2500000000000142,
-      "text": "External braking resistor, 2 poles"
+      "text": "Brake resistor, solder wires"
     },
     {
       "chipId": "schematic_component_236",

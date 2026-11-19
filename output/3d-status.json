@@ -1,8 +1,8 @@
 {
   "source": "tscircuit Circuit JSON",
-  "sourceCircuitSha256": "ff1e48f2960bccf378bcd8dab0480bd3c0c3b5b4138d2fc547490f8275391db6",
-  "cadComponents": 226,
-  "withStepModel": 226,
+  "sourceCircuitSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "cadComponents": 223,
+  "withStepModel": 223,
   "placeholderCount": 0,
   "representativeBodies": [
     "Y1",
