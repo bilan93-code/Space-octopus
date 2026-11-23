@@ -4,7 +4,7 @@ The 23 November 2026 revision builds on the direct-wire actuator PCB at `4579c77
 
 [Power and brake connections](docs/POWER_AND_BRAKE.md) · [Wire assignments and harness requirements](docs/DIRECT_WIRE_HARNESS.md) · [Connected schematic](output/Space_Octopus_Connected_Schematic.pdf) · [Five-board sourcing snapshot](output/prototype/five-board-stock-upstream-fuse-smd-brake.csv)
 
-[JLCPCB DFM handoff](output/jlcpcb-bota-upstream-fuse-smd-brake/Space-Octopus-JLCPCB-DFM-handoff.zip) · [Top 3D view of F2](output/Space-Octopus-20261123-SMD-brake-top.png) · [Copper-path verification](output/power-backbone-audit.json)
+[JLCPCB DFM handoff](output/jlcpcb-bota-upstream-fuse-smd-brake/Space-Octopus-JLCPCB-DFM-handoff.zip) · [JLCPCB component placement list (CSV)](output/jlcpcb-bota-upstream-fuse-smd-brake/JLCPCB-CPL-quote.csv) · [Top 3D view of F2](output/Space-Octopus-20261123-SMD-brake-top.png) · [Copper-path verification](output/power-backbone-audit.json)
 
 The JLCPCB bundle is for a DFM and price quote. Final F2 selection, including its land pattern and DC fault interruption, and the separate resistor assembly's pulse and thermal ratings require verification before release.
 
