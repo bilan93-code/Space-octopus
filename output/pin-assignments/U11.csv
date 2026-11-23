@@ -1,0 +1,7 @@
+"Pin","Label","Net"
+"1","A","FAULT_LATCH_OK"
+"2","GND","GND"
+"3","B","MCU_RUN"
+"4","Y","PWM_OE_N"
+"5","VCC","V3V3"
+"6","C","PERMIT_OK"

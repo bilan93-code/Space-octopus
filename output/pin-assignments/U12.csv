@@ -1,0 +1,7 @@
+"Pin","Label","Net"
+"1","/RESET","RESET_N"
+"2","GND","GND"
+"3","/MR","RESET_MR_N"
+"4","CT","NC"
+"5","SENSE","V3V3"
+"6","VDD","V3V3"

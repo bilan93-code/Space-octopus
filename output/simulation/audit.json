@@ -1,0 +1,349 @@
+{
+  "status": "passed",
+  "source": "output/space-octopus.circuit.json",
+  "sourceSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
+  "engine": "eecircuit-engine 1.9.0 / ngspice 45.2; local WASM; tscircuit Circuit JSON → circuit-json-to-spice → tscircuit simulation graphs",
+  "benches": [
+    {
+      "name": "bus-divider-dc",
+      "refs": [
+        "R504",
+        "R505",
+        "R506",
+        "C504"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "VBUS",
+        "v(n2)": "VBUS_DIV_MID",
+        "v(n3)": "VBUS_SENSE"
+      },
+      "analysis": ".dc VINPUT 0 65.1 0.1",
+      "points": 651,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "v(v-sweep)"
+    },
+    {
+      "name": "bus-divider-step",
+      "refs": [
+        "R504",
+        "R505",
+        "R506",
+        "C504"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "VBUS",
+        "v(n2)": "VBUS_DIV_MID",
+        "v(n3)": "VBUS_SENSE"
+      },
+      "analysis": ".tran 0.05u 100u",
+      "points": 2048,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "time"
+    },
+    {
+      "name": "iu_adc-step",
+      "refs": [
+        "R501",
+        "C501"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "IU_RAW",
+        "v(n2)": "IU_ADC"
+      },
+      "analysis": ".tran 0.5n 500n",
+      "points": 1022,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "time"
+    },
+    {
+      "name": "iv_adc-step",
+      "refs": [
+        "R502",
+        "C502"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "IV_RAW",
+        "v(n2)": "IV_ADC"
+      },
+      "analysis": ".tran 0.5n 500n",
+      "points": 1022,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "time"
+    },
+    {
+      "name": "iw_adc-step",
+      "refs": [
+        "R503",
+        "C503"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "IW_RAW",
+        "v(n2)": "IW_ADC"
+      },
+      "analysis": ".tran 0.5n 500n",
+      "points": 1022,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "time"
+    },
+    {
+      "name": "brake-off-threshold",
+      "refs": [
+        "R901",
+        "R902",
+        "R903",
+        "R904",
+        "R905"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "VBUS",
+        "v(n2)": "BRAKE_DIV_MID",
+        "v(n3)": "BRAKE_SENSE",
+        "v(n4)": "BRAKE_ON",
+        "v(n5)": "V3V3"
+      },
+      "analysis": ".dc VBUS 0 70 0.05",
+      "points": 1401,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "v(v-sweep)"
+    },
+    {
+      "name": "brake-on-threshold",
+      "refs": [
+        "R901",
+        "R902",
+        "R903",
+        "R904",
+        "R905"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "VBUS",
+        "v(n2)": "BRAKE_DIV_MID",
+        "v(n3)": "BRAKE_SENSE",
+        "v(n4)": "BRAKE_ON",
+        "v(n5)": "V3V3"
+      },
+      "analysis": ".dc VBUS 0 70 0.05",
+      "points": 1401,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "v(v-sweep)"
+    },
+    {
+      "name": "bus-filter-ac",
+      "refs": [
+        "R504",
+        "R505",
+        "R506",
+        "C504"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "VBUS",
+        "v(n2)": "VBUS_DIV_MID",
+        "v(n3)": "VBUS_SENSE"
+      },
+      "analysis": ".ac dec 40 164.46010786162523 1644601.0786162522",
+      "points": 161,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "frequency"
+    },
+    {
+      "name": "current-filter-ac",
+      "refs": [
+        "R501",
+        "C501"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "IU_RAW",
+        "v(n2)": "IU_ADC"
+      },
+      "analysis": ".ac dec 40 33862.75384933943 338627538.4933943",
+      "points": 161,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "frequency"
+    },
+    {
+      "name": "board-ntc-nominal-sweep",
+      "refs": [
+        "R516",
+        "R518",
+        "C510"
+      ],
+      "labels": {
+        "v(0)": "GND",
+        "v(n1)": "VDDA3V3",
+        "v(n2)": "NTC_BOARD_RAW",
+        "v(n3)": "NTC_BOARD_ADC"
+      },
+      "analysis": ".dc VTEMP 0 126 1",
+      "points": 127,
+      "engine": "ngspice-45.2, Build Sat Oct 24 23:49:49 UTC 2026",
+      "axis": "v(v-sweep)"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Bus divider at 0 V",
+      "actual": 0,
+      "expected": 0,
+      "tolerance": 0.000001,
+      "passed": true
+    },
+    {
+      "name": "Bus divider at 48 V",
+      "actual": 1.5483870967741935,
+      "expected": 1.5483870967741935,
+      "tolerance": 0.000001,
+      "passed": true
+    },
+    {
+      "name": "Bus divider at 65 V",
+      "actual": 2.0967741935483875,
+      "expected": 2.096774193548387,
+      "tolerance": 0.000001,
+      "passed": true
+    },
+    {
+      "name": "Bus filter at one time constant",
+      "actual": 0.9787372436138674,
+      "expected": 0.9787673168958312,
+      "tolerance": 0.001,
+      "passed": true
+    },
+    {
+      "name": "IU_ADC at one time constant",
+      "actual": 1.8712288099181338,
+      "expected": 1.8712421955899952,
+      "tolerance": 0.0003,
+      "passed": true
+    },
+    {
+      "name": "IU_ADC settled",
+      "actual": 1.9999896170646128,
+      "expected": 2,
+      "tolerance": 0.0001,
+      "passed": true
+    },
+    {
+      "name": "IV_ADC at one time constant",
+      "actual": 1.8712288099181338,
+      "expected": 1.8712421955899952,
+      "tolerance": 0.0003,
+      "passed": true
+    },
+    {
+      "name": "IV_ADC settled",
+      "actual": 1.9999896170646128,
+      "expected": 2,
+      "tolerance": 0.0001,
+      "passed": true
+    },
+    {
+      "name": "IW_ADC at one time constant",
+      "actual": 1.8712288099181338,
+      "expected": 1.8712421955899952,
+      "tolerance": 0.0003,
+      "passed": true
+    },
+    {
+      "name": "IW_ADC settled",
+      "actual": 1.9999896170646128,
+      "expected": 2,
+      "tolerance": 0.0001,
+      "passed": true
+    },
+    {
+      "name": "Brake off threshold",
+      "actual": 57.57443458345262,
+      "expected": 57.574434583452636,
+      "tolerance": 0.00001,
+      "passed": true
+    },
+    {
+      "name": "Brake on threshold",
+      "actual": 55.590466647580875,
+      "expected": 55.59046664758089,
+      "tolerance": 0.00001,
+      "passed": true
+    },
+    {
+      "name": "Brake hysteresis has correct direction",
+      "actual": 1,
+      "expected": 1,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "name": "bus-filter-ac cutoff amplitude",
+      "actual": 0.022809896167307983,
+      "expected": 0.022809896167307983,
+      "tolerance": 0.000003225806451612903,
+      "passed": true
+    },
+    {
+      "name": "bus-filter-ac cutoff phase",
+      "actual": -45.00000000000001,
+      "expected": -45,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "name": "current-filter-ac cutoff amplitude",
+      "actual": 0.7071067811865475,
+      "expected": 0.7071067811865475,
+      "tolerance": 0.0001,
+      "passed": true
+    },
+    {
+      "name": "current-filter-ac cutoff phase",
+      "actual": -45.00000000000001,
+      "expected": -45,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    {
+      "name": "Nominal board NTC at 0 C",
+      "actual": 2.4473813453829454,
+      "expected": 2.4473813453829467,
+      "tolerance": 0.00001,
+      "passed": true
+    },
+    {
+      "name": "Nominal board NTC at 25 C",
+      "actual": 1.65,
+      "expected": 1.65,
+      "tolerance": 0.00001,
+      "passed": true
+    },
+    {
+      "name": "Nominal board NTC at 80 C",
+      "actual": 0.4704023383593192,
+      "expected": 0.4704023383593185,
+      "tolerance": 0.00001,
+      "passed": true
+    },
+    {
+      "name": "Nominal board NTC at 125 C",
+      "actual": 0.17314645558444905,
+      "expected": 0.17314645558444883,
+      "tolerance": 0.00001,
+      "passed": true
+    }
+  ],
+  "brakeThresholdsV": {
+    "off": 57.57443458345262,
+    "on": 55.590466647580875
+  },
+  "limitations": [
+    "Extracted passive networks use ideal voltage sources and nominal linear components.",
+    "Brake thresholds use forced ideal output states and a 2.5 V reference, not a validated comparator or gate-driver model.",
+    "No complete inverter, firmware, motor, thermal, parasitic, EMC, tolerance or ADC sample-and-hold qualification."
+  ]
+}

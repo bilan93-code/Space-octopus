@@ -1,0 +1,13 @@
+* Circuit JSON to SPICE Netlist
+RR901 N1 N2 150K
+RR902 N2 N3 150K
+RR903 N3 0 14K
+RR904 N4 N3 499K
+RR905 N5 N4 2.2K
+VBUS N1 0 0
+VRAIL N5 0 3.3
+VSTATE N4 0 0
+.options reltol=1e-8 abstol=1e-13 vntol=1e-9
+.dc VBUS 0 70 0.05
+.save v(N3)
+.end

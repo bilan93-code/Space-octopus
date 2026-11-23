@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "captureAndPlacementStatus": "passed",
+  "components": 258,
+  "nets": 137,
+  "sheets": 9,
+  "pcbRouted": true,
+  "pcbTraceCount": 10046,
+  "fullyConnectedNets": 137,
+  "unconnectedNetCount": 0,
+  "nativeDiagnosticCount": 0,
+  "outerDiameterMm": 112,
+  "nominalMotorDimensionsSourced": true,
+  "centralOpeningDiameterMm": 28,
+  "mechanicalFitConfirmed": false,
+  "errors": [],
+  "notes": "Capture and placement are checked separately from native DRC and copper connectivity. Planning courtyard spacing is not a voltage-clearance rule."
+}

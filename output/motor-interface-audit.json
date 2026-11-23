@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "nominalInterface": {
+    "housingOD": 112,
+    "boltPCD": 104,
+    "holeDiameter": 4.5,
+    "angles": [
+      30,
+      90,
+      150,
+      210,
+      270,
+      330
+    ],
+    "shaftOD": 12,
+    "locknutOD": 19,
+    "shoulderOpening": 28,
+    "rearCapEndZ": 105,
+    "boltEndZ": 109,
+    "shaftEndZ": 120
+  },
+  "pcbOpeningMm": 28,
+  "openingStatus": "proposed from motor shoulder opening; encoder support and axial fit pending",
+  "assemblyFitVerified": false,
+  "source": {
+    "file": "docs/Motor_Gmsh_Elmer_Design_Study.pdf",
+    "pages": [
+      4,
+      10,
+      39
+    ],
+    "sha256": "f04ac9da74e270cb2efcde3277e0c9470054f6449f0b17a1911a62a286dbc9ab"
+  },
+  "errors": []
+}

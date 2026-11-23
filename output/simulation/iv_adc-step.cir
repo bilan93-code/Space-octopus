@@ -1,0 +1,8 @@
+* Circuit JSON to SPICE Netlist
+RR502 N1 N2 47
+CC502 N2 0 1N
+VINPUT N1 0 PULSE(1.65 2 10n 0.01n 0.01n 2u 4u)
+.options reltol=1e-8 abstol=1e-13 vntol=1e-9
+.tran 0.5n 500n
+.save v(N2)
+.end

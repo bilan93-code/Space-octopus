@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "adapterSha256": "08ba753555197323a50435b8417ec6b988e2cdaaa057a08480b9b0973251bc6a",
+  "method": "Export nested polygons with a thin containing ring. Evaluate dark/clear Gerber regions at three physical points. Outer-ring ordering must preserve the island and the clearance hole.",
+  "results": {
+    "original": {
+      "nestedIsland": false,
+      "clearanceHole": false,
+      "outerRing": true
+    },
+    "ordered": {
+      "nestedIsland": true,
+      "clearanceHole": false,
+      "outerRing": true
+    }
+  }
+}

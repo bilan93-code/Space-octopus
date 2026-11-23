@@ -1,0 +1,19 @@
+{
+  "package": "@tscircuit/checks",
+  "modules": [
+    {
+      "file": "node_modules/@tscircuit/checks/dist/index.js",
+      "version": "0.0.278",
+      "patchedModuleSha256": "ee9d80f107ae96fd1355c62bd81b28657831d744a160e559a004d07776e4fd4d"
+    },
+    {
+      "file": "node_modules/tscircuit/node_modules/@tscircuit/checks/dist/index.js",
+      "version": "0.0.277",
+      "patchedModuleSha256": "fcf7720ca376d8a7096ea06e40474da705fe447dcb63a6151c2d2064688e00c5"
+    }
+  ],
+  "correction": "Use declared rounded-rectangle through-hole copper in the existing rounded-pad clearance calculation.",
+  "diagnosticsSuppressed": false,
+  "clearanceLimitsChanged": false,
+  "regression": "scripts/check-rounded-pth.ts: passing rounded-corner gaps and real clearance failures at 0, 37 and 90 degrees in both installed checker versions"
+}

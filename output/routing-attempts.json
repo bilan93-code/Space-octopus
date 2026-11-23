@@ -1,0 +1,71 @@
+{
+  "nativeAttemptScope": "Native autorouter attempts apply to the earlier Rev A layout. The outward-facing revision preserves audited copper and uses checked local rerouting.",
+  "localGridFinishing": {
+    "outcome": "Complete verified routing, replayed through the tscircuit custom-router API",
+    "selectedConnectedNets": 137,
+    "selectedOpenNets": 0,
+    "copperClearanceMm": 0.2,
+    "boardAndNpthClearanceMm": 0.5,
+    "configuredGridMm": [
+      0.2,
+      0.1,
+      0.05
+    ],
+    "traceObjects": 10046,
+    "vias": 1451,
+    "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992"
+  },
+  "groundFill": {
+    "engine": "Audited polygon geometry replayed by native CopperPour primitives",
+    "referenceLayer": "inner1",
+    "groundLayers": [
+      "top",
+      "inner1",
+      "bottom"
+    ],
+    "busLayer": "inner2",
+    "clearanceMm": 0.25,
+    "edgeMarginMm": 0.6,
+    "cutoutMarginMm": 0.6,
+    "geometryChecked": true,
+    "groundRegions": 230,
+    "powerRegions": 21,
+    "groundRegionsByLayer": {
+      "top": 97,
+      "inner1": 33,
+      "bottom": 100
+    },
+    "powerRegionsByLayer": {
+      "inner2": 21
+    },
+    "automaticSolverLimitation": "Self-intersecting automatic fill rings required explicit audited BRep regions."
+  },
+  "fabricationReady": false,
+  "motorMountNativeComparisons": {
+    "inputCircuitSha256": "d2c5d89933d14282571dd204fc1f69dc0deeb757c530f710c3212645305dec02",
+    "scope": "Native tscircuit comparison of an intermediate motor-mount layout; mutable copper pours omitted to avoid the upstream Flatten geometry exception. Existing wires and barrels retained.",
+    "rules": {
+      "minimumTraceWidthMm": 0.15,
+      "minimumViaLandMm": 0.4,
+      "minimumViaDrillMm": 0.2,
+      "copperClearanceMm": 0.2,
+      "filledCappedViaInPad": true
+    },
+    "comparisons": [
+      {
+        "pipeline": 5,
+        "solved": false,
+        "failed": true,
+        "error": "Node solver ran out of iterations."
+      },
+      {
+        "pipeline": 9,
+        "solved": false,
+        "failed": true,
+        "error": "Pipeline9 could not promote fixed route source_trace_550_fixed_201_0 into the active regional fallback."
+      }
+    ],
+    "selectedRouting": "Audited custom routing replayed through the tscircuit routing API.",
+    "fabricationReady": false
+  }
+}

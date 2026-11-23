@@ -1,0 +1,11 @@
+* Circuit JSON to SPICE Netlist
+RR516 N1 N2 10K
+RR518 N2 N3 1K
+CC510 N3 0 100N
+VRAIL N1 0 3.3
+VTEMP degrees 0 0
+BNTC N2 0 I={V(N2)/(10000*exp(3435*(1/(V(degrees)+273.15)-1/298.15)))}
+.options reltol=1e-8 abstol=1e-13 vntol=1e-9
+.dc VTEMP 0 126 1
+.save v(N3)
+.end

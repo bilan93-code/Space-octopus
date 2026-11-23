@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
+  "wireLabels": {
+    "J1.1": "DC+",
+    "J1.2": "GND",
+    "J2.1": "U",
+    "J2.2": "V",
+    "J2.3": "W",
+    "J11.1": "BR+",
+    "J11.2": "BR_SW"
+  },
+  "textCount": 156,
+  "artworkPaths": 3232,
+  "minimumCheckedMaskClearanceMm": 0.2,
+  "errors": [],
+  "limitations": "Text reservations are conservative boxes. Native KiCad DRC separately checks actual stroke-font geometry."
+}

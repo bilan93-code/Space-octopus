@@ -1,0 +1,299 @@
+{
+  "status": "passed",
+  "sourceCircuitSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
+  "checks": [
+    {
+      "name": "C1 selected Rubycon row",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C1 polarity and outward face",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C1 7.5mm lead pitch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C1 holes accommodate nominal 0.8mm leads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C1 maximum body to neighbor clearance",
+      "passed": true,
+      "detail": {
+        "minimum_mm": 0.42473950078654504,
+        "neighbor": "J3"
+      }
+    },
+    {
+      "name": "C1 maximum body inside board",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C1 maximum body clears central opening",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C2 selected Rubycon row",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C2 polarity and outward face",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C2 7.5mm lead pitch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C2 holes accommodate nominal 0.8mm leads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C2 maximum body to neighbor clearance",
+      "passed": true,
+      "detail": {
+        "minimum_mm": 0.4108133849362255,
+        "neighbor": "R901"
+      }
+    },
+    {
+      "name": "C2 maximum body inside board",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C2 maximum body clears central opening",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C3 selected Rubycon row",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C3 polarity and outward face",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C3 7.5mm lead pitch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C3 holes accommodate nominal 0.8mm leads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C3 maximum body to neighbor clearance",
+      "passed": true,
+      "detail": {
+        "minimum_mm": 0.7500000000000001,
+        "neighbor": "L101"
+      }
+    },
+    {
+      "name": "C3 maximum body inside board",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C3 maximum body clears central opening",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C4 selected Rubycon row",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C4 polarity and outward face",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C4 7.5mm lead pitch",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C4 holes accommodate nominal 0.8mm leads",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C4 maximum body to neighbor clearance",
+      "passed": true,
+      "detail": {
+        "minimum_mm": 0.4610679118749255,
+        "neighbor": "C201"
+      }
+    },
+    {
+      "name": "C4 maximum body inside board",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "C4 maximum body clears central opening",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI ordering addendum exact watchdog code",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI Table 5-1 physical pin labels",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Watchdog fixed-200ms wiring",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "10k CWD pullup inside manufacturer 9..11k recommendation",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 1 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 2 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 3 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 4 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 5 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 6 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 7 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A pad 8 dimensions and position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI DRB0008A central exposed land",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI exposed-land extension -0.325,-1.1875",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI exposed-land extension -0.325,1.1875",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI exposed-land extension 0.325,-1.1875",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "TI exposed-land extension 0.325,1.1875",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Manufacturer conservative ripple screen meets 12Arms target",
+      "passed": true,
+      "detail": 14.822399999999998
+    },
+    {
+      "name": "3D model reserves maximum can dimensions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "3D model preserves lead pitch and motor-side trim",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "bulk": {
+    "nominal_total_uF": 3280.0,
+    "total_with_tolerance_uF": [
+      2624.0,
+      3935.9999999999995
+    ],
+    "rated_bank_ripple_A_conservative": 14.822399999999998,
+    "target_A": 12,
+    "nominal_margin_percent": 23.519999999999985,
+    "maximum_per_part_current_for_screen_A": 3.7055999999999996,
+    "energy_at_54V_J": 4.78224,
+    "maximum_energy_at_54V_with_cap_tolerance_J": 5.738687999999999,
+    "bleeder_22k_time_constant_s": 72.16,
+    "bleeder_48V_to_5V_s": 163.20882518586873,
+    "maximum_bleeder_48V_to_5V_s_with_cap_tolerance": 195.85059022304245,
+    "precharge_cap_current_at_0p5V_per_ms_max_A": 1.9679999999999997,
+    "initial_1A_test_cap_current_at_0p1V_per_ms_max_A": 0.39359999999999995,
+    "outward_body_envelope_mm": 43,
+    "outward_clearance_with_reserved_vent_space_mm": 46
+  },
+  "watchdog": {
+    "mpn": "TPS3431SDRBR",
+    "timeout_ms": [
+      170,
+      200,
+      230
+    ],
+    "heartbeat_proposed_max_interval_ms": 50,
+    "open_drain_fault_output": true,
+    "electrical_and_copper_land_review": "passed",
+    "stencil_process": "assembler review remains required"
+  },
+  "fabricationReady": false,
+  "live_stock_verified": false,
+  "limitations": [
+    "Manufacturer PDFs were obtained from archived public copies, not current manufacturer-host responses.",
+    "Ripple screen assumes frequency-weighted currents and adequate sharing; measure individual capacitor heating and low-frequency regeneration.",
+    "The 1mm seating allowance and 3mm reserved vent space are assembly constraints, not a claim that the existing enclosure fits.",
+    "LCSC catalogue capacitor lead/packing suffix and watchdog sourcing require order confirmation.",
+    "Full-system current, thermal, fault, vibration and production paste/DFM qualification remain open."
+  ]
+}

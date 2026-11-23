@@ -8,6 +8,18 @@ The 23 November 2026 revision builds on the direct-wire actuator PCB at `4579c77
 
 The JLCPCB bundle is for a DFM and price quote. Final F2 selection, including its land pattern and DC fault interruption, and the separate resistor assembly's pulse and thermal ratings require verification before release.
 
+## Drawings and verification
+
+| Document | Files |
+| --- | --- |
+| Electrical schematics | [Connected drawing](output/Space_Octopus_Connected_Schematic.pdf) · [Nine-sheet PDF](output/Space_Octopus_RevA_Schematics.pdf) · [Pin assignments](output/pin-assignments/) |
+| Mechanical interface | [Dimensioned PCB outline](output/Motor112_PCB_Interface.pdf) · [Motor mounting drawing](output/Motor112_Mounting_Concept.pdf) |
+| Board layout | [Top](output/pcb-placement.png) · [Bottom](output/pcb-bottom.png) · [3D model](output/space-octopus.glb) |
+| Fabrication and assembly | [JLCPCB quote package, BOM, placement file and notes](output/jlcpcb-bota-upstream-fuse-smd-brake/) |
+| Engineering evidence | [Status and qualification items](docs/TSCIRCUIT_STATUS.md) · [18 design checks](output/validation-results.json) · [Gerber connectivity](output/gerber-connectivity.json) · [Braking assumptions](docs/BOTA_PROTOTYPE.md) · [Design references](docs/) |
+
+## Rebuild the design
+
 Current builds replay the checked-in tscircuit layout in `data/routed-traces.json`. The earlier `seed-routing.py`, `route-revised-power.py` and `route-power-backbone.py` scripts refer to the historical two-fuse board.
 
 Rebuild the current layout with `npm ci` and `npm run build`. Run `npm run simulate:bota` for the sensor supply study. The GLB export runs with `npm run export:3d`.

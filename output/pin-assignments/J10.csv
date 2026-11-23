@@ -1,0 +1,7 @@
+"Pin","Label","Net"
+"1","GND","GND"
+"2","V3V3 sense","V3V3"
+"3","PB1","EXP_PB1"
+"4","PB2","EXP_PB2"
+"5","PB4","EXP_PB4"
+"6","PB11","EXP_PB11"

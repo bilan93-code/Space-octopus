@@ -1,0 +1,7 @@
+"Pin","Label","Net"
+"1","VDD","V12"
+"2","OUTH","BRAKE_DRV_OUTH"
+"3","OUTL","BRAKE_DRV_OUTL"
+"4","GND","GND"
+"5","IN-","GND"
+"6","IN+","BRAKE_ON"

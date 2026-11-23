@@ -1,0 +1,250 @@
+Reference,Face,Location,X mm,Y mm
+J10,top,silkscreen,-25.815,37.2
+J11,top,silkscreen,-34.4,-34.805
+J12,top,silkscreen,12.0,46.7
+U10,bottom,silkscreen,-7,35.8
+U11,bottom,silkscreen,22.165,27
+U12,bottom,fabrication drawing / BOM,,
+U13,bottom,fabrication drawing / BOM,,
+U14,bottom,silkscreen,40,-14.47
+U15,bottom,silkscreen,31,31.47
+U16,bottom,silkscreen,-26.5,-36.75
+U17,bottom,silkscreen,-24,-16.47
+U18,bottom,silkscreen,22.515,-20
+U19,top,silkscreen,24,-11.97
+U20,bottom,fabrication drawing / BOM,,
+U21,bottom,silkscreen,-12.5,45.535
+J1,top,silkscreen,-52.08,-0.005
+J2,top,silkscreen,30.685,-39.585
+J3,top,silkscreen,-27.5,-4.0
+J4,top,silkscreen,-34.175,29.2
+J5,top,silkscreen,-24.1,17.1
+J6,top,silkscreen,19,-29.43
+J7,top,silkscreen,45.03,-17
+J8,top,silkscreen,49.5,4.2
+J9,top,silkscreen,-15,11.53
+U1,bottom,fabrication drawing / BOM,,
+U2,bottom,silkscreen,-20,5.33
+U3,top,fabrication drawing / BOM,,
+U4,bottom,silkscreen,22,13.957
+U5,top,silkscreen,16.285,1.7
+U6,bottom,silkscreen,44.065,0
+U7,bottom,fabrication drawing / BOM,,
+U8,bottom,silkscreen,-42,-8.05
+U9,bottom,fabrication drawing / BOM,,
+Y1,bottom,silkscreen,40,8.45
+FB201,top,fabrication drawing / BOM,,
+FB701,bottom,fabrication drawing / BOM,,
+JP701,bottom,silkscreen,21,45.95
+C101,top,fabrication drawing / BOM,,
+C102,top,fabrication drawing / BOM,,
+C103,bottom,silkscreen,23.532,22.75
+C104,bottom,silkscreen,34.3,24.0
+C105,top,silkscreen,21.265,35.83
+C106,top,fabrication drawing / BOM,,
+C107,top,silkscreen,18.165,34.5
+C108,bottom,fabrication drawing / BOM,,
+C109,bottom,silkscreen,37,12.18
+C110,top,fabrication drawing / BOM,,
+C111,top,fabrication drawing / BOM,,
+C112,bottom,fabrication drawing / BOM,,
+C113,top,fabrication drawing / BOM,,
+C114,top,silkscreen,-12.5,45.65
+C115,bottom,silkscreen,-16.905,51.5
+C116,bottom,silkscreen,-16.0,45.32
+C117,bottom,silkscreen,-9.0,53.68
+C201,top,fabrication drawing / BOM,,
+C202,top,silkscreen,15.415,-5.675
+C203,top,fabrication drawing / BOM,,
+C204,top,silkscreen,22.915,5.675
+C205,bottom,fabrication drawing / BOM,,
+C206,top,fabrication drawing / BOM,,
+C207,top,fabrication drawing / BOM,,
+C208,bottom,fabrication drawing / BOM,,
+C209,bottom,silkscreen,15,36.57
+C210,bottom,silkscreen,45.665,-15.5
+C211,bottom,silkscreen,34,35.32
+C301,bottom,fabrication drawing / BOM,,
+C302,top,silkscreen,-22.285,1.25
+C303,top,silkscreen,-16.5,3.52
+C304,bottom,fabrication drawing / BOM,,
+C305,bottom,silkscreen,-23,5.02
+C306,bottom,fabrication drawing / BOM,,
+C307,bottom,fabrication drawing / BOM,,
+C401,top,silkscreen,-24.0,40.0
+C402,bottom,fabrication drawing / BOM,,
+C403,top,silkscreen,-25.0,42.0
+C404,top,fabrication drawing / BOM,,
+C405,top,silkscreen,-19,47.32
+C406,top,silkscreen,-39,36.4
+C407,bottom,silkscreen,-26.6,-3.8
+C408,top,silkscreen,39,-35.9
+C409,bottom,silkscreen,27.5,-35.4
+C501,top,fabrication drawing / BOM,,
+C502,top,fabrication drawing / BOM,,
+C503,top,fabrication drawing / BOM,,
+C504,bottom,fabrication drawing / BOM,,
+C505,bottom,silkscreen,-30.915,19.0
+C506,bottom,silkscreen,-32.415,25.0
+C507,bottom,silkscreen,-24.0,34.93
+C508,bottom,fabrication drawing / BOM,,
+C509,bottom,silkscreen,38,-20.57
+C510,bottom,fabrication drawing / BOM,,
+C511,bottom,fabrication drawing / BOM,,
+C512,bottom,fabrication drawing / BOM,,
+C513,bottom,silkscreen,-36,-13.43
+C601,bottom,fabrication drawing / BOM,,
+C602,bottom,silkscreen,-16.585,43
+C603,bottom,silkscreen,25,32.43
+C604,bottom,silkscreen,42.085,-4
+C605,bottom,fabrication drawing / BOM,,
+C606,bottom,fabrication drawing / BOM,,
+C607,bottom,silkscreen,30,32.93
+C608,bottom,silkscreen,36,33.82
+C701,bottom,silkscreen,17,-28.15
+C702,bottom,fabrication drawing / BOM,,
+C703,bottom,fabrication drawing / BOM,,
+C704,bottom,fabrication drawing / BOM,,
+C705,bottom,fabrication drawing / BOM,,
+C706,bottom,fabrication drawing / BOM,,
+C707,bottom,fabrication drawing / BOM,,
+C708,bottom,silkscreen,1,32.35
+C901,top,silkscreen,-24,-46.57
+C902,bottom,silkscreen,-23.5,-36.18
+C903,bottom,fabrication drawing / BOM,,
+C904,bottom,fabrication drawing / BOM,,
+C905,bottom,silkscreen,-20.7,-30.9
+L101,top,silkscreen,23.07,27
+L102,bottom,fabrication drawing / BOM,,
+NTC1,bottom,silkscreen,-45.835,15
+R101,top,fabrication drawing / BOM,,
+R102,top,silkscreen,23.25,32.32
+R103,top,silkscreen,23.5,45.68
+R104,top,fabrication drawing / BOM,,
+R105,bottom,fabrication drawing / BOM,,
+R106,bottom,fabrication drawing / BOM,,
+R107,bottom,fabrication drawing / BOM,,
+R108,top,fabrication drawing / BOM,,
+R109,top,silkscreen,-17.085,51.0
+R201,bottom,silkscreen,51.0,-9.07
+R202,bottom,silkscreen,37,-26.57
+R203,bottom,silkscreen,6,-34.57
+R204,bottom,fabrication drawing / BOM,,
+R205,bottom,silkscreen,15,44.43
+R206,bottom,fabrication drawing / BOM,,
+R301,bottom,fabrication drawing / BOM,,
+R302,bottom,silkscreen,-29.0,-0.82
+R303,bottom,fabrication drawing / BOM,,
+R304,bottom,fabrication drawing / BOM,,
+R305,bottom,fabrication drawing / BOM,,
+R306,bottom,silkscreen,-12.415,-22
+R307,bottom,fabrication drawing / BOM,,
+R308,bottom,fabrication drawing / BOM,,
+R309,bottom,silkscreen,-20,34.43
+R310,bottom,silkscreen,-24.0,36.43
+R311,bottom,fabrication drawing / BOM,,
+R312,bottom,silkscreen,-19.085,37
+R401,bottom,fabrication drawing / BOM,,
+R402,bottom,fabrication drawing / BOM,,
+R403,top,silkscreen,22.235,20
+R404,bottom,fabrication drawing / BOM,,
+R405,top,silkscreen,14.0,-28.48
+R406,bottom,fabrication drawing / BOM,,
+R407,top,silkscreen,-8.415,29
+R408,bottom,silkscreen,-22,16.18
+R409,top,silkscreen,21.585,15
+R410,bottom,fabrication drawing / BOM,,
+R411,top,silkscreen,6,-30.43
+R412,bottom,fabrication drawing / BOM,,
+R413,top,fabrication drawing / BOM,,
+R414,bottom,silkscreen,-30.035,12.5
+R415,top,silkscreen,-12.0,-21.03
+R501,bottom,silkscreen,-11,-14.43
+R502,bottom,silkscreen,-12.415,-24
+R503,bottom,silkscreen,-18.585,39
+R504,bottom,silkscreen,-37.0,13.33
+R505,bottom,fabrication drawing / BOM,,
+R506,bottom,fabrication drawing / BOM,,
+R507,bottom,fabrication drawing / BOM,,
+R508,bottom,silkscreen,-33.415,31
+R509,bottom,silkscreen,-41,10.18
+R510,bottom,silkscreen,-44.335,19.0
+R511,bottom,fabrication drawing / BOM,,
+R512,bottom,silkscreen,-44,8.32
+R513,bottom,silkscreen,-38.335,-16.5
+R514,bottom,silkscreen,-32.415,33
+R515,bottom,fabrication drawing / BOM,,
+R516,bottom,silkscreen,-49,13.93
+R517,bottom,silkscreen,-16,-27.93
+R518,bottom,silkscreen,-7,-30.43
+R519,bottom,silkscreen,-11,-30.93
+R601,bottom,fabrication drawing / BOM,,
+R602,bottom,silkscreen,25.415,-40
+R603,bottom,fabrication drawing / BOM,,
+R604,bottom,silkscreen,-1,39.82
+R605,bottom,silkscreen,6,-40.43
+R606,bottom,silkscreen,0.165,-38
+R607,bottom,silkscreen,8.585,45
+R608,bottom,silkscreen,21,49.43
+R701,bottom,fabrication drawing / BOM,,
+R702,bottom,fabrication drawing / BOM,,
+R703,bottom,silkscreen,29,-45.43
+R704,bottom,fabrication drawing / BOM,,
+R705,bottom,fabrication drawing / BOM,,
+R706,bottom,fabrication drawing / BOM,,
+R707,bottom,silkscreen,28,36.02
+R708,bottom,silkscreen,-4.585,46
+R901,top,silkscreen,-30.0,-24.33
+R902,bottom,silkscreen,-33.5,-31.02
+R903,top,silkscreen,-31,-43.43
+R904,top,silkscreen,-24,-42.07
+R905,top,fabrication drawing / BOM,,
+R906,bottom,fabrication drawing / BOM,,
+R907,bottom,fabrication drawing / BOM,,
+R908,bottom,fabrication drawing / BOM,,
+RSH1,bottom,fabrication drawing / BOM,,
+RSH2,bottom,fabrication drawing / BOM,,
+RSH3,bottom,silkscreen,18.935,-24.54
+TP10,top,fabrication drawing / BOM,,
+TP11,top,silkscreen,21.605,12
+TP12,top,silkscreen,10,-19.2
+TP13,bottom,fabrication drawing / BOM,,
+TP14,bottom,fabrication drawing / BOM,,
+TP15,bottom,silkscreen,-6.145,33
+D10,bottom,fabrication drawing / BOM,,
+D11,bottom,silkscreen,31,16.695
+D12,bottom,silkscreen,12,-36.05
+SW1,top,silkscreen,49.5,-1.75
+TP1,top,silkscreen,-41.785,34
+TP2,top,silkscreen,-36,40.2
+TP3,top,silkscreen,-51,-15.2
+TP4,bottom,silkscreen,-53.0,-1.2
+TP5,top,silkscreen,-48,13.7
+TP6,top,silkscreen,-20,-46.8
+TP7,bottom,fabrication drawing / BOM,,
+TP8,top,fabrication drawing / BOM,,
+TP9,bottom,silkscreen,-38.0,16.3
+C1,top,silkscreen,-35,2.15
+C2,top,silkscreen,-35,-22.05
+C3,top,silkscreen,36,0.55
+C4,top,silkscreen,36,-20.45
+C5,top,silkscreen,-19.3,-31.5
+D1,bottom,silkscreen,7,34.95
+D2,top,silkscreen,11,-53.15
+D3,bottom,silkscreen,23.0,36.915
+D4,bottom,silkscreen,33.15,-18.0
+D5,bottom,silkscreen,22.0,-29.085
+D6,bottom,silkscreen,-40,-3.705
+D7,bottom,fabrication drawing / BOM,,
+D8,bottom,fabrication drawing / BOM,,
+D9,bottom,silkscreen,39.052,32
+F2,top,silkscreen,-15.7,-48.987
+F3,bottom,silkscreen,35.905,-34
+Q1,top,fabrication drawing / BOM,,
+Q2,bottom,fabrication drawing / BOM,,
+Q3,top,silkscreen,9,28.35
+Q4,bottom,silkscreen,9,28.35
+Q5,top,silkscreen,0,-28.35
+Q6,bottom,silkscreen,0,-28.35
+Q7,bottom,fabrication drawing / BOM,,
+R1,top,silkscreen,-37,23.47

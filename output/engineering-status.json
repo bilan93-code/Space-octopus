@@ -1,0 +1,168 @@
+{
+  "stage": "engineering draft — routing connected",
+  "fabricationReady": false,
+  "inventoryItems": 258,
+  "populatedComponents": 222,
+  "nets": 137,
+  "fullyConnectedNets": 137,
+  "unconnectedNetCount": 0,
+  "traceObjects": 10046,
+  "vias": 1451,
+  "groundRegions": 230,
+  "powerRegions": 21,
+  "groundRegionsByLayer": {
+    "top": 97,
+    "inner1": 33,
+    "bottom": 100
+  },
+  "powerRegionsByLayer": {
+    "inner2": 21
+  },
+  "powerBackbone": {
+    "auditStatus": "passed",
+    "source": "output/space-octopus.circuit.json",
+    "minimumIncludedTrackWidthMm": 2,
+    "allFillsExcluded": true,
+    "checks": [
+      {
+        "net": "GND",
+        "passed": true,
+        "required": [
+          "J1.2",
+          "C1.2",
+          "C2.2",
+          "C3.2",
+          "C4.2",
+          "C5.2",
+          "RSH1.2",
+          "RSH2.2",
+          "RSH3.2",
+          "Q7.3"
+        ],
+        "missing": [],
+        "islands": [
+          [
+            "C1.2",
+            "C2.2",
+            "C3.2",
+            "C4.2",
+            "C5.2",
+            "J1.2",
+            "Q7.3",
+            "RSH1.2",
+            "RSH2.2",
+            "RSH3.2"
+          ]
+        ],
+        "verified": true
+      },
+      {
+        "net": "VBUS",
+        "passed": true,
+        "required": [
+          "J1.1",
+          "C1.1",
+          "C2.1",
+          "C3.1",
+          "C4.1",
+          "C5.1",
+          "Q1.2",
+          "Q3.2",
+          "Q5.2",
+          "F2.1",
+          "C905.1"
+        ],
+        "missing": [],
+        "islands": [
+          [
+            "C1.1",
+            "C2.1",
+            "C3.1",
+            "C4.1",
+            "C5.1",
+            "C905.1",
+            "F2.1",
+            "J1.1",
+            "Q1.2",
+            "Q3.2",
+            "Q5.2"
+          ]
+        ],
+        "verified": true
+      }
+    ],
+    "brakeFuseFeed": {
+      "passed": true,
+      "F2.1": {
+        "layer": "inner2",
+        "minimumTrackWidthMm": 3,
+        "capacitorTerminalsReached": [
+          "C1.1",
+          "C3.1",
+          "C4.1"
+        ],
+        "throughViasSharingFeedAndTrunk": 16,
+        "minimumViaBoreMm": 0.35,
+        "minimumViaAnnulusTrackCoverageFraction": 1,
+        "finishedHoleAreaInFuseLandMm2": 1.539,
+        "totalConnectedBoreDiameterMm": 5.6
+      },
+      "F2.2": {
+        "layer": "top",
+        "minimumTrackWidthMm": 3,
+        "reachesJ11Pin1": true,
+        "landOverlapWithWideTracksMm2": 7.987
+      },
+      "verified": true
+    },
+    "parallelInputPaths": [
+      {
+        "net": "VBUS",
+        "from": "J1.1",
+        "to": "C1.1",
+        "layer": "inner2",
+        "minimumTrackWidthMm": 3,
+        "capacitorTerminalsReached": [
+          "C1.1",
+          "C3.1",
+          "C4.1"
+        ],
+        "passed": true,
+        "launchWidthMm": 4.5,
+        "launchHandoffAreaMm2": 9.989,
+        "verified": true
+      },
+      {
+        "net": "VBUS",
+        "from": "J1.1",
+        "to": "C1.1",
+        "layer": "bottom",
+        "minimumTrackWidthMm": 2.4,
+        "capacitorTerminalsReached": [
+          "C1.1"
+        ],
+        "passed": true,
+        "verified": true
+      }
+    ],
+    "method": "Keep pads, plated barrels and tracks at least 2 mm wide. Both VBUS and GND load terminals must connect even with every fill removed. Require each listed set of load-current terminals to share one physical copper island. Follow the revised VBUS input to a real bulk capacitor terminal. On the revised branches shrink the no-fill copper by half the specified track width less 0.02 mm, separate disconnected cores, then expand each core to test its terminal and via contacts. Test the F2 input through-via array separately from its output route to J11.1. For each wire termination, subtract its bore and check for positive-area overlap between the remaining annulus and the specified load-width tracks.",
+    "limitations": "This excludes thin-signal bottlenecks. The geometric neck screen treats pad faces as solid, with separate annular contact checks at the harness. Copper weight, barrel plating, vacuum thermal rise, current sharing and pulse capability still require stackup and thermal qualification."
+  },
+  "shorts": 0,
+  "clearanceFindings": 0,
+  "edgeFindings": 0,
+  "holeAndHardwareFindings": 0,
+  "nativeDiagnosticCounts": {},
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
+  "routingBackend": "Explicit power, fanout and Kelvin routing plus local grid finishing, replayed through tscircuit; audited native copper-pour primitives",
+  "remainingWork": [
+    "Review switching loops, gate/source inductance and differential signal timing/impedance.",
+    "Verify the upstream input protection and capacitor precharge on the future battery PCB.",
+    "Confirm the proposed F2 land pattern, DC interrupt rating, hot derating and repetitive pulse life.",
+    "Verify the separate 4.7 ohm ±5%, 300 W brake resistor PCB, harness and cooling against measured braking energy.",
+    "Size power copper and via arrays for the actual current waveform, stackup and cooling.",
+    "Confirm provisional manufacturer packages, connectors and harness pin numbering.",
+    "Verify motor standoffs, underside components, encoder and axial assembly fit."
+  ],
+  "kicadContinuation": "This publication uses the tscircuit design."
+}

@@ -1,0 +1,319 @@
+{
+  "status": "passed",
+  "source": "output/space-octopus.circuit.json",
+  "checks": [
+    {
+      "check": "12V switch",
+      "from": "U3.8",
+      "to": "L101.1",
+      "distanceMm": 4.703,
+      "limitMm": 6,
+      "passed": true
+    },
+    {
+      "check": "5V switch",
+      "from": "U4.7",
+      "to": "L102.1",
+      "distanceMm": 4.273,
+      "limitMm": 6,
+      "passed": true
+    },
+    {
+      "check": "Bootstrap",
+      "from": "U3.7",
+      "to": "C105.1",
+      "distanceMm": 2.352,
+      "limitMm": 3.5,
+      "passed": true
+    },
+    {
+      "check": "Bootstrap return",
+      "from": "U3.8",
+      "to": "C105.2",
+      "distanceMm": 2.357,
+      "limitMm": 3.5,
+      "passed": true
+    },
+    {
+      "check": "12V input bypass",
+      "from": "U3.2",
+      "to": "C101.1",
+      "distanceMm": 3.486,
+      "limitMm": 4.5,
+      "passed": true
+    },
+    {
+      "check": "5V input bypass",
+      "from": "U4.2",
+      "to": "C108.1",
+      "distanceMm": 3.254,
+      "limitMm": 4,
+      "passed": true
+    },
+    {
+      "check": "LDO input",
+      "from": "U5.3",
+      "to": "C110.1",
+      "distanceMm": 2.305,
+      "limitMm": 3.5,
+      "passed": true
+    },
+    {
+      "check": "LDO output",
+      "from": "U5.5",
+      "to": "C111.1",
+      "distanceMm": 2.531,
+      "limitMm": 3.5,
+      "passed": true
+    },
+    {
+      "check": "Reference output",
+      "from": "U19.2",
+      "to": "C113.1",
+      "distanceMm": 2.38,
+      "limitMm": 3.5,
+      "passed": true
+    },
+    {
+      "check": "Driver V12 bypass",
+      "from": "U2.3",
+      "to": "C302.1",
+      "distanceMm": 0.675,
+      "limitMm": 2.5,
+      "passed": true
+    },
+    {
+      "check": "Flying capacitor CP_L",
+      "from": "U2.1",
+      "to": "C303.1",
+      "distanceMm": 3.965,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Flying capacitor CP_H",
+      "from": "U2.2",
+      "to": "C303.2",
+      "distanceMm": 4.712,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Brake local bypass",
+      "from": "Q7.3",
+      "to": "C905.2",
+      "distanceMm": 5.158,
+      "limitMm": 7,
+      "passed": true
+    },
+    {
+      "check": "Driver VREF bypass",
+      "from": "U2.24",
+      "to": "C307.1",
+      "distanceMm": 4.407,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "MCU VDD bypass",
+      "from": "U1.16",
+      "to": "C201.1",
+      "distanceMm": 1.55,
+      "limitMm": 2,
+      "passed": true
+    },
+    {
+      "check": "MCU VDD bypass",
+      "from": "U1.32",
+      "to": "C202.1",
+      "distanceMm": 0.775,
+      "limitMm": 2,
+      "passed": true
+    },
+    {
+      "check": "MCU VDD bypass",
+      "from": "U1.48",
+      "to": "C203.1",
+      "distanceMm": 0.775,
+      "limitMm": 2,
+      "passed": true
+    },
+    {
+      "check": "MCU VDD bypass",
+      "from": "U1.64",
+      "to": "C204.1",
+      "distanceMm": 0.775,
+      "limitMm": 2,
+      "passed": true
+    },
+    {
+      "check": "ADC charge reservoir",
+      "from": "U1.12",
+      "to": "C501.1",
+      "distanceMm": 2.3,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "ADC charge reservoir",
+      "from": "U1.13",
+      "to": "C502.1",
+      "distanceMm": 3.892,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "ADC charge reservoir",
+      "from": "U1.14",
+      "to": "C503.1",
+      "distanceMm": 4.766,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "ADC charge reservoir",
+      "from": "U1.8",
+      "to": "C504.1",
+      "distanceMm": 3.037,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "ADC charge reservoir",
+      "from": "U1.11",
+      "to": "C511.1",
+      "distanceMm": 3.029,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U7.3",
+      "to": "C512.1",
+      "distanceMm": 3.378,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U8.3",
+      "to": "C513.1",
+      "distanceMm": 3.928,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U9.8",
+      "to": "C601.1",
+      "distanceMm": 2.119,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U10.20",
+      "to": "C602.1",
+      "distanceMm": 2.194,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U11.5",
+      "to": "C603.1",
+      "distanceMm": 3.203,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U12.6",
+      "to": "C604.1",
+      "distanceMm": 3.745,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U13.1",
+      "to": "C605.1",
+      "distanceMm": 4.374,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U14.5",
+      "to": "C606.1",
+      "distanceMm": 2.091,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U15.5",
+      "to": "C607.1",
+      "distanceMm": 2.308,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U18.8",
+      "to": "C703.1",
+      "distanceMm": 4.186,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U20.8",
+      "to": "C704.1",
+      "distanceMm": 4.327,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U6.3",
+      "to": "C705.1",
+      "distanceMm": 2.561,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U6.5",
+      "to": "C706.1",
+      "distanceMm": 2.352,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U16.5",
+      "to": "C902.1",
+      "distanceMm": 3.986,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U17.1",
+      "to": "C903.1",
+      "distanceMm": 3.225,
+      "limitMm": 5,
+      "passed": true
+    },
+    {
+      "check": "Named local bypass",
+      "from": "U17.1",
+      "to": "C904.1",
+      "distanceMm": 2.395,
+      "limitMm": 5,
+      "passed": true
+    }
+  ],
+  "limitations": "Placement distance checks do not establish loop inductance, converter stability, effective capacitance or EMC compliance."
+}

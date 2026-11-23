@@ -1,0 +1,6 @@
+"Pin","Label","Net"
+"1","IN+","BRAKE_SENSE"
+"2","V-","GND"
+"3","IN-","REF25"
+"4","OUT","BRAKE_ON"
+"5","V+","V3V3"

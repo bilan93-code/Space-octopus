@@ -1,0 +1,6 @@
+"Pin","Label","Net"
+"1","NC","NC"
+"2","A","RESET_N"
+"3","GND","GND"
+"4","Y","RESET_BUF_N"
+"5","VCC","V3V3"
