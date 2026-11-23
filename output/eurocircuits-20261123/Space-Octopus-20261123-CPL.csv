@@ -1,4 +1,4 @@
-Reference Designator,X (mm),Y (mm),Rotation (degrees),Side
+Designator,Center X,Center Y,Rotation,Side
 D1,6.995,40.000,0,Bottom
 C1,-35.000,12.100,90,Top
 C2,-35.000,-12.100,90,Top
