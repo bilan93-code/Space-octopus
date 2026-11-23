@@ -2,12 +2,12 @@
   "source": "output/space-octopus.circuit.json",
   "status": "passed",
   "method": "Independent Shapely geometry audit of pads, wires and plated barrels; 0.2 mm copper separation, 0.5 mm edge/NPTH clearance. Rounded pads retain the source corner radii; declared package-internal pin connections are included.",
-  "tracks": 10087,
-  "vias": 1428,
+  "tracks": 10046,
+  "vias": 1451,
   "minWireWidthMm": 0.15,
   "maxWireWidthMm": 4.5,
-  "nets": 138,
-  "fullyConnectedNets": 138,
+  "nets": 137,
+  "fullyConnectedNets": 137,
   "unconnectedNetCount": 0,
   "shortCount": 0,
   "clearanceViolationCount": 0,
@@ -26,5 +26,5 @@
     "Gate/source loops, Kelvin return paths and differential pairs require engineering review.",
     "Selected provisional packages and assembly fit require confirmation."
   ],
-  "circuitJsonSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39"
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992"
 }

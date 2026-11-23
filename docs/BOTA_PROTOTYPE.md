@@ -12,9 +12,9 @@ The circular 112 mm motor PCB supplies 9 V to the Bota BTS-T300-CAT. A dedicated
 | J5 or J6 → robot CAN interface | Setpoints and drive status. Both ports share one CAN bus. Terminate the two physical bus ends. |
 | J4 → FLUX encoder | Board and harness pin numbers match. Pins 1/2 supply power, 7/8 carry clock, 9/10 carry data and 11 carries the shield. Pins 3–6 are unused. Secure the unkeyed connector. |
 | J9 → service tool | 3.3 V UART. |
-| J1 → DC supply | Solder positive to pad 1 and return to pad 2. |
+| J1 → DC supply | Feed pad 1 (VBUS) through the upstream battery-board fuse and solder the supply return to pad 2. |
 | J2 → motor | Solder U, V and W to pads 1, 2 and 3. |
-| J11 → external brake resistor | Solder the resistor leads to pads 1 and 2. Mount the pulse-rated element on its specified heatsink. |
+| J11 → external brake resistor | Solder the harness for the separate 4.7 Ω ±5%, 300 W resistor PCB to pads 1 and 2. Provide the heat path specified for the selected resistor. |
 
 [Direct-solder harness fit and support](DIRECT_WIRE_HARNESS.md)
 
@@ -46,14 +46,14 @@ Fit the motor drive to insulated standoffs with tall parts and plug-in connector
 
 ## Braking assumption for the first bench prototype
 
-Use a horizontal test fixture, 10 rpm maximum output speed, up to 220 N·m braking torque and a linear stop in one second. This models about 115 J per stop (torque × average angular speed × time). Specify 250 J per event and at most six such events per minute, or 25 W time-average dissipation. A 4.7 Ω element at 57.6 V draws 12.3 A and dissipates 706 W while switched on. Specify a heatsink-mounted resistor rated at least 200 W under the actual enclosure cooling, with a supplier pulse curve covering the full event at ≥0.8 kW and the complete repeating profile including initial temperature. Check the brake-switch voltage and resistor tolerance at the actual maximum bus voltage. A hanging load or faster joint changes the energy budget. Measure real inertia, bus rise and resistor temperature before extending this envelope.
+Use a horizontal test fixture, 10 rpm maximum output speed, up to 220 N·m braking torque and a linear stop in one second. This models about 115 J per stop (torque × average angular speed × time). Specify 250 J per event and at most six such events per minute, or 25 W time-average dissipation. At 57.6 V the specified 4.7 Ω ±5%, 300 W resistor carries 11.67–12.90 A and dissipates 672–743 W during each on-pulse. Check the supplier pulse curve for the full event at ≥0.8 kW and the complete repeating profile, including the starting temperature and cooling on the separate PCB. Check the brake-switch voltage and resistor tolerance at the actual maximum bus voltage. A hanging load or faster joint changes the energy budget. Measure real inertia, bus rise and resistor temperature before extending this envelope.
 
-[Soldered fuse selection and qualification](SOLDERED_FUSES.md)
+[Actuator and external-board power interface](POWER_AND_BRAKE.md)
 
 ## Ordering and release
 
-Order the Bota sensor, mating harness, Ethernet breakout and external brake resistor separately from JLCPCB assembly. The current PCB Parts stock sheet covers fitted motor-drive components, including the two soldered axial fuses. Qty for five is the engineering minimum. JLCPCB determines loading allowance and through-hole assembly support.
+Order the Bota sensor, mating harness, Ethernet breakout and external brake resistor separately from JLCPCB assembly. The current PCB Parts stock sheet covers fitted motor-drive components, including the proposed surface-mount F2. Qty for five is the engineering minimum. JLCPCB determines loading allowance and through-hole assembly support.
 
-Verify F1/F2 inrush, braking pulses, hot derating and DC interruption, D2/D3–D5 pin assignments, the C5 case, FLUX startup demand on F3, the 48 V source and actual thermal load before assembly release. Qualify the gate-driver vias and stencil with the assembler. Independent copper connectivity, electrical function, thermal qualification and stock each need their own passing result.
+Verify upstream F1 protection and precharge when designing the battery PCB. Check F2 braking pulses, hot derating and DC interruption, D2/D3–D5 pin assignments, the C5 case, FLUX startup demand on F3, the 48 V source and actual thermal load before assembly release. Qualify the gate-driver vias and stencil with the assembler. Independent copper connectivity, electrical function, thermal qualification and stock each need their own passing result.
 
 [Bota datasheet supplied with the project](evidence/Bota_BTS_Torque_Sensor_Family.pdf) · [SOEM](https://github.com/OpenEtherCATsociety/SOEM)

@@ -10,9 +10,10 @@ const wideBackbones=['GND','VBUS'].map(net=>{
  assert(check?.passed===true,`The wide ${net} backbone test must pass with all fills excluded.`);
  return check;
 });
-const parallelInputPaths=[['inner2',4.5],['bottom',2.4]].map(([layer,width])=>{
- const check=backbone.parallelInputPaths?.find(c=>c.layer===layer&&c.minimumTrackWidthMm===width);
- assert(check?.passed===true,`The independent DC_IN ${layer} path test must pass at minimum ${width} mm.`);
+assert(backbone.brakeFuseFeed?.passed===true,'The brake fuse requires a connected via array and output branch');
+const parallelInputPaths=[['inner2',3.0],['bottom',2.4]].map(([layer,width])=>{
+ const check=backbone.parallelInputPaths?.find(c=>c.net==='VBUS'&&c.from==='J1.1'&&c.to==='C1.1'&&c.layer===layer&&c.minimumTrackWidthMm===width);
+ assert(check?.passed===true,`The independent VBUS input ${layer} path test must pass at minimum ${width} mm.`);
  return check;
 });
 const groundLayers=['top','inner1','bottom'];
@@ -32,8 +33,9 @@ This board uses locked tscircuit 0.0.3169. The relevant board-design workflows b
 | Power and reference copper | ${status.groundRegions} native GND-fill regions (${groundFillSummary}); ${status.powerRegionsByLayer.inner2} VBUS-fill regions on inner2; wide power branches, thermal/transfer arrays and protected sense pickups |
 | Wide GND backbone, all fills excluded | Verified: ${wideBackbones[0].required.length} required load-current terminals share one physical island using pads, plated barrels and tracks at least ${backbone.minimumIncludedTrackWidthMm} mm wide |
 | Wide VBUS backbone, all fills excluded | Verified: ${wideBackbones[1].required.length} required load-current terminals share one physical island using pads, plated barrels and tracks at least ${backbone.minimumIncludedTrackWidthMm} mm wide |
-| Parallel DC_IN path on inner2 | Independently verified complete J1.1–F1.1 path with minimum ${parallelInputPaths[0].minimumTrackWidthMm} mm tracks |
-| Parallel DC_IN path on bottom | Independently verified complete J1.1–F1.1 path with minimum ${parallelInputPaths[1].minimumTrackWidthMm} mm tracks |
+| Parallel VBUS input path on inner2 | Independently verified complete J1.1–C1.1 path with minimum ${parallelInputPaths[0].minimumTrackWidthMm} mm tracks |
+| Parallel VBUS input path on bottom | Independently verified complete J1.1–C1.1 path with minimum ${parallelInputPaths[1].minimumTrackWidthMm} mm tracks |
+| Brake branch | F2.1 via array to VBUS inner2 and F2.2 to the brake-resistor wire land at J11.1 |
 | Assembly-side revision | All connectors and C1–C5 outward; low-profile motor-facing parts; exact face-envelope checks |
 | Silkscreen and cleanup | Readable references, clipped artwork, fabrication-layer references where crowded, and documented copper cleanup |
 | Package review | Physical pin presence, ${packages.independentlyComparedMcuPins} MCU pin names independently compared; ${packages.provisionalParts} provisional choices remain explicit |
@@ -46,13 +48,13 @@ This board uses locked tscircuit 0.0.3169. The relevant board-design workflows b
 | KiCad interoperability | Editable routed derivative, schematics, local footprints/models, native PDFs, schematic ERC, PCB DRC and pad/net/layer parity |
 | Regression and delivery | ${validation.checks.length} design checks, fault injections, offline browser verification and a checksum-verified archive |
 
-The four distinct power tests above are recorded in [the power-backbone audit](../output/power-backbone-audit.json) by [scripts/check-power-backbone.py](../scripts/check-power-backbone.py), within the existing load-current design check. **All copper fills are excluded** from the GND and VBUS backbone tests; each parallel DC_IN path is also checked without fills. These geometric tests do not qualify current capacity, thermal rise, via current sharing or pulse capability.
+The power tests above are recorded in [the power-backbone audit](../output/power-backbone-audit.json) by [scripts/check-power-backbone.py](../scripts/check-power-backbone.py), within the existing load-current design check. **All copper fills are excluded** from the GND and VBUS backbone tests; each parallel VBUS input path is also checked without fills. These geometric tests do not qualify current capacity, thermal rise, via current sharing or pulse capability.
 
 Native KiCad warnings: **${warnings}**. See the actual DRC and cleanup reports. The original reviewed archive is retained separately.
 
 The native autorouters were tested and did not finish; verified custom routing is replayed through tscircuit's routing API. Audited BRep regions are replayed through its copper-pour API. Neither is described as a successful automatic native routing/fill result.
 
-The model report identifies representative package bodies and the assumed F1/F2 axial lead form. D2's stock model is trimmed to the required 2 mm lead projection. See the fitted bill of materials for the fuse order codes. No model appearance establishes manufacturer approval.
+The model report identifies representative package bodies and the nominal F2 surface-mount fuse envelope. D2's stock model is trimmed to the required 2 mm lead projection. See the fitted bill of materials for the brake fuse order code. No model appearance establishes manufacturer approval.
 
 The 7 mm gap and spacer bodies are a mounting concept. Replacement cap fasteners, cap clamping, thread engagement, torque, insulation, enclosure/plug space and encoder support remain unapproved. The separate Ø45 encoder must not be assumed to fit through the proposed Ø28 PCB aperture.
 
@@ -67,7 +69,7 @@ Circular tscircuit design with an editable KiCad derivative and an outward-facin
 
 **Engineering draft — ${status.fullyConnectedNets}/${status.nets} nets connected; zero native tscircuit and KiCad errors; all ${validation.checks.length} design checks pass.** KiCad warnings: ${warnings}. Fabrication approval remains open.
 
-Native GND-fill counts by layer are ${groundFillSummary}; VBUS has ${status.powerRegionsByLayer.inner2} fill regions on inner2. The [power-backbone audit](output/power-backbone-audit.json), produced by [scripts/check-power-backbone.py](scripts/check-power-backbone.py), verifies four distinct geometric tests: wide GND and VBUS backbones with **all copper fills excluded** and tracks at least ${backbone.minimumIncludedTrackWidthMm} mm wide; an independent complete DC_IN J1.1–F1.1 path on inner2 at minimum ${parallelInputPaths[0].minimumTrackWidthMm} mm; and an independent complete path on bottom at minimum ${parallelInputPaths[1].minimumTrackWidthMm} mm. These checks do not qualify current capacity or current sharing.
+Native GND-fill counts by layer are ${groundFillSummary}; VBUS has ${status.powerRegionsByLayer.inner2} fill regions on inner2. The [power-backbone audit](output/power-backbone-audit.json), produced by [scripts/check-power-backbone.py](scripts/check-power-backbone.py), verifies the power paths: wide GND and VBUS backbones with **all copper fills excluded** and tracks at least ${backbone.minimumIncludedTrackWidthMm} mm wide; an independent complete VBUS input J1.1–C1.1 path on inner2 at minimum ${parallelInputPaths[0].minimumTrackWidthMm} mm; and an independent complete path on bottom at minimum ${parallelInputPaths[1].minimumTrackWidthMm} mm. These checks do not qualify current capacity or current sharing.
 
 All connectors and C1–C5 face outward. The proposed cap-to-PCB gap is 7 mm, with ${mount.minimumModeledMotorClearanceMm.toFixed(2)} mm minimum modeled clearance after the specified lead trim. Mounting fasteners and the encoder axial assembly require engineering confirmation. This remains an engineering review, not fabrication approval.
 

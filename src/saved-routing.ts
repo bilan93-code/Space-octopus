@@ -43,5 +43,5 @@ export async function savedRoutingAlgorithm(_input:any,json:any[]){
  if(saved.signature!==getDesignSignature())throw new Error('Saved copper is stale. Run npm run route to regenerate it.');
  const listeners:Record<string,(e:any)=>void>={};
  let stopped=false;
- return {on:(name:string,cb:(e:any)=>void)=>{listeners[name]=cb;},start:()=>queueMicrotask(()=>{if(!stopped)listeners.complete?.({type:'complete',traces:attachRouteContacts(wireTraces(),json)});}),stop:()=>{stopped=true;}};
+ return {on:(name:string,cb:(e:any)=>void)=>{listeners[name]=cb;},start:()=>queueMicrotask(()=>{if(!stopped)listeners.complete?.({type:'complete',traces:attachRouteContacts(wireTraces(),json,netNames)});}),stop:()=>{stopped=true;}};
 }

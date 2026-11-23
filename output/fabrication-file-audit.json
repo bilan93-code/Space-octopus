@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "platedDrills": 1480,
+  "platedDrills": 1499,
   "nonplatedDrills": 6,
   "mountingDrills": 6,
   "outerDiameterMm": 112,
@@ -8,7 +8,7 @@
   "closedProfileContours": 2,
   "cutoutSemicircles": 2,
   "copperLayers": 4,
-  "assemblyRows": 223,
+  "assemblyRows": 222,
   "fiducialMaskOpenings": 3,
   "fiducialPasteOpenings": 0,
   "errors": [],

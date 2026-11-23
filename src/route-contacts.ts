@@ -1,9 +1,15 @@
 /** Identify physical pin contacts without extending audited wire geometry.
  * Separate tiny contact anchors lie inside the existing pad electrodes.
  */
-export function attachRouteContacts(traces:any[],json:any[]){
+export function attachRouteContacts(traces:any[],json:any[],savedNetNames?:Record<string,string>){
  const ports=new Map(json.filter(a=>a.type==='pcb_port').map(a=>[a.pcb_port_id,a]));
  const sourceTraces=json.filter(a=>a.type==='source_trace');
+ const liveNetIds=new Map(json.filter(a=>a.type==='source_net').map(a=>[a.name,a.source_net_id]));
+ const firstTraceByNet=new Map<string,any>();
+ for(const source of sourceTraces){
+  const nets=source.connected_source_net_ids;
+  if(nets?.length===1&&!firstTraceByNet.has(nets[0]))firstTraceByNet.set(nets[0],source);
+ }
  const byPort=new Map(sourceTraces.flatMap(a=>a.connected_source_port_ids.map((p:string)=>[p,a])));
  for(const c of json.filter(a=>a.type==='source_component'))for(const ids of c.internally_connected_source_port_ids??[]){
   const source=ids.map((id:string)=>byPort.get(id)).find(Boolean);
@@ -25,7 +31,13 @@ export function attachRouteContacts(traces:any[],json:any[]){
  };
  const anchored=new Set<string>();
  for(const trace of traces){
-  const net=trace.connection_name;let firstSource:any;
+  // Database IDs are local to each render. Removing a part can reuse an old
+  // net or trace ID for a different signal even when this copper stays put.
+  const savedId=trace.connection_name;
+  const net=savedNetNames?liveNetIds.get(savedNetNames[savedId]):savedId;
+  if(!firstTraceByNet.has(net))throw new Error(`No live source trace for routed net ${savedNetNames?.[savedId]??savedId}.`);
+  trace.connection_name=net;
+  let firstSource:any;
   for(const point of [trace.route[0],trace.route.at(-1)]){
    const candidates=pads.filter(a=>a.net===net&&touches(point,a.p)).sort((a,b)=>Math.hypot(a.p.x-point.x,a.p.y-point.y)-Math.hypot(b.p.x-point.x,b.p.y-point.y));
    if(!candidates.length)continue;
@@ -34,7 +46,9 @@ export function attachRouteContacts(traces:any[],json:any[]){
    anchored.add(trace.pcb_trace_id);firstSource??=contact.source;
   }
   if(firstSource)trace.source_trace_id=firstSource.source_trace_id;
-  else if(!byTrace.has(trace.source_trace_id))throw new Error('Wire fragment has no valid source trace.');
+  else if(!byTrace.get(trace.source_trace_id)?.connected_source_net_ids?.includes(net)){
+   trace.source_trace_id=firstTraceByNet.get(net).source_trace_id;
+  }
  }
  const contacts:any[]=[];
  const usedIds=new Set(traces.map(t=>t.pcb_trace_id));let contactIndex=0;

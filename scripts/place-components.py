@@ -22,7 +22,7 @@ spatial={};spatial_counts={}
 bottom={'U1','U2','J1','J2','J11','Q2','Q4','Q6','RSH1','RSH2','RSH3','C5'}
 def default_layer(p):
  if p['ref'] in bottom:return 'bottom'
- if p['ref'].startswith('Q') or p['ref'] in ['F1','F2','C1','C2','C3','C4','C5']:return 'top'
+ if p['ref'].startswith('Q') or p['ref'] in ['F2','C1','C2','C3','C4','C5']:return 'top'
  return 'bottom' if p['sheet'] in ['02_MCU','03_GateDriver','05_Sensing','06_FaultLogic','07_Interfaces'] else 'top'
 @lru_cache(maxsize=None)
 def local_shapes(ref,layer,rot):
@@ -65,7 +65,7 @@ def try_put(ref,x,y,rot=0,layer=None,fixed=False):
 fixed={}
 for i,a in enumerate(g['mounting']['anglesDegrees'],1):
  t=math.radians(a);r=g['mounting']['boltCircleDiameterMm']/2;fixed['H'+str(i)]=(r*math.cos(t),r*math.sin(t),0)
-fixed.update({'F1':(0,39,0),'F2':(0,-39,0),'C1':(-36,10.5,90),'C2':(-36,-10.5,90),'C3':(36,10.5,90),'C4':(36,-10.5,90),'U1':(22,0,0),'U2':(-20,0,0),'J1':(-47.5,0,90),'J2':(48.3,0,90),'J11':(30,-34,0),'Q1':(-9,22,0),'Q2':(-9,22,180),'Q3':(9,22,180),'Q4':(9,22,0),'Q5':(0,-22,180),'Q6':(0,-22,0),'Q7':(-19,-23,0),'RSH1':(-22,24.54,0),'RSH2':(22,19.46,180),'RSH3':(13,-24.54,180),'C5':(-24,-20,90),'D2':(11,-50,0)})
+fixed.update({'F2':(-15.70,-42.10,315),'C1':(-36,10.5,90),'C2':(-36,-10.5,90),'C3':(36,10.5,90),'C4':(36,-10.5,90),'U1':(22,0,0),'U2':(-20,0,0),'J1':(-47.5,0,90),'J2':(48.3,0,90),'J11':(30,-34,0),'Q1':(-9,22,0),'Q2':(-9,22,180),'Q3':(9,22,180),'Q4':(9,22,0),'Q5':(0,-22,180),'Q6':(0,-22,0),'Q7':(-19,-23,0),'RSH1':(-22,24.54,0),'RSH2':(22,19.46,180),'RSH3':(13,-24.54,180),'C5':(-24,-20,90),'D2':(11,-50,0)})
 # Local bypass and converter placement takes precedence over blind area packing.
 # The four MCU VDD capacitors sit on the opposite face beside the corresponding
 # VDD/VSS fanout pair; converter inductors and bootstrap parts share a cell.

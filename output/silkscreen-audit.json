@@ -1,10 +1,10 @@
 {
   "status": "passed",
-  "referencesOnSilk": 148,
-  "referencesOnFabOnly": 102,
+  "referencesOnSilk": 149,
+  "referencesOnFabOnly": 100,
   "identityLabels": 0,
   "wireTerminalLabels": 7,
-  "clippedArtworkSegments": 3256,
+  "clippedArtworkSegments": 3232,
   "fontSizeMm": 0.8,
   "maskClearanceMm": 0.25,
   "note": "References that do not fit remain in assembly drawings, BOM and KiCad fabrication layer. Stock polarity artwork is clipped around mask openings."

@@ -23,7 +23,7 @@ for text,x,y in [('SPACE OCTOPUS',17,48),('48V / MOUNT',-16,48)]:
  if board.covers(g) and not g.intersects(openings['top']) and not g.intersects(bodies['top']):occupied['top'].append(g);texts.append({'text':text,'x':x,'y':y,'fontSize':font,'layer':'top','purpose':'identity'})
 # Mark each exposed harness termination at the pad rather than relying on
 # connector numbering after the plastic blocks have been removed.
-wire_names={'DC_IN':'DC+','GND':'GND','PH_U':'U','PH_V':'V','PH_W':'W',
+wire_names={'VBUS':'DC+','GND':'GND','PH_U':'U','PH_V':'V','PH_W':'W',
             'BRAKE_PLUS':'BR+','BRAKE_DRAIN':'BR_SW'}
 for pad in s['bytype']['pcb_plated_hole']:
  pid=pad.get('pcb_port_id')

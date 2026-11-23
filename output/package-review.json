@@ -1,9 +1,9 @@
 {
   "status": "passed",
   "errors": [],
-  "inventoryItems": 259,
+  "inventoryItems": 258,
   "independentlyComparedMcuPins": 64,
-  "provisionalParts": 67,
+  "provisionalParts": 66,
   "parts": [
     {
       "ref": "J1",
@@ -14,16 +14,6 @@
       "manufacturerReviewPending": true,
       "openItem": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
       "bodyModel": "bare PCB feature"
-    },
-    {
-      "ref": "F1",
-      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
-      "mpn": "0487020.MXEP",
-      "physicalCopperPads": 2,
-      "logicalPins": 2,
-      "manufacturerReviewPending": true,
-      "openItem": "Confirm available source fault current, capacitor precharge waveform and hot continuous current against the manufacturer curves.",
-      "bodyModel": "project-formed soldered axial review model"
     },
     {
       "ref": "D1",
@@ -2347,13 +2337,13 @@
     },
     {
       "ref": "F2",
-      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
-      "mpn": "0487015.MXEP",
+      "footprint": "Fuse/Littelfuse_463_Nano2_SMD",
+      "mpn": "0463015.ER",
       "physicalCopperPads": 2,
       "logicalPins": 2,
       "manufacturerReviewPending": true,
-      "openItem": "Confirm available bus fault current and repetitive braking pulses against the manufacturer curves at the highest board temperature.",
-      "bodyModel": "project-formed soldered axial review model"
+      "openItem": "Confirm DC interrupt capability at the prospective bus fault current, hot derating, repetitive braking I²t and land geometry before ordering.",
+      "bodyModel": "nominal catalogue body envelope"
     },
     {
       "ref": "J11",

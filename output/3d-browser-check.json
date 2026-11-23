@@ -13,8 +13,10 @@
       56
     ]
   },
-  "status": "223 populated component models. Representative bodies include Y1, U2, U13, U21, F1, F2.",
-  "routing": "138/138 nets connected. Engineering review.",
+  "status": "222 populated component models. Representative bodies include Y1, U2, U13, U21, F2.",
+  "routing": "137/137 nets connected. Engineering review.",
+  "hasBrakeFuseMesh": true,
+  "unexpectedBodies": [],
   "views": [
     "angle",
     "top",
@@ -23,5 +25,5 @@
     "separated"
   ],
   "motorControls": true,
-  "modelSha256": "0060040db8e769d630d014c97ea1fa1b04128b97647b97c1afd866eafa7325f9"
+  "modelSha256": "8f197cf069ed9c4e4c761b17e0244ca4c6d972f5fb683573f08c4563a106a61a"
 }

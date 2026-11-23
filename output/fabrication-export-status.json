@@ -1,82 +1,82 @@
 {
   "purpose": "engineering review only",
   "fabricationReady": false,
-  "circuitJsonSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
   "files": [
     {
       "file": "F_Cu.gbr",
-      "bytes": 705802,
-      "sha256": "8a8e18a2f7df6b298027c6d8450bf574d8232da5ab085917b1900d9f8a160d95"
+      "bytes": 711499,
+      "sha256": "a8fea322e747f9caa62c5d959862a9a6fe968df631069732c1db753b6afb3a8a"
     },
     {
       "file": "F_SilkScreen.gbr",
-      "bytes": 293443,
-      "sha256": "be81df0d9a9b4e6d693686800659ce7537d296061d306a4a09173b608139e5d6"
+      "bytes": 297219,
+      "sha256": "459ab4306941ccd11804ba2f21307a0124b47db937d4103d21aa6d4f9f9713d4"
     },
     {
       "file": "F_Mask.gbr",
-      "bytes": 13231,
-      "sha256": "ef4534448fbf17d5cd94ee8f0dbd044e233c1553c2f3798e5ab838a2aa9bf8f3"
+      "bytes": 13488,
+      "sha256": "c7c7315af2c4b2564727f28ff5b0e51f3059b06a8e33a985bab84f3a82cf6c09"
     },
     {
       "file": "F_Paste.gbr",
-      "bytes": 11093,
-      "sha256": "5e9144d2aaddc75f7d46eed30e50555fc7acb19f8bb21f13f47e9ba146391552"
+      "bytes": 11275,
+      "sha256": "4a4db60d44baf236d208ecfd9838738a7299cd2f2d8539bdfe301bc508e517c8"
     },
     {
       "file": "B_Cu.gbr",
-      "bytes": 1105421,
-      "sha256": "92b544e2f32dd7861388f481b1c9ba61ee381d89aa376786af468fa26af9b840"
+      "bytes": 1121671,
+      "sha256": "4ca9c1f0807c8fc33c9636024c9b7615ad9fe6a08ed50adaacf029ac0e4ece06"
     },
     {
       "file": "B_SilkScreen.gbr",
-      "bytes": 248968,
-      "sha256": "4119e49ca4a776dfd08dc39dedd2862cef547964d36ec0f35568bb57398d148a"
+      "bytes": 253475,
+      "sha256": "8d292f1d77b969fb77c78dffdfe84443829a1b7ab6baa737d37de2fd3fcc85a6"
     },
     {
       "file": "B_Mask.gbr",
-      "bytes": 26982,
-      "sha256": "c38bd08ab75e3b4d07a281868277452247a185db9e650f2698f4920ae7d5bad8"
+      "bytes": 26937,
+      "sha256": "8478b856aaec25a863f907b4fab35d4f8f426ac79d091fd59dff78b2435d48c3"
     },
     {
       "file": "B_Paste.gbr",
-      "bytes": 25204,
-      "sha256": "aeb04aada95304a93a1b0e96c2cb08aee8ddcbe3f7ac87b8a5d648bd2a850aa2"
+      "bytes": 25291,
+      "sha256": "337ddc074bb14633e168fbd023f69f76daf72c0eabff5064115439bf94c4623e"
     },
     {
       "file": "Edge_Cuts.gbr",
       "bytes": 6923,
-      "sha256": "2f4e4de96b536940d1f724a453b4d814b8d959d70b9092e272703eaf0526bc76"
+      "sha256": "866d8afcade1fca3a697efdd4f16032f748893496ce471cc2e1aa0ad7fdb3d2f"
     },
     {
       "file": "In1_Cu.gbr",
-      "bytes": 1046424,
-      "sha256": "0f93af09dee00ca78d3e0e0357616d5ab75f6ff8d7334bfbc4c9643e162bdc4b"
+      "bytes": 1069189,
+      "sha256": "7268b69758b2fef1f4bcff479419a08ffc9a5861ca28a527670660f4b10d0a2f"
     },
     {
       "file": "In2_Cu.gbr",
-      "bytes": 498114,
-      "sha256": "e37f65edc268f5b6e34cc39d3b1608b828ffbe583df8dbb834d4f47b3e3ddf9c"
+      "bytes": 504057,
+      "sha256": "1cd7177b7b8d5a6baeb9a0abd05526ec2d6b291039cea2956e802ca63de4b208"
     },
     {
       "file": "F_Fab.gbr",
-      "bytes": 40348,
-      "sha256": "d8765429be62604c7630a8b2df068f81ed3531486e0a17867d1c32582cb4f078"
+      "bytes": 40367,
+      "sha256": "bfc33cf9b6de8c9fb2b8768ca40e2dff31737984691bddc2e28174fa866ee2a0"
     },
     {
       "file": "B_Fab.gbr",
-      "bytes": 32650,
-      "sha256": "81c0df1c21cb528e5a2a2df66f15bdaaf495d9d8f0e44bff0f1215f0f0907c92"
+      "bytes": 32688,
+      "sha256": "dd0fb9aa70d84508326419126c6ddbb079a879fbc56c3ac0c5b6834c25d8e3e1"
     },
     {
       "file": "drill-L1-L4.drl",
-      "bytes": 26835,
-      "sha256": "b33e4ab80464a90fabe15aa5ae4890c6c8bf06b9a6da929ab9fdb5a327694910"
+      "bytes": 27182,
+      "sha256": "8d8aeb524292ff2062e9b72492c60f51e7f3cbe3bc83fdcb91b2dde71620d934"
     },
     {
       "file": "drill_npth.drl",
       "bytes": 430,
-      "sha256": "9687a4e888cd56c17cf1ef60b408e42d9951f3878ee73a126ad778a754cb2c6d"
+      "sha256": "a9b5c82d551d6657624f671b26dba377f66c9d313c5bf0c9074712052b47db30"
     }
   ],
   "pickAndPlaceWarnings": [],

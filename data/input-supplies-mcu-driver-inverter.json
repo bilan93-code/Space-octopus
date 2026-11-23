@@ -5,36 +5,16 @@
     "kind": "connector",
     "value": "48 V DC input, solder wires",
     "pins": {
-      "1": "DC_IN",
+      "1": "VBUS",
       "2": "GND"
     },
     "footprint": "Wire/DirectSolder_1x02_P5.08mm",
     "pinLabels": {},
-    "notes": "Wire 1 carries DC input positive. Wire 2 is supply return. Solder the harness into the numbered plated holes from the outward face. Support the bundle at the chassis.",
+    "notes": "Pin 1 connects directly to the 48 V bus. Feed it through F1 on the future battery PCB. Pin 2 is supply return. Solder the harness into the numbered plated holes from the outward face. Support the bundle at the chassis.",
     "provisional": true,
     "dnp": false,
     "provisionalReason": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
     "assembly": "wire-termination"
-  },
-  {
-    "ref": "F1",
-    "sheet": "00_Input",
-    "kind": "fuse",
-    "value": "20 A, 420 Vdc axial fuse",
-    "pins": {
-      "1": "DC_IN",
-      "2": "VBUS"
-    },
-    "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
-    "pinLabels": {},
-    "notes": "Solder both integral leads directly to the PCB on 37.50 mm centers. Form leads with the end caps supported.",
-    "provisional": true,
-    "dnp": false,
-    "provisionalReason": "Confirm available source fault current, capacitor precharge waveform and hot continuous current against the manufacturer curves.",
-    "mpn": "0487020.MXEP",
-    "lcsc": "C48971222",
-    "sourcingReview": "Littelfuse 487 series with factory axial leads. PCB Parts lists 20 A and 420 Vdc. Verify lead-form tolerances, interrupt rating and assembler availability before release.",
-    "manufacturer": "Littelfuse"
   },
   {
     "ref": "D1",

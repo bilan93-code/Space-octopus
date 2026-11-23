@@ -19,4 +19,17 @@ const anchor=result.find(t=>t.pcb_trace_id.startsWith('pad_contact_'));
 assert(anchor,'Create a native pin identity anchor');
 assert(anchor.route.some((p:any)=>p.start_pcb_port_id==='port_fixture'));
 for(const p of anchor.route)assert(Math.hypot(p.x,p.y)+p.width/2<=1,'Contact anchor must remain inside pad copper');
+// A remote fragment has no nearby pin to correct stale IDs. Both IDs below
+// still exist after renumbering, but now belong to the other signal.
+const live=[
+ {type:'source_net',name:'VBUS',source_net_id:'net_1'},
+ {type:'source_net',name:'GND',source_net_id:'net_0'},
+ {type:'source_trace',source_trace_id:'trace_1',connected_source_port_ids:[],connected_source_net_ids:['net_1']},
+ {type:'source_trace',source_trace_id:'trace_0',connected_source_port_ids:[],connected_source_net_ids:['net_0']},
+];
+const fragment={...trace,connection_name:'net_0',source_trace_id:'trace_0',route:structuredClone(geometry)};
+const [remapped]=attachRouteContacts([fragment],live,{net_0:'VBUS'});
+assert.equal(remapped.connection_name,'net_1');
+assert.equal(remapped.source_trace_id,'trace_1');
+assert.deepEqual(remapped.route,geometry);
 console.log('Native contact regression: wide copper preserved; identity anchor inside electrode.');

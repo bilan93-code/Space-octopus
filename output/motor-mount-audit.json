@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "sourceModel": "output/space-octopus.glb",
-  "sourceModelSha256": "0060040db8e769d630d014c97ea1fa1b04128b97647b97c1afd866eafa7325f9",
+  "sourceModelSha256": "8f197cf069ed9c4e4c761b17e0244ca4c6d972f5fb683573f08c4563a106a61a",
   "maximumOutwardProtrusionMm": 43,
   "capToHighestModeledPartMm": 51.6,
   "provisionalGapMm": 7,
@@ -38,30 +38,15 @@
       "passed": true
     },
     {
+      "name": "Only the brake fuse is modeled on the power branches",
+      "passed": true
+    },
+    {
       "name": "Direct-solder wire terminals have no connector bodies",
       "passed": true
     }
   ],
   "components": [
-    {
-      "ref": "F1",
-      "face": "top",
-      "modelBounds": {
-        "min": [
-          -19.25,
-          -2.8,
-          36.25223025502818
-        ],
-        "max": [
-          19.25,
-          7.3,
-          41.74776974497182
-        ]
-      },
-      "protrusionMm": 6.5,
-      "motorFacingProtrusionMm": 1.9999999999999998,
-      "motorClearanceMm": 5
-    },
     {
       "ref": "D1",
       "face": "bottom",
@@ -4000,19 +3985,19 @@
       "face": "top",
       "modelBounds": {
         "min": [
-          -19.25,
-          -2.8,
-          -41.74776974497182
+          11.02602417635692,
+          0.8,
+          -46.773975823643084
         ],
         "max": [
-          19.25,
-          7.3,
-          -36.25223025502818
+          20.37397582364308,
+          3.92,
+          -37.42602417635692
         ]
       },
-      "protrusionMm": 6.5,
-      "motorFacingProtrusionMm": 1.9999999999999998,
-      "motorClearanceMm": 5
+      "protrusionMm": 3.12,
+      "motorFacingProtrusionMm": 0,
+      "motorClearanceMm": 7
     },
     {
       "ref": "D2",
@@ -4286,7 +4271,7 @@
     "The 7 mm motor-to-PCB gap is provisional; enclosure and plug service space are not supplied.",
     "The six mounting positions reuse structural end-cap bolt locations. Spacer bodies are a mounting concept; replacement studs, cap clamping, thread engagement, torque and insulation must be engineered before assembly.",
     "Nominal STEP bodies and ideal motor envelopes omit solder, manufacturing tolerances, cable bends and vibration. Trim actual through-hole leads to <=2 mm on the motor-facing side.",
-    "Y1, U2, U13 and U21 are representative package bodies. F1 and F2 use a project-formed axial envelope. Confirm the actual lead form and standoff. Motor-facing parts need actual maximum-height confirmation.",
+    "Y1, U2, U13 and U21 are representative package bodies. F2 uses a nominal surface-mount package envelope. Confirm its maximum height and seating. Motor-facing parts need actual maximum-height confirmation.",
     "Encoder support, axial sensing gap and 12-to-15 mm shaft adapter remain external mechanical design items. The 45 mm encoder cannot be assumed to pass through the proposed 28 mm PCB opening."
   ]
 }

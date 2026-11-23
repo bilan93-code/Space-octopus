@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "circuitJsonSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
   "method": "Remove the intended shunt electrode only from its physical copper layer, join only real copper and barrels, and require the driver pickup to have no other port or plane connection. No package-internal or logical-net equivalence is used. Full copper DRC is a separate design check.",
   "branches": [
     {

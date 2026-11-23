@@ -1,18 +1,17 @@
 {
   "source": "tscircuit Circuit JSON",
-  "sourceCircuitSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
-  "cadComponents": 223,
-  "withStepModel": 223,
+  "sourceCircuitSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
+  "cadComponents": 222,
+  "withStepModel": 222,
   "placeholderCount": 0,
   "representativeBodies": [
     "Y1",
     "U2",
     "U13",
     "U21",
-    "F1",
     "F2"
   ],
   "units": "Exporter scene uses millimetres; viewer fits the board bounds.",
   "assemblyFitVerified": false,
-  "notes": "Package-family models are visual aids. Y1, U2, U13 and U21 use representative bodies; exposed-pad geometry is not validated by these models. F1 and F2 use a project-formed axial envelope with an assumed lead diameter, bend and standoff. DNP parts, the bare solder jumper, test pads, fiducials and mounting holes have no component bodies."
+  "notes": "Package-family models are visual aids. Y1, U2, U13 and U21 use representative bodies; exposed-pad geometry is not validated by these models. F2 uses a nominal surface-mount package envelope. Confirm the maximum package dimensions and termination geometry. DNP parts, the bare solder jumper, test pads, fiducials and mounting holes have no component bodies."
 }

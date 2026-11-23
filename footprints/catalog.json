@@ -20672,5 +20672,89 @@
       "2",
       "3"
     ]
+  },
+  "Fuse/Littelfuse_463_Nano2_SMD": {
+    "elements": [
+      {
+        "type": "pcb_smtpad",
+        "x": -4.55,
+        "y": 0,
+        "width": 3.2,
+        "height": 4,
+        "layer": "top",
+        "port_hints": [
+          "1",
+          "pin1"
+        ],
+        "shape": "rect",
+        "corner_radius": 0
+      },
+      {
+        "type": "pcb_smtpad",
+        "x": 4.55,
+        "y": 0,
+        "width": 3.2,
+        "height": 4,
+        "layer": "top",
+        "port_hints": [
+          "2",
+          "pin2"
+        ],
+        "shape": "rect",
+        "corner_radius": 0
+      },
+      {
+        "type": "pcb_silkscreen_text",
+        "font": "tscircuit2024",
+        "font_size": 0.8,
+        "text": "REF**",
+        "anchor_position": {
+          "x": 0,
+          "y": 3.3
+        },
+        "anchor_alignment": "center",
+        "layer": "top"
+      },
+      {
+        "type": "pcb_silkscreen_path",
+        "layer": "top",
+        "route": [
+          {
+            "x": -2.55,
+            "y": 1.7
+          },
+          {
+            "x": 2.55,
+            "y": 1.7
+          }
+        ],
+        "stroke_width": 0.12
+      },
+      {
+        "type": "pcb_silkscreen_path",
+        "layer": "top",
+        "route": [
+          {
+            "x": -2.55,
+            "y": -1.7
+          },
+          {
+            "x": 2.55,
+            "y": -1.7
+          }
+        ],
+        "stroke_width": 0.12
+      }
+    ],
+    "box": [
+      -6.45,
+      -2.3,
+      6.45,
+      2.3
+    ],
+    "pads": [
+      "1",
+      "2"
+    ]
   }
 }

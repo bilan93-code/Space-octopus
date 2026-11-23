@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "source": "output/space-octopus.circuit.json",
-  "physicalDrills": 1486,
+  "physicalDrills": 1505,
   "minimumDrillEdgeGapMm": 0.2,
   "violationCount": 0,
   "violations": [],

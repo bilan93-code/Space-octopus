@@ -1,29 +1,14 @@
 {
-  "circuitJsonSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
   "status": "passed",
   "source": "output/space-octopus.circuit.json",
   "minimumIncludedTrackWidthMm": 2.0,
   "checks": [
     {
-      "net": "DC_IN",
-      "passed": true,
-      "required": [
-        "J1.1",
-        "F1.1"
-      ],
-      "missing": [],
-      "islands": [
-        [
-          "F1.1",
-          "J1.1"
-        ]
-      ]
-    },
-    {
       "net": "VBUS",
       "passed": true,
       "required": [
-        "F1.2",
+        "J1.1",
         "C1.1",
         "C2.1",
         "C3.1",
@@ -44,8 +29,8 @@
           "C4.1",
           "C5.1",
           "C905.1",
-          "F1.2",
           "F2.1",
+          "J1.1",
           "Q1.2",
           "Q3.2",
           "Q5.2"
@@ -216,13 +201,29 @@
   ],
   "parallelInputPaths": [
     {
+      "net": "VBUS",
+      "from": "J1.1",
+      "to": "C1.1",
       "layer": "inner2",
-      "minimumTrackWidthMm": 4.5,
-      "passed": true
+      "minimumTrackWidthMm": 3.0,
+      "capacitorTerminalsReached": [
+        "C1.1",
+        "C3.1",
+        "C4.1"
+      ],
+      "passed": true,
+      "launchWidthMm": 4.5,
+      "launchHandoffAreaMm2": 9.989
     },
     {
+      "net": "VBUS",
+      "from": "J1.1",
+      "to": "C1.1",
       "layer": "bottom",
       "minimumTrackWidthMm": 2.4,
+      "capacitorTerminalsReached": [
+        "C1.1"
+      ],
       "passed": true
     }
   ],
@@ -232,7 +233,11 @@
       "passed": true,
       "contactAreaMm2ByLayer": {
         "inner2": 2.3324,
-        "bottom": 2.2639
+        "bottom": 2.2643
+      },
+      "annulusCoverageFractionByLayer": {
+        "inner2": 0.56,
+        "bottom": 0.544
       },
       "minimumAnnulusMm": 0.4
     },
@@ -243,6 +248,10 @@
         "inner1": 1.2149,
         "bottom": 2.488
       },
+      "annulusCoverageFractionByLayer": {
+        "inner1": 0.44,
+        "bottom": 0.901
+      },
       "minimumAnnulusMm": 0.4
     },
     {
@@ -250,6 +259,9 @@
       "passed": true,
       "contactAreaMm2ByLayer": {
         "top": 1.5535
+      },
+      "annulusCoverageFractionByLayer": {
+        "top": 0.373
       },
       "minimumAnnulusMm": 0.4
     },
@@ -259,6 +271,9 @@
       "contactAreaMm2ByLayer": {
         "top": 2.7625
       },
+      "annulusCoverageFractionByLayer": {
+        "top": 1.0
+      },
       "minimumAnnulusMm": 0.4
     },
     {
@@ -266,6 +281,9 @@
       "passed": true,
       "contactAreaMm2ByLayer": {
         "top": 2.7625
+      },
+      "annulusCoverageFractionByLayer": {
+        "top": 1.0
       },
       "minimumAnnulusMm": 0.4
     },
@@ -275,6 +293,9 @@
       "contactAreaMm2ByLayer": {
         "top": 3.816
       },
+      "annulusCoverageFractionByLayer": {
+        "top": 0.917
+      },
       "minimumAnnulusMm": 0.4
     },
     {
@@ -283,9 +304,35 @@
       "contactAreaMm2ByLayer": {
         "bottom": 2.7625
       },
+      "annulusCoverageFractionByLayer": {
+        "bottom": 1.0
+      },
       "minimumAnnulusMm": 0.4
     }
   ],
-  "method": "Keep pads, plated barrels and tracks at least 2 mm wide. Both VBUS and GND load terminals must connect even with every fill removed. Require each listed set of load-current terminals to share one physical copper island. Independently require both complete input paths on their declared layers and minimum widths. For each wire termination, subtract its bore and check for positive-area overlap between the remaining annulus and the specified load-width tracks.",
-  "limitations": "This excludes thin-signal bottlenecks. It does not qualify copper weight, thermal rise, via current sharing or pulse capability."
+  "brakeFuseFeed": {
+    "passed": true,
+    "F2.1": {
+      "layer": "inner2",
+      "minimumTrackWidthMm": 3.0,
+      "capacitorTerminalsReached": [
+        "C1.1",
+        "C3.1",
+        "C4.1"
+      ],
+      "throughViasSharingFeedAndTrunk": 16,
+      "minimumViaBoreMm": 0.35,
+      "minimumViaAnnulusTrackCoverageFraction": 1.0,
+      "finishedHoleAreaInFuseLandMm2": 1.539,
+      "totalConnectedBoreDiameterMm": 5.6
+    },
+    "F2.2": {
+      "layer": "top",
+      "minimumTrackWidthMm": 3.0,
+      "reachesJ11Pin1": true,
+      "landOverlapWithWideTracksMm2": 7.987
+    }
+  },
+  "method": "Keep pads, plated barrels and tracks at least 2 mm wide. Both VBUS and GND load terminals must connect even with every fill removed. Require each listed set of load-current terminals to share one physical copper island. Follow the revised VBUS input to a real bulk capacitor terminal. On the revised branches shrink the no-fill copper by half the specified track width less 0.02 mm, separate disconnected cores, then expand each core to test its terminal and via contacts. Test the F2 input through-via array separately from its output route to J11.1. For each wire termination, subtract its bore and check for positive-area overlap between the remaining annulus and the specified load-width tracks.",
+  "limitations": "This excludes thin-signal bottlenecks. The geometric neck screen treats pad faces as solid, with separate annular contact checks at the harness. Copper weight, barrel plating, vacuum thermal rise, current sharing and pulse capability still require stackup and thermal qualification."
 }

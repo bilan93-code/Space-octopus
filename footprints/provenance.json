@@ -518,5 +518,13 @@
     "source": "Space Octopus wire land pattern. Original 5.08 mm pitch and 2.6 mm copper with a 1.8 mm finished plated bore.",
     "sha256": "bf9097520acde829726e831befcccde6c1cbabdb6d998bae6d9b85e8f255e98e",
     "warnings": []
+  },
+  {
+    "footprint": "Fuse/Littelfuse_463_Nano2_SMD",
+    "url": "https://www.lcsc.com/product-detail/C720194.html",
+    "file": "footprints/kicad/Fuse__Littelfuse_463_Nano2_SMD.kicad_mod",
+    "source": "Project-proposed 0463015.ER SMD land and paste pattern, pending manufacturer drawing. Catalogue nominal body 10.1 × 3.12 × 3.12 mm.",
+    "sha256": "54534b154bd143c5b40c27f4a6814438e342b3d3451c5005384cf1f38cb164bf",
+    "warnings": []
   }
 ]

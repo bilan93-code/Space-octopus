@@ -52,7 +52,8 @@ check('Extracted analog simulations match this circuit',simulation.status==='pas
 check('Package and MCU pin capture review passed',packages.status==='passed'&&packages.independentlyComparedMcuPins===64);
 const targeted=read('bulk-watchdog-audit.json');
 check('Bulk and watchdog amendment matches this circuit',targeted.status==='passed'&&targeted.sourceCircuitSha256===sourceSha&&targeted.checks.every(c=>c.passed));
-check('Rendered silkscreen passed',read('silkscreen-rendered-audit.json').status==='passed');
+const silk=read('silkscreen-rendered-audit.json');
+check('Rendered silkscreen passed on the delivered circuit',silk.status==='passed'&&silk.circuitJsonSha256===sourceSha);
 const signalPaths=read('signal-path-review.json'),kelvin=read('kelvin-audit.json');
 check('All signal paths were measured from this circuit',signalPaths.status==='measured'&&signalPaths.circuitJsonSha256===sourceSha);
 check('All six Kelvin branches passed on this circuit',kelvin.status==='passed'&&kelvin.branches.length===6&&kelvin.branches.every(b=>b.passed)&&kelvin.circuitJsonSha256===sourceSha);

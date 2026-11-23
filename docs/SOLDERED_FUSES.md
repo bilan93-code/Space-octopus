@@ -1,5 +1,7 @@
 # Soldered input and brake fuses · 19 November 2026
 
+Archived axial-fuse design. The current actuator uses the [23 November power and brake interface](POWER_AND_BRAKE.md).
+
 This revision starts from the 18 November validated tscircuit design, published on 19 November as commit `79d4fc1`. Both Littelfuse 487 parts have factory-attached axial leads. The assembler forms and solders the leads directly into the board. Servicing either fuse requires desoldering.
 
 | Position | Connection | Order code | PCB Parts code | Rating in catalogue |

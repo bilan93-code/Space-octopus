@@ -32,6 +32,11 @@ for(const key of Object.keys(catalog)){
   assemblyRequirement:'Form both leads to 37.5 mm pitch; trim to <=2 mm beneath the 1.6 mm PCB.',
   limitation:'Catalogue body 21.5 × Ø5.5 mm. Model assumes 1 mm standoff, 1 mm leads and 2 mm bend radius. Confirm finished hole fit, actual lead size, forming limits, body tolerance and vibration support before release.',
  });
+ if(key==='Fuse/Littelfuse_463_Nano2_SMD')Object.assign(report.at(-1),{
+  verification:'nominal catalogue body envelope',
+  source:'https://www.lcsc.com/product-detail/C720194.html',
+  limitation:'0463015.ER, nominal 10.1 × 3.12 × 3.12 mm envelope. Verify maximum package, terminations, land and stencil dimensions on the manufacturer drawing.',
+ });
  if(key===bulkKey)Object.assign(report.at(-1),{verification:'manufacturer-dimension maximum envelope; generated STEP',source:'https://github.com/hank-bond/digikey-cap-finder/blob/37c424a900e3784d245f79d2d9c9938dea847907/series_pdfs/rubycon/ZLJ.pdf',assemblyRequirement:'18.5mm maximum diameter, 42mm maximum can length, 1mm seating allowance; reserve 3mm above the vent. Trim leads to <=2mm below PCB.',limitation:'Not a vendor appearance model. See bulk-cap-envelope-provenance.json.'});
 }
 fs.writeFileSync('data/cad-models.json',JSON.stringify(models)+'\n');

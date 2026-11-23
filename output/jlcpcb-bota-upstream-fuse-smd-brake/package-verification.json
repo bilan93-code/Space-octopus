@@ -1,0 +1,48 @@
+{
+  "purpose": "DFM and price quote only",
+  "approvedForManufacture": false,
+  "provisionalBrakeFuse": {
+    "mpn": "0463015.ER",
+    "value": "15 A SMD brake fuse (proposed)",
+    "footprint": "Fuse/Littelfuse_463_Nano2_SMD",
+    "provisionalReason": "Confirm DC interrupt capability at the prospective bus fault current, hot derating, repetitive braking I\u00b2t and land geometry before ordering."
+  },
+  "sourceSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
+  "gerberMembers": [
+    "F_Cu.gbr",
+    "In1_Cu.gbr",
+    "In2_Cu.gbr",
+    "B_Cu.gbr",
+    "F_Mask.gbr",
+    "B_Mask.gbr",
+    "F_Paste.gbr",
+    "B_Paste.gbr",
+    "F_SilkScreen.gbr",
+    "B_SilkScreen.gbr",
+    "Edge_Cuts.gbr",
+    "drill-L1-L4.drl",
+    "drill_npth.drl"
+  ],
+  "bomLines": 95,
+  "cplPlacements": 222,
+  "sides": {
+    "Bottom": 155,
+    "Top": 67
+  },
+  "additionalCartridgesPerBoard": 0,
+  "missingExactCatalogueListings": [
+    "BLM21PG221SN1D",
+    "LM5164DDAR",
+    "MSS1246T-683MLB",
+    "SN74LVC1G74DCTR",
+    "TPS3431SDRBR"
+  ],
+  "stockSnapshotUTC": "2026-11-23T11:52:13.104817+00:00",
+  "checks": 18,
+  "sha256": {
+    "Space-Octopus-Bota-JLCPCB-Gerbers-DFM-quote.zip": "2e4adf0c46b9cf4ae3ee7023a695d9df3f26f74f40c46cf35d3a9fe9640f07b6",
+    "JLCPCB-BOM-quote.csv": "459f8de780e8fc90af7c0084177371a86bab75ee3202349ae320782f135af45e",
+    "JLCPCB-CPL-quote.csv": "a6941a5ade2707f0a0f8c22835501801651b34a3663960f81ff77b204954ff11",
+    "Assembly-and-fabrication-notes.txt": "0f295dd5c5cdc33a2fe70be388739fd2f3bb5792398fbe24946ce8854dca427b"
+  }
+}

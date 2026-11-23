@@ -13,7 +13,7 @@ The current circular actuator-board revision has **${status.fullyConnectedNets}/
 | Editable electrical capture | React/TypeScript source, ${status.inventoryItems} inventory items, ${status.nets} nets, nine schematic sheets, physical pin maps and mutation checks |
 | Circular mechanical interface | Ø112 mm board, four copper layers, proposed Ø28 mm aperture, six Ø4.5 mm holes on Ø104 mm PCD |
 | Routing | Verified custom copper replayed through tscircuit's routing API; 0.2 mm copper spacing and 0.5 mm edge/drill spacing checked independently |
-| Power copper | GND and VBUS load paths verified with all fills removed, using tracks at least 2 mm wide; complete parallel input paths independently checked at 4.5 mm on inner2 and 2.4 mm on bottom |
+| Power copper | GND and VBUS load paths verified with all fills removed, using tracks at least 2 mm wide; J1.1 to C1.1 measured on inner2 (4.5 mm launch, 3 mm minimum) and bottom (2.4 mm), with F2 feed vias and its output to J11.1 checked |
 | Sense and local layout | Six Kelvin branches, deliberate-fault checks, local converter/bypass layout, assembly envelopes and drilling checks |
 | Copper pours | Native copper-pour primitives with audited BRep geometry; nested Gerber polarity regression |
 | Native checker correction | Reproducible rounded through-hole pad geometry fix for checks 0.0.277/0.0.278; passing and failing fixtures at three rotations; no diagnostic suppression or changed clearance limits. See [replay notes](NATIVE_REPLAY_GEOMETRY.md). |

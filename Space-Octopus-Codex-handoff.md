@@ -1,5 +1,5 @@
 # Space Octopus actuator PCB handoff
-**Historical baseline at commit `79d4fc1`.** The [soldered fuse revision](docs/SOLDERED_FUSES.md) supersedes the fuse selection and quote files below.
+**Historical baseline at commit `79d4fc1`.** See the [current actuator power and brake connections](docs/POWER_AND_BRAKE.md) for the design that supersedes this handoff.
 
 Updated 19 November 2026. Resume from the tscircuit revision validated on 18 November. The target is a quote for five assembled prototypes. JLCPCB DFM acceptance, purchasing and powered operation are pending.
 

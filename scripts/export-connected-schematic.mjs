@@ -43,6 +43,9 @@ const minX=Math.min(...all.map(p=>p.x))-6,maxX=Math.max(...all.map(p=>p.x))+6,mi
 rendered.push(text('SPACE OCTOPUS | CONNECTED SCHEMATIC',minX,maxY+8,1.45));
 rendered.push(text('All components together. Symbols follow PCB placement and are spaced for legibility.',minX,maxY+5.2,.45));
 rendered.push(text(`All ${Object.keys(actual).length} nets are drawn, including power and ground. Junction dots join wires. Gaps mark crossings.`,minX,maxY+3.4,.45));
+const brake=JSON.parse(fs.readFileSync('data/external-parts.json')).find(p=>p.ref==='R_BRAKE_EXT');
+rendered.push(text('F1 on the battery PCB supplies 48 V to J1 pin 1 (VBUS). J1 pin 2 is the supply return (GND).',minX,minY,.58));
+rendered.push(text(`F2 feeds J11 pin 1 (BRAKE_PLUS). Connect the external ${brake.value} resistor between J11 pin 1 and J11 pin 2 (BRAKE_DRAIN).`,minX,minY-1.45,.58));
 rendered.push(text('Current tscircuit design | 4 x 820 uF / 100 V bus capacitors | TPS3431SDRBR watchdog | Engineering review',minX,minY-3,.45));
 const width=10000,height=Math.ceil(width*(maxY-minY+15)/(maxX-minX));
 const svg=convertCircuitJsonToSchematicSvg(rendered,{width,height,showErrorsInTextOverlay:false,colorOverrides:{schematic:{background:'#ffffff',sheet_background:'#ffffff',wire:'#1c6543',reference:'#143c51',value:'#143c51'}}}).replace('<svg ',`<svg viewBox="0 0 ${width} ${height}" `);

@@ -44,7 +44,7 @@ export default function SpaceOctopus({routing=true,useSavedRoutes=true,groundPla
   {...routingRules}
   schLayout={{layoutMode:'none'}} schAutoLayoutEnabled={false}
   schTraceAutoLabelEnabled schMaxTraceDistance={0.01}>
-  {nets.map(n=><React.Fragment key={n}><net name={n} routingPhaseIndex={replay?undefined:routingPhase(n,nets)} isGroundNet={n==='GND'} nominalTraceWidth={0.25} isPowerNet={['DC_IN','VBUS','V12','V5','V3V3','VDDA3V3','REF25','ENC12'].includes(n)}/></React.Fragment>)}
+  {nets.map(n=><React.Fragment key={n}><net name={n} routingPhaseIndex={replay?undefined:routingPhase(n,nets)} isGroundNet={n==='GND'} nominalTraceWidth={0.25} isPowerNet={['VBUS','V12','V5','V3V3','VDDA3V3','REF25','ENC12'].includes(n)}/></React.Fragment>)}
   {replay&&savedVias.map((v,i)=><React.Fragment key={`saved_via_${i}`}><via name={`SV${i+1}`} pcbX={v.x} pcbY={v.y} holeDiameter={v.hole} outerDiameter={v.diameter} fromLayer="top" toLayer="bottom" connectsTo={`net.${v.net}`} netIsAssignable={false}/></React.Fragment>)}
   {!replay&&[...new Set(nets.map(n=>routingPhase(n,nets)))].map(i=><React.Fragment key={i}><autoroutingphase phaseIndex={i} name={`stage_${i}`} /></React.Fragment>)}
   {sheets.map((sheet,s)=>{

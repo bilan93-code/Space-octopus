@@ -8,6 +8,7 @@ const errors=[];const check=(condition,message)=>{if(!condition)errors.push(mess
 const sources=j.filter(e=>e.type==='source_component');
 const catalog=read('footprints/catalog.json');
 const placement=read('data/placement.json');
+check(!sources.some(s=>s.name==='F1')&&!j.some(e=>e.type==='source_net'&&e.name==='DC_IN'),'Retired input fuse or separate DC_IN net remains in the rendered board');
 check(sources.length===parts.length,'Rendered component count differs from inventory');
 for(const p of parts){
  const source=sources.find(s=>s.name===p.ref);check(!!source,`${p.ref}: missing source`);if(!source)continue;
@@ -25,6 +26,10 @@ for(const p of parts){
   const pads=j.filter(e=>['pcb_smtpad','pcb_plated_hole','pcb_hole'].includes(e.type)&&e.pcb_component_id===pcb.pcb_component_id);
   const expected=catalog[p.footprint].elements.filter(e=>['pcb_smtpad','pcb_plated_hole','pcb_hole'].includes(e.type));
   check(pads.length===expected.length,`${p.ref}: rendered pad/hole count ${pads.length} != ${expected.length}`);
+  if(p.ref==='F2'){
+   check(!pcb.do_not_place && pads.length===2 && pads.every(pad=>pad.type==='pcb_smtpad' && pad.layer===pcb.layer),'F2: expected two populated surface-mount fuse lands');
+   check(pads.every(pad=>j.some(e=>e.type==='pcb_solder_paste' && e.pcb_smtpad_id===pad.pcb_smtpad_id && e.layer===pcb.layer)),'F2: each fuse land needs a stencil aperture');
+  }
   if(p.assembly==='wire-termination'){
    check(!source.manufacturer_part_number && pcb.do_not_place===true,`${p.ref}: wire lands must be excluded from component assembly`);
    check(pads.every(pad=>pad.type==='pcb_plated_hole' && pad.hole_diameter===1.8 && ['top','inner1','inner2','bottom'].every(layer=>pad.layers.includes(layer))),`${p.ref}: wire terminals require 1.8 mm four-layer plated holes`);

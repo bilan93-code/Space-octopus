@@ -28,7 +28,7 @@ const hash = data => createHash('sha256').update(data).digest('hex');
 // Expanded independently from every inventory row on PDF pages 13–21.
 // ENC1 and R_BRAKE_EXT belong to the system inventory, not the PCB inventory.
 const INVENTORY = {
-  '00 Input': ['J1', 'F1', 'D1', ...seq('C', 1, 5), 'R1', 'TP1', 'TP2'],
+  '00 Input': ['J1', 'D1', ...seq('C', 1, 5), 'R1', 'TP1', 'TP2'],
   '01 Supplies': ['U3', 'U4', 'U5', 'U19', 'L101', 'L102', 'U21', 'J12', ...seq('C', 101, 117), ...seq('R', 101, 109), ...seq('TP', 3, 6)],
   '02 MCU': ['U1', 'Y1', ...seq('R', 201, 206), ...seq('C', 201, 211), 'FB201', 'J7', 'J9', 'SW1', 'D7', 'D8', 'D9'],
   '03 Gate driver': ['U2', ...seq('C', 301, 307), ...seq('R', 301, 312), ...seq('TP', 7, 9)],
@@ -91,7 +91,7 @@ const IC_MPNS = {
  U16: 'TLV1701AIDBVR', U17: 'UCC27511DBVR', U18: 'THVD2450DR', U19: 'REF3025EAIDBZR', U20: 'THVD2450DR',
 };
 const CONNECTORS = {
- J12: pinTable('BOTA_9V GND'), J1: pinTable('DC_IN GND'), J2: pinTable('PH_U PH_V PH_W'), J3: pinTable('NTC_MOTOR_RAW GND'),
+ J12: pinTable('BOTA_9V GND'), J1: pinTable('VBUS GND'), J2: pinTable('PH_U PH_V PH_W'), J3: pinTable('NTC_MOTOR_RAW GND'),
  J4: pinTable('ENC12 GND - - - - ENC_CLK_P ENC_CLK_N ENC_DATA_P ENC_DATA_N SHIELD'),
  J5: pinTable('CANH CANL GND SHIELD'), J6: pinTable('CANH CANL GND SHIELD'),
  J7: pinTable('V3V3 SWDIO GND SWCLK GND SWO - - GND RESET_N'), J8: pinTable('V3V3 PERMIT_IN GND'),
@@ -234,18 +234,17 @@ export function audit({ components = [], catalog = null, inputs = [], inputError
 
  // INPUT, SUPPLIES, MCU. Fixed nets come from the PDF; private junctions below
  // are checked through real pins rather than spelling conventions.
- two('F1', 'DC_IN', 'VBUS');
- for (const [ref, mpn] of [['F1', '0487020.MXEP'], ['F2', '0487015.MXEP']]) {
-  run(`assembly.${ref}.axial-fuse`, [ref], () => {
-   const fuse = part(ref);
-   const lands = catalog?.[fuse.footprint]?.elements ?? [];
-   const leads = lands.filter(land => land.type === 'pcb_plated_hole');
-   const leadPitch = leads.length === 2 ? Math.hypot(leads[1].x - leads[0].x, leads[1].y - leads[0].y) : null;
-   const ok = fuse.mpn === mpn && fuse.dnp === false && !fuse.holder && leadPitch !== null &&
-    Math.abs(leadPitch - 37.5) < 0.001 && !lands.some(land => ['pcb_hole', 'pcb_smtpad'].includes(land.type));
-   return { ok, expectedMpn: mpn, actualMpn: fuse.mpn, leadPitchMm: leadPitch };
-  }, '19 November 2026 direct-solder Littelfuse 487 layout revision');
- }
+ run('input.direct-bus', ['J1'], () => ({
+  ok: net('J1', 1) === 'VBUS' && !byRef.has('F1') && components.every(c => !Object.values(c.pins ?? {}).includes('DC_IN')),
+  inputNet: net('J1', 1), inputFusePresent: byRef.has('F1'),
+ }), 'Direct VBUS input at the harness termination');
+ run('assembly.F2.smd-fuse', ['F2'], () => {
+  const fuse = part('F2');
+  const lands = catalog?.[fuse.footprint]?.elements.filter(e => ['pcb_smtpad','pcb_plated_hole','pcb_hole'].includes(e.type)) ?? [];
+  return { ok: fuse.kind === 'fuse' && !fuse.holder && !fuse.dnp && numericValue(fuse.value) === 15 &&
+    fuse.mpn === '0463015.ER' && lands.length === 2 && lands.every(land => land.type === 'pcb_smtpad'),
+   orderCode: fuse.mpn, value: fuse.value, footprint: fuse.footprint };
+ }, '15 A surface-mount brake-branch fuse');
  exact('D1', { 1: 'VBUS', 2: 'GND' });
  // 2026-11-17 manufacturer-backed bulk/watchdog amendment supersedes Rev A's 470uF placeholders.
  for (let i = 1; i <= 4; i++) { exact(`C${i}`, { 1: 'VBUS', 2: 'GND' }); value(`C${i}`, 820e-6); }
@@ -376,8 +375,8 @@ export function audit({ components = [], catalog = null, inputs = [], inputError
  two('R708', 'SHIELD', 'GND', 1e6); two('C708', 'SHIELD', 'GND', 1e-9);
  for (const [ref, p, n] of [['D3', 'CANH', 'CANL'], ['D4', 'ENC_CLK_P', 'ENC_CLK_N'], ['D5', 'ENC_DATA_P', 'ENC_DATA_N']]) exact(ref, { 1: p, 2: n, 3: 'GND' });
 
- // BRAKE. The 200 W resistor is outside the board; only its connector is on it.
- two('F2', 'VBUS', 'BRAKE_PLUS'); exact('D2', { 1: 'BRAKE_PLUS', 2: 'BRAKE_DRAIN' });
+ // The external braking resistor PCB connects through the two J11 wire terminals.
+ exact('F2', { 1: 'VBUS', 2: 'BRAKE_PLUS' }); exact('D2', { 1: 'BRAKE_PLUS', 2: 'BRAKE_DRAIN' });
  exact('Q7', { 1: '@BRAKE_GATE', 2: 'BRAKE_DRAIN', 3: 'GND' });
  chain('brake.bus-divider-chain', 'R901', 'R902', 'VBUS', 'BRAKE_SENSE');
  value('R901', 150e3); value('R902', 150e3); two('R903', 'BRAKE_SENSE', 'GND', 14e3);
@@ -420,7 +419,14 @@ export function audit({ components = [], catalog = null, inputs = [], inputError
   ok: part('TORQUE1').mpn === 'BTS-T300-CAT' && part('TORQUE1').connectsTo === 'Jetson EtherCAT master and J12 power' && net('J5',1) === 'CANH' && net('J5',2) === 'CANL',
   message: 'The Jetson terminates Bota EtherCAT. The drive supplies J12 and takes commands over CAN.'
  }));
- if (byRef.has('R_BRAKE_EXT')) { two('R_BRAKE_EXT', 'BRAKE_PLUS', 'BRAKE_DRAIN', 4.7); }
+ two('R_BRAKE_EXT', 'BRAKE_PLUS', 'BRAKE_DRAIN', 4.7);
+ run('brake.external-load', ['R_BRAKE_EXT', 'J11'], () => {
+  const r = part('R_BRAKE_EXT');
+  return { ok: r.connectsTo === 'J11' && !r.footprint && r.assemblyLocation === 'Separate braking-resistor PCB' &&
+    r.resistanceOhms === 4.7 && r.tolerancePercent === 5 && r.ratedPowerW === 300,
+   location: r.assemblyLocation, connector: r.connectsTo, resistanceOhms: r.resistanceOhms,
+   tolerancePercent: r.tolerancePercent, ratedPowerW: r.ratedPowerW };
+ }, 'External brake resistor PCB electrical specification');
  for (const ref of INVENTORY.Mechanical) run(`mechanical.${ref}.unconnected`, [ref], () => ({ ok: Object.values(part(ref).pins ?? {}).every(n => n === null), actual: part(ref).pins }));
 
  // Do not infer correctness from footprint matching alone: IC pin sets above
@@ -441,7 +447,7 @@ export function audit({ components = [], catalog = null, inputs = [], inputError
   ['layout', 'Kelvin routing, gate loops, decoupler placement, creepage, current paths, and thermal interfaces require PCB/layout review.'],
   ['ratings', 'Voltage/pulse/current/temperature ratings, capacitor bias/ripple derating, fuse coordination, TVS clamping, and MOSFET SOA require selected-part evidence and bench tests.'],
   ['threshold-tolerance', 'Threshold calculations are nominal (3.3 V, 2.5 V, CSA gain 20); worst-case reference/comparator/CSA/resistor tolerances and fault response time remain unverified.'],
-  ['brake-energy', 'External 4.7-ohm / 200-W resistor energy, cooling, wiring inductance, duty cycle, and thermal cutoff remain system-level open items.'],
+  ['brake-energy', 'External 4.7-ohm ±5%, 300-W resistor PCB energy, cooling, wiring inductance, duty cycle, and thermal cutoff remain system-level open items.'],
   ['firmware', 'MCU alternate functions, CSA register settings, dead time, ADC timing, BiSS framing, watchdog service, and no automatic rearm require firmware and hardware validation.'],
   ['encoder-harness', 'FLUX order code, connector orientation, 12-V startup current, remote clock termination, and mechanical fit require supplier/harness confirmation.'],
  ];

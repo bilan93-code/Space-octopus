@@ -1,10 +1,10 @@
 {
   "passed": true,
-  "circuitSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "circuitSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
   "faces": [
     {
       "face": "top",
-      "gerberFlashes": 160
+      "gerberFlashes": 162
     },
     {
       "face": "bottom",

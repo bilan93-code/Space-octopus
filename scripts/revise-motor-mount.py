@@ -17,7 +17,7 @@ changes={'J1':phoenix.format(2,2),'J2':phoenix.format(3,3),'J11':phoenix.format(
 for ref,n in [('J3',2),('J8',3),('J5',4),('J6',4)]:changes[ref]=f'Connector_JST/JST_GH_BM0{n}B-GHS-TBT_1x0{n}-1MP_P1.25mm_Vertical'
 for ref,footprint in changes.items():by[ref]['footprint']=footprint
 anchors={}
-for ref in ['H1','H2','H3','H4','H5','H6','F1','F2','Q1','Q2','Q3','Q4','Q5','Q6','RSH1','RSH2','RSH3','C3','C4','L101','U1','U2','U3','U4','U5','U6','U7','U8','U19']:
+for ref in ['H1','H2','H3','H4','H5','H6','F2','Q1','Q2','Q3','Q4','Q5','Q6','RSH1','RSH2','RSH3','C3','C4','L101','U1','U2','U3','U4','U5','U6','U7','U8','U19']:
  p=previous[ref];anchors[ref]=(*p['bodyCenter'],p['rotation'],p['layer'])
 anchors.update({
  'C1':(-35,12.1,90,'top'),'C2':(-35,-12.1,90,'top'),

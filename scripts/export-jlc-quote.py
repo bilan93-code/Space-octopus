@@ -52,7 +52,9 @@ for ref in wire_refs:
     assert rendered_parts[ref].get('display_name') == parts[ref]['value'], (ref, 'stale rendered wire termination')
 board_refs = [ref for row in stock if row['Installation'] == 'board component' for ref in row['References'].split()]
 assert Counter(board_refs) == Counter(ref for ref, part in fitted.items() if not part.get('holder')), 'stale stock references'
-for ref in ('F1','F2'):
+if 'F1' not in parts:
+    assert 'F1' not in rendered_parts, 'stale onboard input fuse'
+for ref in (name for name in ('F1', 'F2') if name in parts):
     assert rendered_parts[ref].get('manufacturer_part_number') == fitted[ref]['mpn'], (ref, 'stale rendered fuse')
     assert rendered_parts[ref].get('display_name') == fitted[ref]['value'], (ref, 'stale rendered fuse value')
 groups=defaultdict(list)
@@ -109,9 +111,14 @@ assert sum(r['Quantity'] for r in bom)==len(cpl)
 package_files=[archive,dest/'JLCPCB-BOM-quote.csv',dest/'JLCPCB-CPL-quote.csv']
 if extras:
     package_files.append(dest/'Hand-insert-fuse-cartridges.csv')
+if suffix == '-upstream-fuse-smd-brake':
+    assembly_notes = dest / 'Assembly-and-fabrication-notes.txt'
+    assembly_notes.write_bytes(Path('docs/JLCPCB_POWER_AND_BRAKE_QUOTE.txt').read_bytes())
+    package_files.append(assembly_notes)
 result={
     'purpose': 'DFM and price quote only',
     'approvedForManufacture': False,
+    'provisionalBrakeFuse': {key: parts['F2'][key] for key in ('mpn', 'value', 'footprint', 'provisionalReason')},
     'sourceSha256': signature,
     'gerberMembers': files,
     'bomLines': len(bom),
@@ -124,4 +131,12 @@ result={
     'sha256': {p.name:digest(p) for p in package_files},
 }
 (dest/'package-verification.json').write_text(json.dumps(result,indent=2)+'\n')
+if suffix == '-upstream-fuse-smd-brake':
+    handoff = dest / 'Space-Octopus-JLCPCB-DFM-handoff.zip'
+    members = [*package_files, dest / 'package-verification.json']
+    with ZipFile(handoff, 'w', compression=ZIP_DEFLATED, compresslevel=6) as bundle:
+        for member in members:
+            bundle.write(member, member.name)
+    with ZipFile(handoff) as bundle:
+        assert bundle.testzip() is None and bundle.namelist() == [p.name for p in members]
 print(json.dumps(result,indent=2))

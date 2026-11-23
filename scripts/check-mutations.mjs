@@ -8,8 +8,9 @@ assert.equal(audit({components,catalog}).status,'passed');
 const cases=[
  ['Component ordered for bare DC wire pads',p=>p('J1').mpn='1711725','assembly.J1.wire-termination'],
  ['Two-wire footprint used for three motor phases',p=>p('J2').footprint=p('J1').footprint,'assembly.J2.wire-termination'],
- ['Cartridge holder substituted for the soldered input fuse',p=>p('F1').holder={mpn:'0031.8002'},'assembly.F1.axial-fuse'],
- ['Input fuse fitted in the brake position',p=>p('F2').mpn=p('F1').mpn,'assembly.F2.axial-fuse'],
+ ['Detached input bus',p=>p('J1').pins['1']='DC_IN','input.direct-bus'],
+ ['Underrated external braking load',p=>p('R_BRAKE_EXT').ratedPowerW=200,'brake.external-load'],
+ ['Lead-through brake fuse footprint',p=>p('F2').footprint=p('J11').footprint,'assembly.F2.smd-fuse'],
  ['Grounded charge-pump reservoir',p=>p('C304').pins['2']='GND','connection.C304'],
  ['Reversed current comparator',p=>{[p('U7').pins['4'],p('U7').pins['5']]=[p('U7').pins['5'],p('U7').pins['4']]},'comparator.U-low.polarity'],
  ['Bypassed driver SPI resistor',p=>p('U2').pins['29']=p('U1').pins['52'],'driver.spi.SCK'],

@@ -1,0 +1,37 @@
+Space Octopus actuator PCB | 23 November 2026 revision
+Request for DFM and pricing | Five prototype assemblies
+
+Quote a single-board design with two-sided SMT and through-hole assembly.
+Please return the proposed stackup, panelization, DFM findings and component
+matching / placement preview for customer review before tooling or assembly.
+
+Fabrication
+  Four layers, 1.60 mm finished thickness and 2 oz outer copper. Confirm inner
+  copper weights. The board has a 112 mm outer diameter, a routed 28 mm center
+  opening and six nonplated 4.50 mm mounting holes. The project uses 0.15 mm
+  minimum tracks and 0.20 mm clearance. The smallest via has a 0.20 mm drill
+  and 0.40 mm land. Confirm drill and registration tolerances for the stackup.
+  Include bare-board electrical test. Provide filled, copper-capped and
+  planarized via-in-pad wherever a via intersects a solderable SMT land,
+  including the array at F2 pin 1. Keep component and harness holes open.
+
+Assembly
+  The top face points away from the motor. Review the stencil on both faces,
+  component polarity, pin 1, bottom-side rotation and through-hole lead trim.
+  F2 is the proposed Littelfuse 0463015.ER, 15 A, LCSC C720194. Quote it as a
+  directly soldered SMD component. The proposed pad and paste geometry and
+  final part selection require customer approval. No cartridge or holder is
+  fitted. There is no actuator BOM position for the upstream F1 fuse or the
+  external 4.7 ohm +/-5%, 300 W resistor.
+
+Customer-installed wire harness
+  Leave all seven 1.80 mm nominal finished plated wire holes solderable.
+  J1   1 = DC+ / VBUS, from an externally fused feed     2 = supply GND
+  J2   1 = U     2 = V     3 = W
+  J11  1 = BR+ / brake fuse output    2 = BR_SW / switched brake return
+  The separate braking-resistor PCB connects across the two J11 wires.
+
+Part matching
+  Confirm live stock, assembly allowance and all exact manufacturer order
+  codes. Obtain customer approval for substitutions. Check the C5 film
+  capacitor case and seating fit and verify D2 and D3-D5 pin assignments.

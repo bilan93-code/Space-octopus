@@ -15,7 +15,7 @@ export const footprints=f as unknown as Record<string,Footprint>;
 export const placement=xy as Record<string,Placement>;
 export const sheets=['00_Input','01_Supplies','02_MCU','03_GateDriver','04_Inverter','05_Sensing','06_FaultLogic','07_Interfaces','08_Brake'];
 export const sheetNotes=[
- '48 V nominal • 54 V assumed maximum • upstream precharge and polarity protection',
+ '48 V nominal • 54 V assumed maximum • J1.1 = VBUS • upstream F1, precharge and polarity protection',
  'VBUS → 12 V → 5 V → 3.3 V • 12 V → protected 9 V sensor branch • REF25 = 2.5 V • verify effective capacitor values',
  'STM32G431RBT6 • HSE bypass 8 MHz • SWD • external default-off controls',
  'DRV8353S • SPI • three current amplifiers • EP 41 to GND • C304 floats above VBUS',
@@ -23,7 +23,7 @@ export const sheetNotes=[
  'Current window ±39.9 A nominal • bus UV 39.68 V / OV 60.83 V • two NTC inputs',
  'Faults clear latched permission • deliberate arm pulse required • permit is local 3.3 V',
  'FLUX BiSS-C • robot host CAN • Bota EtherCAT to Jetson; power from J12 • termination jumper OPEN',
- 'Independent chopper • nominal ON 57.57 V / OFF 55.59 V • resistor external at J11',
+ 'Independent chopper • nominal ON 57.57 V / OFF 55.59 V • J11 → separate 4.7 Ω ±5%, 300 W resistor PCB',
 ];
 export function electricalValue(text:string):number {
  const s=text.replaceAll('µ','u');const match=s.match(/^([\d.]+)\s*([pnumkKM])?/);

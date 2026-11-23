@@ -6,7 +6,7 @@ const fs=require('fs');const {createHash}=require('crypto');const {chromium}=req
   const page=await browser.newPage({viewport:{width:1500,height:1100}});page.on('pageerror',e=>errors.push(String(e)));
   const base=process.env.OCTOPUS_PREVIEW_URL||'http://127.0.0.1:3021';
   await page.goto(base+'/index.html');await page.waitForSelector('#pcb svg');
-  const wireTerminations={J1:['DC_IN','GND'],J2:['PH_U','PH_V','PH_W'],J11:['BRAKE_PLUS','BRAKE_DRAIN']};
+  const wireTerminations={J1:['VBUS','GND'],J2:['PH_U','PH_V','PH_W'],J11:['BRAKE_PLUS','BRAKE_DRAIN']};
   for(const [ref,nets] of Object.entries(wireTerminations)){
    await page.locator(`#pcb [data-pad-name^="${ref}."]`).first().dispatchEvent('click');
    const shown=await page.locator('#inspector .pin span:last-child').allTextContents();
@@ -23,8 +23,13 @@ const fs=require('fs');const {createHash}=require('crypto');const {chromium}=req
   await page.goto(base+'/3d.html');await page.waitForFunction(()=>window.boardReady||window.boardError,null,{timeout:60000});
   const state=await page.evaluate(()=>({ready:window.boardReady,error:window.boardError,bounds:window.boardBounds,status:document.querySelector('#status').textContent,routing:document.querySelector('#routing-status').textContent}));
   if(!state.ready||state.error)throw new Error('3D viewer failed: '+state.error);
-  const bareTerminals=await page.evaluate(refs=>!!window.boardScene.getObjectByName('C1')&&refs.every(ref=>!window.boardScene.getObjectByName(ref)),Object.keys(wireTerminations));
-  if(!bareTerminals)throw new Error('3D preview still contains a power connector or failed to load component meshes');
+  const visibleParts=await page.evaluate(refs=>{
+   const f2=window.boardScene.getObjectByName('F2');
+   let hasBrakeFuseMesh=false;
+   f2?.traverse(node=>{if(node.isMesh)hasBrakeFuseMesh=true;});
+   return {hasBrakeFuseMesh,unexpectedBodies:refs.filter(ref=>window.boardScene.getObjectByName(ref))};
+  },['F1',...Object.keys(wireTerminations)]);
+  if(!visibleParts.hasBrakeFuseMesh || visibleParts.unexpectedBodies.length)throw new Error('3D fuse/wire termination mismatch: '+JSON.stringify(visibleParts));
   if(Math.abs(state.bounds.max[0]-state.bounds.min[0]-112)>.01)throw new Error('3D width is not 112 mm');
   await page.screenshot({path:'output/board-3d-angle.png'});
   await page.click('#mount');
@@ -38,7 +43,7 @@ const fs=require('fs');const {createHash}=require('crypto');const {chromium}=req
   await page.click('#mount');
   await page.waitForFunction(()=>!window.motorEnvelope.visible);
   for(const mode of ['top','bottom']){await page.click('#'+mode);await page.waitForTimeout(250);await page.screenshot({path:'output/board-3d-'+mode+'.png'});}
-  report.threeDimensional={passed:true,...state,views:['angle','top','bottom','motor','separated'],motorControls:true,modelSha256:createHash('sha256').update(fs.readFileSync('output/space-octopus.glb')).digest('hex')};
+  report.threeDimensional={passed:true,...state,...visibleParts,views:['angle','top','bottom','motor','separated'],motorControls:true,modelSha256:createHash('sha256').update(fs.readFileSync('output/space-octopus.glb')).digest('hex')};
  }finally{await browser.close()}
  report.pageErrors=errors;report.passed=errors.length===0;fs.writeFileSync('output/browser-audit.json',JSON.stringify(report,null,2)+'\n');fs.writeFileSync('output/3d-browser-check.json',JSON.stringify(report.threeDimensional,null,2)+'\n');
  console.log(JSON.stringify(report,null,2));if(errors.length)process.exitCode=1;

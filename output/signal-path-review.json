@@ -169,5 +169,5 @@
     "The source plan starts BiSS clocking at 2 MHz (500 ns period); this alone does not set an edge-rate or EMC budget.",
     "Gate path length alone does not measure gate/source loop inductance or switching stability."
   ],
-  "circuitJsonSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39"
+  "circuitJsonSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992"
 }

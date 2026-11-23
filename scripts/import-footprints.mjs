@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { KicadFootprintToCircuitJsonConverter } from 'kicad-to-circuit-json';
 const customPatterns = {
+ 'Fuse/Littelfuse_463_Nano2_SMD': {url:'https://www.lcsc.com/product-detail/C720194.html',source:'Project-proposed 0463015.ER SMD land and paste pattern, pending manufacturer drawing. Catalogue nominal body 10.1 × 3.12 × 3.12 mm.'},
  'Package_DFN_QFN/TI_RTA0040B_DRV8353': {url:'https://www.ti.com/lit/ds/symlink/drv8353.pdf',source:'TI RTA0040B, docs/evidence/ti-drv8353.pdf'},
  'Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal': {url:'https://www.lcsc.com/product-detail/C7153748.html',source:'Space Octopus axial fuse land pattern. PCB Parts lists body 21.5 × Ø5.5 mm. Verify project lead form and finished-hole fit on a sample.'},
 };

@@ -1,5 +1,5 @@
 """Audit the rendered silk against actual mask openings, rather than its plan."""
-import json,sys,math
+import json,sys,math,hashlib
 from pathlib import Path
 from shapely.geometry import Point,LineString,box,Polygon
 from shapely.strtree import STRtree
@@ -22,4 +22,23 @@ for e in s['j']:
   if len(e['route'])<2:continue
   l=e.get('layer','top');g=LineString([(p['x'],p['y']) for p in e['route']]).buffer(e.get('stroke_width',.12)/2);path_count+=1
   if len(trees[l].query(g,predicate='dwithin',distance=.2-1e-5)):errors.append('Artwork over mask opening '+e['pcb_silkscreen_path_id'])
-report={'status':'failed' if errors else 'passed','textCount':len(texts),'artworkPaths':path_count,'minimumCheckedMaskClearanceMm':.2,'errors':errors,'limitations':'Text reservations are conservative boxes. Native KiCad DRC separately checks actual stroke-font geometry.'};Path('output/silkscreen-rendered-audit.json').write_text(json.dumps(report,indent=2)+'\n');print('Rendered silkscreen:',report['status'],len(errors),'findings');print('\n'.join(errors[:10]));raise SystemExit(bool(errors))
+labels = [text for text, layer, area in texts]
+if 'F1' in labels or labels.count('F2') != 1:
+ errors.append('Power fuse references must identify F2 only')
+wire_plan = [row for row in json.loads(Path('data/silkscreen-plan.json').read_text())['texts']
+             if row.get('purpose') == 'wire terminal']
+by_wire = {s['portlabel'](pid): s['nets'].get(s['portnet'].get(pid)) for pid in s['ports']}
+expected_wires = {'J1.1','J1.2','J2.1','J2.2','J2.3','J11.1','J11.2'}
+if {row.get('terminal') for row in wire_plan} != expected_wires or len(wire_plan) != len(expected_wires):
+ errors.append('Missing or duplicate power wire label')
+for row in wire_plan:
+ terminal = row['terminal']
+ actual_net = by_wire.get(terminal)
+ if not actual_net or actual_net != row['net']:
+  errors.append(f'{terminal} wiring legend names {row["net"]}, rendered pin has {actual_net}')
+ if not any(e['text'] == row['text'] and e['layer'] == row['layer'] and
+            math.dist((e['anchor_position']['x'],e['anchor_position']['y']),(row['x'],row['y'])) < .001
+            for e in s['bytype']['pcb_silkscreen_text']):
+  errors.append(f'{terminal} physical pin legend missing at its planned location')
+
+report={'status':'failed' if errors else 'passed','circuitJsonSha256':hashlib.sha256(src.read_bytes()).hexdigest(),'wireLabels':{r['terminal']:r['text'] for r in wire_plan},'textCount':len(texts),'artworkPaths':path_count,'minimumCheckedMaskClearanceMm':.2,'errors':errors,'limitations':'Text reservations are conservative boxes. Native KiCad DRC separately checks actual stroke-font geometry.'};Path('output/silkscreen-rendered-audit.json').write_text(json.dumps(report,indent=2)+'\n');print('Rendered silkscreen:',report['status'],len(errors),'findings');print('\n'.join(errors[:10]));raise SystemExit(bool(errors))

@@ -1,8 +1,8 @@
 {
-  "wirePaths": 588,
-  "netCount": 138,
-  "crossingGaps": 3710,
+  "wirePaths": 587,
+  "netCount": 137,
+  "crossingGaps": 3717,
   "junctionDots": 430,
-  "wireNameLabels": 137,
+  "wireNameLabels": 136,
   "allSupplyAndGroundConnectionsDrawn": true
 }

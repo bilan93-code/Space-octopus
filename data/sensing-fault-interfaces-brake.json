@@ -2113,20 +2113,20 @@
     "ref": "F2",
     "sheet": "08_Brake",
     "kind": "fuse",
-    "value": "15 A, 420 Vdc axial fuse",
-    "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
+    "value": "15 A SMD brake fuse (proposed)",
+    "footprint": "Fuse/Littelfuse_463_Nano2_SMD",
     "pins": {
       "1": "VBUS",
       "2": "BRAKE_PLUS"
     },
     "provisional": true,
-    "notes": "Solder both integral leads directly to the PCB on 37.50 mm centers. Form leads with the end caps supported.",
+    "notes": "Solder the two end terminations directly to the actuator PCB. F2 protects the local brake branch from VBUS to J11 pin 1.",
     "dnp": false,
     "pinLabels": {},
-    "provisionalReason": "Confirm available bus fault current and repetitive braking pulses against the manufacturer curves at the highest board temperature.",
-    "mpn": "0487015.MXEP",
-    "lcsc": "C7153748",
-    "sourcingReview": "Littelfuse 487 series with factory axial leads. PCB Parts lists 15 A and 420 Vdc. Verify lead-form tolerances, interrupt rating and assembler availability before release.",
+    "provisionalReason": "Confirm DC interrupt capability at the prospective bus fault current, hot derating, repetitive braking I²t and land geometry before ordering.",
+    "mpn": "0463015.ER",
+    "lcsc": "C720194",
+    "sourcingReview": "Littelfuse 463 series, 15 A candidate for layout and quoting. Verify the exact order code, manufacturer land pattern, DC ratings and pulse life before fabrication or assembly.",
     "manufacturer": "Littelfuse"
   },
   {
@@ -2144,7 +2144,7 @@
       "2": "BRAKE_DRAIN"
     },
     "provisional": true,
-    "notes": "Wire the external 4.7 ohm braking resistor across 1 (BRAKE_PLUS) and 2 (BRAKE_DRAIN). Both are active circuit nodes. Solder the harness into the numbered plated holes from the outward face. Support the bundle at the chassis.",
+    "notes": "Connect the separate resistor PCB (4.7 Ω ±5%, 300 W) across pin 1 (BRAKE_PLUS) and pin 2 (BRAKE_DRAIN). Both are active nodes. Solder the harness into the numbered plated holes from the outward face and support it at the chassis.",
     "dnp": false,
     "provisionalReason": "Verify stripped conductor fit over drill and wire tolerances, harness strain relief, and temperature rise in the installed vacuum configuration.",
     "assembly": "wire-termination"

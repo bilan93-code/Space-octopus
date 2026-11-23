@@ -2,19 +2,23 @@
   {
     "ref": "R_BRAKE_EXT",
     "category": "external braking resistor",
-    "value": "4.7 ohm, 200 W continuous with specified heatsink",
+    "value": "4.7 Ω ±5%, 300 W",
     "connectsTo": "J11",
     "pins": {
       "1": "BRAKE_PLUS",
       "2": "BRAKE_DRAIN"
     },
     "provisional": true,
-    "notes": "PDF section 18, 08 Brake. External assembly only; no PCB footprint. Approximately 12.25 A / 705 W while on at 57.6 V; a 200 W continuous rating does not permit continuous 705 W operation. Terminal numbers here denote the J11 harness, not an asserted manufacturer terminal map. Prototype bench envelope: horizontal axis, up to 10 rpm, 220 Nm, one-second linear stop, 250 J/event budget at up to 6 events/min. Select for 0.8 kW pulses; verify pulse curve, mounting and heatsink. See docs/BOTA_PROTOTYPE.md.",
+    "notes": "Connect the separate resistor PCB across J11 pins 1 and 2. At the nominal 57.6 V chopper threshold and specified resistance tolerance, the resistor carries 11.67–12.90 A and dissipates 672–743 W while switched on. The 300 W rating depends on mounting and cooling. Prototype budget: 250 J per event, up to six events per minute. Verify the pulse curve and conducted heat path. See docs/BOTA_PROTOTYPE.md.",
     "sheet": "External",
     "kind": "external braking resistor",
     "dnp": false,
     "pinLabels": {},
-    "provisionalReason": "Confirm actual reflected inertia, duty, pulse-rated resistor order code, thermal cutoff, cooling and mounting."
+    "provisionalReason": "Confirm the resistor order code, repetitive pulse energy, mounting, heat path, temperature limit and thermal cutoff for the specified installation.",
+    "resistanceOhms": 4.7,
+    "tolerancePercent": 5,
+    "ratedPowerW": 300,
+    "assemblyLocation": "Separate braking-resistor PCB"
   },
   {
     "ref": "ENC1",

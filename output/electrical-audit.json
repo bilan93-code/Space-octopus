@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T13:16:52.664Z",
+  "generatedAt": "2026-11-23T12:46:07.464Z",
   "status": "passed",
   "fabricationReady": false,
   "scope": "Independent component/netlist audit against Rev A PDF. A pass is not PCB, firmware, datasheet-limit, or fabrication approval.",
@@ -14,13 +14,13 @@
   "inputs": [
     {
       "file": "data/input-supplies-mcu-driver-inverter.json",
-      "sha256": "a776599d81df710854f4035ec68bcf9708b3d843ed0a3b0ea81d347507c987a9",
-      "bytes": 84785
+      "sha256": "59061cfb998dd7512461924a8a042686a6b5c9a60fd031e7067244e54f9a52cb",
+      "bytes": 83973
     },
     {
       "file": "data/sensing-fault-interfaces-brake.json",
-      "sha256": "5b7cb41f7d326ed1141755d22057923c902446a0971e08d7ff833f0a12a432ce",
-      "bytes": 83672
+      "sha256": "d792c0907f27234586baeb135212477cb8a70a13895359a3134663649e7659a0",
+      "bytes": 83695
     },
     {
       "file": "data/mechanical.json",
@@ -29,13 +29,13 @@
     },
     {
       "file": "data/external-parts.json",
-      "sha256": "02b4b0938a5c5242bd64205522d762f466562a29357f191910f90759bd57b4df",
-      "bytes": 3593
+      "sha256": "9db3ad05a7f019f339b99e9e3317415c3df0675b3976250e6eddfeabfbddcde2",
+      "bytes": 3637
     },
     {
       "file": "footprints/catalog.json",
-      "sha256": "965de54d91f11e2cde2f544152d539460164ea785ed83a1b56412d6f0a869215",
-      "bytes": 390874
+      "sha256": "72a400f236b4a52f0e7298e489debfca36a31d0a61fa835209a10878ce1cc2b3",
+      "bytes": 392419
     },
     {
       "file": "docs/Space_Octopus_Motor_PCB_Plan_RevA.pdf",
@@ -49,7 +49,7 @@
     }
   ],
   "inventory": {
-    "expectedPCBCount": 259,
+    "expectedPCBCount": 258,
     "expectedExternalCount": 3,
     "expectedRefs": [
       "C1",
@@ -148,7 +148,6 @@
       "D11",
       "D12",
       "ENC1",
-      "F1",
       "F2",
       "F3",
       "FB201",
@@ -318,7 +317,6 @@
     "expectedBySheet": {
       "00 Input": [
         "J1",
-        "F1",
         "D1",
         "C1",
         "C2",
@@ -601,14 +599,14 @@
         "TORQUE1"
       ]
     },
-    "actualCount": 262
+    "actualCount": 261
   },
   "summary": {
-    "passed": 1627,
+    "passed": 1626,
     "failed": 0,
     "unresolved": 8,
     "blockingUnresolved": 0,
-    "total": 1635
+    "total": 1634
   },
   "checks": [
     {
@@ -618,8 +616,8 @@
       "message": "Matches independent expectation.",
       "refs": [],
       "source": "Rev A PDF §§18–21",
-      "expectedCount": 262,
-      "actualCount": 262,
+      "expectedCount": 261,
+      "actualCount": 261,
       "missing": [],
       "unexpected": [],
       "duplicates": []
@@ -631,17 +629,6 @@
       "message": "Matches independent expectation.",
       "refs": [
         "J1"
-      ],
-      "source": "Rev A PDF §§18–21",
-      "errors": []
-    },
-    {
-      "id": "schema.F1",
-      "status": "passed",
-      "blocking": true,
-      "message": "Matches independent expectation.",
-      "refs": [
-        "F1"
       ],
       "source": "Rev A PDF §§18–21",
       "errors": []
@@ -7922,8 +7909,8 @@
       ],
       "source": "Rev A PDF §§18–21",
       "pin": "1",
-      "expected": "DC_IN",
-      "actual": "DC_IN"
+      "expected": "VBUS",
+      "actual": "VBUS"
     },
     {
       "id": "pin.J1.2",
@@ -9272,48 +9259,29 @@
       "actual": "IW_ADC"
     },
     {
-      "id": "connection.F1",
+      "id": "input.direct-bus",
       "status": "passed",
       "blocking": true,
       "message": "Matches independent expectation.",
       "refs": [
-        "F1"
+        "J1"
       ],
-      "source": "Rev A PDF §§18–21",
-      "expected": [
-        "DC_IN",
-        "VBUS"
-      ],
-      "actual": [
-        "DC_IN",
-        "VBUS"
-      ]
+      "source": "Direct VBUS input at the harness termination",
+      "inputNet": "VBUS",
+      "inputFusePresent": false
     },
     {
-      "id": "assembly.F1.axial-fuse",
-      "status": "passed",
-      "blocking": true,
-      "message": "Matches independent expectation.",
-      "refs": [
-        "F1"
-      ],
-      "source": "19 November 2026 direct-solder Littelfuse 487 layout revision",
-      "expectedMpn": "0487020.MXEP",
-      "actualMpn": "0487020.MXEP",
-      "leadPitchMm": 37.5
-    },
-    {
-      "id": "assembly.F2.axial-fuse",
+      "id": "assembly.F2.smd-fuse",
       "status": "passed",
       "blocking": true,
       "message": "Matches independent expectation.",
       "refs": [
         "F2"
       ],
-      "source": "19 November 2026 direct-solder Littelfuse 487 layout revision",
-      "expectedMpn": "0487015.MXEP",
-      "actualMpn": "0487015.MXEP",
-      "leadPitchMm": 37.5
+      "source": "15 A surface-mount brake-branch fuse",
+      "orderCode": "0463015.ER",
+      "value": "15 A SMD brake fuse (proposed)",
+      "footprint": "Fuse/Littelfuse_463_Nano2_SMD"
     },
     {
       "id": "package.D1.pins",
@@ -15670,7 +15638,7 @@
       "actual": "GND"
     },
     {
-      "id": "connection.F2",
+      "id": "package.F2.pins",
       "status": "passed",
       "blocking": true,
       "message": "Matches independent expectation.",
@@ -15679,13 +15647,39 @@
       ],
       "source": "Rev A PDF §§18–21",
       "expected": [
-        "VBUS",
-        "BRAKE_PLUS"
+        "1",
+        "2"
       ],
       "actual": [
-        "VBUS",
-        "BRAKE_PLUS"
+        "1",
+        "2"
       ]
+    },
+    {
+      "id": "pin.F2.1",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "F2"
+      ],
+      "source": "Rev A PDF §§18–21",
+      "pin": "1",
+      "expected": "VBUS",
+      "actual": "VBUS"
+    },
+    {
+      "id": "pin.F2.2",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "F2"
+      ],
+      "source": "Rev A PDF §§18–21",
+      "pin": "2",
+      "expected": "BRAKE_PLUS",
+      "actual": "BRAKE_PLUS"
     },
     {
       "id": "package.D2.pins",
@@ -16457,18 +16451,6 @@
       "message": "Matches independent expectation.",
       "refs": [
         "J1"
-      ],
-      "source": "Rev A PDF §§18–21",
-      "expected": false,
-      "actual": false
-    },
-    {
-      "id": "population.F1",
-      "status": "passed",
-      "blocking": true,
-      "message": "Matches independent expectation.",
-      "refs": [
-        "F1"
       ],
       "source": "Rev A PDF §§18–21",
       "expected": false,
@@ -19523,7 +19505,23 @@
       "source": "Rev A PDF §§18–21",
       "expected": 4.7,
       "actual": 4.7,
-      "valueText": "4.7 ohm, 200 W continuous with specified heatsink"
+      "valueText": "4.7 Ω ±5%, 300 W"
+    },
+    {
+      "id": "brake.external-load",
+      "status": "passed",
+      "blocking": true,
+      "message": "Matches independent expectation.",
+      "refs": [
+        "R_BRAKE_EXT",
+        "J11"
+      ],
+      "source": "External brake resistor PCB electrical specification",
+      "location": "Separate braking-resistor PCB",
+      "connector": "J11",
+      "resistanceOhms": 4.7,
+      "tolerancePercent": 5,
+      "ratedPowerW": 300
     },
     {
       "id": "mechanical.H1.unconnected",
@@ -19634,27 +19632,6 @@
       ],
       "source": "Rev A PDF §§18–21",
       "footprint": "Wire/DirectSolder_1x02_P5.08mm",
-      "expectedPackagePins": [
-        "1",
-        "2"
-      ],
-      "actualFootprintPads": [
-        "1",
-        "2"
-      ],
-      "missingPads": [],
-      "extraPads": []
-    },
-    {
-      "id": "footprint.F1",
-      "status": "passed",
-      "blocking": true,
-      "message": "Matches independent expectation.",
-      "refs": [
-        "F1"
-      ],
-      "source": "Rev A PDF §§18–21",
-      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
       "expectedPackagePins": [
         "1",
         "2"
@@ -25057,7 +25034,7 @@
         "F2"
       ],
       "source": "Rev A PDF §§18–21",
-      "footprint": "Fuse/Littelfuse_487_Axial_P37.50mm_Horizontal",
+      "footprint": "Fuse/Littelfuse_463_Nano2_SMD",
       "expectedPackagePins": [
         "1",
         "2"
@@ -25553,7 +25530,7 @@
       "id": "release.brake-energy",
       "status": "unresolved",
       "blocking": false,
-      "message": "External 4.7-ohm / 200-W resistor energy, cooling, wiring inductance, duty cycle, and thermal cutoff remain system-level open items."
+      "message": "External 4.7-ohm ±5%, 300-W resistor PCB energy, cooling, wiring inductance, duty cycle, and thermal cutoff remain system-level open items."
     },
     {
       "id": "release.firmware",

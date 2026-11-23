@@ -22,6 +22,8 @@ def is_fitted(part):
 
 def assembly_suffix(parts):
     """Keep each revision's validated quote and stock files together."""
+    if 'F1' not in parts and 'F2' in parts and parts['J1']['pins']['1'] == 'VBUS':
+        return '-upstream-fuse-smd-brake'
     if any(p.get('assembly') == 'wire-termination' for p in parts.values()):
         return '-wire-terminations'
     if all(parts[ref].get('holder') for ref in ('F1', 'F2')):

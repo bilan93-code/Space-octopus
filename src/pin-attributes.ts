@@ -17,7 +17,7 @@ export function pinAttributesFor(p:Part):Record<string,any>{
   else a={isInput:true};
   // Explicit supply declarations at the output of passive power paths. These
   // have the same meaning as a schematic power flag, not regulator models.
-  if((p.ref==='F1'&&net==='VBUS')||(p.ref==='L101'&&net==='V12')||(p.ref==='L102'&&net==='V5')||(p.ref==='FB201'&&net==='VDDA3V3')||(p.ref==='J1'&&net==='DC_IN'))a.providesPower=true;
+  if((p.ref==='L101'&&net==='V12')||(p.ref==='L102'&&net==='V5')||(p.ref==='FB201'&&net==='VDDA3V3')||(p.ref==='J1'&&net==='VBUS'))a.providesPower=true;
   if(p.ref==='J1'&&net==='GND')a.providesGround=true;
   return [`pin${pin}`,a];
  }));

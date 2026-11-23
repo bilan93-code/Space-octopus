@@ -1,22 +1,22 @@
 {
-  "sourceSha256": "66bfae7bcde44633363697ec91d7f8e0f49778719fad7349845ef9258e1b6a39",
+  "sourceSha256": "34e7a845ba0c05ee085ba87169e44624cfdaa3511b5b51a20569ae985a374992",
   "copperFilesSha256": {
-    "F_Cu": "8a8e18a2f7df6b298027c6d8450bf574d8232da5ab085917b1900d9f8a160d95",
-    "In1_Cu": "0f93af09dee00ca78d3e0e0357616d5ab75f6ff8d7334bfbc4c9643e162bdc4b",
-    "In2_Cu": "e37f65edc268f5b6e34cc39d3b1608b828ffbe583df8dbb834d4f47b3e3ddf9c",
-    "B_Cu": "92b544e2f32dd7861388f481b1c9ba61ee381d89aa376786af468fa26af9b840"
+    "F_Cu": "a8fea322e747f9caa62c5d959862a9a6fe968df631069732c1db753b6afb3a8a",
+    "In1_Cu": "7268b69758b2fef1f4bcff479419a08ffc9a5861ca28a527670660f4b10d0a2f",
+    "In2_Cu": "1cd7177b7b8d5a6baeb9a0abd05526ec2d6b291039cea2956e802ca63de4b208",
+    "B_Cu": "4ca9c1f0807c8fc33c9636024c9b7615ad9fe6a08ed50adaacf029ac0e4ece06"
   },
   "reader": "Gerbonara 1.6.3, RS-274X geometry with artwork polarity and plated drill spans",
   "edgeLossMm": 0.025,
-  "nets": 138,
-  "physicalSmtPads": 736,
-  "physicalPlatedPads": 52,
-  "vias": 1428,
+  "nets": 137,
+  "physicalSmtPads": 738,
+  "physicalPlatedPads": 48,
+  "vias": 1451,
   "copperIslandsByLayer": {
-    "top": 1049,
-    "inner1": 1129,
-    "inner2": 988,
-    "bottom": 1134
+    "top": 1050,
+    "inner1": 1147,
+    "inner2": 989,
+    "bottom": 1148
   },
   "missingTerminalCopper": [],
   "opens": {},
